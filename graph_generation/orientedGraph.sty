@@ -7,11 +7,11 @@
 {
   (factor<diagram_index> ->>  <sign><symmetry_factor>),
   {
-   <in_loop>{in<in_index>->><vertex_index>,"In( <field>(<momentum>))"},<end>
-   <out_loop>{<vertex_index>->>out<out_index>,"Out( <field>(<momentum>))"},
+   <in_loop>{in<in_index>->><vertex_index>,in[[ <field>[[<momentum>]]]]},<end>
+   <out_loop>{<vertex_index>->>out<out_index>,out[[ <field>[[<momentum>]]]]},
 <back><end>
    <propagator_loop>{<vertex_index>->><dual-vertex_index>
-<back>, "<field>(<momentum>)"},
+<back>, <field>[[<momentum>]]},
 <back><end><back>}
 }
 
