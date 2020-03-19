@@ -1,0 +1,1443 @@
+
+
+**NewDiagram**
+
+{
+  (factor1 ->  -1),
+  {
+   {in1->5,"In( gluon(p1))"},{in2->5,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->3, "t(-k1)"},{4->1, "t(-k1-p3)"},{3->2, "t(k2)"},{2->4, "t(k2+p4)"},{3->5, "gluon(-k1-k2)"},{4->5, "gluon(k1+k2+p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor2 ->  -1),
+  {
+   {in1->5,"In( gluon(p1))"},{in2->5,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p3)"},{2->4, "t(-k1+p4)"},{4->3, "t(k2)"},{3->5, "gluon(k1+k2+p3)"},{4->5, "gluon(-k1-k2+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor3 ->  -1),
+  {
+   {in1->5,"In( gluon(p1))"},{in2->5,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p3)"},{4->2, "t(k1-p4)"},{3->4, "t(-k2)"},{3->5, "gluon(k1+k2+p3)"},{4->5, "gluon(-k1-k2+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor4 ->  -1/2),
+  {
+   {in1->5,"In( gluon(p1))"},{in2->5,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p3)"},{2->3, "t(-k1+p4)"},{3->4, "gluon(p3+p4)"},{4->5, "gluon(k2+p3+p4)"},{4->5, "gluon(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor5 ->  -1/2),
+  {
+   {in1->5,"In( gluon(p1))"},{in2->5,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p3)"},{3->2, "t(k1-p4)"},{3->4, "gluon(p3+p4)"},{4->5, "gluon(k2+p3+p4)"},{4->5, "gluon(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor6 ->  -1/2),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->5,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{4->1, "t(-k1-p3)"},{2->4, "t(-k1+p4)"},{3->5, "gluon(k2-p1)"},{3->5, "gluon(-k2)"},{4->5, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor7 ->  -1/2),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->5,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->4, "t(k1+p3)"},{4->2, "t(k1-p4)"},{3->5, "gluon(k2-p1)"},{3->5, "gluon(-k2)"},{4->5, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor8 ->  -1/2),
+  {
+   {in1->5,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{4->1, "t(-k1-p3)"},{2->4, "t(-k1+p4)"},{3->5, "gluon(k2-p2)"},{3->5, "gluon(-k2)"},{4->5, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor9 ->  -1/2),
+  {
+   {in1->5,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->4, "t(k1+p3)"},{4->2, "t(k1-p4)"},{3->5, "gluon(k2-p2)"},{3->5, "gluon(-k2)"},{4->5, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor10 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->5, "t(-k1)"},{6->2, "t(-k1-p3)"},{5->3, "t(k2)"},{3->6, "t(k2+p4)"},{4->5, "gluon(k1+k2)"},{4->6, "gluon(-k1-k2-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor11 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->4, "t(-k1)"},{5->2, "t(-k1-p3)"},{3->5, "t(-k2)"},{6->3, "t(-k2-p4)"},{4->6, "t(-k1-p1-p2)"},{5->6, "gluon(k1-k2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor12 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{4->2, "t(k1)"},{2->5, "t(k1+p3)"},{5->3, "t(k2)"},{3->6, "t(k2+p4)"},{6->4, "t(k1+p1+p2)"},{5->6, "gluon(k1-k2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor13 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->4, "t(-k1)"},{5->2, "t(-k1-p4)"},{3->5, "t(-k2)"},{6->3, "t(-k2-p3)"},{4->6, "t(-k1-p1-p2)"},{5->6, "gluon(k1-k2+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor14 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{4->2, "t(k1)"},{2->5, "t(k1+p4)"},{5->3, "t(k2)"},{3->6, "t(k2+p3)"},{6->4, "t(k1+p1+p2)"},{5->6, "gluon(k1-k2+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor15 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->4, "t(-k1)"},{5->2, "t(-k1-p3)"},{4->3, "t(-k1-p1-p2)"},{3->6, "t(-k1-p3)"},{5->6, "gluon(k1+k2+p3)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor16 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{4->2, "t(k1)"},{2->5, "t(k1+p3)"},{3->4, "t(k1+p1+p2)"},{6->3, "t(k1+p3)"},{5->6, "gluon(k1+k2+p3)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor17 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->3, "t(-k1)"},{5->2, "t(-k1-p3)"},{3->6, "t(-k1+p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p1-p2)"},{6->5, "t(-k1+k2-p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor18 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->3, "t(-k1)"},{5->2, "t(-k1-p3)"},{3->6, "t(-k1+p4)"},{4->5, "t(-k2)"},{6->4, "t(-k2+p1+p2)"},{5->6, "gluon(k1-k2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor19 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{3->2, "t(k1)"},{2->5, "t(k1+p3)"},{6->3, "t(k1-p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p1-p2)"},{5->6, "t(k1-k2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor20 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{3->2, "t(k1)"},{2->5, "t(k1+p3)"},{6->3, "t(k1-p4)"},{5->4, "t(k2)"},{4->6, "t(k2-p1-p2)"},{5->6, "gluon(k1-k2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor21 ->  -1/2),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->3, "t(-k1)"},{5->2, "t(-k1-p3)"},{3->5, "t(-k1+p4)"},{4->6, "gluon(k2-p1-p2)"},{4->6, "gluon(-k2)"},{5->6, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor22 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->3, "t(-k1)"},{5->2, "t(-k1-p3)"},{3->5, "t(-k1+p4)"},{4->6, "q(k2-p1-p2)"},{6->4, "q(k2)"},{5->6, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor23 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->3, "t(-k1)"},{5->2, "t(-k1-p3)"},{3->5, "t(-k1+p4)"},{4->6, "t(k2-p1-p2)"},{6->4, "t(k2)"},{5->6, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor24 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->3, "t(-k1)"},{5->2, "t(-k1-p3)"},{3->5, "t(-k1+p4)"},{4->6, "ghost(k2-p1-p2)"},{6->4, "ghost(k2)"},{5->6, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor25 ->  -1/2),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{3->2, "t(k1)"},{2->5, "t(k1+p3)"},{5->3, "t(k1-p4)"},{4->6, "gluon(k2-p1-p2)"},{4->6, "gluon(-k2)"},{5->6, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor26 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{3->2, "t(k1)"},{2->5, "t(k1+p3)"},{5->3, "t(k1-p4)"},{4->6, "q(k2-p1-p2)"},{6->4, "q(k2)"},{5->6, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor27 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{3->2, "t(k1)"},{2->5, "t(k1+p3)"},{5->3, "t(k1-p4)"},{4->6, "t(k2-p1-p2)"},{6->4, "t(k2)"},{5->6, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor28 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{3->2, "t(k1)"},{2->5, "t(k1+p3)"},{5->3, "t(k1-p4)"},{4->6, "ghost(k2-p1-p2)"},{6->4, "ghost(k2)"},{5->6, "gluon(p3+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor29 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->3, "t(-k1)"},{4->2, "t(-k1-p3)"},{3->5, "t(-k1+p4)"},{6->4, "t(-k1+p4)"},{5->6, "gluon(-k1+k2+p4)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor30 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{3->2, "t(k1)"},{2->4, "t(k1+p3)"},{5->3, "t(k1-p4)"},{4->6, "t(k1-p4)"},{5->6, "gluon(-k1+k2+p4)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor31 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{2->3, "t(-k1)"},{4->2, "t(-k1-p4)"},{3->5, "t(-k1+p3)"},{6->4, "t(-k1+p3)"},{5->6, "gluon(-k1+k2+p3)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor32 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->4, "gluon(-p1-p2)"},{3->2, "t(k1)"},{2->4, "t(k1+p4)"},{5->3, "t(k1-p3)"},{4->6, "t(k1-p3)"},{5->6, "gluon(-k1+k2+p3)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor33 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "gluon(-k1)"},{1->5, "gluon(k1-p1)"},{2->6, "gluon(-k1-p2)"},{3->5, "t(-k2)"},{6->3, "t(-k2-p3)"},{5->4, "t(k1-k2-p1)"},{4->6, "t(k1-k2-p1+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor34 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "gluon(-k1)"},{1->5, "gluon(k1-p1)"},{2->6, "gluon(-k1-p2)"},{5->3, "t(k2)"},{3->6, "t(k2+p3)"},{4->5, "t(-k1+k2+p1)"},{6->4, "t(-k1+k2+p1-p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor35 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->6, "t(-k1+p3)"},{3->5, "gluon(-k2)"},{3->6, "gluon(k2-p2)"},{4->5, "t(-k1+k2+p1)"},{6->4, "t(-k1+k2+p1-p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor36 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{6->2, "t(k1-p3)"},{3->5, "gluon(-k2)"},{3->6, "gluon(k2-p2)"},{5->4, "t(k1-k2-p1)"},{4->6, "t(k1-k2-p1+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor37 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->6, "t(-k1+p4)"},{3->5, "gluon(-k2)"},{3->6, "gluon(k2-p2)"},{4->5, "t(-k1+k2+p1)"},{6->4, "t(-k1+k2+p1-p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor38 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{6->2, "t(k1-p4)"},{3->5, "gluon(-k2)"},{3->6, "gluon(k2-p2)"},{5->4, "t(k1-k2-p1)"},{4->6, "t(k1-k2-p1+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor39 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p2)"},{2->6, "t(-k1+p3)"},{3->5, "gluon(-k2)"},{3->6, "gluon(k2-p1)"},{4->5, "t(-k1+k2+p2)"},{6->4, "t(-k1+k2+p2-p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor40 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p2)"},{6->2, "t(k1-p3)"},{3->5, "gluon(-k2)"},{3->6, "gluon(k2-p1)"},{5->4, "t(k1-k2-p2)"},{4->6, "t(k1-k2-p2+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor41 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p2)"},{2->6, "t(-k1+p4)"},{3->5, "gluon(-k2)"},{3->6, "gluon(k2-p1)"},{4->5, "t(-k1+k2+p2)"},{6->4, "t(-k1+k2+p2-p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor42 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p2)"},{6->2, "t(k1-p4)"},{3->5, "gluon(-k2)"},{3->6, "gluon(k2-p1)"},{5->4, "t(k1-k2-p2)"},{4->6, "t(k1-k2-p2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor43 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1-p3)"},{2->6, "t(-k1+p4)"},{3->5, "gluon(-k2)"},{3->6, "gluon(k2-p1)"},{4->5, "t(-k1+k2-p3)"},{6->4, "t(-k1+k2+p2-p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor44 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1-p3)"},{2->6, "t(-k1+p4)"},{3->5, "t(-k2)"},{6->3, "t(-k2+p1)"},{4->5, "gluon(-k1+k2-p3)"},{4->6, "gluon(k1-k2-p2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor45 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1+p3)"},{6->2, "t(k1-p4)"},{3->5, "gluon(-k2)"},{3->6, "gluon(k2-p1)"},{5->4, "t(k1-k2+p3)"},{4->6, "t(k1-k2-p2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor46 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1+p3)"},{6->2, "t(k1-p4)"},{5->3, "t(k2)"},{3->6, "t(k2-p1)"},{4->5, "gluon(-k1+k2-p3)"},{4->6, "gluon(k1-k2-p2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor47 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "gluon(-k1)"},{1->5, "gluon(k1-p1)"},{2->6, "gluon(-k1-p2)"},{3->4, "t(-k2)"},{5->3, "t(-k2-p3)"},{4->6, "t(-k2+p4)"},{6->5, "t(-k1-k2+p1-p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor48 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "gluon(-k1)"},{1->5, "gluon(k1-p1)"},{2->6, "gluon(-k1-p2)"},{4->3, "t(k2)"},{3->5, "t(k2+p3)"},{6->4, "t(k2-p4)"},{5->6, "t(k1+k2-p1+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor49 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->6, "t(-k1-p2)"},{4->3, "t(k2)"},{3->5, "t(k2+p3)"},{6->4, "t(k2-p4)"},{5->6, "gluon(k1+k2-p1+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor50 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{6->2, "t(k1+p2)"},{3->4, "t(-k2)"},{5->3, "t(-k2-p3)"},{4->6, "t(-k2+p4)"},{5->6, "gluon(k1+k2-p1+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor51 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "gluon(-k1)"},{1->5, "gluon(k1-p1)"},{2->6, "gluon(-k1-p2)"},{3->4, "t(-k2)"},{5->3, "t(-k2-p4)"},{4->6, "t(-k2+p3)"},{6->5, "t(-k1-k2+p1-p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor52 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "gluon(-k1)"},{1->5, "gluon(k1-p1)"},{2->6, "gluon(-k1-p2)"},{4->3, "t(k2)"},{3->5, "t(k2+p4)"},{6->4, "t(k2-p3)"},{5->6, "t(k1+k2-p1+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor53 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->6, "t(-k1-p2)"},{4->3, "t(k2)"},{3->5, "t(k2+p4)"},{6->4, "t(k2-p3)"},{5->6, "gluon(k1+k2-p1+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor54 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{6->2, "t(k1+p2)"},{3->4, "t(-k2)"},{5->3, "t(-k2-p4)"},{4->6, "t(-k2+p3)"},{5->6, "gluon(k1+k2-p1+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor55 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->6, "t(-k1+p3)"},{4->3, "t(k2)"},{3->5, "t(k2-p2)"},{6->4, "t(k2-p4)"},{5->6, "gluon(k1+k2-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor56 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{6->2, "t(k1-p3)"},{3->4, "t(-k2)"},{5->3, "t(-k2+p2)"},{4->6, "t(-k2+p4)"},{5->6, "gluon(k1+k2-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor57 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->6, "t(-k1+p3)"},{4->3, "t(k2)"},{3->5, "t(k2+p4)"},{6->4, "t(k2+p2)"},{5->6, "gluon(k1+k2-p1+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor58 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{6->2, "t(k1-p3)"},{3->4, "t(-k2)"},{5->3, "t(-k2-p4)"},{4->6, "t(-k2-p2)"},{5->6, "gluon(k1+k2-p1+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor59 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->6, "t(-k1+p4)"},{4->3, "t(k2)"},{3->5, "t(k2-p2)"},{6->4, "t(k2-p3)"},{5->6, "gluon(k1+k2-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor60 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{6->2, "t(k1-p4)"},{3->4, "t(-k2)"},{5->3, "t(-k2+p2)"},{4->6, "t(-k2+p3)"},{5->6, "gluon(k1+k2-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor61 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->6, "t(-k1+p4)"},{4->3, "t(k2)"},{3->5, "t(k2+p3)"},{6->4, "t(k2+p2)"},{5->6, "gluon(k1+k2-p1+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor62 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{6->2, "t(k1-p4)"},{3->4, "t(-k2)"},{5->3, "t(-k2-p3)"},{4->6, "t(-k2-p2)"},{5->6, "gluon(k1+k2-p1+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor63 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "gluon(-k1)"},{1->5, "gluon(k1-p1)"},{2->5, "gluon(-k1-p2)"},{3->4, "t(-k2)"},{6->3, "t(-k2-p3)"},{4->6, "t(-k2+p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor64 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "gluon(-k1)"},{1->5, "gluon(k1-p1)"},{2->5, "gluon(-k1-p2)"},{4->3, "t(k2)"},{3->6, "t(k2+p3)"},{6->4, "t(k2-p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor65 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "q(-k1)"},{5->1, "q(-k1+p1)"},{2->5, "q(-k1-p2)"},{3->4, "t(-k2)"},{6->3, "t(-k2-p3)"},{4->6, "t(-k2+p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor66 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "q(-k1)"},{5->1, "q(-k1+p1)"},{2->5, "q(-k1-p2)"},{4->3, "t(k2)"},{3->6, "t(k2+p3)"},{6->4, "t(k2-p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor67 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "q(k1)"},{1->5, "q(k1-p1)"},{5->2, "q(k1+p2)"},{3->4, "t(-k2)"},{6->3, "t(-k2-p3)"},{4->6, "t(-k2+p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor68 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "q(k1)"},{1->5, "q(k1-p1)"},{5->2, "q(k1+p2)"},{4->3, "t(k2)"},{3->6, "t(k2+p3)"},{6->4, "t(k2-p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor69 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->5, "t(-k1-p2)"},{3->4, "t(-k2)"},{6->3, "t(-k2-p3)"},{4->6, "t(-k2+p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor70 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->5, "t(-k1-p2)"},{4->3, "t(k2)"},{3->6, "t(k2+p3)"},{6->4, "t(k2-p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor71 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{5->2, "t(k1+p2)"},{3->4, "t(-k2)"},{6->3, "t(-k2-p3)"},{4->6, "t(-k2+p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor72 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{5->2, "t(k1+p2)"},{4->3, "t(k2)"},{3->6, "t(k2+p3)"},{6->4, "t(k2-p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor73 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "ghost(-k1)"},{5->1, "ghost(-k1+p1)"},{2->5, "ghost(-k1-p2)"},{3->4, "t(-k2)"},{6->3, "t(-k2-p3)"},{4->6, "t(-k2+p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor74 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "ghost(-k1)"},{5->1, "ghost(-k1+p1)"},{2->5, "ghost(-k1-p2)"},{4->3, "t(k2)"},{3->6, "t(k2+p3)"},{6->4, "t(k2-p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor75 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "ghost(k1)"},{1->5, "ghost(k1-p1)"},{5->2, "ghost(k1+p2)"},{3->4, "t(-k2)"},{6->3, "t(-k2-p3)"},{4->6, "t(-k2+p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor76 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "ghost(k1)"},{1->5, "ghost(k1-p1)"},{5->2, "ghost(k1+p2)"},{4->3, "t(k2)"},{3->6, "t(k2+p3)"},{6->4, "t(k2-p4)"},{5->6, "gluon(-p1-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor77 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->5, "t(-k1+p3)"},{3->4, "t(-k2)"},{6->3, "t(-k2+p2)"},{4->6, "t(-k2+p4)"},{5->6, "gluon(-p1+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor78 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->5, "t(-k1+p3)"},{4->3, "t(k2)"},{3->6, "t(k2-p2)"},{6->4, "t(k2-p4)"},{5->6, "gluon(-p1+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor79 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{5->2, "t(k1-p3)"},{3->4, "t(-k2)"},{6->3, "t(-k2+p2)"},{4->6, "t(-k2+p4)"},{5->6, "gluon(-p1+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor80 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{5->2, "t(k1-p3)"},{4->3, "t(k2)"},{3->6, "t(k2-p2)"},{6->4, "t(k2-p4)"},{5->6, "gluon(-p1+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor81 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->5, "t(-k1+p4)"},{3->4, "t(-k2)"},{6->3, "t(-k2+p2)"},{4->6, "t(-k2+p3)"},{5->6, "gluon(-p1+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor82 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{5->1, "t(-k1+p1)"},{2->5, "t(-k1+p4)"},{4->3, "t(k2)"},{3->6, "t(k2-p2)"},{6->4, "t(k2-p3)"},{5->6, "gluon(-p1+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor83 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{5->2, "t(k1-p4)"},{3->4, "t(-k2)"},{6->3, "t(-k2+p2)"},{4->6, "t(-k2+p3)"},{5->6, "gluon(-p1+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor84 ->  +1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->5, "t(k1-p1)"},{5->2, "t(k1-p4)"},{4->3, "t(k2)"},{3->6, "t(k2-p2)"},{6->4, "t(k2-p3)"},{5->6, "gluon(-p1+p4)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor85 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p1)"},{2->5, "t(-k1-p2)"},{6->3, "t(-k1+p1-p3)"},{5->4, "t(k2)"},{4->6, "t(k2+p4)"},{5->6, "gluon(-k1-k2-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor86 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p1)"},{5->2, "t(k1+p2)"},{3->6, "t(k1-p1+p3)"},{4->5, "t(-k2)"},{6->4, "t(-k2-p4)"},{5->6, "gluon(-k1-k2-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor87 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p1)"},{2->5, "t(-k1-p2)"},{6->3, "t(-k1+p1-p4)"},{5->4, "t(k2)"},{4->6, "t(k2+p3)"},{5->6, "gluon(-k1-k2-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor88 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p1)"},{5->2, "t(k1+p2)"},{3->6, "t(k1-p1+p4)"},{4->5, "t(-k2)"},{6->4, "t(-k2-p3)"},{5->6, "gluon(-k1-k2-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor89 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p1)"},{2->5, "t(-k1+p3)"},{6->3, "t(-k1+p1-p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p2)"},{5->6, "t(-k1-k2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor90 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p1)"},{2->5, "t(-k1+p3)"},{6->3, "t(-k1+p1-p4)"},{5->4, "t(k2)"},{4->6, "t(k2-p2)"},{5->6, "gluon(-k1-k2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor91 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p1)"},{5->2, "t(k1-p3)"},{3->6, "t(k1-p1+p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p2)"},{6->5, "t(k1+k2-p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor92 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p1)"},{5->2, "t(k1-p3)"},{3->6, "t(k1-p1+p4)"},{4->5, "t(-k2)"},{6->4, "t(-k2+p2)"},{5->6, "gluon(-k1-k2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor93 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p2)"},{2->5, "t(-k1-p1)"},{6->3, "t(-k1+p2-p3)"},{5->4, "t(k2)"},{4->6, "t(k2+p4)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor94 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p2)"},{5->2, "t(k1+p1)"},{3->6, "t(k1-p2+p3)"},{4->5, "t(-k2)"},{6->4, "t(-k2-p4)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor95 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p2)"},{2->5, "t(-k1-p1)"},{6->3, "t(-k1+p2-p4)"},{5->4, "t(k2)"},{4->6, "t(k2+p3)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor96 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p2)"},{5->2, "t(k1+p1)"},{3->6, "t(k1-p2+p4)"},{4->5, "t(-k2)"},{6->4, "t(-k2-p3)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor97 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p2)"},{2->5, "t(-k1+p3)"},{6->3, "t(-k1+p2-p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p1)"},{5->6, "t(-k1-k2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor98 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p2)"},{2->5, "t(-k1+p3)"},{6->3, "t(-k1+p2-p4)"},{5->4, "t(k2)"},{4->6, "t(k2-p1)"},{5->6, "gluon(-k1-k2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor99 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p2)"},{5->2, "t(k1-p3)"},{3->6, "t(k1-p2+p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p1)"},{6->5, "t(k1+k2-p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor100 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p2)"},{5->2, "t(k1-p3)"},{3->6, "t(k1-p2+p4)"},{4->5, "t(-k2)"},{6->4, "t(-k2+p1)"},{5->6, "gluon(-k1-k2+p3)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor101 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p3)"},{2->5, "t(-k1-p1)"},{6->3, "t(-k1+p2-p3)"},{5->4, "t(k2)"},{4->6, "t(k2+p4)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor102 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p3)"},{5->2, "t(k1+p1)"},{3->6, "t(k1-p2+p3)"},{4->5, "t(-k2)"},{6->4, "t(-k2-p4)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor103 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p3)"},{2->5, "t(-k1-p1)"},{6->3, "t(-k1-p3-p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p2)"},{5->6, "t(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor104 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p3)"},{2->5, "t(-k1-p1)"},{6->3, "t(-k1-p3-p4)"},{5->4, "t(k2)"},{4->6, "t(k2-p2)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor105 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p3)"},{5->2, "t(k1+p1)"},{3->6, "t(k1+p3+p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p2)"},{6->5, "t(k1+k2+p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor106 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p3)"},{5->2, "t(k1+p1)"},{3->6, "t(k1+p3+p4)"},{4->5, "t(-k2)"},{6->4, "t(-k2+p2)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor107 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p3)"},{2->5, "t(-k1-p2)"},{6->3, "t(-k1-p3-p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p1)"},{5->6, "t(-k1-k2-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor108 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p3)"},{2->5, "t(-k1-p2)"},{6->3, "t(-k1-p3-p4)"},{5->4, "t(k2)"},{4->6, "t(k2-p1)"},{5->6, "gluon(-k1-k2-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor109 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p3)"},{5->2, "t(k1+p2)"},{3->6, "t(k1+p3+p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p1)"},{6->5, "t(k1+k2+p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor110 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p3)"},{5->2, "t(k1+p2)"},{3->6, "t(k1+p3+p4)"},{4->5, "t(-k2)"},{6->4, "t(-k2+p1)"},{5->6, "gluon(-k1-k2-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor111 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{1->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p4)"},{2->5, "t(-k1-p1)"},{6->3, "t(-k1+p2-p4)"},{5->4, "t(k2)"},{4->6, "t(k2+p3)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor112 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{1->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p4)"},{5->2, "t(k1+p1)"},{3->6, "t(k1-p2+p4)"},{4->5, "t(-k2)"},{6->4, "t(-k2-p3)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor113 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{1->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p4)"},{2->5, "t(-k1-p1)"},{6->3, "t(-k1-p3-p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p2)"},{5->6, "t(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor114 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{1->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p4)"},{2->5, "t(-k1-p1)"},{6->3, "t(-k1-p3-p4)"},{5->4, "t(k2)"},{4->6, "t(k2-p2)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor115 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{1->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p4)"},{5->2, "t(k1+p1)"},{3->6, "t(k1+p3+p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p2)"},{6->5, "t(k1+k2+p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor116 ->  -1),
+  {
+   {in1->2,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{1->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p4)"},{5->2, "t(k1+p1)"},{3->6, "t(k1+p3+p4)"},{4->5, "t(-k2)"},{6->4, "t(-k2+p2)"},{5->6, "gluon(-k1-k2-p1)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor117 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{1->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p4)"},{2->5, "t(-k1-p2)"},{6->3, "t(-k1-p3-p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p1)"},{5->6, "t(-k1-k2-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor118 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{1->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p4)"},{2->5, "t(-k1-p2)"},{6->3, "t(-k1-p3-p4)"},{5->4, "t(k2)"},{4->6, "t(k2-p1)"},{5->6, "gluon(-k1-k2-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor119 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{1->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p4)"},{5->2, "t(k1+p2)"},{3->6, "t(k1+p3+p4)"},{4->5, "gluon(-k2)"},{4->6, "gluon(k2-p1)"},{6->5, "t(k1+k2+p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor120 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{1->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p4)"},{5->2, "t(k1+p2)"},{3->6, "t(k1+p3+p4)"},{4->5, "t(-k2)"},{6->4, "t(-k2+p1)"},{5->6, "gluon(-k1-k2-p2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor121 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p1)"},{2->4, "t(-k1-p2)"},{5->3, "t(-k1+p1-p3)"},{4->6, "t(-k1-p2+p4)"},{5->6, "gluon(k1+k2-p1+p3)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor122 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p1)"},{4->2, "t(k1+p2)"},{3->5, "t(k1-p1+p3)"},{6->4, "t(k1+p2-p4)"},{5->6, "gluon(k1+k2-p1+p3)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor123 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p1)"},{2->4, "t(-k1-p2)"},{5->3, "t(-k1+p1-p4)"},{4->6, "t(-k1-p2+p3)"},{5->6, "gluon(k1+k2-p1+p4)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor124 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->2,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p1)"},{4->2, "t(k1+p2)"},{3->5, "t(k1-p1+p4)"},{6->4, "t(k1+p2-p3)"},{5->6, "gluon(k1+k2-p1+p4)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor125 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p1)"},{2->4, "t(-k1+p3)"},{5->3, "t(-k1+p1+p2)"},{4->6, "t(-k1+p3+p4)"},{5->6, "gluon(k1+k2-p1-p2)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor126 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p1)"},{4->2, "t(k1-p3)"},{3->5, "t(k1-p1-p2)"},{6->4, "t(k1-p3-p4)"},{5->6, "gluon(k1+k2-p1-p2)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor127 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p1)"},{2->4, "t(-k1+p3)"},{5->3, "t(-k1+p1-p4)"},{4->6, "t(-k1-p2+p3)"},{5->6, "gluon(k1+k2-p1+p4)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor128 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p1)"},{4->2, "t(k1-p3)"},{3->5, "t(k1-p1+p4)"},{6->4, "t(k1+p2-p3)"},{5->6, "gluon(k1+k2-p1+p4)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor129 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p1)"},{2->4, "t(-k1+p4)"},{5->3, "t(-k1+p1+p2)"},{4->6, "t(-k1+p3+p4)"},{5->6, "gluon(k1+k2-p1-p2)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor130 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p1)"},{4->2, "t(k1-p4)"},{3->5, "t(k1-p1-p2)"},{6->4, "t(k1-p3-p4)"},{5->6, "gluon(k1+k2-p1-p2)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor131 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p1)"},{2->4, "t(-k1+p4)"},{5->3, "t(-k1+p1-p3)"},{4->6, "t(-k1-p2+p4)"},{5->6, "gluon(k1+k2-p1+p3)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor132 ->  -1),
+  {
+   {in1->1,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p1)"},{4->2, "t(k1-p4)"},{3->5, "t(k1-p1+p3)"},{6->4, "t(k1+p2-p4)"},{5->6, "gluon(k1+k2-p1+p3)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor133 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p2)"},{2->4, "t(-k1+p3)"},{5->3, "t(-k1+p1+p2)"},{4->6, "t(-k1+p3+p4)"},{5->6, "gluon(k1+k2-p1-p2)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor134 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{4->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p2)"},{4->2, "t(k1-p3)"},{3->5, "t(k1-p1-p2)"},{6->4, "t(k1-p3-p4)"},{5->6, "gluon(k1+k2-p1-p2)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor135 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p2)"},{2->4, "t(-k1+p3)"},{5->3, "t(-k1+p2-p4)"},{4->6, "t(-k1-p1+p3)"},{5->6, "gluon(k1+k2-p2+p4)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor136 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {2->out1,"Out( higgs(p3))"},{3->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p2)"},{4->2, "t(k1-p3)"},{3->5, "t(k1-p2+p4)"},{6->4, "t(k1+p1-p3)"},{5->6, "gluon(k1+k2-p2+p4)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor137 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p2)"},{2->4, "t(-k1+p4)"},{5->3, "t(-k1+p1+p2)"},{4->6, "t(-k1+p3+p4)"},{5->6, "gluon(k1+k2-p1-p2)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor138 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {4->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p2)"},{4->2, "t(k1-p4)"},{3->5, "t(k1-p1-p2)"},{6->4, "t(k1-p3-p4)"},{5->6, "gluon(k1+k2-p1-p2)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor139 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1+p2)"},{2->4, "t(-k1+p4)"},{5->3, "t(-k1+p2-p3)"},{4->6, "t(-k1-p1+p4)"},{5->6, "gluon(k1+k2-p2+p3)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor140 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->1,"In( gluon(p2))"},
+   {3->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1-p2)"},{4->2, "t(k1-p4)"},{3->5, "t(k1-p2+p3)"},{6->4, "t(k1+p1-p4)"},{5->6, "gluon(k1+k2-p2+p3)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor141 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p3)"},{2->4, "t(-k1+p4)"},{5->3, "t(-k1+p1-p3)"},{4->6, "t(-k1-p2+p4)"},{5->6, "gluon(k1+k2-p1+p3)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor142 ->  -1),
+  {
+   {in1->3,"In( gluon(p1))"},{in2->4,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p3)"},{4->2, "t(k1-p4)"},{3->5, "t(k1-p1+p3)"},{6->4, "t(k1+p2-p4)"},{5->6, "gluon(k1+k2-p1+p3)"},{5->6, "t(-k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor143 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {1->2, "t(-k1)"},{3->1, "t(-k1-p3)"},{2->4, "t(-k1+p4)"},{5->3, "t(-k1+p2-p3)"},{4->6, "t(-k1-p1+p4)"},{5->6, "gluon(k1+k2-p2+p3)"},{6->5, "t(k2)"}}
+}
+
+**NewDiagram**
+
+{
+  (factor144 ->  -1),
+  {
+   {in1->4,"In( gluon(p1))"},{in2->3,"In( gluon(p2))"},
+   {1->out1,"Out( higgs(p3))"},{2->out2,"Out( higgs(p4))"},
+   {2->1, "t(k1)"},{1->3, "t(k1+p3)"},{4->2, "t(k1-p4)"},{3->5, "t(k1-p2+p3)"},{6->4, "t(k1+p1-p4)"},{5->6, "gluon(k1+k2-p2+p3)"},{5->6, "t(-k2)"}}
+}
+
+
