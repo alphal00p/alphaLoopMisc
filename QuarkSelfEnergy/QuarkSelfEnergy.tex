@@ -352,50 +352,68 @@ For $\textrm{C}_\textrm{A}$ we get:
 \label{CAexplicit}
 \textrm{C}_\textrm{A}\left(k \right) &=& T_{i_2 i_1} \int \frac{\tilde{d} l}{(2\pi)^4} \mathcal{\tilde{F}}^{R}_{i_1i_2}(k^0, \vec{k},l)\nonumber\\
 &=&T_{i_2 i_1}  \int \frac{\tilde{d} l}{(2\pi)^4}  \frac{1}{2\pi} \int_{0}^\infty d z^0 \frac{ \sum_{\textrm{C}^-_i\in\mathcal{C}_\mathcal{F}^{R}} \textrm{C}^-_i\left[ \mathcal{F}^{R}_{i_1i_2}(-z^0, \vec{k},l)\right ] }{z^0-k^0} \nonumber \\
-&=&T_{i_2 i_1}  \int \frac{\tilde{d}^3 \vec{l}}{(2\pi)^4}  \frac{(2\pi i)^2}{2\pi} \int_{0}^\infty d z^0 \frac{1}{-z^0-k^0} \frac{(-i)\slashed{\bar{z}}\slashed{l}\slashed{\bar{z}}}{\bar{z}^2 (-2 |\vec{l}|) (-2 |\vec{l}-\vec{k}|)} \delta \left(-z^0+|\vec{l}|+|\vec{l}-\vec{k}|\right) \nonumber \\
+&=&T_{i_2 i_1}  \int \frac{\tilde{d}^3 \vec{l}}{(2\pi)^4}  \frac{(2\pi i)^2}{2\pi} \int_{0}^\infty d z^0 \frac{1}{-z^0-k^0} \frac{(-i)\slashed{\bar{z}}\slashed{\bar{l}}\slashed{\bar{z}}}{\bar{z}^2 (-2 |\vec{l}|) (-2 |\vec{l}-\vec{k}|)} \delta \left(-z^0+|\vec{l}|+|\vec{l}-\vec{k}|\right) \nonumber \\
 \end{eqnarray}
-with $\bar{z}\equiv(-z^0,\vec{k})$.
+with $\bar{z}\equiv(-z^0,\vec{k})$ and $\bar{l}\equiv(-l^0,\vec{l})$.
 When combining $\textrm{C}_\textrm{A}$ and $\textrm{C}_\textrm{B}$ we find:
 \begin{eqnarray}
 \textrm{C}_\textrm{B}+ \textrm{C}_\textrm{A} &=& (-i)T_{i_2 i_1}  \int \frac{\tilde{d}^3 \vec{l}}{(2\pi)^3} \int_{0}^\infty d z^0 \frac{\delta \left(z^0-|\vec{l}|-|\vec{l}-\vec{k}|\right)}{(z^0)^2-(k^0)^2} \frac{1}{(2 |\vec{l}|) (2 |\vec{l}-\vec{k}|)} \nonumber \\
 &\times&\left( 
-\frac{z^0+k^0}{z^2} \slashed{z}\slashed{l}\slashed{z} + \frac{z^0-k^0}{\bar{z}^2} \slashed{\bar{z}}\slashed{l}\slashed{\bar{z}}
+\frac{z^0+k^0}{z^2} \slashed{z}\slashed{l}\slashed{z} + \frac{z^0-k^0}{\bar{z}^2} \slashed{\bar{z}}\slashed{\bar{l}}\slashed{\bar{z}}
 \right)
 \end{eqnarray}
-We can easily show that $z^2=\bar{z}^2$ and also that:
+Since $z^2=\bar{z}^2$ 
+% and also that:
+%\begin{eqnarray}
+%\slashed{\bar{z}}\slashed{\bar{l}}\slashed{\bar{z}}&=&(-z^0\gamma^0+\vec{k} \cdot \vec{\gamma}) \slashed{l} (-z^0\gamma^0+\vec{k} \cdot \vec{\gamma}) \nonumber\\
+%&=&\slashed{z}\slashed{l}\slashed{z}- 2 z^0\left( \gamma^0 \slashed{l} (\vec{k} \cdot \vec{\gamma}) + (\vec{k} \cdot \vec{\gamma}) \slashed{l} \gamma^0 \right) \nonumber\\
+%&=&-\slashed{z}\slashed{l}\slashed{z} + 2 (z^0)^2 \gamma^0 \slashed{l} \gamma^0 + 2 (\vec{k} \cdot \vec{\gamma}) \slashed{l} (\vec{k} \cdot \vec{\gamma}),
+%\end{eqnarray}
+we write the final expression for $\textrm{C}_\textrm{B}+ \textrm{C}_\textrm{A}$ by performing the integration over $z^0$ with $\delta \left(z^0-|\vec{l}|-|\vec{l}-\vec{k}|\right)$ and introducing the variable $z^\star \equiv |\vec{l}|+|\vec{l}-\vec{k}|$:
+%\begin{eqnarray}
+%\label{OurFinalOffshellExpressionSelfEnergy}
+%&& \textrm{C}_\textrm{B}+ \textrm{C}_\textrm{A} = (-i)T_{i_2 i_1}  \nonumber\\
+%&& \times \int \frac{\tilde{d}^3 \vec{l}}{(2\pi)^3}
+%\frac{
+%z^\star \left( 2 (z^\star)^2 \gamma^0 \slashed{l} \gamma^0 + 2 (\vec{k} \cdot \vec{\gamma}) \slashed{l} (\vec{k} \cdot \vec{\gamma}) \right) +
+%k^0 \left (
+%2 z^\star\left( \gamma^0 \slashed{l} (\vec{k} \cdot \vec{\gamma}) + (\vec{k} \cdot \vec{\gamma}) \slashed{l} \gamma^0 \right)
+%\right) 
+%}{
+%\left( (z^\star)^2-(k^0)^2 \right) \left( (z^\star)^2-|\vec{k}|^2\right) \left( 2 |\vec{l}|\; 2 |\vec{l}-\vec{k}| \right) } \nonumber\\
+%\end{eqnarray}
 \begin{eqnarray}
-\slashed{\bar{z}}\slashed{l}\slashed{\bar{z}}&=&(-z^0\gamma^0+\vec{k} \cdot \vec{\gamma}) \slashed{l} (-z^0\gamma^0+\vec{k} \cdot \vec{\gamma}) \nonumber\\
-&=&\slashed{z}\slashed{l}\slashed{z}- 2 z^0\left( \gamma^0 \slashed{l} (\vec{k} \cdot \vec{\gamma}) + (\vec{k} \cdot \vec{\gamma}) \slashed{l} \gamma^0 \right) \nonumber\\
-&=&-\slashed{z}\slashed{l}\slashed{z} + 2 (z^0)^2 \gamma^0 \slashed{l} \gamma^0 + 2 (\vec{k} \cdot \vec{\gamma}) \slashed{l} (\vec{k} \cdot \vec{\gamma}),
-\end{eqnarray}
-which allows us to write the final expression for $\textrm{C}_\textrm{B}+ \textrm{C}_\textrm{A}$ when performing the integration over $z^0$ with $\delta \left(z^0-|\vec{l}|-|\vec{l}-\vec{k}|\right)$ and introducing the variable $z^\star \equiv |\vec{l}|+|\vec{l}-\vec{k}|$:
-\begin{eqnarray}
-&& \textrm{C}_\textrm{B}+ \textrm{C}_\textrm{A} = (-i)T_{i_2 i_1}  \nonumber\\
-&& \times \int \frac{\tilde{d}^3 \vec{l}}{(2\pi)^3}
+\label{OurFinalOffshellExpressionSelfEnergy}
+&& \textrm{C}_\textrm{B}+ \textrm{C}_\textrm{A} = (-i)T_{i_2 i_1} \int \frac{\tilde{d}^3 \vec{l}}{(2\pi)^3}
 \frac{
-z^\star \left( 2 (z^\star)^2 \gamma^0 \slashed{l} \gamma^0 + 2 (\vec{k} \cdot \vec{\gamma}) \slashed{l} (\vec{k} \cdot \vec{\gamma}) \right) +
-k^0 \left (
-2 z^\star\left( \gamma^0 \slashed{l} (\vec{k} \cdot \vec{\gamma}) + (\vec{k} \cdot \vec{\gamma}) \slashed{l} \gamma^0 \right)
-\right) 
+(z^\star+k^0) \slashed{z}\slashed{l}\slashed{z} + (z^\star-k^0)  \slashed{\bar{z}}\slashed{\bar{l}}\slashed{\bar{z}}
 }{
 \left( (z^\star)^2-(k^0)^2 \right) \left( (z^\star)^2-|\vec{k}|^2\right) \left( 2 |\vec{l}|\; 2 |\vec{l}-\vec{k}| \right) } \nonumber\\
 \end{eqnarray}
 When considering the case of an external bubble (as in fig.~\ref{CABwithBubbleCuts}), we can pull in the Cutkosky cut $(-2\pi i)\delta^2\left(k^2\right)$ which simplifies the above a bit as follows:
+%\begin{eqnarray}
+%\label{OurFinalExpressionSelfEnergy}
+%&& \left( \textrm{C}_\textrm{B}+ \textrm{C}_\textrm{A}\right) (-2\pi i)\delta^2\left(k^2\right) = \frac{(-2\pi i)}{2|\vec{k}|}(-i)T_{i_2 i_1}  \nonumber\\
+%&& \times \int \frac{\tilde{d}^3 \vec{l}}{(2\pi)^3}
+%\frac{
+%z^\star \left( 2 (z^\star)^2 \gamma^0 \slashed{l} \gamma^0 + 2 (\vec{k} \cdot \vec{\gamma}) \slashed{l} (\vec{k} \cdot \vec{\gamma}) \right) +
+%|\vec{k}| \left (
+%2 z^\star\left( \gamma^0 \slashed{l} (\vec{k} \cdot \vec{\gamma}) + (\vec{k} \cdot \vec{\gamma}) \slashed{l} \gamma^0 \right)
+%\right) 
+%}{
+%\left( (z^\star)^2-|\vec{k}|^2\right)^2 \left( 2 |\vec{l}|\; 2 |\vec{l}-\vec{k}| \right) }. \nonumber\\
+%\end{eqnarray}
 \begin{eqnarray}
 \label{OurFinalExpressionSelfEnergy}
-&& \left( \textrm{C}_\textrm{B}+ \textrm{C}_\textrm{A}\right) (-2\pi i)\delta^2\left(k^2\right) = \frac{(-2\pi i)}{2|\vec{k}|}(-i)T_{i_2 i_1}  \nonumber\\
-&& \times \int \frac{\tilde{d}^3 \vec{l}}{(2\pi)^3}
+&& \left( \textrm{C}_\textrm{B}+ \textrm{C}_\textrm{A}\right) (-2\pi i)\delta^2\left(k^2\right) = \frac{(-2\pi i)}{2|\vec{k}|}(-i)T_{i_2 i_1}  \int \frac{\tilde{d}^3 \vec{l}}{(2\pi)^3}
 \frac{
-z^\star \left( 2 (z^\star)^2 \gamma^0 \slashed{l} \gamma^0 + 2 (\vec{k} \cdot \vec{\gamma}) \slashed{l} (\vec{k} \cdot \vec{\gamma}) \right) +
-|\vec{k}| \left (
-2 z^\star\left( \gamma^0 \slashed{l} (\vec{k} \cdot \vec{\gamma}) + (\vec{k} \cdot \vec{\gamma}) \slashed{l} \gamma^0 \right)
-\right) 
+(z^\star+|\vec{k}|) \slashed{z}\slashed{l}\slashed{z} + (z^\star-|\vec{k}|)  \slashed{\bar{z}}\slashed{\bar{l}}\slashed{\bar{z}}
 }{
-\left( (z^\star)^2-|\vec{k}|^2\right)^2 \left( 2 |\vec{l}|\; 2 |\vec{l}-\vec{k}| \right) }. \nonumber\\
+\left( (z^\star)^2-|\vec{k}|^2\right)^2 \left( 2 |\vec{l}|\; 2 |\vec{l}-\vec{k}| \right) } \nonumber\\
 \end{eqnarray}
 As we can see, the above expression of the quark self-energy is not as elegant as eq.(336) of Soper's Beowulf notes, because we did not choose a smart momentum routing allowing him to perform the Lorentz algebra shown in his eq.(331).
-This implies that we could not explicitly cancel the $\left( (z^\star)^2-|\vec{k}|^2\right)$ denominator. 
-However, our expression of eq.~\ref{OurFinalExpressionSelfEnergy} is formally equivalent to Soper's one, as explicitly show in the Mathematica notebook accompanying these notes.
+This implies that we could not explicitly cancel the $\left( (z^\star)^2-|\vec{k}|^2\right)$ denominator in eq.~\ref{OurFinalOffshellExpressionSelfEnergy} (which is not formally necessary, for example Soper also does not cancel it in the case of the self-energy of the gluon). 
+However, our expression of eq.~\ref{OurFinalExpressionSelfEnergy} is formally equivalent to Soper's one, as explicitly shown in the Mathematica notebook accompanying these notes.
 
 The expression of eq.~\ref{OurFinalExpressionSelfEnergy} has a superficial degree of UV divergence in $|\vec{l}|$ of $7-6=1$ (as in Soper's case) which therefore calls for local UV counterterms cancelling both the leading \emph{and subleading} UV behaviour and reproducing the on-shell renormalisation conditions of eqs.~\ref{renormConditionsA}-\ref{renormConditionsD}.
 This is the object of the next section. 
@@ -415,7 +433,7 @@ We already see here an apparent difference w.r.t Soper's approach where he insis
 \begin{equation}
 \lim_{k^0\rightarrow |\vec{k}|} \int \tilde{d}l \mathcal{\bar{F}}^{L/R}_{i_1i_2}(k^0, \vec{k},l) = 0,
 \end{equation}
-which would correspond to the $\overline{\textrm{MS}}$ renormalisation conditions which I believe are not appropriate in the context of the renormalisation of external self-energies.
+which would correspond to the $\overline{\textrm{MS}}$ renormalisation conditions (as he claims himself) which I believe are not appropriate in the context of the renormalisation of external self-energies. But it may be that this makes not difference in the case of massless quarks since we know that their wavefunction UV counterterms have no finite piece \emph{also} in the on-shell scheme. This would however definitely make a difference for massive quarks (a.k.a top-quark).
 
 In order to separate the task of satisfying condition C1) and that of satisfying eqs. C2)$\rightarrow$C5), we will write our counterterms as:
 \begin{equation}
@@ -450,7 +468,9 @@ Even though this would certainly be a valid candidate for $\mathcal{\hat{F}}^{L/
 \section{Matching renormalisation conditions}
 In this section, we carry out the computing of the quantities $\Delta \mathcal{\bar{F}}^{L/R}_{i_1i_2}$.\\
 
-{\bf{TODO: In principle this should "simply" amount to integrating eq.~\ref{constraintOnDeltaF} in dimensional regularisation and reverse-engineering a local expression integrating to that quantity... I don't see a systematic way of doing this however. Maybe contact Soper on the matter...}}
+{\bf{TODO: In principle this should "simply" amount to integrating eq.~\ref{constraintOnDeltaF} in dimensional regularisation and reverse-engineering a local expression integrating to that quantity... I don't see a systematic way of doing this however. Maybe contact Soper on the matter...
+We should of course not forget however that we can always decide to add the integrated contribution of $\Delta \mathcal{\bar{F}}^{L/R}_{i_1i_2}$ through an additional form-factor of the lower-order super graph.
+}}
 
 \bibliographystyle{JHEP}
 \bibliography{biblio}
