@@ -97,6 +97,14 @@ for abin in selected_histo.bins:
         end_x = min(abin.boundaries[1],args.max_value)
     if start_x is None or end_x is None:
         continue
+    if start_x != abin.boundaries[0]:
+        print "WARNING: your specified minimal value %.4f does not match exactly the lower bound of a bin. Use %.4f instead to avoid interpolation."%(
+            args.min_value, abin.boundaries[0]
+        )
+    if end_x != abin.boundaries[1]:
+        print "WARNING: your specified maximal value %.4f does not match exactly the lower bound of a bin. Use %.4f instead to avoid interpolation."%(
+            args.max_value, abin.boundaries[1]
+        )
     #print("%s, %s"%(abin.boundaries, abin.wgts))
     factor = abs((end_x-start_x)/(abin.boundaries[1]-abin.boundaries[0]))
     cum_xsec += factor*abin.get_weight('central')
