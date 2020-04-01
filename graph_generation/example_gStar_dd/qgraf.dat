@@ -1,0 +1,20 @@
+
+output = 'gammaddBar.qgr';
+
+style = '../orientedGraph.sty';
+
+model = './QcdHTop.mod';
+
+in = phot[p1];
+
+out = phot[p1];
+
+loops = 2;
+
+loop_momentum = k;
+
+options = onshell, notadpole, nosnail;
+
+true=iprop[higgs,0,0];
+
+
