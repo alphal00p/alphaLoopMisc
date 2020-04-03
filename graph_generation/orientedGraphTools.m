@@ -60,33 +60,10 @@ writeMinimalJSON::usage="Exports JSON-File for LTD.
 				- if graphs have no attribute \"name\", name will be genrated as PROCESSNAME_DIAG_DIAGNUMBER
 			numAssociation (type: association): association of masses and external momenta to numerical values
 		Optional Input:
-			Options: {processName\[Rule] \"NameOfProcess\"(Default: \"\"), exportDirectory\[Rule] \"PathToExportDir/\" (Default: \"./\")}
+			Options: {processName\[Rule] \"NameOfProcess\"(Default: \"\"), exportDirectory\[Rule] \"PathToExportDir/\" (Default: \"./\"), exportDiagramwise (Default: False)}
 		Output:
 			None
 "
-
-
-ClearAll[getLoopLines]
-getLoopLines[graphs_]:=Block[{eMom,lMom,lLines,lProp,orientation,res,mass},
-res=Table[
-If[!KeyExistsQ[graph,"loopMomenta"],
-	Print["Error: Graphs have no entry \"loopMomenta\". Import with importGraph[]"];
-	Abort[]
-];
-eMom=Complement[Variables@(Union@Flatten@graph[["momentumMap"]]),graph[["loopMomenta"]]];
-lLines=CoefficientArrays[((graph[["momentumMap"]] /. Thread[Rule[eMom,0]]/. 0:>Nothing)^2 //FullSimplify)/.(x_)^2:>x// DeleteDuplicates,graph[["loopMomenta"]]][[2]]//Normal;
-
-lProp=Table[
-	orientation=(ReplaceAll[#,x_/;!NumberQ[x]:>0]&/@(FullSimplify@((graph[["momentumMap"]]/. Thread[Rule[eMom,0]])/(Dot[graph[["loopMomenta"]],ll])) ));
-	{ll,(graph[["momentumMap"]]orientation)/. 0:>Nothing,mass/@(graph[["particleType"]]Abs[orientation])/. mass[0]:>Nothing} /. Thread[Rule[graph[["loopMomenta"]],0]]
-,{ll,lLines}];
-Append[graph,<|"loopLines"->lProp|>]
-,{graph,Flatten@{graphs}}];
-If[Length@res==1,
-res=res[[1]]
-];
-res
-]
 
 
 ClearAll[importGraphs]
@@ -332,6 +309,44 @@ plotGraph[graph_,opt:OptionsPattern[]]:=Block[{mygraph,imSize=OptionValue[plotSi
 ];
 
 
+ClearAll[getLoopLines]
+getLoopLines[graphs_]:=Block[{eMom,lMom,lLines,lProp,orientation,res,mass,pos},
+res=Table[
+If[!KeyExistsQ[graph,"loopMomenta"],
+	Print["Error: Graphs have no entry \"loopMomenta\". Import with importGraph[]"];
+	Abort[]
+];
+eMom=Complement[Variables@(Union@Flatten@graph[["momentumMap"]]),graph[["loopMomenta"]]];
+lLines=CoefficientArrays[((graph[["momentumMap"]] /. Thread[Rule[eMom,0]]/. 0:>Nothing)^2 //FullSimplify)/.(x_)^2:>x// DeleteDuplicates,graph[["loopMomenta"]]][[2]]//Normal;
+
+lProp=Table[
+	orientation=(ReplaceAll[#,x_/;!NumberQ[x]:>0]&/@(FullSimplify@((graph[["momentumMap"]]/. Thread[Rule[eMom,0]])/(Dot[graph[["loopMomenta"]],ll])) ));
+	pos=Position[Abs@orientation,1,Heads->False];
+	<|"signature"->ll,
+	"propagators"->Table[
+	<|"mass"->mass[graph[["particleType",pp]]],
+	  "name"-> If[KeyExistsQ[graph,"name"],
+	  graph[["name",pp]],
+	  "prop"<>ToString@pp
+	  ],
+	  "power"->If[KeyExistsQ[graph,"power"],
+	  graph[["power",pp]],
+	  1
+	  ],
+	  "q"->(graph[["momentumMap",pp]]*orientation[[pp]] /. Thread[Rule[graph[["loopMomenta"]],0]] /. 0->ConstantArray[0,4])
+	  |>
+	  ,{pp,Flatten@pos}]	  
+	|>	 
+,{ll,lLines}];
+Append[graph,<|"loopLines"->lProp|>]
+,{graph,Flatten@{graphs}}];
+If[Length@res==1,
+res=res[[1]]
+];
+res
+]
+
+
 ClearAll[getCutStructure]
 
 $fileDirectory=If[$Input==="",FileNameJoin[{NotebookDirectory[],""}],FileNameJoin[{DirectoryName@$InputFileName,""}]];
@@ -368,7 +383,7 @@ If[ContainsAny[KeyExistsQ[#,"loopLines"]&/@(Flatten@{graphs}),{False}],
 	myGraphs=graphs
 ];
 result=Table[
-	ll=gg[["loopLines"]][[All,1]];
+	ll=gg[["loopLines"]][[All,"signature"]];
 	ExternalEvaluate[session,"loop_line_signatures = "<>ExportString[ll,"PythonExpression"]];
 	ExternalEvaluate[session,"cut_structure_generator = cct.CutStructureGenerator(loop_line_signatures)"];
 	If[KeyExistsQ[gg,"contourClosure"],
@@ -387,9 +402,10 @@ result
 
 
 ClearAll[writeMinimalJSON]
-Protect[processName,exportDirectory];
-Options[writeMinimalJSON]={processName->"",exportDirectory->"./"}
-writeMinimalJSON[graphs_,numAssociation_Association,opts:OptionsPattern[]]:=Block[{mygraphs=graphs,inMom,outMom,extAsso,cutAsso,llAsso,lnAsso,nameAsso,diagCount=0,procName,exportDir,pLong,fullAsso},
+Protect[processName,exportDirectory,exportDiagramwise];
+Options[writeMinimalJSON]={processName->"",exportDirectory->"./",exportDiagramwise->False}
+writeMinimalJSON[graphs_,numAssociation_Association,opts:OptionsPattern[]]:=Block[{mygraphs=graphs,inMom,outMom,extAsso,cutAsso,llAsso,lnAsso,nameAsso,diagCount=0,procName,exportDir,pLong,fullAsso,diagramwise,processAsso},
+diagramwise=OptionValue[exportDiagramwise];
 procName=OptionValue[processName];
 exportDir=OptionValue[exportDirectory];
 If[ContainsAny[KeyExistsQ[#,"loopLines"]&/@(Flatten@{graphs}),{False}]||ContainsAny[KeyExistsQ[#,"cutStructure"]&/@(Flatten@{graphs}),{False}],
@@ -397,7 +413,7 @@ If[ContainsAny[KeyExistsQ[#,"loopLines"]&/@(Flatten@{graphs}),{False}]||Contains
 	mygraphs=Flatten@{graphs}
 ];
 (* loop over graphs *)
-Table[
+processAsso=Table[
 	diagCount+=1;
 	(* check input *)
 	inMom=Cases[mygraph[["momentumMap"]],_in,Infinity]//Union;
@@ -417,24 +433,20 @@ Table[
 		Abort[]
 	];
 (* check mass replacements *)
-	If[MemberQ[NumericQ/@(Flatten@(mygraph[["loopLines"]]/.numAssociation)),False],
-		Print["No numerical assignement for :"<>ToString[(Flatten@(mygraph[["loopLines"]]/.numAssociation))/;x_/;NumericQ[x]:>Nothing//Union]];
+	If[MemberQ[NumericQ/@(Flatten@(mygraph[["loopLines",All,"propagators",All,"mass"]]/.numAssociation)),False],
+		Print["No numerical assignment for :"<>ToString[(Flatten@(mygraph[["loopLines",All,"propagators",All,"mass"]]/.numAssociation))/;x_/;NumericQ[x]:>Nothing//Union]];
 	];
 (* replacement for yaml *)
 	extAsso=<|"external_kinematics"->Join[inMom,outMom]/. in[x_]:>x /. out[x_]:>-x/.numAssociation|>;
 	cutAsso=<|"ltd_cut_structure"->mygraph[["cutStructure"]]|>;
+	(* all the BS is because mathematica exports 0.e-31, which is not readable by yaml *)
 	llAsso=
-		<|"looplines"->Table[
+		Map[Evaluate,<|"looplines"->Table[
 			<|<|"end_note"->69|>,
-			<|"propagators"->Flatten@Table[
-				If[Length@l[[-2,p]]==1,pLong= Flatten@ConstantArray[l[[-2,p]],4],pLong=Flatten@l[[-2,p]]];
-				<|<|"m_squared"->l[[-1,p]][[1]]|>,
-				<|"q"->pLong|>
-				|>
-				,{p,Length@l[[2]]}]|>
-			,<|"signature"->l[[1]]|>
-			,<|"start_note"->70|>
-			|>,{l,(mygraph[["loopLines"]]/. mass[x_]:>mass[x]^2/.numAssociation /. x_/;NumericQ[x]:>ImportString[ExportString[x,"Real64"],"Real64"])}]|>;
+			<|"propagators"->KeyMap[Replace["mass"->"mass_squared"]]/@(l[["propagators"]]/.mass[x_]:>mass[x]^2/.numAssociation /. {x_,y__}/;NumericQ[x]:>ImportString[ExportString[{x,y},"Real64"],"Real64"])|>,
+			l[[{"signature"}]],
+			<|"start_note"->70|>
+			|>,{l,(mygraph[["loopLines"]])}]|>,5];
 	lnAsso=Map[Evaluate,<|"n_loops"->Length@mygraph[["loopMomenta"]]|>];
 	If[KeyExistsQ[mygraph,"name"],
 		nameAsso=<|"name"->mygraph[["name"]]|>,
@@ -442,11 +454,19 @@ Table[
 	];
 	fullAsso=extAsso;
 	Do[fullAsso=Append[fullAsso,asso],{asso,{llAsso,cutAsso,lnAsso,nameAsso}}];
+	If[diagramwise==True,
 	If[DirectoryQ[exportDir],
 		Export[exportDir<>nameAsso[["name"]]<>".json",fullAsso,"JSON"],
 		Print["Couldn't find exportDirectory. Export to standard location."];
 		Export["./"<>nameAsso[["name"]]<>".json",fullAsso,"JSON"]
 	];
+	];
+	fullAsso
 	,{mygraph,mygraphs}];
-fullAsso
+	If[DirectoryQ[exportDir],
+		Export[exportDir<>"allDiags"<>procName<>".json",processAsso,"JSON"],
+		Print["Couldn't find exportDirectory. Export to standard location."];
+		Export["./allDiags"<>procName<>".json",processAsso,"JSON"]
+	];
+	processAsso
 ]
