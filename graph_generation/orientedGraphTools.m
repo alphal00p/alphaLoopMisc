@@ -348,7 +348,8 @@ If[!StringMatchQ[session["Version"],"3"~~___],
 	Abort[]
 ];
 pyTest=ExternalEvaluate[session,"import sys"];
-If[pyTest!=Null,
+
+If[pyTest=!="Null",
 	Print["Error in ExternalEvaluate[session,\"import sys\"]"];
 	Print["possible cause: Usage of python 3.8"];
 	Print["possible fix: \n Change \" yourPathTo/WolframClientForPython/wolframclient/utils/externalevaluate.py \""];
@@ -388,7 +389,7 @@ result
 ClearAll[writeMinimalJSON]
 Protect[processName,exportDirectory];
 Options[writeMinimalJSON]={processName->"",exportDirectory->"./"}
-writeMinimalJSON[graphs_,numAssociation_Association,opts:OptionsPattern[]]:=Block[{mygraphs=graphs,inMom,outMom,extAsso,cutAsso,llAsso,lnAsso,nameAsso,diagCount=0,procName,exportDir,pLong},
+writeMinimalJSON[graphs_,numAssociation_Association,opts:OptionsPattern[]]:=Block[{mygraphs=graphs,inMom,outMom,extAsso,cutAsso,llAsso,lnAsso,nameAsso,diagCount=0,procName,exportDir,pLong,fullAsso},
 procName=OptionValue[processName];
 exportDir=OptionValue[exportDirectory];
 If[ContainsAny[KeyExistsQ[#,"loopLines"]&/@(Flatten@{graphs}),{False}]||ContainsAny[KeyExistsQ[#,"cutStructure"]&/@(Flatten@{graphs}),{False}],
@@ -424,26 +425,28 @@ Table[
 	cutAsso=<|"ltd_cut_structure"->mygraph[["cutStructure"]]|>;
 	llAsso=
 		<|"looplines"->Table[
-			{<|"end_note"->69|>,
+			<|<|"end_note"->69|>,
 			<|"propagators"->Flatten@Table[
-				If[Length@l[[-2,p]]==1,pLong= ConstantArray[l[[-2,p]],4],pLong=l[[-2,p]]];
-				{<|"m_squared"->l[[-1,p]]|>,
+				If[Length@l[[-2,p]]==1,pLong= Flatten@ConstantArray[l[[-2,p]],4],pLong=Flatten@l[[-2,p]]];
+				<|<|"m_squared"->l[[-1,p]][[1]]|>,
 				<|"q"->pLong|>
-				}
+				|>
 				,{p,Length@l[[2]]}]|>
 			,<|"signature"->l[[1]]|>
 			,<|"start_note"->70|>
-			},{l,(mygraph[["loopLines"]]/. mass[x_]:>mass[x]^2/.numAssociation /. x_/;NumericQ[x]:>ImportString[ExportString[x,"Real64"],"Real64"])}]|>;
+			|>,{l,(mygraph[["loopLines"]]/. mass[x_]:>mass[x]^2/.numAssociation /. x_/;NumericQ[x]:>ImportString[ExportString[x,"Real64"],"Real64"])}]|>;
 	lnAsso=Map[Evaluate,<|"n_loops"->Length@mygraph[["loopMomenta"]]|>];
 	If[KeyExistsQ[mygraph,"name"],
 		nameAsso=<|"name"->mygraph[["name"]]|>,
 		nameAsso=<|"name"->procName<>"diag_"<>ToString[diagCount]|>
 	];
+	fullAsso=extAsso;
+	Do[fullAsso=Append[fullAsso,asso],{asso,{llAsso,cutAsso,lnAsso,nameAsso}}];
 	If[DirectoryQ[exportDir],
-		Export[exportDir<>nameAsso[["name"]]<>".json",{extAsso,llAsso,cutAsso,lnAsso,nameAsso},"JSON"],
+		Export[exportDir<>nameAsso[["name"]]<>".json",fullAsso,"JSON"],
 		Print["Couldn't find exportDirectory. Export to standard location."];
-		Export["./"<>nameAsso[["name"]]<>".json",{extAsso,llAsso,cutAsso,lnAsso,nameAsso},"JSON"]
+		Export["./"<>nameAsso[["name"]]<>".json",fullAsso,"JSON"]
 	];
 	,{mygraph,mygraphs}];
-Return[0]
+fullAsso
 ]
