@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      6762,        158]
-NotebookOptionsPosition[      5699,        135]
-NotebookOutlinePosition[      6033,        150]
-CellTagsIndexPosition[      5990,        147]
+NotebookDataLength[      4576,        124]
+NotebookOptionsPosition[      3853,        103]
+NotebookOutlinePosition[      4187,        118]
+CellTagsIndexPosition[      4144,        115]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -21,31 +21,65 @@ Notebook[{
 Cell[BoxData[
  RowBox[{"Quit", "[", "]"}]], "Input",
  CellChangeTimes->{{3.793711595145846*^9, 3.7937115986297398`*^9}},
- CellLabel->"In[9]:=",ExpressionUUID->"609309bb-30ea-4a5f-9444-accd47c8c739"],
+ CellLabel->"In[6]:=",ExpressionUUID->"609309bb-30ea-4a5f-9444-accd47c8c739"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{"SetDirectory", "[", 
   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], "\[IndentingNewLine]", 
- RowBox[{"<<", "\"\<../orientedGraphTools.m\>\""}]}], "Input",
+ RowBox[{
+  RowBox[{"<<", "\"\<../orientedGraphTools.m\>\""}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"allGraphs", "=", 
+   RowBox[{"importGraphs", "[", "\"\<./phi3graphs.qgr\>\"", "]"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"kinematics", "=", 
+    RowBox[{"<|", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"mass", "[", "phi", "]"}], "\[Rule]", "125"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Thread", "@", 
+       RowBox[{"Rule", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"p1", ",", "p2", ",", "p3", ",", "p4"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"1", ",", "1", ",", 
+            RowBox[{"-", "1"}], ",", 
+            RowBox[{"-", "1"}]}], "}"}], "*", 
+          RowBox[{"SetPrecision", "[", 
+           RowBox[{
+            RowBox[{"ImportString", "[", 
+             RowBox[{
+             "\"\<[[6.0,0.0,0.0,5.91607978309962],\n\
+[6.0,0.0,0.0,-5.91607978309962],\n\
+[-6.0,-1.3124738333059,-5.26330888118183,2.36114210884473],\n\
+[-6.0,1.3124738333059,5.26330888118183,-2.36114210884473]]\>\"", ",", 
+              "\"\<PythonExpression\>\""}], "]"}], ",", "32"}], "]"}]}]}], 
+        "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ";"}], "\n"}], "\n", 
+ RowBox[{
+  RowBox[{"writeMinimalJSON", "[", 
+   RowBox[{"allGraphs", ",", "kinematics", ",", 
+    RowBox[{"exportDirectory", "\[Rule]", "\"\<./tmp/\>\""}], ",", 
+    RowBox[{"processName", "->", "\"\<phi3_Test\>\""}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<done\>\"", "]"}]}], "Input",
  CellChangeTimes->{{3.793722329014392*^9, 3.793722341870916*^9}, 
    3.794812894355694*^9, 3.7948134916803617`*^9, {3.794917367277184*^9, 
-   3.794917367620702*^9}},
+   3.794917367620702*^9}, {3.794924716542757*^9, 3.7949247244253683`*^9}},
  CellLabel->"In[1]:=",ExpressionUUID->"6134f5ca-721b-48cb-8d44-5cdd056ae503"],
 
 Cell[BoxData["\<\"/home/armin/my_programs/alphaLoopMisc/graph_generation/\
 example_yamlExport\"\>"], "Output",
- CellChangeTimes->{
-  3.794917372761505*^9, 3.794917472720681*^9, 3.7949175252868*^9, {
-   3.794917769330348*^9, 3.794917787966905*^9}, 3.794917981215806*^9, {
-   3.7949180162283373`*^9, 3.794918037204606*^9}, 3.7949184654150133`*^9, 
-   3.794919549796494*^9, 3.794919696735227*^9, 3.7949197929617233`*^9, 
-   3.7949199155421343`*^9, 3.7949199696824093`*^9, 3.79492010235858*^9, 
-   3.794920177206991*^9, 3.794920705373855*^9, {3.794920954743864*^9, 
-   3.794920978627688*^9}, {3.7949210748764343`*^9, 3.794921103053197*^9}, 
-   3.794921993512452*^9},
- CellLabel->"Out[1]=",ExpressionUUID->"27fe9227-d62d-4ff7-88db-67bb812222b1"],
+ CellChangeTimes->{3.794924726481843*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"c41a88ce-0599-47d5-be35-a330c8f650c6"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData["\<\"The documented functions in this package are: \\n \
 ?plotGraph \\n ?findIsomorphicGraphs \\n ?constructCuts \\n ?importGraphs \\n \
@@ -54,84 +88,18 @@ Cell[BoxData["\<\"The documented functions in this package are: \\n \
 can be downloaded from https://github.com/szhorvat/IGraphM. !!! \\n Run: Get[\
 \\\"https://raw.githubusercontent.com/szhorvat/IGraphM/master/IGInstaller.m\\\
 \"] for installation\"\>"], "Print",
- CellChangeTimes->{
-  3.794917372766905*^9, 3.79491747272678*^9, 3.7949175252898903`*^9, {
-   3.794917769340948*^9, 3.794917787972307*^9}, 3.7949179812179937`*^9, {
-   3.794918016235406*^9, 3.794918037211351*^9}, 3.7949184654288673`*^9, 
-   3.794919549802046*^9, 3.7949196967371073`*^9, 3.794919792966249*^9, 
-   3.794919915544327*^9, 3.7949199696862288`*^9, 3.794920102362204*^9, 
-   3.794920177210702*^9, 3.7949207053783484`*^9, {3.794920954752692*^9, 
-   3.7949209786336317`*^9}, {3.794921074883378*^9, 3.794921103056621*^9}, 
-   3.794921993517597*^9},
+ CellChangeTimes->{3.794924726486417*^9},
  CellLabel->
   "During evaluation of \
-In[1]:=",ExpressionUUID->"a3e22638-8239-47fc-ae75-12cb8a956195"]
-}, Open  ]],
+In[1]:=",ExpressionUUID->"905ec125-684f-4d3c-9b3d-2538b8c82a87"],
 
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.793722354363253*^9, 3.7937223730221577`*^9}, 
-   3.7949173652393303`*^9},ExpressionUUID->"46eb0a4f-d719-41c9-82cc-\
-b7b93b217cc7"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"allGraphs", "=", 
-   RowBox[{"importGraphs", "[", "\"\<./phi3graphs.qgr\>\"", "]"}]}], 
-  ";"}]], "Input",
- CellChangeTimes->{{3.794895385870406*^9, 3.7948954291824102`*^9}},
- CellLabel->"In[3]:=",ExpressionUUID->"bed086df-8b7f-418c-9afe-92062a987c2b"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"kinematics", "=", 
-   RowBox[{"<|", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"mass", "[", "phi", "]"}], "\[Rule]", "125"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"Thread", "@", 
-      RowBox[{"Rule", "[", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"p1", ",", "p2", ",", "p3", ",", "p4"}], "}"}], ",", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"1", ",", "1", ",", 
-           RowBox[{"-", "1"}], ",", 
-           RowBox[{"-", "1"}]}], "}"}], "*", 
-         RowBox[{"SetPrecision", "[", 
-          RowBox[{
-           RowBox[{"ImportString", "[", 
-            RowBox[{
-            "\"\<[[6.0,0.0,0.0,5.91607978309962],\n\
-[6.0,0.0,0.0,-5.91607978309962],\n\
-[-6.0,-1.3124738333059,-5.26330888118183,2.36114210884473],\n\
-[-6.0,1.3124738333059,5.26330888118183,-2.36114210884473]]\>\"", ",", 
-             "\"\<PythonExpression\>\""}], "]"}], ",", "32"}], "]"}]}]}], 
-       "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ";"}]], "Input",
- CellChangeTimes->{{3.79489572605029*^9, 3.794895818310508*^9}, {
-   3.7948958981980457`*^9, 3.794895923244401*^9}, 3.794917519654175*^9, {
-   3.794920725197577*^9, 3.794920725411058*^9}},
- CellLabel->"In[4]:=",ExpressionUUID->"b7e1c11c-ecdf-49e9-b4d6-5db77ec7285b"],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.7949176708482924`*^9, 
-  3.794917671771306*^9}},ExpressionUUID->"36b09f74-9002-4547-81f7-\
-efbff97d377c"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"writeMinimalJSON", "[", 
-   RowBox[{"allGraphs", ",", "kinematics", ",", 
-    RowBox[{"exportDirectory", "\[Rule]", "\"\<./tmp/\>\""}], ",", 
-    RowBox[{"processName", "->", "\"\<phi3_Test\>\""}]}], "]"}], 
-  ";"}]], "Input",
- CellChangeTimes->{{3.794895431767972*^9, 3.794895439130361*^9}, {
-   3.794895930101194*^9, 3.794895931464699*^9}, {3.794895976753203*^9, 
-   3.79489605724479*^9}, 3.794906859415422*^9, {3.794917096863426*^9, 
-   3.794917100034314*^9}, 3.794921844451056*^9, {3.794921998162437*^9, 
-   3.7949220387252274`*^9}, 3.7949221010220747`*^9},
- CellLabel->"In[6]:=",ExpressionUUID->"fcd14775-7d30-4a94-bb1f-a02f6fcc106f"]
+Cell[BoxData["\<\"done\"\>"], "Print",
+ CellChangeTimes->{3.794924744888039*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"6d3d2e5f-c81d-4993-8305-32f28225d3ae"]
+}, Open  ]]
+}, Open  ]]
 },
 WindowSize->{2560, 1376},
 WindowMargins->{{0, Automatic}, {0, Automatic}},
@@ -151,15 +119,13 @@ CellTagsIndex->{}
 Notebook[{
 Cell[558, 20, 198, 3, 31, "Input",ExpressionUUID->"609309bb-30ea-4a5f-9444-accd47c8c739"],
 Cell[CellGroupData[{
-Cell[781, 27, 426, 7, 55, "Input",ExpressionUUID->"6134f5ca-721b-48cb-8d44-5cdd056ae503"],
-Cell[1210, 36, 740, 11, 35, "Output",ExpressionUUID->"27fe9227-d62d-4ff7-88db-67bb812222b1"],
-Cell[1953, 49, 1146, 18, 246, "Print",ExpressionUUID->"a3e22638-8239-47fc-ae75-12cb8a956195"]
-}, Open  ]],
-Cell[3114, 70, 179, 3, 31, "Input",ExpressionUUID->"46eb0a4f-d719-41c9-82cc-b7b93b217cc7"],
-Cell[3296, 75, 287, 6, 31, "Input",ExpressionUUID->"bed086df-8b7f-418c-9afe-92062a987c2b"],
-Cell[3586, 83, 1275, 31, 147, "Input",ExpressionUUID->"b7e1c11c-ecdf-49e9-b4d6-5db77ec7285b"],
-Cell[4864, 116, 154, 3, 31, "Input",ExpressionUUID->"36b09f74-9002-4547-81f7-efbff97d377c"],
-Cell[5021, 121, 674, 12, 31, "Input",ExpressionUUID->"fcd14775-7d30-4a94-bb1f-a02f6fcc106f"]
+Cell[781, 27, 1967, 47, 308, "Input",ExpressionUUID->"6134f5ca-721b-48cb-8d44-5cdd056ae503"],
+Cell[2751, 76, 230, 3, 35, "Output",ExpressionUUID->"c41a88ce-0599-47d5-be35-a330c8f650c6"],
+Cell[CellGroupData[{
+Cell[3006, 83, 632, 10, 246, "Print",ExpressionUUID->"905ec125-684f-4d3c-9b3d-2538b8c82a87"],
+Cell[3641, 95, 184, 4, 25, "Print",ExpressionUUID->"6d3d2e5f-c81d-4993-8305-32f28225d3ae"]
+}, Open  ]]
+}, Open  ]]
 }
 ]
 *)

@@ -404,7 +404,7 @@ result
 ClearAll[writeMinimalJSON]
 Protect[processName,exportDirectory,exportDiagramwise];
 Options[writeMinimalJSON]={processName->"",exportDirectory->"./",exportDiagramwise->False}
-writeMinimalJSON[graphs_,numAssociation_Association,opts:OptionsPattern[]]:=Block[{mygraphs=graphs,inMom,outMom,extAsso,cutAsso,llAsso,lnAsso,nameAsso,diagCount=0,procName,exportDir,pLong,fullAsso,diagramwise,processAsso},
+writeMinimalJSON[graphs_,numAssociation_Association,opts:OptionsPattern[]]:=Block[{mygraphs=graphs,inMom,outMom,extAsso,cutAsso,llAsso,lnAsso,nameAsso,diagCount=0,procName,exportDir,pLong,fullAsso,diagramwise,processAsso,expAsso},
 diagramwise=OptionValue[exportDiagramwise];
 procName=OptionValue[processName];
 exportDir=OptionValue[exportDirectory];
@@ -441,19 +441,23 @@ processAsso=Table[
 	cutAsso=<|"ltd_cut_structure"->mygraph[["cutStructure"]]|>;
 	(* all the BS is because mathematica exports 0.e-31, which is not readable by yaml *)
 	llAsso=
-		Map[Evaluate,<|"looplines"->Table[
-			<|<|"end_note"->69|>,
-			<|"propagators"->KeyMap[Replace["mass"->"mass_squared"]]/@(l[["propagators"]]/.mass[x_]:>mass[x]^2/.numAssociation /. {x_,y__}/;NumericQ[x]:>ImportString[ExportString[{x,y},"Real64"],"Real64"])|>,
+		Map[Evaluate,<|"loop_lines"->Table[
+			<|<|"end_node"->69|>,
+			<|"propagators"->KeyMap[Replace["mass"->"m_squared"]]/@(l[["propagators"]]/.mass[x_]:>mass[x]^2/.numAssociation /. {x_,y__}/;NumericQ[x]:>ImportString[ExportString[{x,y},"Real64"],"Real64"])|>,
 			l[[{"signature"}]],
-			<|"start_note"->70|>
+			<|"start_node"->70|>
 			|>,{l,(mygraph[["loopLines"]])}]|>,5];
 	lnAsso=Map[Evaluate,<|"n_loops"->Length@mygraph[["loopMomenta"]]|>];
 	If[KeyExistsQ[mygraph,"name"],
 		nameAsso=<|"name"->mygraph[["name"]]|>,
 		nameAsso=<|"name"->procName<>"diag_"<>ToString[diagCount]|>
 	];
+	If[KeyExistsQ[mygraph,"maximum_ratio_expansion_threshold"],
+		expAsso=<|"maximum_ratio_expansion_threshold"->mygraph[["maximum_ratio_expansion_threshold"]]|>,
+		expAsso=<|"maximum_ratio_expansion_threshold"->-1|>
+	];
 	fullAsso=extAsso;
-	Do[fullAsso=Append[fullAsso,asso],{asso,{llAsso,cutAsso,lnAsso,nameAsso}}];
+	Do[fullAsso=Append[fullAsso,asso],{asso,{llAsso,cutAsso,expAsso,lnAsso,nameAsso}}];
 	If[diagramwise==True,
 	If[DirectoryQ[exportDir],
 		Export[exportDir<>nameAsso[["name"]]<>".json",fullAsso,"JSON"],
