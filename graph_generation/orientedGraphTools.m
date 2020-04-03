@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-Print["The documented functions in this package are: \n ?plotGraph \n ?findIsomorphicGraphs \n ?constructCuts
+Print["The documented functions in this package are: \n ?plotGraph \n ?findIsomorphicGraphs \n ?constructCuts \n ?importGraphs \n ?getLoopLines \n ?getCutStructure \n ?writeMinimalJSON
  ----------------------------------------- 
  Needs the package IGraphM which can be downloaded from https://github.com/szhorvat/IGraphM. !!! \n Run: Get[\"https://raw.githubusercontent.com/szhorvat/IGraphM/master/IGInstaller.m\"] for installation"
 ];
