@@ -5,11 +5,14 @@
 **NewDiagram**
 <<|
 <back>"edges"->>{
-<back><in_loop>in[[<in_index>]]->><vertex_index>,
+<back><in_loop>in[[<in_index>]]
+<back>->>v[[<vertex_index>]],
 <back><end>
-<back><out_loop><vertex_index>->>out[[<out_index>]],
+<back><out_loop>v[[<vertex_index>]]
+<back>->>out[[<out_index>]],
 <back><end>
-<back><propagator_loop><vertex_index>->><dual-vertex_index>,
+<back><propagator_loop>v[[<vertex_index>]]
+<back>->>v[[<dual-vertex_index>]],
 <back><end>
 <back><back>},
 <back>"particleType"->>{

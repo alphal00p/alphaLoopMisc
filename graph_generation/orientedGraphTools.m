@@ -34,6 +34,68 @@ plotGraph::usage="plots graph
 			edgeLabels(default: {}): List of Keyword(s) of association(s) in the graphs on which to tag by (e.g. \"partilcleType\")
 			plotSize (default: Scaled[0.5])
 "
+importGraphs::usage="Import QGraf graphs generated with orientedGraphs.sty
+			Input: 
+				\"PathToQGrafOutput\"
+"
+getLoopLines::usage="Appends loop-lines to graph.
+		Input: 
+			graphs (List or single graphs) (see: importGraphs[output from qgraf \"orientedGraph.sty\"])
+		Output:
+			graphs with appended association for loop-lines
+"
+getCutStructure::usage="Appends cut-strucuture to graph.
+		Input: 
+			graphs (List or single graphs) (see: importGraphs[output from qgraf \"orientedGraph.sty\"])
+				- if graphs have no attribute \"loopLines\", it will be generated
+				- if graphs have attribute \"contourClosure\" ->{\"Above\",...,\"Below\",..} this particular closure will be used. Otherwise
+				  default closure from above.
+		Output:
+			graphs with appended association for cut-structure
+"
+writeMinimalJSON::usage="Exports JSON-File for LTD.
+		Input: 
+			graphs (List or single graphs) (see: importGraphs[output from qgraf \"orientedGraph.sty\"])
+				- if graphs have no attribute \"cutStructure\", it will be generated
+				- if graphs have no attribute \"name\", name will be genrated as PROCESSNAME_DIAG_DIAGNUMBER
+			numAssociation (type: association): association of masses and external momenta to numerical values
+		Optional Input:
+			Options: {processName\[Rule] \"NameOfProcess\"(Default: \"\"), exportDirectory\[Rule] \"PathToExportDir/\" (Default: \"./\")}
+		Output:
+			None
+"
+
+
+ClearAll[getLoopLines]
+getLoopLines[graphs_]:=Block[{eMom,lMom,lLines,lProp,orientation,res,mass},
+res=Table[
+If[!KeyExistsQ[graph,"loopMomenta"],
+	Print["Error: Graphs have no entry \"loopMomenta\". Import with importGraph[]"];
+	Abort[]
+];
+eMom=Complement[Variables@(Union@Flatten@graph[["momentumMap"]]),graph[["loopMomenta"]]];
+lLines=CoefficientArrays[((graph[["momentumMap"]] /. Thread[Rule[eMom,0]]/. 0:>Nothing)^2 //FullSimplify)/.(x_)^2:>x// DeleteDuplicates,graph[["loopMomenta"]]][[2]]//Normal;
+
+lProp=Table[
+	orientation=(ReplaceAll[#,x_/;!NumberQ[x]:>0]&/@(FullSimplify@((graph[["momentumMap"]]/. Thread[Rule[eMom,0]])/(Dot[graph[["loopMomenta"]],ll])) ));
+	{ll,(graph[["momentumMap"]]orientation)/. 0:>Nothing,mass/@(graph[["particleType"]]Abs[orientation])/. mass[0]:>Nothing} /. Thread[Rule[graph[["loopMomenta"]],0]]
+,{ll,lLines}];
+Append[graph,<|"loopLines"->lProp|>]
+,{graph,Flatten@{graphs}}];
+If[Length@res==1,
+res=res[[1]]
+];
+res
+]
+
+
+ClearAll[importGraphs]
+importGraphs[file_:String]:=Block[{graphs, loopMom},
+graphs=ToExpression["{"<>StringDrop[StringReplace[Import[file,"Text"],{"**NewDiagram**"->",","\n"->""}]<>"}",1]];
+loopMom=Complement[Variables@(Union@Flatten@graphs[[All,"momentumMap"]]/.f_[x_]:>x),Union@(Cases[graphs[[All,"momentumMap"]],f_[x_]:>x,Infinity] )]
+;
+graphs=Append[#,"loopMomenta"->loopMom]&/@graphs
+]
 
 
 ClearAll[constructCuts]
@@ -232,9 +294,17 @@ findIsomorphicGraphs[graphs_:List,tag:OptionsPattern[]]:=Block[{edges,myTaggedGr
 	shiftsAndPermutations=Table[
 		Join[{shifts[[countShifts,1]]},
 		{Table[
-			{shifts[[countShifts,2,isoCount]],FindPermutation[graphsEdgeColored[[shifts[[countShifts,1,1]]]],graphsEdgeColored[[shifts[[countShifts,1,2]]]]/.shifts[[countShifts,2,isoCount]]]}
+		
+			{shifts[[countShifts,2,isoCount]],
+			If[Length@(Complement[graphsEdgeColored[[shifts[[countShifts,1,1]]]]/.shifts[[countShifts,2,isoCount]],graphsEdgeColored[[shifts[[countShifts,1,2]]]]])==0,
+			FindPermutation[graphsEdgeColored[[shifts[[countShifts,1,1]]]]/.shifts[[countShifts,2,isoCount]],graphsEdgeColored[[shifts[[countShifts,1,2]]]]],
+			"errorPerm"
+			]}
 		,{isoCount,Length@shifts[[countShifts,2]]}]}]
 	,{countShifts,Length@shifts}];
+	
+	shiftsAndPermutations=shiftsAndPermutations /. {x_,"errorPerm"}:>Nothing;
+	
 (* find if edge direction changed: No=1,Yes=-1*)
 	Do[
 		graphID1=shiftsAndPermutations[[shiftCount,1,1]];
@@ -255,8 +325,125 @@ findIsomorphicGraphs[graphs_:List,tag:OptionsPattern[]]:=Block[{edges,myTaggedGr
 Protect[edgeLabels,plotSize]
 Options[plotGraph] ={ edgeLabels->{},plotSize->Scaled[0.5]};
 plotGraph[graph_,opt:OptionsPattern[]]:=Block[{mygraph,imSize=OptionValue[plotSize]},
-		
-		mygraph=Transpose@(Values@(graph[[Join[{"edges"},Flatten@{OptionValue[edgeLabels]}]]]))/. TwoWayRule->Rule /. UndirectedEdge->Rule /. DirectedEdge->Rule /. {Rule[a_,b_],c__}:>{Rule[a,b],Flatten@{c}};
-		
-	Print[GraphComputation`GraphPlotLegacy[mygraph,Method->{"SpringElectricalEmbedding", "RepulsiveForcePower" -> -1.55},EdgeRenderingFunction->({{RGBColor[0.22,0.34,0.63],Arrowheads[0.015],Arrow[#]},If[#3=!=None,Text[ToString[#3],Mean[#1],Background->White],{}]}&),MultiedgeStyle->.3,SelfLoopStyle->All,ImageSize->imSize]]
+	Do[
+	mygraph=Transpose@(Values@(gg[[Join[{"edges"},Flatten@{OptionValue[edgeLabels]}]]]))/. TwoWayRule->Rule /. UndirectedEdge->Rule /. DirectedEdge->Rule /. {Rule[a_,b_],c__}:>{Rule[a,b],Flatten@{c}} /. {Rule[a_,b_]}:>{Rule[a,b],{Rule[a,b]}};
+	Print[GraphComputation`GraphPlotLegacy[mygraph,EdgeRenderingFunction->({{RGBColor[0.22,0.34,0.63],Arrowheads[0.015],Arrow[#]},If[#3=!=None,Text[ToString[#3],Mean[#1],Background->White],{}]}&),MultiedgeStyle->.3,SelfLoopStyle->All,ImageSize->imSize]];
+	,{gg,Flatten@{graph}}]
 ];
+
+
+ClearAll[getCutStructure]
+
+$fileDirectory=If[$Input==="",FileNameJoin[{NotebookDirectory[],""}],FileNameJoin[{DirectoryName@$InputFileName,""}]];
+getCutStructure[graphs_]:=Block[{session,result,pyTest,myGraphs,ctStruc,ll},
+
+If[!FileExistsQ[$fileDirectory<>"/compute_cut_structure.py"],
+	Print["No cut-structure script found in: \""<>$fileDirectory<>"/compute_cut_structure.py"<>"\""];
+	Abort[]
+];
+session=StartExternalSession[<|"System"->"Python","Version"->"3","ReturnType"->"String"|>];
+If[!StringMatchQ[session["Version"],"3"~~___],
+	Print["Error: No external python3 evaluator registered."];
+	Print["see: \" https://reference.wolfram.com/language/workflow/ConfigurePythonForExternalEvaluate.html \""];
+	Abort[]
+];
+pyTest=ExternalEvaluate[session,"import sys"];
+If[pyTest!=Null,
+	Print["Error in ExternalEvaluate[session,\"import sys\"]"];
+	Print["possible cause: Usage of python 3.8"];
+	Print["possible fix: \n Change \" yourPathTo/WolframClientForPython/wolframclient/utils/externalevaluate.py \""];
+	Print["66c66
+		<         exec(compile(ast.Module(expressions, []), '', 'exec'), current)
+		---
+		>         exec(compile(ast.Module(expressions), '', 'exec'), current)
+	"];
+	Abort[]
+];
+ExternalEvaluate[session,"sys.path.append('"<>$fileDirectory<>"')"];
+ExternalEvaluate[session,"import compute_cut_structure as cct"];
+
+If[ContainsAny[KeyExistsQ[#,"loopLines"]&/@(Flatten@{graphs}),{False}],
+	myGraphs=getLoopLines[graphs],
+	myGraphs=graphs
+];
+result=Table[
+	ll=gg[["loopLines"]][[All,1]];
+	ExternalEvaluate[session,"loop_line_signatures = "<>ExportString[ll,"PythonExpression"]];
+	ExternalEvaluate[session,"cut_structure_generator = cct.CutStructureGenerator(loop_line_signatures)"];
+	If[KeyExistsQ[gg,"contourClosure"],
+		ExternalEvaluate[session,"contour_closure = "<>StringReplace[ExportString[(gg[["contourClosure"]]/. "Above"->"cct.CLOSE_ABOVE"/. "Below"->"cct.CLOSE_BELOW"),"PythonExpression"],"\""->"" ]],
+		ExternalEvaluate[session,"contour_closure = "<>StringReplace[ExportString[ConstantArray["cct.CLOSE_ABOVE",Length@ll[[1]]],"PythonExpression"],"\""->"" ]];
+	];
+	ctStruc=ImportString[ExternalEvaluate[session,"cut_structure_generator(contour_closure)"],"PythonExpression"];
+	Append[gg,"cutStructure"->ctStruc]
+,{gg,Flatten@{myGraphs}}];
+Clear[session];
+If[Length@result==1,
+	result=result[[1]]
+];
+result
+]
+
+
+ClearAll[writeMinimalJSON]
+Protect[processName,exportDirectory];
+Options[writeMinimalJSON]={processName->"",exportDirectory->"./"}
+writeMinimalJSON[graphs_,numAssociation_Association,opts:OptionsPattern[]]:=Block[{mygraphs=graphs,inMom,outMom,extAsso,cutAsso,llAsso,lnAsso,nameAsso,diagCount=0,procName,exportDir,pLong},
+procName=OptionValue[processName];
+exportDir=OptionValue[exportDirectory];
+If[ContainsAny[KeyExistsQ[#,"loopLines"]&/@(Flatten@{graphs}),{False}]||ContainsAny[KeyExistsQ[#,"cutStructure"]&/@(Flatten@{graphs}),{False}],
+	mygraphs=Flatten@{getCutStructure[graphs]},
+	mygraphs=Flatten@{graphs}
+];
+(* loop over graphs *)
+Table[
+	diagCount+=1;
+	(* check input *)
+	inMom=Cases[mygraph[["momentumMap"]],_in,Infinity]//Union;
+	outMom=Cases[mygraph[["momentumMap"]],_out,Infinity]//Union;
+	(* check if stuff is numeric *)
+	If[MemberQ[NumericQ/@(Flatten@(inMom /. in[x_]:>x /. numAssociation)),False],
+		Print["Error: association is missing numeric value for incoming momenta"];
+		Abort[];
+	];
+	If[MemberQ[NumericQ/@(Flatten@(outMom/. out[x_]:>-x /. numAssociation)),False],
+		Print["Error: association is missing numeric value for outgoing momenta"];
+		Abort[];
+	];
+(* check momentum conservation *)
+	If[Abs@(Total@((Total@inMom-Total@outMom) /. f_[x_]:>x /. numAssociation))/Abs@(Total@((Total@inMom+Total@outMom+10^-16) /. f_[x_]:>x /. numAssociation))>10^-10,
+		Print["Error: rel. error of momentum conservation is worse than 10^(-10)"];
+		Abort[]
+	];
+(* check mass replacements *)
+	If[MemberQ[NumericQ/@(Flatten@(mygraph[["loopLines"]]/.numAssociation)),False],
+		Print["No numerical assignement for :"<>ToString[(Flatten@(mygraph[["loopLines"]]/.numAssociation))/;x_/;NumericQ[x]:>Nothing//Union]];
+	];
+(* replacement for yaml *)
+	extAsso=<|"external_kinematics"->Join[inMom,outMom]/. in[x_]:>x /. out[x_]:>-x/.numAssociation|>;
+	cutAsso=<|"ltd_cut_structure"->mygraph[["cutStructure"]]|>;
+	llAsso=
+		<|"looplines"->Table[
+			{<|"end_note"->69|>,
+			<|"propagators"->Flatten@Table[
+				If[Length@l[[-2,p]]==1,pLong= ConstantArray[l[[-2,p]],4],pLong=l[[-2,p]]];
+				{<|"m_squared"->l[[-1,p]]|>,
+				<|"q"->pLong|>
+				}
+				,{p,Length@l[[2]]}]|>
+			,<|"signature"->l[[1]]|>
+			,<|"start_note"->70|>
+			},{l,(mygraph[["loopLines"]]/. mass[x_]:>mass[x]^2/.numAssociation /. x_/;NumericQ[x]:>ImportString[ExportString[x,"Real64"],"Real64"])}]|>;
+	lnAsso=Map[Evaluate,<|"n_loops"->Length@mygraph[["loopMomenta"]]|>];
+	If[KeyExistsQ[mygraph,"name"],
+		nameAsso=<|"name"->mygraph[["name"]]|>,
+		nameAsso=<|"name"->procName<>"diag_"<>ToString[diagCount]|>
+	];
+	If[DirectoryQ[exportDir],
+		Export[exportDir<>nameAsso[["name"]]<>".json",{extAsso,llAsso,cutAsso,lnAsso,nameAsso},"JSON"],
+		Print["Couldn't find exportDirectory. Export to standard location."];
+		Export["./"<>nameAsso[["name"]]<>".json",{extAsso,llAsso,cutAsso,lnAsso,nameAsso},"JSON"]
+	];
+	,{mygraph,mygraphs}];
+Return[0]
+]
