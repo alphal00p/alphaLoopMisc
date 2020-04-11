@@ -472,6 +472,80 @@ In this section, we carry out the computing of the quantities $\Delta \mathcal{\
 We should of course not forget however that we can always decide to add the integrated contribution of $\Delta \mathcal{\bar{F}}^{L/R}_{i_1i_2}$ through an additional form-factor of the lower-order super graph.
 }}
 
+\section{LSZ}
+
+The $LTD^2$ formalism should be matched with the common way of calculating scattering amplitudes between asymptotic states. The most used framework is currently the LSZ formalism, which establishes that the contribution of self-energy corrections of external particles on the scattering amplitude only amount to a constant. For a scattering of an even number of fermions, the LSZ formula reads
+\begin{equation}
+\langle S \rangle(p_1,...,p_n; \ p_{n+1},...,p_{n+m})=\lim_{p_1^0\rightarrow E_1}...\lim_{p_{m+n}^0\rightarrow E_{m+n}} Z_\psi^{\frac{n+m}{2}}\Bigg(\prod_{i=1}^{n+m}\frac{1}{Z_\psi}\frac{\slashed{p}_i -m_\text{p}}{\slashed{p}_i -m_0-\Sigma(p)}\Bigg)\Gamma_{\text{amp}},
+\end{equation}
+where $\Gamma_{\text{amp}}$ is the amputated $m+n$ point function, $m_0$ and $m_\text{p}$ are the bare and physical mass respectively, $Z_\psi$ the field renormalization factor.
+If the onshell scheme is carried out for the renormalization of the external self-energy corrections, then the formula simplifies considerably and one obtains
+\begin{equation}\label{lsz2}
+\langle S \rangle(p_1,...,p_n; \ p_{n+1},...,p_{n+m})=Z_\psi^{\frac{n+m}{2}}\Gamma_{\text{amp}}\big|_{p_i^2=m^2}.
+\end{equation}
+Unfortunately, it is impossible for us to carry out the program as laid out by this simple equation: indeed, the self-energy corrections have IR divergences which need to locally cancel with their real counter-parts in order for the integrand to be fully locally finite. Extracting the IR divergent part while, at the same time, ensuring matching with the LSZ formula, is of vital importance in order to obtain the correct result. 
+
+Recall that after renormalization, the fermion propagator has the form   
+\begin{equation}
+\frac{1}{Z_\psi}\frac{1}{\slashed p -m_0-\Sigma(p)}=\frac{1}{\slashed p -m_\text{r}-\Sigma_R(p)},
+\end{equation}
+with
+\begin{equation}
+\Sigma_R(p)=\Sigma(p)+m_\text{r} \delta Z_m - (\slashed p - m_\text{r})\delta Z_\psi,
+\end{equation}
+and $m_0=Z_m m_\text{r}$, $Z_m=1+\delta Z_m$ and $Z_\psi=1+\delta Z_\psi$. An easy way to reproduce \eqref{lsz2} is to impose the onshell scheme, in which $m_\text{r}=m_\text{p}$ and $\Sigma_R(p)=0$. As already mentioned, we cannot impose these conditions right away, since $\Sigma_R(p)$ still contains an IR divergence, which should locally be cancelled with a real emission singularity. However, we can start by imposing the renormalized mass to be the same as the physical mass; this is equivalent to requiring that
+\begin{equation}\label{onshell1}
+\Sigma_R(p^2=m_\text{p}^2)=0.
+\end{equation}
+This condition fixes the value of $\delta Z_m$. Having done this, the Dyson sum can be unfolded again
+\begin{equation}
+\frac{1}{\slashed p -m_\text{r}-\Sigma_R(p)}=\frac{1}{\slashed p -m_\text{p}}\Bigg(1+\sum_n \Bigg(\frac{\Sigma_R(p)}{\slashed p -m_\text{p}}\Bigg)^n\Bigg).
+\end{equation}
+
+It is now necessary to extract the IR-divergent part of the 1PI. First, out of self-consistency, one should expect the IR divergent part to not be contained in $\Sigma_R(p^2=m_\text{p}^2)$, since it was already set to vanish. Indeed, this is the case. Using the definition of finite part, which extracts any finite element of an integral carried out in dimensional regularization a part from the $\epsilon_{\text{uv}}$ or $\epsilon_{\text{ir}}$ poles, it is possible to define a finite 1PI
+\begin{equation}
+\tilde\Sigma_R(p)=\text{finite}(\Sigma_R(p)),
+\end{equation} 
+which allows to write
+\begin{align}
+\frac{1}{\slashed p -m_\text{r}-\Sigma_R(p)}=\frac{1}{\slashed p -m_\text{p}}\Bigg(1+\sum_n \Bigg(\frac{\tilde\Sigma_R(p)}{\slashed p -m_\text{p}}\Bigg)^n\Bigg)+S_{\text{ir}}, \\
+S_{\text{ir}}=\frac{1}{\slashed p -m_\text{p}}\sum_n \Bigg[\Bigg(\frac{\Sigma_R(p)}{\slashed p -m_\text{p}}\Bigg)^n-\Bigg(\frac{\tilde\Sigma_R(p)}{\slashed p -m_\text{p}}\Bigg)^n\Bigg].
+\end{align}
+$S_{\text{ir}}$ contains the infrared pole part which is to be cancelled with the real counterpart. Thus, it can be simply ignored with respect to the matching with the LSZ formula. In particular, it will cancel even before the onshell limit is taken (one can imagine to express it in terms of a parameter gauging how close we are to being on shell, and a parameter being the dimensional regulator). The comparison of what remains with \eqref{lsz2} then yields
+\begin{equation}
+\lim_{p^0\rightarrow E_p}\frac{\tilde\Sigma_R(p)}{\slashed p -m_\text{p}}=0.
+\end{equation} 
+Expanding up to first order in the vanishing onshell parameter
+\begin{equation}
+\frac{\tilde\Sigma_R(p)}{\slashed p -m_\text{p}}=\frac{\tilde\Sigma_R(p^2=m_\text{p}^2)}{\slashed p -m_\text{p}}+\frac{\slashed p +m_\text{p}}{p^0+E_p}\frac{d\tilde\Sigma_R}{dp^0}+o(p^0-E_p).
+\end{equation} 
+and thus we re-obtain the onshell renormalization conditions
+\begin{align}\label{onshell2}
+\tilde\Sigma_R(p^2=m_\text{p}^2)=0 \\ \label{onshell3}
+\frac{d\tilde\Sigma_R}{dp^0}=0.
+\end{align}
+The first observation is that the procedure of extracting IR divergences is consistent, since $\tilde\Sigma_R(p^2=m_\text{p}^2)=\Sigma_R(p^2=m_\text{p}^2)$ and thus \eqref{onshell1} is equivalent to \eqref{onshell2}. In order to reproduce \eqref{onshell3}, instead, one can write
+\begin{equation}
+\frac{d\Sigma_R}{dp^0}=\Bigg(\frac{d\Sigma_R}{dp^0}-\frac{d\tilde\Sigma_R}{dp^0}\Bigg)+\frac{d\tilde\Sigma_R}{dp^0}
+\end{equation}
+which is ultimately the object of interest, and that which we will express locally in order to preserve local IR cancellations, and then satisfy the onshell condition by writing
+\begin{equation}\label{cond}
+\frac{d\Sigma_R}{dp^0}=\Bigg[\frac{d\Sigma}{dp^0}-\text{CT}_\text{uv}\Bigg[\frac{d\Sigma}{dp^0}\Bigg]\Bigg]_{d=4}-\Bigg[\text{finite}\Bigg(\frac{d\Sigma}{dp^0}\Bigg)-\text{finite}\Bigg(\text{CT}_\text{uv}\Bigg[\frac{d\Sigma}{dp^0}\Bigg]\Bigg)\Bigg]_d.
+\end{equation}
+Indeed, the renormalization condition is satisfied, since
+\begin{equation}
+\frac{d\tilde\Sigma_R}{dp^0}=\text{finite}\Bigg(\frac{d\Sigma_R}{dp^0}\Bigg)=0.\end{equation}
+In practice, how is this formula embedded in the $LTD^2$ formalism? The first part of \eqref{cond},
+\begin{equation}
+\Bigg[\frac{d\Sigma_R}{dp^0}\Bigg]_{\substack{\text{numerically}\\ \text{computed}}}=\Bigg[\frac{d\Sigma}{dp^0}-\text{CT}_\text{uv}\Bigg[\frac{d\Sigma}{dp^0}\Bigg]\Bigg]_{d=4}
+\end{equation}
+ can be evaluated numerically, since it will be UV finite and it's IR divergence will locally cancel with the real counterpart. Then, one will need to add back the finite part, which will make the overall contribution of the bubble exactly equal to what's strictly needed to cancel the IR divergences, that is
+  \begin{equation}
+\Bigg[\frac{d\Sigma_R}{dp^0}\Bigg]_{\substack{\text{analitically}\\ \text{computed}}}=-\Bigg[\text{finite}\Bigg(\frac{d\Sigma}{dp^0}\Bigg)-\text{finite}\Bigg(\text{CT}_\text{uv}\Bigg[\frac{d\Sigma}{dp^0}\Bigg]\Bigg)\Bigg]_d.
+\end{equation}
+
+
+
 \bibliographystyle{JHEP}
 \bibliography{biblio}
 
