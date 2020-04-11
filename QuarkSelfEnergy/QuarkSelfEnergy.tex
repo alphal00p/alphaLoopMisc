@@ -473,6 +473,7 @@ We should of course not forget however that we can always decide to add the inte
 }}
 
 \section{LSZ}
+\label{sec:LSZ}
 
 The $LTD^2$ formalism should be matched with the common way of calculating scattering amplitudes between asymptotic states. The most used framework is currently the LSZ formalism, which establishes that the contribution of self-energy corrections of external particles on the scattering amplitude only amount to a constant. For a scattering of an even number of fermions, the LSZ formula reads
 \begin{equation}
@@ -491,6 +492,7 @@ Recall that after renormalization, the fermion propagator has the form
 \end{equation}
 with
 \begin{equation}
+\label{eq:definingRenormSigma}
 \Sigma_R(p)=\Sigma(p)+m_\text{r} \delta Z_m - (\slashed p - m_\text{r})\delta Z_\psi,
 \end{equation}
 and $m_0=Z_m m_\text{r}$, $Z_m=1+\delta Z_m$ and $Z_\psi=1+\delta Z_\psi$. An easy way to reproduce \eqref{lsz2} is to impose the onshell scheme, in which $m_\text{r}=m_\text{p}$ and $\Sigma_R(p)=0$. As already mentioned, we cannot impose these conditions right away, since $\Sigma_R(p)$ still contains an IR divergence, which should locally be cancelled with a real emission singularity. However, we can start by imposing the renormalized mass to be the same as the physical mass; this is equivalent to requiring that
@@ -543,12 +545,43 @@ In practice, how is this formula embedded in the $LTD^2$ formalism? The first pa
   \begin{equation}
 \Bigg[\frac{d\Sigma_R}{dp^0}\Bigg]_{\substack{\text{analitically}\\ \text{computed}}}=-\Bigg[\text{finite}\Bigg(\frac{d\Sigma}{dp^0}\Bigg)-\text{finite}\Bigg(\text{CT}_\text{uv}\Bigg[\frac{d\Sigma}{dp^0}\Bigg]\Bigg)\Bigg]_d.
 \end{equation}
+
 The fixed renormalization constants are
 \begin{align}
 m_\text{p} \delta Z_m=\Sigma(p^2=m_\text{p}^2) \\
 \delta Z_\psi =\frac{\slashed p + m_\text{p}}{p^0+E_p}\Bigg[\frac{d\Sigma}{dp^0}-\frac{d\Sigma_R}{dp^0}\Bigg]
 \end{align}
 
+
+\section{Explicit expression of $\Delta \textrm{UV}$}
+\label{sec:explicitUV}
+
+We can now start from~\eqref{eq:definingRenormSigma} and insert zero as follows as well as a correction factor $\Delta \textrm{UV}_m + (p^0-\sqrt{|\vec{p}|+m^2})\Delta \textrm{UV}_2$ which will need to be adjusted in order to reproduce the desired renormalisation conditions which induced the renormalisation counterterms $\delta Z_m$ and $\delta Z_\psi$:
+\begin{eqnarray}
+\Sigma_R(p)&=&\Sigma(p)+m_\text{r} \delta Z_m - (\slashed p - m_\text{r})\delta Z_\psi +  {\Bigg [ } \label{eq:UVCTdefa}\\
+&&
+-\underbrace{\left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4} \right)}_{\textrm{Will be combined with $\Sigma(p)$}} 
++ \underbrace{\left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon} \right)}_{\textrm{Complete d-dimensional integral of UVCT}}
+ \label{eq:UVCTdefb}\\
+&&- 
+\underbrace{\left [ 
+\int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon} -  \left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4} \right) \label{eq:UVCTdefc} 
+\right ]}_{\textrm{R-terms}} \\
+&{\Bigg ] }&+\Delta \textrm{UV}_m + (p^0-\sqrt{|\vec{p}|+m^2})\Delta \textrm{UV}_\psi\nonumber 
+\end{eqnarray}
+Then, writing $\Sigma_{\textrm{LTD}}\equiv \Sigma(p)-\left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k){\Big |}_{d=4} \right)$ and simply imposing Eqs.~\eqref{onshell2} yields the defining expressions for our terms $\Delta \textrm{UV}_m$ and $\Delta \textrm{UV}_\psi$ ( e already took $m_p=m_r\equiv m$):
+\begin{eqnarray}
+\Sigma_R(p^2=m_\text{p}^2) = 0 &=&
+\Sigma_\textrm{LTD}(m_\text{p}^2)+m_\text{r} \delta Z_m
++ \left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p^2=m^2){\Big |}_{d=4-2\epsilon} \right) \nonumber\\
+&-&\textrm{R-terms}(p^2=m^2) + \Delta \textrm{UV}_m \\
+\Delta\textrm{UV}_\psi &=&\textrm{TODO} 
+\end{eqnarray}
+And when using $\Sigma_\textrm{LTD}(m_\text{p}^2)=0$ we find:
+\begin{eqnarray}
+\Delta \textrm{UV}_m &=& \textrm{R-terms}(p^2=m^2)  -m_\text{r} \delta Z_m -  \left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p^2=m^2){\Big |}_{d=4-2\epsilon} \right) \\ 
+\Delta\textrm{UV}_\psi &=& \textrm{TODO} 
+\end{eqnarray}
 
 \bibliographystyle{JHEP}
 \bibliography{biblio}
