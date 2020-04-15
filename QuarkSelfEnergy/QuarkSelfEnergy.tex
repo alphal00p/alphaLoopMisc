@@ -553,12 +553,12 @@ m_\text{p} \delta Z_m=\Sigma(p^2=m_\text{p}^2) \\
 \end{align}
 
 
-\section{Explicit expression of $\Delta \textrm{UV}$}
-\label{sec:explicitUV}
+\section{Formal expression of the matching terms $\Delta \textrm{UV}_{m,\psi}$}
+\label{sec:formalDeltaUV}
 
 We can now start from~\eqref{eq:definingRenormSigma} and insert zero as follows as well as a correction factor $\Delta \textrm{UV}_m + (p^0-\sqrt{|\vec{p}|+m^2})\Delta \textrm{UV}_2$ which will need to be adjusted in order to reproduce the desired renormalisation conditions which induced the renormalisation counterterms $\delta Z_m$ and $\delta Z_\psi$:
 \begin{eqnarray}
-\Sigma_R(p)&=&\Sigma(p)+m_\text{r} \delta Z_m - (\slashed p - m_\text{r})\delta Z_\psi +  {\Bigg [ } \label{eq:UVCTdefa}\\
+\Sigma_R(p)&=&\Sigma(p)-m_\text{r} \delta Z_m - (\slashed p - m_\text{r})\delta Z_\psi +  {\Bigg [ } \label{eq:UVCTdefa}\\
 &&
 -\underbrace{\left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4} \right)}_{\textrm{Will be combined with $\Sigma(p)$}} 
 + \underbrace{\left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon} \right)}_{\textrm{Complete d-dimensional integral of UVCT}}
@@ -567,21 +567,69 @@ We can now start from~\eqref{eq:definingRenormSigma} and insert zero as follows 
 \underbrace{\left [ 
 \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon} -  \left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4} \right) \label{eq:UVCTdefc} 
 \right ]}_{\textrm{R-terms}} \\
-&{\Bigg ] }&+\Delta \textrm{UV}_m + (p^0-\sqrt{|\vec{p}|+m^2})\Delta \textrm{UV}_\psi\nonumber 
+&{\Bigg ] }&
 \end{eqnarray}
-Then, writing $\Sigma_{\textrm{LTD}}\equiv \Sigma(p)-\left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k){\Big |}_{d=4} \right)$ and simply imposing Eqs.~\eqref{onshell2} yields the defining expressions for our terms $\Delta \textrm{UV}_m$ and $\Delta \textrm{UV}_\psi$ ( e already took $m_p=m_r\equiv m$):
+Then, writing $\Sigma_{\textrm{UV-subtracted}}\equiv \Sigma(p)-\left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k){\Big |}_{d=4} \right)$ and collectively denoting rational terms as R-terms, we have:
 \begin{eqnarray}
-\Sigma_R(p^2=m_\text{p}^2) = 0 &=&
-\Sigma_\textrm{LTD}(m_\text{p}^2)+m_\text{r} \delta Z_m
-+ \left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p^2=m^2){\Big |}_{d=4-2\epsilon} \right) \nonumber\\
-&-&\textrm{R-terms}(p^2=m^2) + \Delta \textrm{UV}_m \\
-\Delta\textrm{UV}_\psi &=&\textrm{TODO} 
+\Sigma_R(p)&=&\Sigma_{\textrm{UV-subtracted}}(p)+m_\text{r} \delta Z_m - (\slashed p - m_\text{r})\delta Z_\psi -\textrm{R-terms} \nonumber\\
+&&
++ \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon} 
+ \label{eq:SigmaRenormalaLTD}
 \end{eqnarray}
-And when using $\Sigma_\textrm{LTD}(m_\text{p}^2)=0$ we find:
+The quantity we are including in our numerical computation reads as follows:
+\begin{equation}
+\Sigma^{(\textrm{LTD})}(p) = \left( 
+\underbrace{\Sigma^{(\textrm{LTD})}_{m} (p)}_{
+\equiv 0
+}
++ \Delta \textrm{UV}_m \right) 
++ (p^0-\sqrt{|\vec{p}|+m^2}) {\Big(}
+\underbrace{
+\Sigma^{(\textrm{LTD})}_{\psi} (p)
+}_{
+\frac{\partial}{\partial p^0} \Sigma_{\textrm{UV-subtracted}}(p)
+}
++ \Delta \textrm{UV}_\psi {\Big)}.
+\end{equation}
+We now want to determine the expressions of $\Delta \textrm{UV}_m$ and $\Delta \textrm{UV}_\psi$ that reproduce the OS renormalisation conditions given our particular choices for $\Sigma^{(\textrm{LTD})}_{m} (p)$ and $\Sigma^{(\textrm{LTD})}_{\psi} (p)$.
+We do so by imposing $\Sigma_R(p)=\Sigma^{(\textrm{LTD})}(p)$ on both on-shell conditions listed in Eqs.~\eqref{onshell2}. For the $\Delta \textrm{UV}_m$ correction factor, we recall that we choose $ \Sigma^{(\textrm{LTD})}_{m} (p) \equiv 0$, so that in particular $\Sigma^{(\textrm{LTD})}_{m} (p^2=m_p^2)=0 $, and we immediately find:
 \begin{eqnarray}
-\Delta \textrm{UV}_m &=& \textrm{R-terms}(p^2=m^2)  -m_\text{r} \delta Z_m -  \left( \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p^2=m^2){\Big |}_{d=4-2\epsilon} \right) \\ 
-\Delta\textrm{UV}_\psi &=& \textrm{TODO} 
+&&\Sigma_R(p^2=m_p^2) = 0 = \Sigma^{(\textrm{LTD})}(m_p^2)  = \underbrace{\Sigma^{(\textrm{LTD})}_{m} (m_p^2)}_{=0} + \Delta \textrm{UV}_m \nonumber \\
+&\rightarrow& \Delta \textrm{UV}_m = 0.
 \end{eqnarray}
+Now $\Delta\textrm{UV}_\psi$ is then obtained by looking at the OS renormalisation condition on the derivative of the renormalised self-energy:
+\begin{eqnarray}
+\frac{\partial}{\partial p^0} \Sigma_R \Big|_{p^2=m_p^2} = 0 &=& 
+\frac{\partial}{\partial p^0} \Sigma_{\textrm{UV-subtracted}}(p) {\Big|}_{p^2=m_p^2}
+- \gamma^0 \delta Z_\psi  \nonumber\\
+&&
++ \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon, p^2=m_p^2 }  -\textrm{R-terms}|_{p^2=m_p^2}  \nonumber \\
+\frac{\partial}{\partial p^0} \Sigma^{(\textrm{LTD})}(p) {\Big|}_{p^2=m_p^2} &=& 
+\Sigma^{(\textrm{LTD})}_{\psi} (p) {\Big|}_{p^2=m_p^2} + \Delta \textrm{UV}_\psi  \nonumber \\
+&=& \frac{\partial}{\partial p^0} \Sigma_{\textrm{UV-subtracted}}(p){\Big|}_{p^2=m_p^2} + \Delta \textrm{UV}_\psi,
+\end{eqnarray}
+and imposing $\frac{\partial}{\partial p^0} \Sigma^{(\textrm{LTD})}(p) {\Big|}_{p^2=m_p^2} = \frac{\partial}{\partial p^0} \Sigma_R \Big|_{p^2=m_p^2}  = 0$ then yields the expression for $\Delta UV_\psi$:
+\begin{eqnarray}
+&& \frac{\partial}{\partial p^0} \Sigma_{\textrm{UV-subtracted}}(p){\Big|}_{p^2=m_p^2} + \Delta \textrm{UV}_\psi =
+\frac{\partial}{\partial p^0} \Sigma_{\textrm{UV-subtracted}}(p) {\Big|}_{p^2=m_p^2}
+- \gamma^0 \delta Z_\psi  \nonumber\\
+&&
++ \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon, p^2=m_p^2 }  -\textrm{R-terms}|_{p^2=m_p^2}  \nonumber \\
+&\rightarrow& \Delta \textrm{UV}_\psi = -\textrm{R-terms}|_{p^2=m_p^2}  + \left[
+\frac{\partial}{\partial p^0} \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon, p^2=m_p^2 }
+- \gamma^0 \delta Z_\psi
+\right ] \nonumber \\
+\label{eq:DeltaUVpsidef}
+\end{eqnarray}
+Notice that the expression in squared brackets is finite only if one considers poles of \emph{UV origin only} in $\delta Z_\psi$. This is typically not the case as the "UV-finite" part of $\delta Z_\psi$ contains IR poles which would then appear in $ \Delta \textrm{UV}_\psi $.
+We are however free to ignore these poles.
+To understand why, one can perform the thought experiment of thinking about local IR counterterms to regularise the remaining IR divergences in $\Sigma_{\textrm{UV-subtracted}}(p)$.
+These would allow us to really integrate the self-energy separately from the real-emission contributions which we left out of the present discussion.
+However, these local IR counterterms would also need to be analytically integrated in dimensional regularisation and added back as an additional term $\left [ \textrm{CT}_{\textrm{IR}} \right ]_{d=4-2\epsilon}$ in the expression of $ \Delta \textrm{UV}_\psi $ in~\eqref{eq:DeltaUVpsidef}.
+There are many possible choices for the functional form of the local counterterm $\textrm{CT}_{\textrm{IR}}$ (i.e. it must only reproduce the original integrand in the IR limits, but can have arbitrary additional non-diverging contributions in that limit), but the only forms that \emph{directly} match our formalism of local cancellation of IR divergences between real-emission and virtual contributions realised in LTD$^2$ are the ones for which the integrated counterpart $\left [ \textrm{CT}_{\textrm{IR}} \right ]_{d=4-2\epsilon}$ has only IR poles and \emph{no finite part}, thus justifying how its inclusion simply amounts to ignoring the pole of IR origin in $\delta Z_\psi$.
+
+\section{Explicit one-loop expression of the one-loop matching terms $\Delta \textrm{UV}_{\psi}$ for a massless fermion}
+\label{sec::explicitDeltaUV}
 
 \bibliographystyle{JHEP}
 \bibliography{biblio}
