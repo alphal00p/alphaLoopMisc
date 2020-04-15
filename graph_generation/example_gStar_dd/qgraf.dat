@@ -5,9 +5,9 @@ style = '../orientedGraph.sty';
 
 model = './QcdHTop.mod';
 
-in = phot[p1];
+in = eminus[p1], eplus[p2];
 
-out = phot[p1];
+out = eminus[p1], eplus[p2];
 
 loops = 2;
 
@@ -15,6 +15,6 @@ loop_momentum = k;
 
 options = onshell, notadpole, nosnail;
 
-true=iprop[higgs,0,0];
+true=iprop[photon,2,2];
 
 

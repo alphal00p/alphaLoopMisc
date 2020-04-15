@@ -11,14 +11,14 @@
 <back><out_loop>v[[<vertex_index>]]
 <back>->>out[[<out_index>]],
 <back><end>
-<back><propagator_loop>v[[<vertex_index>]]
-<back>->>v[[<dual-vertex_index>]],
+<back><propagator_loop>v[[<dual-vertex_index>]]
+<back>->>v[[<vertex_index>]],
 <back><end>
 <back><back>},
 <back>"particleType"->>{
-<back><in_loop>in[[<field>]],
+<back><in_loop>in[[<field>[[<momentum>]]]],
 <back><end>
-<back><out_loop>out[[<field>]],
+<back><out_loop>out[[<field>[[<momentum>]]]],
 <back><end>
 <back><propagator_loop><field>,
 <back><end>
@@ -30,7 +30,18 @@
 <back><end>
 <back><propagator_loop><momentum>,
 <back><end>
-<back><back>}
+<back><back>},
+<back>"numerator"->>
+<back><sign><symmetry_factor>*
+<in_loop> in[[<field>[[<momentum>,<field_index>]] ]]*
+<end><out_loop> out[[ <field>[[<momentum>,<field_index>]] ]]*
+<end><propagator_loop>
+<back>prop[[<field>[[<momentum>,{<field_index>,<dual-field_index>}]] ]]*
+<end><back>
+<vertex_loop> v [[ <ray_loop>
+<back><field>[[<momentum>,<field_index> ]],
+<back><end><back>]]*
+<end><back><back>
 <back>|>>
 
 <epilogue>

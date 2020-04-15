@@ -9,7 +9,7 @@ in = phi[p1], phi[p2];
 
 out = phi[p3],phi[p4];
 
-loops = 2;
+loops = 1;
 
 loop_momentum = k;
 

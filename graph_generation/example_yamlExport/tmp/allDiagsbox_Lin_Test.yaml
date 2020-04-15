@@ -1,0 +1,72 @@
+- external_kinematics:
+  - - 14.0
+    - -6.6
+    - -40.0
+    - 0
+  - - 57.0
+    - 44.6
+    - -3.0
+    - 0
+  - - -43.0
+    - 12.0
+    - 33.0
+    - 0
+  - - -28.0
+    - -50.0
+    - 10.0
+    - 0
+  loop_lines:
+  - end_node: 69
+    propagators:
+    - m_squared: 0
+      name: prop5
+      power: 1
+      q:
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+    - m_squared: 0
+      name: prop6
+      power: 1
+      q:
+      - -14.0
+      - 6.6
+      - 40.0
+      - 0.0
+    - m_squared: 0
+      name: prop7
+      power: 1
+      q:
+      - 57.0
+      - 44.6
+      - -3.0
+      - 0.0
+    - m_squared: 0
+      name: prop8
+      power: 1
+      q:
+      - 14.0
+      - 56.6
+      - 30.0
+      - 0.0
+    signature:
+    - 1
+    start_node: 70
+  ltd_cut_structure:
+  - - -1
+  maximum_ratio_expansion_threshold: -1
+  n_loops: 1
+  name: box_Lin_Testdiag_1
+  numerator_tensor_coefficients:
+  - - 0.0
+    - 0.0
+  - - 14.0
+    - 0.0
+  - - 6.6
+    - 0.0
+  - - 40.0
+    - 0.0
+  - - 0.0
+    - 0.0
+
