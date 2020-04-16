@@ -603,7 +603,7 @@ Now $\Delta\textrm{UV}_\psi$ is then obtained by looking at the OS renormalisati
 \frac{\partial}{\partial p^0} \Sigma_{\textrm{UV-subtracted}}(p) {\Big|}_{p^2=m_p^2}
 - \gamma^0 \delta Z_\psi  \nonumber\\
 &&
-+ \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon, p^2=m_p^2 }  -\textrm{R-terms}|_{p^2=m_p^2}  \nonumber \\
++ \frac{\partial}{\partial p^0}\int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon, p^2=m_p^2 }  -\frac{\partial}{\partial p^0}\textrm{R-terms}|_{p^2=m_p^2}  \nonumber \\
 \frac{\partial}{\partial p^0} \Sigma^{(\textrm{LTD})}(p) {\Big|}_{p^2=m_p^2} &=& 
 \Sigma^{(\textrm{LTD})}_{\psi} (p) {\Big|}_{p^2=m_p^2} + \Delta \textrm{UV}_\psi  \nonumber \\
 &=& \frac{\partial}{\partial p^0} \Sigma_{\textrm{UV-subtracted}}(p){\Big|}_{p^2=m_p^2} + \Delta \textrm{UV}_\psi,
@@ -614,8 +614,8 @@ and imposing $\frac{\partial}{\partial p^0} \Sigma^{(\textrm{LTD})}(p) {\Big|}_{
 \frac{\partial}{\partial p^0} \Sigma_{\textrm{UV-subtracted}}(p) {\Big|}_{p^2=m_p^2}
 - \gamma^0 \delta Z_\psi  \nonumber\\
 &&
-+ \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon, p^2=m_p^2 }  -\textrm{R-terms}|_{p^2=m_p^2}  \nonumber \\
-&\rightarrow& \Delta \textrm{UV}_\psi = -\textrm{R-terms}|_{p^2=m_p^2}  + \left[
++ \frac{\partial}{\partial p^0}\int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon, p^2=m_p^2 }  -\frac{\partial}{\partial p^0}\textrm{R-terms}|_{p^2=m_p^2}  \nonumber \\
+&\rightarrow& \Delta \textrm{UV}_\psi = -\frac{\partial}{\partial p^0}\textrm{R-terms}|_{p^2=m_p^2}  + \left[
 \frac{\partial}{\partial p^0} \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon, p^2=m_p^2 }
 - \gamma^0 \delta Z_\psi
 \right ] \nonumber \\
@@ -642,7 +642,7 @@ We start by writing explicitly $\Sigma(p)$ as:
 \end{equation}
 for which the first derivative in $p^0$ reads:
 \begin{eqnarray}
-\frac{\partial}{\partial k^0} \overline{\Sigma}_{ij}(p)
+\frac{\partial}{\partial p^0} \overline{\Sigma}_{ij}(p)
 &=&\int \frac{d k}{(2\pi)^4} \frac{\partial}{\partial p^0} \frac{\slashed{k}_{x_1 x_2}}{k^2 (k-p)^2} \nonumber \\
 &=& \int \frac{d k}{(2\pi)^4} \frac{ \slashed{k}_{x_1 x_2}(k^0-p^0) }{k^2 \left[(k-p)^2\right]^2}.
 \end{eqnarray}
@@ -655,7 +655,7 @@ where $\eta^\mu=(1,0,0,0)$. We are therefore interested in computing in dimensio
 &&\int \frac{\tilde{d} k}{(2\pi)^4} \textrm{UVCT}(k) = \gamma^\mu \eta^\nu A^{\mu\nu} \nonumber\\ 
 &&A^{\mu\nu} = \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ k^\mu k^\nu }{\left[ k^2+M_\textrm{UV}^2\right]^3}, \label{Adef}
 \end{eqnarray}
-where  $\int \tilde{d}k\; \equiv \left(\frac{\mu^2}{4\pi e^{-\gamma}}\right)^{\epsilon} \int \frac{d^{4-2\epsilon}k}{(2\pi)^{-2\epsilon}} $ (the additional factor $ \left(\frac{1}{4\pi e^{-\gamma}}\right)^{\epsilon} $ is designed so as to automatically reabsorb the terms removed by finite part of the $\overline{\textrm{MS}}$ renormalisation counterterms). 
+where  $\int \tilde{d}k\; \equiv \left(\frac{\mu^2}{4\pi e^{-\gamma}}\right)^{\epsilon} \int \frac{d^{4-2\epsilon}k}{(2\pi)^{-2\epsilon}} $ (the additional factor $ \left(\frac{1}{4\pi e^{-\gamma}}\right)^{\epsilon} $ is designed so as to automatically reabsorb into a redefinition of the renormalisation scale the terms removed by finite part of the $\overline{\textrm{MS}}$ renormalisation counterterms). 
 We can now contract $A^{\mu\nu}$ with its only tensor decomposition allowed by Lorentz invariance, that is: $A^{\mu\nu}=A g^{\mu\nu}$ and $A=\frac{1}{d}g^{\mu\nu}A^{\mu\nu}$.
 The form factor $A$ can then easily be computed as follows:
 \begin{eqnarray}
@@ -665,9 +665,9 @@ A&=&\frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ k^2 }{\left[ k^2+M_\tex
 -M_\textrm{UV}^2 \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ 1 }{\left[ k^2+M_\textrm{UV}^2\right]^3} 
 \right ].
 \end{eqnarray}
-With the help of the following result:
+With the help of the following result (see for instance eq.~(3) of ref.~\cite{Steinhauser:2000ry}):
 \begin{equation}
-\int \frac{\tilde{d} k}{(2\pi)^d} \frac{ k^2 }{\left[ k^2+M^2\right]^a} =\frac{(M^2)^{\frac{d}{2}-a}}{(4\pi)^\frac{d}{2}}\frac{\Gamma(a-\frac{d}{2})}{\Gamma(a)}
+\int \frac{d^d k}{(2\pi)^d} \frac{ k^2 }{\left[ k^2+M^2\right]^a} =\frac{(M^2)^{\frac{d}{2}-a}}{(4\pi)^\frac{d}{2}}\frac{\Gamma(a-\frac{d}{2})}{\Gamma(a)}
 \end{equation}
 we find:
 \begin{eqnarray}
@@ -701,8 +701,8 @@ We will also make use of the following identity:
 \end{equation}
 We are now ready to compute the two rational pieces:
 \begin{eqnarray}
-A_{R_1}&=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \tilde{k}^2 }{\left[ \bar{k}^2+M_\textrm{UV}^2\right]^3} \nonumber \\
-A_{R_2} &=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 Z^3 - k^2 }{\left[ k^2+M_\textrm{UV}^2\right]^3}
+A_{R_2}&=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \tilde{k}^2 }{\left[ \bar{k}^2+M_\textrm{UV}^2\right]^3} \nonumber \\
+A_{R_1} &=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 Z^3 - k^2 }{\left[ k^2+M_\textrm{UV}^2\right]^3}
 = \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \left( -3\frac{\tilde{k}^2}{\bar{D}_i} +\mathcal{O}\left((\tilde{k}^2)^2\right) \right) }{\left[ k^2+M_\textrm{UV}^2\right]^3} \nonumber \\
 &=&  -\frac{3}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \tilde{k}^2 }{\left[ \bar{k}^2+M_\textrm{UV}^2\right]^4} +\mathcal{O}\left((\tilde{k}^2)^2\right).
 \end{eqnarray}
@@ -713,12 +713,12 @@ Then, using the result of the first line of eq.(A.2) and of the third line of eq
 \end{eqnarray}
 we find:
 \begin{eqnarray}
-A_{R_1} &=&-\frac{1}{4}\frac{1}{2}\frac{1}{16 \pi^2} = -\frac{1}{128 \pi^2} \nonumber\\
-A_{R_2} &=& -\frac{3}{4}\frac{1}{3}\frac{1}{16 \pi^2} = -\frac{1}{64 \pi^2}.
+A_{R_2} &=&-\frac{1}{4}\frac{1}{2}\frac{1}{16 \pi^2} = -\frac{1}{128 \pi^2} \nonumber\\
+A_{R_1} &=& -\frac{3}{4}\frac{1}{3}\frac{1}{16 \pi^2} = -\frac{1}{64 \pi^2}.
 \end{eqnarray}
 Recalling the definition of $\Delta \textrm{UV}_\psi$ from~\eqref{eq:DeltaUVpsidef}:
 \begin{equation}
-\Delta \textrm{UV}_\psi = -\textrm{R-terms}|_{p^2=m_p^2}  + \left[
+\Delta \textrm{UV}_\psi = -\frac{\partial}{\partial p^0}\textrm{R-terms}|_{p^2=m_p^2}  + \left[
 \frac{\partial}{\partial p^0} \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon, p^2=m_p^2 }
 - \gamma^0 \delta Z_\psi
 \right ],
@@ -750,7 +750,7 @@ we can recognise the inclusive NLO cross-section in the first parenthesis and th
 \sigma_{\Delta \textrm{UV}_{\psi}} = \left(+\frac{1}{4}\right) \sigma_{\textrm{NLO}}.
 \end{equation}
 Finally we recall that for our current numerical implementation to be correct, we require $\sigma_{\Delta \textrm{UV}_{\psi}}\sim +96$ [pb]. Since we have $\sigma_{\textrm{NLO}}=290.8$ [pb], the above formula gives us $72.7$ [pb].
-The correct result must instead be a pre-factor of $\frac{1}{3}$ which would nicely yield $97$ [pb].
+The correct result must instead be a prefactor of $\frac{1}{3}$ which would nicely yield $97$ [pb].
 
 \bibliographystyle{JHEP}
 \bibliography{biblio}
