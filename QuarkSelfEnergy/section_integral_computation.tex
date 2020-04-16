@@ -1,12 +1,12 @@
 \section{Computation of Tadpoles}
 In the following we denote $\tilde{k}$ as $k_{[\epsilon]}$, $\bar{k}$ as $k_{[D]}$ and $k$ as $k_{[4]}$, to make the dimensional dependence clear. We start by considering the integral 
 \begin{align}
-	I_1=\int \frac{\text{d}^D k_{[D]}}{(2 \pi)^4} \frac{k_{[\epsilon]}^2}{D^n} ,
+	I_1^{n}=\int \frac{\text{d}^D k_{[D]}}{(2 \pi)^4} \frac{k_{[\epsilon]}^2}{D^n} ,
 \end{align}
 where $D=k_{[4]}^2+k_{[\epsilon]}^2+M_{UV}^2$.
 Rewriting this integral yields
 \begin{align}
-	I_1 &=\int \frac{\text{d}^D k_{[D]}}{(2 \pi)^4} \frac{k_{[\epsilon]}}{D^n} \\
+	I_1^{n} &=\int \frac{\text{d}^D k_{[D]}}{(2 \pi)^4} \frac{k_{[\epsilon]}^2}{D^n} \\
 		&=\int \frac{\text{d}^4 k_{[4]}}{(2 \pi)^4} \text{d }^{-2\epsilon} k_{[\epsilon]} \frac{k_{[\epsilon]}^2}{D^n} \\
 		&=\int \frac{\text{d}^4 k_{[4]}}{(2 \pi)^4} \underbrace{\int \text{d}\Omega_{-2\epsilon-1}}_{=:V_{-2\epsilon-1}} \int_{0}^{\infty}  \frac{\text{d} r_{\epsilon}}{2} r^{\frac{-2\epsilon-2}{2}}\frac{r_{\epsilon}}{D^n}
 \end{align}
@@ -16,7 +16,7 @@ with $r_{\epsilon}=k_{[\epsilon]}^2$ and we are allowed to go to spherical coord
 \end{align}
 we see that
 \begin{align}
-	I_1 &=\int \frac{\text{d}^D k_{[D]}}{(2 \pi)^4} \frac{k_{[\epsilon]}}{D^n} \\
+	I_1^{n} &=\int \frac{\text{d}^D k_{[D]}}{(2 \pi)^4} \frac{k_{[\epsilon]}^2}{D^n} \\
 		&= \frac{V_{-2\epsilon-1}}{V_{-2\epsilon+1}}\int \frac{\text{d}^4 k_{[4]}}{(2 \pi)^4} \int \text{d}^{2-2 \epsilon} k_{[\epsilon]} \frac{1}{D^n} \\
 		&=\frac{V_{-2\epsilon-1}}{V_{-2\epsilon+1}}\underbrace{\int \frac{\text{d}^{D+2} k_{[D+2]}}{(2 \pi)^4} \frac{1}{D^n}}_{=:I_n(D+2)}. \label{eq:I1}
 \end{align}
@@ -26,6 +26,12 @@ In particular, that means we can relate it to a higher dimensional tadpole by in
 \end{align}
 The generalization of \eqref{eq:I1} to arbitrary even insertions of $k_{[\epsilon]}^{2l}$ is straight-forward:
 \begin{align}
-	I_l=\frac{V_{-2\epsilon-1}}{V_{-2\epsilon+2l}} I_n(D+2l)
+	I_l^{n}=\frac{V_{-2\epsilon-1}}{V_{-2\epsilon-1+2l}} I_n(D+2l)
 \end{align}
-by iteration and by expressing $k_{[4]}^2=D-k_{[\epsilon]}^2-M_{UV}^2$ every possible integral of that type will evaluate to linear combinations of tadpoles weighted by volumina of the corresponding $n$-balls. Computations of this type and many more algebraic properties of the explicit dimensional splitting are explained in \cite{Gnendiger:2017pys}.
+by iteration. In principle by expressing $k_{[4]}^2=D-k_{[\epsilon]}^2-M_{UV}^2$ every possible integral of that type will evaluate to linear combinations of tadpoles weighted by volumina of the corresponding $n$-balls. However, an easier way of doing it is repeating the above procedure for:
+\begin{align}
+\tilde{I}_l^{n}=\int \frac{\text{d}^D k_{[D]}}{(2 \pi)^4} \frac{k_{[4]}^2l}{D^n} = \frac{V_{4-1}}{V_{4-1+2l}} I_n(D+2),
+\end{align}
+note however, that the means that e.g. $\tilde{I}_{1}^{3}$ is still $1/\epsilon$-divergent, since $I_{3}(6-\epsilon)$ is.
+
+ Computations of this type and many more algebraic properties of the explicit dimensional splitting are explained in \cite{Gnendiger:2017pys}.
