@@ -631,6 +631,127 @@ There are many possible choices for the functional form of the local counterterm
 \section{Explicit one-loop expression of the one-loop matching terms $\Delta \textrm{UV}_{\psi}$ for a massless fermion}
 \label{sec::explicitDeltaUV}
 
+In this section, we give an explicit expression for the quantity $\Delta \textrm{UV}_{\psi}$ of eq.~\eqref{eq:DeltaUVpsidef} for the case of the one-loop self-energy correction of a massless fermion (sitting on the left of the Cutkosky cut):
+We start by writing explicitly $\Sigma(p)$ as:
+\begin{equation}
+\Sigma_{ij}(p) \delta_{i_1 i_2} = (-i g_s) (i) (-i g_s )(-i ) C_F \delta_{i_1 i_2} \gamma_{i x_1}^\mu {\Big(} 
+\underbrace{
+\int \frac{d k}{(2\pi)^4} \frac{\slashed{k}_{x_1 x_2}}{k^2 (k-p)^2}
+}_{\overline{\Sigma}_{x_1 x_2}(p)}
+\Big{)} g^{\mu\nu}\gamma^\nu_{x_2 j}
+\end{equation}
+for which the first derivative in $p^0$ reads:
+\begin{eqnarray}
+\frac{\partial}{\partial k^0} \overline{\Sigma}_{ij}(p)
+&=&\int \frac{d k}{(2\pi)^4} \frac{\partial}{\partial p^0} \frac{\slashed{k}_{x_1 x_2}}{k^2 (k-p)^2} \nonumber \\
+&=& \int \frac{d k}{(2\pi)^4} \frac{ \slashed{k}_{x_1 x_2}(k^0-p^0) }{k^2 \left[(k-p)^2\right]^2}.
+\end{eqnarray}
+We will now build the local UV counterterm by taking the limit $p^0=0$ and $\vec{p}=\vec{0}$ and providing the denominator with a UV mass $M_\textrm{UV}$ in order to screen all IR divergences. We hence obtain:
+\begin{equation}
+\textrm{UVCT}(k,p) \equiv \textrm{UVCT}(k) = \frac{ \slashed{k}_{x_1 x_2} k\cdot\eta }{\left[ k^2+M_\textrm{UV}^2\right]^3},
+\end{equation}
+where $\eta^\mu=(1,0,0,0)$. We are therefore interested in computing in dimensional regulation the following integral:
+\begin{eqnarray}
+&&\int \frac{\tilde{d} k}{(2\pi)^4} \textrm{UVCT}(k) = \gamma^\mu \eta^\nu A^{\mu\nu} \nonumber\\ 
+&&A^{\mu\nu} = \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ k^\mu k^\nu }{\left[ k^2+M_\textrm{UV}^2\right]^3}, \label{Adef}
+\end{eqnarray}
+where  $\int \tilde{d}k\; \equiv \left(\frac{\mu^2}{4\pi e^{-\gamma}}\right)^{\epsilon} \int \frac{d^{4-2\epsilon}k}{(2\pi)^{-2\epsilon}} $ (the additional factor $ \left(\frac{1}{4\pi e^{-\gamma}}\right)^{\epsilon} $ is designed so as to automatically reabsorb the terms removed by finite part of the $\overline{\textrm{MS}}$ renormalisation counterterms). 
+We can now contract $A^{\mu\nu}$ with its only tensor decomposition allowed by Lorentz invariance, that is: $A^{\mu\nu}=A g^{\mu\nu}$ and $A=\frac{1}{d}g^{\mu\nu}A^{\mu\nu}$.
+The form factor $A$ can then easily be computed as follows:
+\begin{eqnarray}
+A&=&\frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ k^2 }{\left[ k^2+M_\textrm{UV}^2\right]^3} \nonumber\\
+&=&\frac{1}{d} \left [ 
+\int\frac{\tilde{d} k}{(2\pi)^4} \frac{ 1 }{\left[ k^2+M_\textrm{UV}^2\right]^2} 
+-M_\textrm{UV}^2 \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ 1 }{\left[ k^2+M_\textrm{UV}^2\right]^3} 
+\right ].
+\end{eqnarray}
+With the help of the following result:
+\begin{equation}
+\int \frac{\tilde{d} k}{(2\pi)^d} \frac{ k^2 }{\left[ k^2+M^2\right]^a} =\frac{(M^2)^{\frac{d}{2}-a}}{(4\pi)^\frac{d}{2}}\frac{\Gamma(a-\frac{d}{2})}{\Gamma(a)}
+\end{equation}
+we find:
+\begin{eqnarray}
+A&=&\frac{1}{4-2\epsilon}\left(\frac{\mu^2}{4\pi e^{-\gamma}}\right)^{\epsilon} \frac{(M_\textrm{UV}^2)^{\frac{4-2\epsilon}{2}-2}}{(4\pi)^\frac{d}{2}} \left [ 
+\frac{\Gamma(2-\frac{4-2\epsilon}{2})}{\Gamma(2)} - \frac{\Gamma(3-\frac{4-2\epsilon}{2})}{\Gamma(3)}
+\right] \nonumber \\
+&=&\frac{1}{4-2\epsilon} \frac{1}{(4\pi)^2}\left(\frac{\mu^2}{M_\textrm{UV}^2 e^{-\gamma}}\right)^{\epsilon}\left [ 
+\frac{\Gamma(\epsilon)}{\Gamma(2)} - \frac{\Gamma(1+\epsilon)}{\Gamma(3)}
+\right] 
+\end{eqnarray}
+which we can expand to order $\mathcal{O}(\epsilon)$ to find:
+\begin{equation}
+A=\frac{1}{64\pi^2}\left[ \frac{1}{\epsilon} + \log{\frac{\mu^2}{M_\textrm{UV}^2}} \right].
+\end{equation}
+This leaves us with the computation of the rational terms which we can obtain by separating the $\epsilon-dimensional$ pieces of both the numerator (yielding $R_1$ and the denominator which yields $R_2$).
+In order to do so we will introduce a new notation based on the decomposition of all Lorentz vectors onto an orthonormal basis with four basis vectors $\hat{e}_i$ and an $(d-4)$-dimensional set of directions $\hat{\tilde{e}}_i$:
+\begin{equation}
+\bar{k} = k_i \hat{e}_i + \tilde{k}_i \hat{\tilde{e}}_i,
+\end{equation}
+where the bar notation serves to denote d-dimensional vectors and tilde $(d-4)$-dimensional ones. 
+The orthonormality of the basis imposes $\hat{e}_i \cdot \hat{\tilde{e}}_j = 0\; \forall i,j$.
+Using this decomposition, we can now also define an equivalent $(d-4)$-dimensional part of numerators and denominators:
+\begin{eqnarray}
+&&\bar{N}(\bar{k})=N(k)+\tilde{N}(\tilde{k}^2,k,\epsilon) \nonumber\\
+&&\bar{D}_i = \bar{q}_i^2+m^2 = q_i^2+\tilde{q}_i^2+m^2 = D_i + \tilde{q}_i^2.
+\end{eqnarray}
+In our particular case we have $\bar{N}(\bar{k})=\bar{k}^2$ and therefore $N(k)=k^2$ and $\tilde{N}(\tilde{k}^2,k,\epsilon)=\tilde{k}^2$.
+We will also make use of the following identity:
+\begin{equation}
+\frac{1}{\bar{D}_i}=\frac{Z_i}{D_i},\textrm{  } Z_i=1-\frac{\tilde{q}_i^2}{\bar{D}_i}
+\end{equation}
+We are now ready to compute the two rational pieces:
+\begin{eqnarray}
+A_{R_1}&=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \tilde{k}^2 }{\left[ \bar{k}^2+M_\textrm{UV}^2\right]^3} \nonumber \\
+A_{R_2} &=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 Z^3 - k^2 }{\left[ k^2+M_\textrm{UV}^2\right]^3}
+= \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \left( -3\frac{\tilde{k}^2}{\bar{D}_i} +\mathcal{O}\left((\tilde{k}^2)^2\right) \right) }{\left[ k^2+M_\textrm{UV}^2\right]^3} \nonumber \\
+&=&  -\frac{3}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \tilde{k}^2 }{\left[ \bar{k}^2+M_\textrm{UV}^2\right]^4} +\mathcal{O}\left((\tilde{k}^2)^2\right).
+\end{eqnarray}
+Then, using the result of the first line of eq.(A.2) and of the third line of eq.(A.3) of ref.~\cite{Draggiotis:2009yb} (adjusted to our normalisation and to the Euclidean case):
+\begin{eqnarray}
+\int d^d \bar{k} \frac{\tilde{k}^2}{\left( \bar{k}^2+M^2 \right)^3}=-\frac{\textrm{i}\pi^2}{2}\frac{1}{\textrm{i}}\frac{1}{(2\pi)^4}+\mathcal{O}(\epsilon)=-\frac{1}{2}\frac{1}{16 \pi^2}+\mathcal{O}(\epsilon) \nonumber\\
+\int d^d \bar{k} \frac{\bar{k}^2 \tilde{k}^2}{\left( \bar{k}^2+M^2 \right)^4}=-\frac{\textrm{i}\pi^2}{3}\frac{1}{\textrm{i}}\frac{1}{(2\pi)^4}+\mathcal{O}(\epsilon)=-\frac{1}{3}\frac{1}{16 \pi^2}+\mathcal{O}(\epsilon)
+\end{eqnarray}
+we find:
+\begin{eqnarray}
+A_{R_1} &=&-\frac{1}{4}\frac{1}{2}\frac{1}{16 \pi^2} = -\frac{1}{128 \pi^2} \nonumber\\
+A_{R_2} &=& -\frac{3}{4}\frac{1}{3}\frac{1}{16 \pi^2} = -\frac{1}{64 \pi^2}.
+\end{eqnarray}
+Recalling the definition of $\Delta \textrm{UV}_\psi$ from~\eqref{eq:DeltaUVpsidef}:
+\begin{equation}
+\Delta \textrm{UV}_\psi = -\textrm{R-terms}|_{p^2=m_p^2}  + \left[
+\frac{\partial}{\partial p^0} \int d^{4-2\epsilon}k\; \textrm{UVCT}(k,p){\Big |}_{d=4-2\epsilon, p^2=m_p^2 }
+- \gamma^0 \delta Z_\psi
+\right ],
+\end{equation}
+we can insert the expression of $\delta Z_\psi$ without its IR pole, together with our newly found expressions for the other quantities and obtain:
+\begin{eqnarray}
+\Delta \textrm{UV}_{\psi,ij} \delta_{i_1 i_2} &=& -g_s^2 C_F \delta_{i_1 i_2} \left[ 
+\gamma_{i x_1}^\mu
+\gamma_{x_1 x_2}^0 \frac{1}{64\pi^2}\left(
+-(-\frac{1}{2}-1)+
+\frac{1}{\epsilon} + \log{\frac{\mu^2}{M_\textrm{UV}^2}}
+\right)
+g^{\mu\nu}\gamma_{x_2 j}^\nu
+\right] \nonumber \\
+&&- \gamma^0_{ij} \left( \frac{g_s^2}{32\pi^2} C_F \frac{1}{\epsilon_{\textrm{UV}}} \right),
+\end{eqnarray}
+and if we now choose $M_\textrm{UV}^2=\mu^2$ and use the identity $\gamma^\mu \gamma^\nu \gamma^\mu=(2-d) \gamma^\nu$, we get:
+\begin{equation}
+\Delta \textrm{UV}_{\psi,ij} \delta_{i_1 i_2} = g_s^2 C_F \delta_{i_1 i_2} \gamma^0_{ij} \left( 
+\frac{3}{64\pi^2}
+\right),
+\end{equation}
+and with $\alpha_s=\frac{g_s^2}{4\pi}$ and $C_F=\frac{4}{3}$, we eventually get:
+\begin{equation}
+\Delta \textrm{UV}_{\psi,ij} \delta_{i_1 i_2} = \left( \delta_{i_1 i_2} \gamma^0_{ij} \frac{\alpha_s}{\pi} \right) \left(\frac{1}{4}\right), 
+\end{equation}
+we can recognise the inclusive NLO cross-section in the first parenthesis and therefore write:
+\begin{equation}
+\sigma_{\Delta \textrm{UV}_{\psi}} = \left(+\frac{1}{4}\right) \sigma_{\textrm{NLO}}.
+\end{equation}
+Finally we recall that for our current numerical implementation to be correct, we require $\sigma_{\Delta \textrm{UV}_{\psi}}\sim +96$ [pb]. Since we have $\sigma_{\textrm{NLO}}=290.8$ [pb], the above formula gives us $72.7$ [pb].
+The correct result must instead be a pre-factor of $\frac{1}{3}$ which would nicely yield $97$ [pb].
+
 \bibliographystyle{JHEP}
 \bibliography{biblio}
 
