@@ -713,28 +713,12 @@ A_{R} &=& \int \frac{\tilde{d} k}{(2\pi)^4} \left [
 }{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^4} 
 +\frac{\frac{1}{4}3(\tilde{k}^2)^2\left(\bar{k}^2 +M_\textrm{UV}^2 \right)
 }{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^5} \nonumber\\
-&&+\mathcal{O}\left(\frac{(\tilde{k}^2)^3}{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^6}\right)
+&&+\mathcal{O}\left(\frac{(\tilde{k}^2)^3(A\bar{k}^2+B)}{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^6}\right)
 {\Big]}
 \end{eqnarray}
 But there is no cutoff as all these terms give a contribution so.... I must be doing something wrong...
+Next attempt is then to expand around $k^2$ and not $\bar{k}^2$ in the numerator.
 
-We are now ready to compute the two rational pieces:
-\begin{eqnarray}
-A_{R_2}&=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \tilde{k}^2 }{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^3} \nonumber \\
-A_{R_1} &=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 Z^3 - k^2 }{\left[ k^2-M_\textrm{UV}^2\right]^3}
-= \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \left( -3\frac{\tilde{k}^2}{\bar{D}_i} +\mathcal{O}\left((\tilde{k}^2)^2\right) \right) }{\left[ k^2-M_\textrm{UV}^2\right]^3} \nonumber \\
-&=&  -\frac{3}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \tilde{k}^2 }{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^4} +\mathcal{O}\left((\tilde{k}^2)^2\right).
-\end{eqnarray}
-Then, using the result of the first line of eq.(A.2) and of the third line of eq.(A.3) of ref.~\cite{Draggiotis:2009yb} (adjusted to our normalisation and to the Euclidean case):
-\begin{eqnarray}
-\int d^d \bar{k} \frac{\tilde{k}^2}{\left( \bar{k}^2-M^2 \right)^3}=-\frac{\textrm{i}\pi^2}{2}\frac{1}{(2\pi)^4}+\mathcal{O}(\epsilon)=-\textrm{i}\frac{1}{2}\frac{1}{16 \pi^2}+\mathcal{O}(\epsilon) \nonumber\\
-\int d^d \bar{k} \frac{\bar{k}^2 \tilde{k}^2}{\left( \bar{k}^2-M^2 \right)^4}=-\frac{\textrm{i}\pi^2}{3}\frac{1}{(2\pi)^4}+\mathcal{O}(\epsilon)=-\textrm{i}\frac{1}{3}\frac{1}{16 \pi^2}+\mathcal{O}(\epsilon)
-\end{eqnarray}
-we find:
-\begin{eqnarray}
-A_{R_2} &=&-\textrm{i}\frac{1}{4}\frac{1}{2}\frac{1}{16 \pi^2} = -\frac{1}{128 \pi^2} \nonumber\\
-A_{R_1} &=& -\textrm{i}\frac{3}{4}\frac{1}{3}\frac{1}{16 \pi^2} = -\frac{1}{64 \pi^2}.
-\end{eqnarray}
 Recalling the definition of $\Delta \textrm{UV}_\psi$ from~\eqref{eq:DeltaUVpsidef}:
 \begin{equation}
 \Delta \textrm{UV}_\psi = -\frac{\partial}{\partial p^0}\textrm{R-terms}|_{p^2=m_p^2}  + \left[
@@ -742,13 +726,13 @@ Recalling the definition of $\Delta \textrm{UV}_\psi$ from~\eqref{eq:DeltaUVpsid
 - \gamma^0 \delta Z_\psi
 \right ],
 \end{equation}
-we can insert the expression of $\delta Z_\psi$ without its IR pole, together with our newly found expressions for the other quantities and obtain:
+we can insert the expression of $\delta Z_\psi$ without its IR pole, together with our newly found expressions for the other quantities and obtain \emph{WARNING: below must be adjusted once we have a final version of the $A_R$ expression!}:
 \begin{eqnarray}
 \Delta \textrm{UV}_{\psi,ij} \delta_{i_1 i_2} &=& -g_s^2 C_F \delta_{i_1 i_2} \left[ 
 \gamma_{i x_1}^\mu
 \gamma_{x_1 x_2}^0 \frac{1}{64\pi^2}\left(
 -(-\frac{1}{2}-1)+
-\frac{1}{\epsilon} + \log{\frac{\mu^2}{M_\textrm{UV}^2}}
+\frac{1}{\epsilon} + \log{\frac{\mu^2}{-M_\textrm{UV}^2}}
 \right)
 g^{\mu\nu}\gamma_{x_2 j}^\nu
 \right] \nonumber \\
@@ -773,5 +757,26 @@ The correct result must instead be a prefactor of $\frac{1}{3}$ which would nice
 \input{section_integral_computation.tex}
 \bibliographystyle{JHEP}
 \bibliography{biblio}
+
+
+\section{Legacy}
+
+We are now ready to compute the two rational pieces:
+\begin{eqnarray}
+A_{R_2}&=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \tilde{k}^2 }{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^3} \nonumber \\
+A_{R_1} &=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 Z^3 - k^2 }{\left[ k^2-M_\textrm{UV}^2\right]^3}
+= \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \left( -3\frac{\tilde{k}^2}{\bar{D}_i} +\mathcal{O}\left((\tilde{k}^2)^2\right) \right) }{\left[ k^2-M_\textrm{UV}^2\right]^3} \nonumber \\
+&=&  -\frac{3}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \tilde{k}^2 }{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^4} +\mathcal{O}\left((\tilde{k}^2)^2\right).
+\end{eqnarray}
+Then, using the result of the first line of eq.(A.2) and of the third line of eq.(A.3) of ref.~\cite{Draggiotis:2009yb} (adjusted to our normalisation and to the Euclidean case):
+\begin{eqnarray}
+\int d^d \bar{k} \frac{\tilde{k}^2}{\left( \bar{k}^2-M^2 \right)^3}=-\frac{\textrm{i}\pi^2}{2}\frac{1}{(2\pi)^4}+\mathcal{O}(\epsilon)=-\textrm{i}\frac{1}{2}\frac{1}{16 \pi^2}+\mathcal{O}(\epsilon) \nonumber\\
+\int d^d \bar{k} \frac{\bar{k}^2 \tilde{k}^2}{\left( \bar{k}^2-M^2 \right)^4}=-\frac{\textrm{i}\pi^2}{3}\frac{1}{(2\pi)^4}+\mathcal{O}(\epsilon)=-\textrm{i}\frac{1}{3}\frac{1}{16 \pi^2}+\mathcal{O}(\epsilon)
+\end{eqnarray}
+we find:
+\begin{eqnarray}
+A_{R_2} &=&-\textrm{i}\frac{1}{4}\frac{1}{2}\frac{1}{16 \pi^2} = -\frac{1}{128 \pi^2} \nonumber\\
+A_{R_1} &=& -\textrm{i}\frac{3}{4}\frac{1}{3}\frac{1}{16 \pi^2} = -\frac{1}{64 \pi^2}.
+\end{eqnarray}
 
 \end{document}
