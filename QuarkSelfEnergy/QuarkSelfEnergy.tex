@@ -648,39 +648,39 @@ for which the first derivative in $p^0$ reads:
 \end{eqnarray}
 We will now build the local UV counterterm by taking the limit $p^0=0$ and $\vec{p}=\vec{0}$ and providing the denominator with a UV mass $M_\textrm{UV}$ in order to screen all IR divergences. We hence obtain:
 \begin{equation}
-\textrm{UVCT}(k,p) \equiv \textrm{UVCT}(k) = \frac{ \slashed{k}_{x_1 x_2} k\cdot\eta }{\left[ k^2+M_\textrm{UV}^2\right]^3},
+\textrm{UVCT}(k,p) \equiv \textrm{UVCT}(k) = \frac{ \slashed{k}_{x_1 x_2} k\cdot\eta }{\left[ k^2-M_\textrm{UV}^2\right]^3},
 \end{equation}
 where $\eta^\mu=(1,0,0,0)$. We are therefore interested in computing in dimensional regulation the following integral:
 \begin{eqnarray}
 &&\int \frac{\tilde{d} k}{(2\pi)^4} \textrm{UVCT}(k) = \gamma^\mu \eta^\nu A^{\mu\nu} \nonumber\\ 
-&&A^{\mu\nu} = \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ k^\mu k^\nu }{\left[ k^2+M_\textrm{UV}^2\right]^3}, \label{Adef}
+&&A^{\mu\nu} = \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ k^\mu k^\nu }{\left[ k^2-M_\textrm{UV}^2\right]^3}, \label{Adef}
 \end{eqnarray}
 where  $\int \tilde{d}k\; \equiv \left(\frac{\mu^2}{4\pi e^{-\gamma}}\right)^{\epsilon} \int \frac{d^{4-2\epsilon}k}{(2\pi)^{-2\epsilon}} $ (the additional factor $ \left(\frac{1}{4\pi e^{-\gamma}}\right)^{\epsilon} $ is designed so as to automatically reabsorb into a redefinition of the renormalisation scale the terms removed by finite part of the $\overline{\textrm{MS}}$ renormalisation counterterms). 
 We can now contract $A^{\mu\nu}$ with its only tensor decomposition allowed by Lorentz invariance, that is: $A^{\mu\nu}=A g^{\mu\nu}$ and $A=\frac{1}{d}g^{\mu\nu}A^{\mu\nu}$.
 The form factor $A$ can then easily be computed as follows:
 \begin{eqnarray}
-A&=&\frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ k^2 }{\left[ k^2+M_\textrm{UV}^2\right]^3} \nonumber\\
+A&=&\frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ k^2 }{\left[ k^2-M_\textrm{UV}^2\right]^3} \nonumber\\
 &=&\frac{1}{d} \left [ 
-\int\frac{\tilde{d} k}{(2\pi)^4} \frac{ 1 }{\left[ k^2+M_\textrm{UV}^2\right]^2} 
--M_\textrm{UV}^2 \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ 1 }{\left[ k^2+M_\textrm{UV}^2\right]^3} 
+\int\frac{\tilde{d} k}{(2\pi)^4} \frac{ 1 }{\left[ k^2-M_\textrm{UV}^2\right]^2} 
+-M_\textrm{UV}^2 \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ 1 }{\left[ k^2-M_\textrm{UV}^2\right]^3} 
 \right ].
 \end{eqnarray}
 With the help of the following result (see for instance eq.~(3) of ref.~\cite{Steinhauser:2000ry}):
 \begin{equation}
-\int \frac{d^d k}{(2\pi)^d} \frac{ k^2 }{\left[ k^2+M^2\right]^a} =\frac{(M^2)^{\frac{d}{2}-a}}{(4\pi)^\frac{d}{2}}\frac{\Gamma(a-\frac{d}{2})}{\Gamma(a)}
+\int \frac{d^d k}{(2\pi)^d} \frac{ 1 }{\left[ k^2+M^2\right]^a} =\frac{(M^2)^{\frac{d}{2}-a}}{(4\pi)^\frac{d}{2}}\frac{\Gamma(a-\frac{d}{2})}{\Gamma(a)}
 \end{equation}
 we find:
 \begin{eqnarray}
-A&=&\frac{1}{4-2\epsilon}\left(\frac{\mu^2}{4\pi e^{-\gamma}}\right)^{\epsilon} \frac{(M_\textrm{UV}^2)^{\frac{4-2\epsilon}{2}-2}}{(4\pi)^\frac{d}{2}} \left [ 
+A&=&\frac{1}{4-2\epsilon}\left(\frac{\mu^2}{4\pi e^{-\gamma}}\right)^{\epsilon} \frac{(-M_\textrm{UV}^2)^{\frac{4-2\epsilon}{2}-2}}{(4\pi)^\frac{d}{2}} \left [ 
 \frac{\Gamma(2-\frac{4-2\epsilon}{2})}{\Gamma(2)} - \frac{\Gamma(3-\frac{4-2\epsilon}{2})}{\Gamma(3)}
 \right] \nonumber \\
-&=&\frac{1}{4-2\epsilon} \frac{1}{(4\pi)^2}\left(\frac{\mu^2}{M_\textrm{UV}^2 e^{-\gamma}}\right)^{\epsilon}\left [ 
+&=&\frac{1}{4-2\epsilon} \frac{1}{(4\pi)^2}\left(\frac{\mu^2}{-M_\textrm{UV}^2 e^{-\gamma}}\right)^{\epsilon}\left [ 
 \frac{\Gamma(\epsilon)}{\Gamma(2)} - \frac{\Gamma(1+\epsilon)}{\Gamma(3)}
 \right] 
 \end{eqnarray}
 which we can expand to order $\mathcal{O}(\epsilon)$ to find:
 \begin{equation}
-A=\frac{1}{64\pi^2}\left[ \frac{1}{\epsilon} + \log{\frac{\mu^2}{M_\textrm{UV}^2}} \right].
+A=\frac{1}{64\pi^2}\left[ \frac{1}{\epsilon} + \log{\frac{\mu^2}{-M_\textrm{UV}^2}} \right].
 \end{equation}
 This leaves us with the computation of the rational terms which we can obtain by separating the $\epsilon-dimensional$ pieces of both the numerator (yielding $R_1$ and the denominator which yields $R_2$).
 In order to do so we will introduce a new notation based on the decomposition of all Lorentz vectors onto an orthonormal basis with four basis vectors $\hat{e}_i$ and an $(d-4)$-dimensional set of directions $\hat{\tilde{e}}_i$:
@@ -699,22 +699,41 @@ We will also make use of the following identity:
 \begin{equation}
 \frac{1}{\bar{D}_i}=\frac{Z_i}{D_i},\textrm{  } Z_i=1-\frac{\tilde{q}_i^2}{\bar{D}_i}
 \end{equation}
+We can first attempt at computing the rational piece directly with the following integral:
+\begin{eqnarray}
+A_{R} &=& \int \frac{\tilde{d} k}{(2\pi)^4} \left [
+\frac{1}{d} \frac{ \bar{k}^2 }{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^3}
+-\frac{1}{4} \frac{ \bar{k}^2-\tilde{k}^2  }{\left[ \bar{k}^2-\tilde{k}^2-M_\textrm{UV}^2\right]^3}
+\right] \nonumber\\
+&=& \int \frac{\tilde{d} k}{(2\pi)^4}
+{\Big[} 
+\frac{\left(\frac{1}{d}-\frac{1}{4}\right)\bar{k}^2}
+{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^3}
++\frac{\frac{1}{4}\tilde{k}^2\left(2\bar{k}^2 +M_\textrm{UV}^2 \right)
+}{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^4} 
++\frac{\frac{1}{4}3(\tilde{k}^2)^2\left(\bar{k}^2 +M_\textrm{UV}^2 \right)
+}{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^5} \nonumber\\
+&&+\mathcal{O}\left(\frac{(\tilde{k}^2)^3}{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^6}\right)
+{\Big]}
+\end{eqnarray}
+But there is no cutoff as all these terms give a contribution so.... I must be doing something wrong...
+
 We are now ready to compute the two rational pieces:
 \begin{eqnarray}
-A_{R_2}&=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \tilde{k}^2 }{\left[ \bar{k}^2+M_\textrm{UV}^2\right]^3} \nonumber \\
-A_{R_1} &=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 Z^3 - k^2 }{\left[ k^2+M_\textrm{UV}^2\right]^3}
-= \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \left( -3\frac{\tilde{k}^2}{\bar{D}_i} +\mathcal{O}\left((\tilde{k}^2)^2\right) \right) }{\left[ k^2+M_\textrm{UV}^2\right]^3} \nonumber \\
-&=&  -\frac{3}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \tilde{k}^2 }{\left[ \bar{k}^2+M_\textrm{UV}^2\right]^4} +\mathcal{O}\left((\tilde{k}^2)^2\right).
+A_{R_2}&=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \tilde{k}^2 }{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^3} \nonumber \\
+A_{R_1} &=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 Z^3 - k^2 }{\left[ k^2-M_\textrm{UV}^2\right]^3}
+= \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \left( -3\frac{\tilde{k}^2}{\bar{D}_i} +\mathcal{O}\left((\tilde{k}^2)^2\right) \right) }{\left[ k^2-M_\textrm{UV}^2\right]^3} \nonumber \\
+&=&  -\frac{3}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{ \bar{k}^2 \tilde{k}^2 }{\left[ \bar{k}^2-M_\textrm{UV}^2\right]^4} +\mathcal{O}\left((\tilde{k}^2)^2\right).
 \end{eqnarray}
 Then, using the result of the first line of eq.(A.2) and of the third line of eq.(A.3) of ref.~\cite{Draggiotis:2009yb} (adjusted to our normalisation and to the Euclidean case):
 \begin{eqnarray}
-\int d^d \bar{k} \frac{\tilde{k}^2}{\left( \bar{k}^2+M^2 \right)^3}=-\frac{\textrm{i}\pi^2}{2}\frac{1}{\textrm{i}}\frac{1}{(2\pi)^4}+\mathcal{O}(\epsilon)=-\frac{1}{2}\frac{1}{16 \pi^2}+\mathcal{O}(\epsilon) \nonumber\\
-\int d^d \bar{k} \frac{\bar{k}^2 \tilde{k}^2}{\left( \bar{k}^2+M^2 \right)^4}=-\frac{\textrm{i}\pi^2}{3}\frac{1}{\textrm{i}}\frac{1}{(2\pi)^4}+\mathcal{O}(\epsilon)=-\frac{1}{3}\frac{1}{16 \pi^2}+\mathcal{O}(\epsilon)
+\int d^d \bar{k} \frac{\tilde{k}^2}{\left( \bar{k}^2-M^2 \right)^3}=-\frac{\textrm{i}\pi^2}{2}\frac{1}{(2\pi)^4}+\mathcal{O}(\epsilon)=-\textrm{i}\frac{1}{2}\frac{1}{16 \pi^2}+\mathcal{O}(\epsilon) \nonumber\\
+\int d^d \bar{k} \frac{\bar{k}^2 \tilde{k}^2}{\left( \bar{k}^2-M^2 \right)^4}=-\frac{\textrm{i}\pi^2}{3}\frac{1}{(2\pi)^4}+\mathcal{O}(\epsilon)=-\textrm{i}\frac{1}{3}\frac{1}{16 \pi^2}+\mathcal{O}(\epsilon)
 \end{eqnarray}
 we find:
 \begin{eqnarray}
-A_{R_2} &=&-\frac{1}{4}\frac{1}{2}\frac{1}{16 \pi^2} = -\frac{1}{128 \pi^2} \nonumber\\
-A_{R_1} &=& -\frac{3}{4}\frac{1}{3}\frac{1}{16 \pi^2} = -\frac{1}{64 \pi^2}.
+A_{R_2} &=&-\textrm{i}\frac{1}{4}\frac{1}{2}\frac{1}{16 \pi^2} = -\frac{1}{128 \pi^2} \nonumber\\
+A_{R_1} &=& -\textrm{i}\frac{3}{4}\frac{1}{3}\frac{1}{16 \pi^2} = -\frac{1}{64 \pi^2}.
 \end{eqnarray}
 Recalling the definition of $\Delta \textrm{UV}_\psi$ from~\eqref{eq:DeltaUVpsidef}:
 \begin{equation}
