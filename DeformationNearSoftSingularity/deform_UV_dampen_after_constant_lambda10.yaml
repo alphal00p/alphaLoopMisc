@@ -1,0 +1,196 @@
+CrossSection:
+  NormalisingFunction:
+    center: 1.0
+    name: left_right_exponential
+    spread: 1.0
+  do_rescaling: true
+  inherit_deformation_for_uv_counterterm: true
+  picobarns: false
+Deformation:
+  additive:
+    a_ij: 0.01
+    a_ijs: []
+    mode: exponential
+  fixed:
+    M_ij: -0.069
+    a_ijs: []
+    dampen_on_pinch: true
+    dampen_on_pinch_after_lambda: true
+    delta: 0.3
+    include_normal_source: false
+    local: false
+    m_ijs: []
+    mode: hyperbolic
+    normalisation_of_subspace_components: true
+    normalisation_per_number_of_sources: true
+    normalize_per_source: false
+    sigma: 0.0
+    source_dampening_factor: -0.0005
+    use_heuristic_centers: true
+  lambdas: []
+  normalize_on_E_surfaces_m: -1.0
+  overall_scaling: constant
+  overall_scaling_constant: 1.0
+  scaling:
+    branch_cut_check: true
+    branch_cut_m: -1.0
+    expansion_check_strategy: ratio
+    expansion_threshold: -0.3
+    lambda: 10.0
+    pole_check_strategy: real_solution
+    softmin_sigma: 0.0
+    source_branch_cut_m: -1.0
+    source_branch_cut_multiplier: 0.8
+    source_branch_cut_threshold: 0.8
+    theta_c: 10.0
+    theta_r_in: 10.0
+    theta_r_out: 10.0
+General:
+  absolute_precision: 1.0e+99
+  amplitude: ''
+  cut_filter: []
+  debug: 0
+  deformation_strategy: fixed
+  derive_overlap_structure: false
+  force_f128: false
+  integration_statistics: false
+  log_file_prefix: stats/statistics
+  log_points_to_screen: false
+  log_quad_upgrade: false
+  log_stats_to_screen: false
+  minimal_precision_for_returning_result: 10.0
+  mu_uv_sq_re_im:
+  - 10000.0
+  - 0
+  multi_channeling: false
+  multi_channeling_channel: null
+  num_digits_different_for_inconsistency: 3.0
+  num_f128_samples: 5
+  num_f64_samples: 5
+  numerical_instability_check: true
+  numerical_threshold: 0.0
+  partial_fractioning_threshold: 10.0
+  python_numerator: null
+  relative_precision: 3.0
+  res_file_prefix: ''
+  screen_log_core: 1
+  statistics_interval: 100000
+  topology: Box
+  unstable_point_warning_percentage: 1.0
+  use_collinear_ct: false
+  use_ct: false
+Integrator:
+  border: 0.001
+  dashboard: true
+  eps_abs: 0.0
+  eps_rel: 1.0e-08
+  flatness: 50.0
+  integrated_phase: both
+  integrator: vegas
+  internal_parallelization: true
+  keep_state_file: false
+  load_from_state_file: false
+  max_pass: 5
+  maxchisq: 0.0
+  mindeviation: 0.025
+  n_increase: 1000000
+  n_max: 10000000000
+  n_min: 2
+  n_new: 100000
+  n_start: 1000000
+  n_vec: 800
+  refine_n_points: 0
+  refine_n_runs: 0
+  reset_vegas_integrator: true
+  seed: 1
+  state_filename_prefix: null
+  survey_n_iterations: 0
+  survey_n_points: 0
+  use_only_last_sample: false
+Observables:
+  Jet1PT:
+    dR: 0.4
+    filename: Jet1PT.HwU
+    n_bins: 50
+    use_fastjet: true
+    write_to_file: true
+    x_max: 1.6
+    x_min: 0.0
+  active_observables:
+  - cross_section
+  - Jet1PT
+Parameterization:
+  b: 1.0
+  input_rescaling:
+  - - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+  - - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+  - - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+  - - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+  - - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+  - - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+    - - 0.0
+      - 1.0
+  mapping: linear
+  mode: spherical
+  shifts:
+  - - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+Selectors:
+  active_selectors: []
+  jet:
+    dR: 0.4
+    max_j1pt: 0.8
+    max_jets: 100
+    min_j1pt: 0.4
+    min_jets: 0
+    use_fastjet: true
