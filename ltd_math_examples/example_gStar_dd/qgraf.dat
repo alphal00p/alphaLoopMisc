@@ -1,0 +1,20 @@
+
+output = 'gammaddBar.qgr';
+
+style = '../../ltd_math_utils/orientedGraph.sty';
+
+model = './QcdQed.mod';
+
+in = eminus[p1], eplus[p2];
+
+out = eminus[p1], eplus[p2];
+
+loops = 2;
+
+loop_momentum = k;
+
+options = onshell, notadpole, nosnail;
+
+true=iprop[photon,2,2];
+
+

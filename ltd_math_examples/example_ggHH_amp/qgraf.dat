@@ -1,0 +1,20 @@
+
+output = 'ggHH.qgr';
+
+style = '../../ltd_math_utils/orientedGraph.sty';
+
+model = './QcdHTop.mod';
+
+in = gluon[p1], gluon[p2]; 
+
+out = higgs[p3],higgs[p4];
+
+loops = 1;
+
+loop_momentum = k;
+
+options = onshell, notadpole, nosnail;
+
+true=iprop[higgs,0,0];
+
+

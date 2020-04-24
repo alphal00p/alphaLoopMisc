@@ -1,0 +1,138 @@
+
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[1],v[2]->out[1],v[3]->out[2],v[4]->v[1],v[3]->v[2],v[4]->v[2],v[4]->v[3]},"particleType"->{in[phi[p1]],in[phi[p2]],out[phi[p3]],out[phi[p4]],phi,phi,phi,phi},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-p1-p2,-k1,k1+p3,-k1+p4},"numerator"->+1*
+ in[phi[p1,-1] ]*
+ in[phi[p2,-3] ]*
+ out[ phi[p3,-2] ]*
+ out[ phi[p4,-4] ]*
+prop[phi[-p1-p2,{1,2}] ]*
+prop[phi[-k1,{3,4}] ]*
+prop[phi[k1+p3,{5,6}] ]*
+prop[phi[-k1+p4,{7,8}] ]*
+ v [ phi[p1,-1 ],phi[p2,-3 ],phi[-p1-p2,1 ]]*
+ v [ phi[-p3,-2 ],phi[-k1,3 ],phi[k1+p3,5 ]]*
+ v [ phi[-p4,-4 ],phi[k1,4 ],phi[-k1+p4,7 ]]*
+ v [ phi[p1+p2,2 ],phi[-k1-p3,6 ],phi[k1-p4,8 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[2],v[1]->out[1],v[3]->out[2],v[4]->v[1],v[3]->v[2],v[4]->v[2],v[4]->v[3]},"particleType"->{in[phi[p1]],in[phi[p2]],out[phi[p3]],out[phi[p4]],phi,phi,phi,phi},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-p1+p3,-k1,k1-p2,-k1+p4},"numerator"->+1*
+ in[phi[p1,-1] ]*
+ in[phi[p2,-3] ]*
+ out[ phi[p3,-2] ]*
+ out[ phi[p4,-4] ]*
+prop[phi[-p1+p3,{1,2}] ]*
+prop[phi[-k1,{3,4}] ]*
+prop[phi[k1-p2,{5,6}] ]*
+prop[phi[-k1+p4,{7,8}] ]*
+ v [ phi[p1,-1 ],phi[-p3,-2 ],phi[-p1+p3,1 ]]*
+ v [ phi[p2,-3 ],phi[-k1,3 ],phi[k1-p2,5 ]]*
+ v [ phi[-p4,-4 ],phi[k1,4 ],phi[-k1+p4,7 ]]*
+ v [ phi[p1-p3,2 ],phi[-k1+p2,6 ],phi[k1-p4,8 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[2],v[3]->out[1],v[1]->out[2],v[4]->v[1],v[3]->v[2],v[4]->v[2],v[4]->v[3]},"particleType"->{in[phi[p1]],in[phi[p2]],out[phi[p3]],out[phi[p4]],phi,phi,phi,phi},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-p1+p4,-k1,k1-p2,-k1+p3},"numerator"->+1*
+ in[phi[p1,-1] ]*
+ in[phi[p2,-3] ]*
+ out[ phi[p3,-2] ]*
+ out[ phi[p4,-4] ]*
+prop[phi[-p1+p4,{1,2}] ]*
+prop[phi[-k1,{3,4}] ]*
+prop[phi[k1-p2,{5,6}] ]*
+prop[phi[-k1+p3,{7,8}] ]*
+ v [ phi[p1,-1 ],phi[-p4,-4 ],phi[-p1+p4,1 ]]*
+ v [ phi[p2,-3 ],phi[-k1,3 ],phi[k1-p2,5 ]]*
+ v [ phi[-p3,-2 ],phi[k1,4 ],phi[-k1+p3,7 ]]*
+ v [ phi[p1-p4,2 ],phi[-k1+p2,6 ],phi[k1-p3,8 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[2],in[2]->v[1],v[1]->out[1],v[3]->out[2],v[4]->v[1],v[3]->v[2],v[4]->v[2],v[4]->v[3]},"particleType"->{in[phi[p1]],in[phi[p2]],out[phi[p3]],out[phi[p4]],phi,phi,phi,phi},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-p2+p3,-k1,k1-p1,-k1+p4},"numerator"->+1*
+ in[phi[p1,-1] ]*
+ in[phi[p2,-3] ]*
+ out[ phi[p3,-2] ]*
+ out[ phi[p4,-4] ]*
+prop[phi[-p2+p3,{1,2}] ]*
+prop[phi[-k1,{3,4}] ]*
+prop[phi[k1-p1,{5,6}] ]*
+prop[phi[-k1+p4,{7,8}] ]*
+ v [ phi[p2,-3 ],phi[-p3,-2 ],phi[-p2+p3,1 ]]*
+ v [ phi[p1,-1 ],phi[-k1,3 ],phi[k1-p1,5 ]]*
+ v [ phi[-p4,-4 ],phi[k1,4 ],phi[-k1+p4,7 ]]*
+ v [ phi[p2-p3,2 ],phi[-k1+p1,6 ],phi[k1-p4,8 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[2],in[2]->v[1],v[3]->out[1],v[1]->out[2],v[4]->v[1],v[3]->v[2],v[4]->v[2],v[4]->v[3]},"particleType"->{in[phi[p1]],in[phi[p2]],out[phi[p3]],out[phi[p4]],phi,phi,phi,phi},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-p2+p4,-k1,k1-p1,-k1+p3},"numerator"->+1*
+ in[phi[p1,-1] ]*
+ in[phi[p2,-3] ]*
+ out[ phi[p3,-2] ]*
+ out[ phi[p4,-4] ]*
+prop[phi[-p2+p4,{1,2}] ]*
+prop[phi[-k1,{3,4}] ]*
+prop[phi[k1-p1,{5,6}] ]*
+prop[phi[-k1+p3,{7,8}] ]*
+ v [ phi[p2,-3 ],phi[-p4,-4 ],phi[-p2+p4,1 ]]*
+ v [ phi[p1,-1 ],phi[-k1,3 ],phi[k1-p1,5 ]]*
+ v [ phi[-p3,-2 ],phi[k1,4 ],phi[-k1+p3,7 ]]*
+ v [ phi[p2-p4,2 ],phi[-k1+p1,6 ],phi[k1-p3,8 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[2],in[2]->v[3],v[1]->out[1],v[1]->out[2],v[4]->v[1],v[3]->v[2],v[4]->v[2],v[4]->v[3]},"particleType"->{in[phi[p1]],in[phi[p2]],out[phi[p3]],out[phi[p4]],phi,phi,phi,phi},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],p3+p4,-k1,k1-p1,-k1-p2},"numerator"->+1*
+ in[phi[p1,-1] ]*
+ in[phi[p2,-3] ]*
+ out[ phi[p3,-2] ]*
+ out[ phi[p4,-4] ]*
+prop[phi[p3+p4,{1,2}] ]*
+prop[phi[-k1,{3,4}] ]*
+prop[phi[k1-p1,{5,6}] ]*
+prop[phi[-k1-p2,{7,8}] ]*
+ v [ phi[-p3,-2 ],phi[-p4,-4 ],phi[p3+p4,1 ]]*
+ v [ phi[p1,-1 ],phi[-k1,3 ],phi[k1-p1,5 ]]*
+ v [ phi[p2,-3 ],phi[k1,4 ],phi[-k1-p2,7 ]]*
+ v [ phi[-p3-p4,2 ],phi[-k1+p1,6 ],phi[k1+p2,8 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[2],v[3]->out[1],v[4]->out[2],v[2]->v[1],v[3]->v[1],v[4]->v[2],v[4]->v[3]},"particleType"->{in[phi[p1]],in[phi[p2]],out[phi[p3]],out[phi[p4]],phi,phi,phi,phi},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-k1,k1-p1,-k1-p2,k1-p1+p3},"numerator"->+1*
+ in[phi[p1,-1] ]*
+ in[phi[p2,-3] ]*
+ out[ phi[p3,-2] ]*
+ out[ phi[p4,-4] ]*
+prop[phi[-k1,{1,2}] ]*
+prop[phi[k1-p1,{3,4}] ]*
+prop[phi[-k1-p2,{5,6}] ]*
+prop[phi[k1-p1+p3,{7,8}] ]*
+ v [ phi[p1,-1 ],phi[-k1,1 ],phi[k1-p1,3 ]]*
+ v [ phi[p2,-3 ],phi[k1,2 ],phi[-k1-p2,5 ]]*
+ v [ phi[-p3,-2 ],phi[-k1+p1,4 ],phi[k1-p1+p3,7 ]]*
+ v [ phi[-p4,-4 ],phi[k1+p2,6 ],phi[-k1+p1-p3,8 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[2],v[4]->out[1],v[3]->out[2],v[2]->v[1],v[3]->v[1],v[4]->v[2],v[4]->v[3]},"particleType"->{in[phi[p1]],in[phi[p2]],out[phi[p3]],out[phi[p4]],phi,phi,phi,phi},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-k1,k1-p1,-k1-p2,k1-p1+p4},"numerator"->+1*
+ in[phi[p1,-1] ]*
+ in[phi[p2,-3] ]*
+ out[ phi[p3,-2] ]*
+ out[ phi[p4,-4] ]*
+prop[phi[-k1,{1,2}] ]*
+prop[phi[k1-p1,{3,4}] ]*
+prop[phi[-k1-p2,{5,6}] ]*
+prop[phi[k1-p1+p4,{7,8}] ]*
+ v [ phi[p1,-1 ],phi[-k1,1 ],phi[k1-p1,3 ]]*
+ v [ phi[p2,-3 ],phi[k1,2 ],phi[-k1-p2,5 ]]*
+ v [ phi[-p4,-4 ],phi[-k1+p1,4 ],phi[k1-p1+p4,7 ]]*
+ v [ phi[-p3,-2 ],phi[k1+p2,6 ],phi[-k1+p1-p4,8 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[4],v[2]->out[1],v[3]->out[2],v[2]->v[1],v[3]->v[1],v[4]->v[2],v[4]->v[3]},"particleType"->{in[phi[p1]],in[phi[p2]],out[phi[p3]],out[phi[p4]],phi,phi,phi,phi},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-k1,k1-p1,-k1+p3,k1-p1+p4},"numerator"->+1*
+ in[phi[p1,-1] ]*
+ in[phi[p2,-3] ]*
+ out[ phi[p3,-2] ]*
+ out[ phi[p4,-4] ]*
+prop[phi[-k1,{1,2}] ]*
+prop[phi[k1-p1,{3,4}] ]*
+prop[phi[-k1+p3,{5,6}] ]*
+prop[phi[k1-p1+p4,{7,8}] ]*
+ v [ phi[p1,-1 ],phi[-k1,1 ],phi[k1-p1,3 ]]*
+ v [ phi[-p3,-2 ],phi[k1,2 ],phi[-k1+p3,5 ]]*
+ v [ phi[-p4,-4 ],phi[-k1+p1,4 ],phi[k1-p1+p4,7 ]]*
+ v [ phi[p2,-3 ],phi[k1-p3,6 ],phi[-k1+p1-p4,8 ]]|>
+
+

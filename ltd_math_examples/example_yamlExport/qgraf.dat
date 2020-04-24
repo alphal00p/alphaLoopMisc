@@ -1,0 +1,20 @@
+
+output = 'phi3graphs.qgr';
+
+style = '../../ltd_math_utils/orientedGraph.sty';
+
+model = './phi3.mod';
+
+in = phi[p1], phi[p2]; 
+
+out = phi[p3],phi[p4];
+
+loops = 1;
+
+loop_momentum = k;
+
+options = onshell, notadpole, nosnail, nosigma;
+
+
+
+

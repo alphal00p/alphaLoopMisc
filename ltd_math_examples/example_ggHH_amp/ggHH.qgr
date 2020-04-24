@@ -1,0 +1,123 @@
+
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[1],v[2]->out[1],v[3]->out[2],v[4]->v[1],v[3]->v[2],v[2]->v[4],v[4]->v[3]},"particleType"->{in[gluon[p1]],in[gluon[p2]],out[higgs[p3]],out[higgs[p4]],gluon,t,t,t},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-p1-p2,-k1,-k1-p3,-k1+p4},"numerator"->-1*
+ in[gluon[p1,-1] ]*
+ in[gluon[p2,-3] ]*
+ out[ higgs[p3,-2] ]*
+ out[ higgs[p4,-4] ]*
+prop[gluon[-p1-p2,{1,2}] ]*
+prop[t[-k1,{3,4}] ]*
+prop[t[-k1-p3,{5,6}] ]*
+prop[t[-k1+p4,{7,8}] ]*
+ v [ gluon[p1,-1 ],gluon[p2,-3 ],gluon[-p1-p2,1 ]]*
+ v [ tbar[k1+p3,6 ],higgs[-p3,-2 ],t[-k1,3 ]]*
+ v [ tbar[k1,4 ],higgs[-p4,-4 ],t[-k1+p4,7 ]]*
+ v [ tbar[k1-p4,8 ],gluon[p1+p2,2 ],t[-k1-p3,5 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[1],v[2]->out[1],v[3]->out[2],v[4]->v[1],v[2]->v[3],v[4]->v[2],v[3]->v[4]},"particleType"->{in[gluon[p1]],in[gluon[p2]],out[higgs[p3]],out[higgs[p4]],gluon,t,t,t},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-p1-p2,k1,k1+p3,k1-p4},"numerator"->-1*
+ in[gluon[p1,-1] ]*
+ in[gluon[p2,-3] ]*
+ out[ higgs[p3,-2] ]*
+ out[ higgs[p4,-4] ]*
+prop[gluon[-p1-p2,{1,2}] ]*
+prop[t[k1,{3,4}] ]*
+prop[t[k1+p3,{5,6}] ]*
+prop[t[k1-p4,{7,8}] ]*
+ v [ gluon[p1,-1 ],gluon[p2,-3 ],gluon[-p1-p2,1 ]]*
+ v [ tbar[-k1,4 ],higgs[-p3,-2 ],t[k1+p3,5 ]]*
+ v [ tbar[-k1+p4,8 ],higgs[-p4,-4 ],t[k1,3 ]]*
+ v [ tbar[-k1-p3,6 ],gluon[p1+p2,2 ],t[k1-p4,7 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[2],v[3]->out[1],v[4]->out[2],v[2]->v[1],v[1]->v[3],v[4]->v[2],v[3]->v[4]},"particleType"->{in[gluon[p1]],in[gluon[p2]],out[higgs[p3]],out[higgs[p4]],t,t,t,t},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-k1,-k1+p1,-k1-p2,-k1+p1-p3},"numerator"->-1*
+ in[gluon[p1,-1] ]*
+ in[gluon[p2,-3] ]*
+ out[ higgs[p3,-2] ]*
+ out[ higgs[p4,-4] ]*
+prop[t[-k1,{1,2}] ]*
+prop[t[-k1+p1,{3,4}] ]*
+prop[t[-k1-p2,{5,6}] ]*
+prop[t[-k1+p1-p3,{7,8}] ]*
+ v [ tbar[k1-p1,4 ],gluon[p1,-1 ],t[-k1,1 ]]*
+ v [ tbar[k1,2 ],gluon[p2,-3 ],t[-k1-p2,5 ]]*
+ v [ tbar[k1-p1+p3,8 ],higgs[-p3,-2 ],t[-k1+p1,3 ]]*
+ v [ tbar[k1+p2,6 ],higgs[-p4,-4 ],t[-k1+p1-p3,7 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[2],v[3]->out[1],v[4]->out[2],v[1]->v[2],v[3]->v[1],v[2]->v[4],v[4]->v[3]},"particleType"->{in[gluon[p1]],in[gluon[p2]],out[higgs[p3]],out[higgs[p4]],t,t,t,t},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],k1,k1-p1,k1+p2,k1-p1+p3},"numerator"->-1*
+ in[gluon[p1,-1] ]*
+ in[gluon[p2,-3] ]*
+ out[ higgs[p3,-2] ]*
+ out[ higgs[p4,-4] ]*
+prop[t[k1,{1,2}] ]*
+prop[t[k1-p1,{3,4}] ]*
+prop[t[k1+p2,{5,6}] ]*
+prop[t[k1-p1+p3,{7,8}] ]*
+ v [ tbar[-k1,2 ],gluon[p1,-1 ],t[k1-p1,3 ]]*
+ v [ tbar[-k1-p2,6 ],gluon[p2,-3 ],t[k1,1 ]]*
+ v [ tbar[-k1+p1,4 ],higgs[-p3,-2 ],t[k1-p1+p3,7 ]]*
+ v [ tbar[-k1+p1-p3,8 ],higgs[-p4,-4 ],t[k1+p2,5 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[2],v[4]->out[1],v[3]->out[2],v[2]->v[1],v[1]->v[3],v[4]->v[2],v[3]->v[4]},"particleType"->{in[gluon[p1]],in[gluon[p2]],out[higgs[p3]],out[higgs[p4]],t,t,t,t},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-k1,-k1+p1,-k1-p2,-k1+p1-p4},"numerator"->-1*
+ in[gluon[p1,-1] ]*
+ in[gluon[p2,-3] ]*
+ out[ higgs[p3,-2] ]*
+ out[ higgs[p4,-4] ]*
+prop[t[-k1,{1,2}] ]*
+prop[t[-k1+p1,{3,4}] ]*
+prop[t[-k1-p2,{5,6}] ]*
+prop[t[-k1+p1-p4,{7,8}] ]*
+ v [ tbar[k1-p1,4 ],gluon[p1,-1 ],t[-k1,1 ]]*
+ v [ tbar[k1,2 ],gluon[p2,-3 ],t[-k1-p2,5 ]]*
+ v [ tbar[k1-p1+p4,8 ],higgs[-p4,-4 ],t[-k1+p1,3 ]]*
+ v [ tbar[k1+p2,6 ],higgs[-p3,-2 ],t[-k1+p1-p4,7 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[2],v[4]->out[1],v[3]->out[2],v[1]->v[2],v[3]->v[1],v[2]->v[4],v[4]->v[3]},"particleType"->{in[gluon[p1]],in[gluon[p2]],out[higgs[p3]],out[higgs[p4]],t,t,t,t},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],k1,k1-p1,k1+p2,k1-p1+p4},"numerator"->-1*
+ in[gluon[p1,-1] ]*
+ in[gluon[p2,-3] ]*
+ out[ higgs[p3,-2] ]*
+ out[ higgs[p4,-4] ]*
+prop[t[k1,{1,2}] ]*
+prop[t[k1-p1,{3,4}] ]*
+prop[t[k1+p2,{5,6}] ]*
+prop[t[k1-p1+p4,{7,8}] ]*
+ v [ tbar[-k1,2 ],gluon[p1,-1 ],t[k1-p1,3 ]]*
+ v [ tbar[-k1-p2,6 ],gluon[p2,-3 ],t[k1,1 ]]*
+ v [ tbar[-k1+p1,4 ],higgs[-p4,-4 ],t[k1-p1+p4,7 ]]*
+ v [ tbar[-k1+p1-p4,8 ],higgs[-p3,-2 ],t[k1+p2,5 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[4],v[2]->out[1],v[3]->out[2],v[2]->v[1],v[1]->v[3],v[4]->v[2],v[3]->v[4]},"particleType"->{in[gluon[p1]],in[gluon[p2]],out[higgs[p3]],out[higgs[p4]],t,t,t,t},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],-k1,-k1+p1,-k1+p3,-k1+p1-p4},"numerator"->-1*
+ in[gluon[p1,-1] ]*
+ in[gluon[p2,-3] ]*
+ out[ higgs[p3,-2] ]*
+ out[ higgs[p4,-4] ]*
+prop[t[-k1,{1,2}] ]*
+prop[t[-k1+p1,{3,4}] ]*
+prop[t[-k1+p3,{5,6}] ]*
+prop[t[-k1+p1-p4,{7,8}] ]*
+ v [ tbar[k1-p1,4 ],gluon[p1,-1 ],t[-k1,1 ]]*
+ v [ tbar[k1,2 ],higgs[-p3,-2 ],t[-k1+p3,5 ]]*
+ v [ tbar[k1-p1+p4,8 ],higgs[-p4,-4 ],t[-k1+p1,3 ]]*
+ v [ tbar[k1-p3,6 ],gluon[p2,-3 ],t[-k1+p1-p4,7 ]]|>
+
+**NewDiagram**
+<|"edges"->{in[1]->v[1],in[2]->v[4],v[2]->out[1],v[3]->out[2],v[1]->v[2],v[3]->v[1],v[2]->v[4],v[4]->v[3]},"particleType"->{in[gluon[p1]],in[gluon[p2]],out[higgs[p3]],out[higgs[p4]],t,t,t,t},"momentumMap"->{in[p1],in[p2],out[p3],out[p4],k1,k1-p1,k1-p3,k1-p1+p4},"numerator"->-1*
+ in[gluon[p1,-1] ]*
+ in[gluon[p2,-3] ]*
+ out[ higgs[p3,-2] ]*
+ out[ higgs[p4,-4] ]*
+prop[t[k1,{1,2}] ]*
+prop[t[k1-p1,{3,4}] ]*
+prop[t[k1-p3,{5,6}] ]*
+prop[t[k1-p1+p4,{7,8}] ]*
+ v [ tbar[-k1,2 ],gluon[p1,-1 ],t[k1-p1,3 ]]*
+ v [ tbar[-k1+p3,6 ],higgs[-p3,-2 ],t[k1,1 ]]*
+ v [ tbar[-k1+p1,4 ],higgs[-p4,-4 ],t[k1-p1+p4,7 ]]*
+ v [ tbar[-k1+p1-p4,8 ],gluon[p2,-3 ],t[k1-p3,5 ]]|>
+
+
