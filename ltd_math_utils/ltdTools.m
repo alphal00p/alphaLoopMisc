@@ -455,7 +455,7 @@ Options[plotGraph] ={ edgeLabels->{},plotSize->Scaled[0.5]};
 plotGraph[graph_,opt:OptionsPattern[]]:=Block[{mygraph,imSize=OptionValue[plotSize]},
 	Do[
 	mygraph=Transpose@(Values@(gg[[Join[{"edges"},Flatten@{OptionValue[edgeLabels]}]]]))/. TwoWayRule->Rule /. UndirectedEdge->Rule /. DirectedEdge->Rule /. {Rule[a_,b_],c__}:>{Rule[a,b],Flatten@{c}} /. {Rule[a_,b_]}:>{Rule[a,b],{Rule[a,b]}};
-	Print[GraphComputation`GraphPlotLegacy[mygraph,EdgeRenderingFunction->({{RGBColor[0.22,0.34,0.63],Arrowheads[0.015],Arrow[#]},If[#3=!=None,Text[ToString[#3],Mean[#1],Background->White],{}]}&),MultiedgeStyle->.3,SelfLoopStyle->All,ImageSize->imSize]];
+	Print[GraphPlot[mygraph,EdgeRenderingFunction->({{RGBColor[0.22,0.34,0.63],Arrowheads[0.015],Arrow[#]},If[#3=!=None,Text[ToString[#3],Mean[#1],Background->White],{}]}&),MultiedgeStyle->.3,SelfLoopStyle->All,ImageSize->imSize]];
 	,{gg,Flatten@{graph}}]
 ];
 
@@ -926,24 +926,24 @@ tensDecomp=(tensDecomp//. allStrucReplRule);
 
 (* consistency check --> new expression matches input: Extraction of loop-momenta worked *)
 If[consistencyCheck>1,
-	Print["check I started"];
+	If[consistencyCheck>2,Print["check I started"];];
 	If[Simplify@((amp-contractLorentz[tensDecomp]) /. Thread[Rule[Join[loopMom,extVect],Array[Prime,Length@(Join[loopMom,extVect])]]])=!=0
 		,
 		Print["Error in tensor extraction: Check Input"]; Abort[]
 		,
-		Print["check I passed"]
+		If[consistencyCheck>2,Print["check I passed"];];
 	 ]
 ];
 
 tensDecomp=Table[SeriesCoefficient[(tensDecomp /. vector[x_,ind_]/;MemberQ[loopMom,x]:>epsK1K1 vector[x,ind]),{epsK1K1,0,rank}],{rank,0,maxRank}];
 (* consistency check --> new expression matches input: rank extraction worked *)
 If[consistencyCheck>1,
-	Print["check II started"];
+	If[consistencyCheck>2,Print["check II started"];];
 	If[Simplify@((amp-Total@(contractLorentz[tensDecomp]) /. Thread[Rule[Join[loopMom,extVect],Array[Prime,Length@(Join[loopMom,extVect])]]]))=!=0
 		,
 		Print["Error in tensor extraction: Check Input"]; Abort[]
 		,
-		Print["check II passed"]
+		If[consistencyCheck>2,Print["check II passed"];];
 	 ]
 ];
 (* redefine mathematica default ordering in times *)
@@ -984,7 +984,7 @@ tensFinal=tensFinal //. {loopList_List,{x_}}/;(Length@loopList==Length@loopMom &
  (* consistency check --> final expression matches input *)
 (* final check*)
 If[consistencyCheck>=1,
-	Print["Final check started"];
+	If[consistencyCheck>2,Print["Final check started"];];
 	(* replace integers by loop-momenta *)
 	tensFinalCheck=(tensFinal//. {indX_List,x_}/;AllTrue[indX,IntegerQ]:>({loopMom^2 loopMom^indX,x}//.mom_^pow_/;MemberQ[loopMom,mom]:>(Times@@(Array[Evaluate@vector[mom,Extract[tensIndexSet,Position[loopMom, mom]][[1]][#-2]]&,pow] ))))//.vector[ll_,_[num_]]/;num <= 0:>1;
 	(* restore input structure *)
@@ -994,7 +994,7 @@ If[consistencyCheck>=1,
 	If[Simplify@((amp-tensFinalCheck) /. Thread[Rule[Join[loopMom,extVect],Array[Prime,Length@(Join[loopMom,extVect])]]])=!=0
 	,
 	Print["Error in final check: likely a bug :("]; Abort[],
-	Print["Final check passed"]
+	If[consistencyCheck>2,Print["Final check passed"];];
 	]
 	];
 	
@@ -1009,7 +1009,7 @@ If[consistencyCheck>=1,
 
 Protect[outputFormat];
 
-Options[getSymCoeff] ={ outputFormat->"long"};
+Options[getSymCoeff] ={ outputFormat->"long", consistencyCheckLevel->1};
 
 getSymCoeff[graphs_,opts:OptionsPattern[]]:=Block[
 {tensDecompNum,resTmp,res,indSet,g,rank,replV,replG,format,indShift,replGamma,fullResult,resTmpTmp},
@@ -1019,7 +1019,7 @@ getSymCoeff[graphs_,opts:OptionsPattern[]]:=Block[
     If[KeyExistsQ[graph,"analyticTensorCoeff"],
       tensDecompNum=graph[["analyticTensorCoeff"]]
       ,
-      tensDecompNum=extractTensCoeff[graph];
+      tensDecompNum=extractTensCoeff[graph, consistencyCheckLevel -> OptionValue[consistencyCheckLevel]];
       tensDecompNum=tensDecompNum[["analyticTensorCoeff"]]
     ];
     If[format==="long",
