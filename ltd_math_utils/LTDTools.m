@@ -669,7 +669,7 @@ ampMod=amp//FCI;
 (* expect dimensionality to be consistent *)
 dim=Flatten@FCGetDimensions[ampMod];
 
-If[dim=={D},
+If[dim==={D},
 	vector[a_,b_]:=FCI@FVD[a,b];
 	dummyIndex[x_]:=LorentzIndex[dummyIndex2[x],D]/;NumericQ@x;
 	g[x_,y_]:=FCI@MTD[x,y];
