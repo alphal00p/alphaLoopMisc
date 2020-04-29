@@ -838,7 +838,7 @@ getSymCoeff[graphs_,opts:OptionsPattern[]]:=Block[
     ];
     
 
-	If[dim=={D},
+	If[dim==={D},
 		vector[a_,b_]:=FCI@FVD[a,b];
 		g[x_,y_]:=FCI@MTD[x,y];
 	,
