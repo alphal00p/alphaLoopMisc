@@ -31,7 +31,7 @@ Cell[BoxData[{
   RowBox[{"SetDirectory", "[", 
    RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{"Get", "[", "\"\<../../ltd_math_utils/ltdTools1.1.m\>\"", 
+ RowBox[{"Get", "[", "\"\<../../ltd_math_utils/LTDTools.m\>\"", 
   "]"}]}], "Input",
  CellChangeTimes->{{3.796709952018581*^9, 3.7967099855380898`*^9}, {
   3.797146196650723*^9, 3.797146201637918*^9}},
