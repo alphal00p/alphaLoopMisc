@@ -127,7 +127,7 @@ translateToFeynCalc[expr_,opts:OptionsPattern[]]:=
 		T[sunA[a_],sunF[i_],sunF[j_]]:=SUNTF[{sunA[a]},sunF[i],sunF[j]];
 		f[sunA[a_],sunA[b_],sunA[c_]]:=SUNF[sunA[a],sunA[b],sunA[c]];
 		delta[a_,b_]:=DiracIndexDelta[DiracIndex[a],DiracIndex[b]]/;Head@a=!=sunF&&Head@a=!=sunA;
-		If[dim==4-2eps,
+		If[dim===(4-2eps),
 			vector[mom_,ind_]:=FVD[mom,ind];
 			gamma[s1_,k__,s2_]:=DCHN[GAD[k],s1,s2];
 			g[a_,b_]:=MTD[a,b];
