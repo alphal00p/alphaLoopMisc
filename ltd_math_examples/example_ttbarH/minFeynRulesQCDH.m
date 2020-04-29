@@ -30,7 +30,10 @@ SetAttributes[v,Orderless];
    
    (* photon prop *)
    prop[photon[ p_,{n_,m_}]] := -(ii*g[mu[n], mu[m]]);
-   
+  
+   (* higgs prop *)
+   prop[higgs[ p_,{n_,m_}]] := -ii;
+
    (* e+ e- photon *)
    v[photon[p3_,i3_], eminus[p2_,i2_], eplus[p1_,i1_]] := ge*ii*gamma[s[i1], mu[i3], s[i2]];
    
