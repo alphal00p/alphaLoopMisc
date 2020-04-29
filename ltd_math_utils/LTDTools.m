@@ -812,7 +812,7 @@ If[consistencyCheck>=1,
 
 Protect[outputFormat];
 
-Options[getSymCoeff] ={ outputFormat->"long"};
+Options[getSymCoeff] ={ outputFormat->"long", consistencyCheckLevel->1 };
 
 getSymCoeff[graphs_,opts:OptionsPattern[]]:=Block[
 {tensDecompNum,resTmp,res,indSet,g,rank,replV,replG,format,indShift,replRest,fullResult,resTmpTmp,dim,vector},
@@ -822,7 +822,7 @@ getSymCoeff[graphs_,opts:OptionsPattern[]]:=Block[
     If[KeyExistsQ[graph,"analyticTensorCoeff"],
       tensDecompNum=graph[["analyticTensorCoeff"]]
       ,
-      tensDecompNum=extractTensCoeff[graph];
+      tensDecompNum=extractTensCoeff[graph,consistencyCheckLevel->OptionValue[consistencyCheckLevel]];
       tensDecompNum=tensDecompNum[["analyticTensorCoeff"]]
     ];
     
@@ -900,7 +900,7 @@ fullResult
 
 
 
-Options[processNumerator]={additionalRules -> {1->1}, spinChainSimplify->True,dimensions->4-2 eps,extractTensors->False, symCoefficients->False,coeffFormat->"long",spinSum->False};
+Options[processNumerator]={additionalRules -> {1->1}, spinChainSimplify->True,dimensions->4-2 eps,extractTensors->False, symCoefficients->False,coeffFormat->"long",spinSum->False, consistencyCheckLevel->1};
 processNumerator[graphs_,pathToFeynmanRules_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graphs},loopMom,$rules},
 	If[FileExistsQ[pathToFeynmanRules],
 		Get[pathToFeynmanRules]
@@ -928,10 +928,10 @@ processNumerator[graphs_,pathToFeynmanRules_,opts:OptionsPattern[]]:=Block[{myGr
 	
 	myGraphs=DeleteCases[myGraphs,x_/;x[["numerator"]]==0,1];
 	If[OptionValue[extractTensors]==True,
-		myGraphs=extractTensCoeff[myGraphs]
+		myGraphs=extractTensCoeff[myGraphs,consistencyCheckLevel->OptionValue[consistencyCheckLevel]]
 	];
 	If[OptionValue[symCoefficients]==True,
-		myGraphs=getSymCoeff[myGraphs,outputFormat->OptionValue[coeffFormat]]
+		myGraphs=getSymCoeff[myGraphs,outputFormat->OptionValue[coeffFormat],consistencyCheckLevel->OptionValue[consistencyCheckLevel]]
 	];
 	If[Length@myGraphs==1,
 	myGraphs[[1]]
