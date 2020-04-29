@@ -665,7 +665,7 @@ extractTensCoeff[graph_,opts:OptionsPattern[]]:=Block[
 SetAttributes[sp,Orderless];
 loopMom=graph[["loopMomenta"]];
 amp=$randomDummy*graph[["numerator"]];
-ampMod=amp//FCI;
+ampMod=amp//FCI//ScalarProductExpand//MomentumExpand//FCI;
 (* expect dimensionality to be consistent *)
 dim=Flatten@FCGetDimensions[ampMod];
 
