@@ -275,7 +275,7 @@ FinalAllCoefficients
 (* ::Input::Initialization:: *)
 chunks[list_,nChunks_,chunkID_]:=Block[{chunkSize=QuotientRemainder[Length[list],nChunks][[1]]+1},
 {
-(chunkID-1) chunkSize+1,
+Min[(chunkID-1) chunkSize+1,Length[list]],
 Min[chunkID chunkSize,Length[list]]
 }
 ]
@@ -283,7 +283,7 @@ Min[chunkID chunkSize,Length[list]]
 
 (* ::Input::Initialization:: *)
 GetAllCoeffs[iCutkosky_,MinTermIndex_,MaxTermIndex_,OptionsPattern[{Parallel->False}]]:=Block[
-{NKernels,allCoefficientsForThisCutkoskyNum,allParallelCoefsSummed={},allParallelEvaluations,i},
+{NKernels,allCoefficientsForThisCutkoskyNum,allParallelCoefsSummed={},allParallelEvaluations,BrokenDownList,i,allChunks},
 
 allCoefficientsForThisCutkoskyNum=List@@(Expand[(ExpandScalarProduct[
 Total[ProcessedSelectedGraphNumeratorAsList[[MinTermIndex;;MaxTermIndex]]]/.FinalAllSelectedCutkoskyCutsMomentumBases[[iCutkosky]]
@@ -296,15 +296,16 @@ If[Not[OptionValue[Parallel]],Return[ComputeCoefficientsForCutkoskyCut[iCutkosky
 NKernels=Max[ParallelEvaluate[$KernelID]];
 (* Load context in Parallel kernels *)
 ParallelEvaluate[
-SetDirectory[NoteBookDir];
-Get[LTDToolsPath];
+SetDirectory["/Users/valentin/Documents/Work/Projects/alphaLoop/git_alphaLoopMisc/ltd_math_examples/example_ttbarH"];<<"../../ltd_math_utils/LTDTools.m";
 ];
-
+allChunks=Table[chunks[allCoefficientsForThisCutkoskyNum,NKernels,kID], {kID,Range[NKernels]}];
+BrokenDownList=Table[
+allCoefficientsForThisCutkoskyNum[[chunk[[1]];;chunk[[2]]]]
+,{chunk,allChunks}];
 allParallelEvaluations=ParallelEvaluate[
-Block[{chunk,printoutIndexOffset},
-chunk=chunks[allCoefficientsForThisCutkoskyNum,NKernels,$KernelID];
-printoutIndexOffset=(chunk[[1]]-1);
-ComputeCoefficientsForCutkoskyCut[iCutkosky,allCoefficientsForThisCutkoskyNum[[chunk[[1]];;chunk[[2]]]],printoutIndexOffset]
+Block[{printoutIndexOffset},
+printoutIndexOffset=(allChunks[[$KernelID]][[1]]-1);
+ComputeCoefficientsForCutkoskyCut[iCutkosky,BrokenDownList[[$KernelID]],printoutIndexOffset]
 ]
 ];
 <|Keys[FinalAllSelectedCutkoskyCutsMomentumBases][[iCutkosky]]->SumCoeffs[Table[c[[1]],{c,allParallelEvaluations}]]|>
