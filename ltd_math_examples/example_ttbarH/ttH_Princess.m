@@ -17,101 +17,53 @@ SelectedDiagram=allTTHGraphs[[65]];
 
 
 (* ::Subsection::Initialization:: *)
-(*(*Cutkosky cuts*)*)
+(*(* Building loop momenta basis *)*)
 
 
 (* ::Input::Initialization:: *)
-AllCutkoskyCutsOfSelectedDiagram=constructCuts[SelectedDiagram,DisplayCuts->False];
-
-
-(* ::Text::Initialization:: *)
-(*(*Below is a hard-coded filter to select only the 9 cutkosky cuts I am interested in*)*)
-
-
-(* ::Input::Initialization:: *)
-FilterCutkoskyCuts[allCuts_]:=Block[
-{nTopCuts,nHiggsCuts,i,selectedCuts={},iCut,cutIndices},
-For[i=1,i<=Length[allCuts],i++,
-nTopCuts=0;
-nHiggsCuts=0;
-For[iCut=1,iCut<=Length[allCuts[[i]]["cutInfo"]],iCut++,
-If[And[allCuts[[i]]["cutInfo"][[iCut]]=="cut",allCuts[[i]]["particleType"][[iCut]]==t],nTopCuts+=1;];
-If[And[allCuts[[i]]["cutInfo"][[iCut]]=="cut",allCuts[[i]]["particleType"][[iCut]]==higgs],nHiggsCuts+=1;];
-];
-If[And[nTopCuts==2,nHiggsCuts==1],
-AppendTo[selectedCuts,allCuts[[i]]];
-];
-];
-selectedCuts
-]
-
-
-(* ::Input::Initialization:: *)
-AllSelectedCutkoskyCutsOfSelectedDiagram=FilterCutkoskyCuts[AllCutkoskyCutsOfSelectedDiagram];
-
-
-(* ::Text::Initialization:: *)
-(*(*We should be left with 9 cuts.*)*)
-
-
-(* ::Input::Initialization:: *)
-Length[AllSelectedCutkoskyCutsOfSelectedDiagram]
-
-
-(* ::Text::Initialization:: *)
-(*(*We must now determine the basis in which to express our result for all 9 Cutkosky cut contributions *)*)
-
-
-(* ::Input::Initialization:: *)
-FindCutEdgesIndices[cutDiagram_]:=Block[{iProp,cutIndices={}},
-For[iProp=1,iProp<=Length[cutDiagram["cutInfo"]],iProp++,
-If[cutDiagram["cutInfo"][[iProp]]=="cut",
-AppendTo[cutIndices,iProp];
-];
-];
-cutIndices
-]
-
-
-(* ::Input::Initialization:: *)
-BuildMomentumBasis[cutDiagram_]:=Block[{iProp,iCut,j,cutIndices,linearSystem={},finalLinearSystem={},
-RemainingKs={k1,k2,k3,k4},
+BuildMomentumBasisFromDefiningPropagators[definingPropagators_]:=Block[
+{
+iProp,
+linearSystem={},
 kis={k1,k2,k3,k4},
 kisp={k1p,k2p,k3p,k4p}
 },
-cutIndices=FindCutEdgesIndices[cutDiagram];
-For[iCut=1,iCut<=(Length[cutIndices]-1),iCut++,
-AppendTo[linearSystem,Evaluate[kisp[[iCut]]]==cutDiagram["momentumMap"][[cutIndices[[iCut]]]]];
-For[j=1,j<=Length[kis],j++,
-If[Coefficient[cutDiagram["momentumMap"][[cutIndices[[iCut]]]],kis[[j]]]!=0,
-RemainingKs=DeleteCases[RemainingKs,kis[[j]]];
+For[iProp=1,iProp<=Length[definingPropagators],iProp++,
+AppendTo[linearSystem,Evaluate[kisp[[iProp]]]==SelectedDiagram["momentumMap"][[definingPropagators[[iProp]]]]];
 ];
-];
-];
-finalLinearSystem=linearSystem;
-For[j=4,j>Length[linearSystem],j--,
-AppendTo[finalLinearSystem,
-Evaluate[kisp[[4-j+Length[linearSystem]+1]]]==Evaluate[RemainingKs[[-(5-j)]]]
-];
-];
-Solve[finalLinearSystem,kis][[1]]/.Table[
+Solve[linearSystem,kis][[1]]/.Table[
 Evaluate[kisp[[j]]]->Evaluate[kis[[j]]]
 ,{j,Range[Length[kis]]}]
-]
+];
 
 
-(* ::Text::Initialization:: *)
-(*(*Generate all bases*)*)
+(* ::Input::Initialization:: *)
+combinationsOfPropagatorsDefiningTheMomentumBasisOfEachCutkoskyCut=<|
+{10,11,12,14,16}->{10,11,12,14}, (* #1 RR x RR *)
+{10,11,15} ->{10,11,14,16}, (* #2 VV x B *)
+{10,11,16,17}->{10,11,16,14}, (* #3 RV x R *)
+{11,12,13,14}->{11,12,13,16}, (* #4 R x RV *)
+{11,12,8}->{11,12,14,16}, (* #5 B x VV *)
+{11, 13, 15, 16} -> {11,13,15,14}, (* #6 RV x R *)
+{11,13,17} ->{11,13,14,16}, (* #7 V x V *)
+{11,14,15,16,8}->{11,14,15,16}, (* #8 RR x RR *)
+{11,14,17,8}->{11,14,17,16} (* #9 R x RV *)
+|>;
 
 
 (* ::Input::Initialization:: *)
 AllSelectedCutkoskyCutsMomentumBases=Association[Table[
-FindCutEdgesIndices[cutDiag]->BuildMomentumBasis[cutDiag],
-{cutDiag,AllSelectedCutkoskyCutsOfSelectedDiagram}]];
+key->BuildMomentumBasisFromDefiningPropagators[combinationsOfPropagatorsDefiningTheMomentumBasisOfEachCutkoskyCut[key]],
+{key,Keys[combinationsOfPropagatorsDefiningTheMomentumBasisOfEachCutkoskyCut]}]];
 
 
-(* ::Text::Initialization:: *)
-(*(*Generate the replacement rule to map the choice of basis in Rust (where each gluon carries an individual loop momentum)*)*)
+(* ::Input::Initialization:: *)
+FromRustToQGraf={
+k1->k1,
+k2->k1+k4-p1-p2,
+k3->-k3,
+k4->-k2+k4-p1-p2
+};
 
 
 (* ::Input::Initialization:: *)
@@ -127,10 +79,6 @@ k4p==-k2+k4-p1-p2
 ][[1]])/.{k1p->k1,k2p->k2,k3p->k3,k4p->k4};
 
 
-(* ::Text::Initialization:: *)
-(*(*Combine two rotations*)*)
-
-
 (* ::Input::Initialization:: *)
 CombineRotations[rot1_,rot2_]:=Block[
 {},
@@ -143,14 +91,23 @@ k4->Simplify[((k4/.rot1)/.rot2)]
 ]
 
 
-(* ::Text::Initialization:: *)
-(*(*Therefore the combined rotations to apply for the generation of the polynomial for each CutKosky cut is: *)*)
-
-
 (* ::Input::Initialization:: *)
 FinalAllSelectedCutkoskyCutsMomentumBases=Association[Table[
 key->CombineRotations[AllSelectedCutkoskyCutsMomentumBases[key],FromQGrafToRustRotation]
 ,{key,Keys[AllSelectedCutkoskyCutsMomentumBases]}]];
+
+
+(* ::Text:: *)
+(*Consistency check*)
+
+
+(* ::Input::Initialization:: *)
+If[Table[
+Table[Simplify[SelectedDiagram["momentumMap"][[iProp]]/.FinalAllSelectedCutkoskyCutsMomentumBases[key]/.FromRustToQGraf],
+{iProp,combinationsOfPropagatorsDefiningTheMomentumBasisOfEachCutkoskyCut[key]}
+]==={k1,k2,k3,k4}
+,{key,Keys[AllSelectedCutkoskyCutsMomentumBases]}
+]==Table[True,{D,Range[Length[FinalAllSelectedCutkoskyCutsMomentumBases]]}],Print["Consistency check PASSED!"];,Print["Consistency check FAILED!"];];
 
 
 (* ::Subsection::Initialization:: *)
@@ -364,8 +321,7 @@ Block[{iCutkosky,tmp,
 (* Select below the range of terms to consider *)
 MinTermIndex=1,
 MaxTermIndex=-1,
-MaxiCutksoksky=9
-(*MaxiCutksoksky=Length[FinalAllSelectedCutkoskyCutsMomentumBases]*)
+MaxiCutksoksky=Length[FinalAllSelectedCutkoskyCutsMomentumBases]
 },
 For[iCutkosky=1,iCutkosky<=MaxiCutksoksky,iCutkosky++,
 AppendTo[FinalAllCoefficients,GetAllCoeffs[iCutkosky,MinTermIndex,MaxTermIndex,Parallel->True]];
