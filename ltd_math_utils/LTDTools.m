@@ -76,7 +76,7 @@ extractTensCoeff::usage=" Extracts from a given numerator the loop-momentum tens
 											  0: No-checks
 	OUTPUT: graph with appended entry \"analyticTensorCoeff\" (see example)
 "
-getSymCoeff::usage=" Gives the symmetric sum over tensor coefficients with explicitly expanded numeric Lorentz indices. 
+getSymCoeff::usage=" Gives the symmetric sum over tensor coefficients with explicitly expanded numeric Lorentz indices. The tensor coefficients will be of the form k^0*k^1 T^{01}: All effects of the metric are already included. 
 	INPUT: 
 		graph (or list of graphs) with attribute \"numerator\" , \"momentumMap\", \"loopMomenta\" and/or \"analyticTensorCoeff\". 
     OPTIONAL INPUT
@@ -113,6 +113,12 @@ translateToFeynCalc::usage=" Translates old input format for algebra to FeynCalc
 		- expression in old format
 	OPTIONAL INPUT:
 		- dimensions\[Rule] 4-2eps (Default) / 4 : dimension of algebra
+"
+getSymCoeffSP::usage="Construct list of symmetric coefficients for given graph, if the numerator has only scalar products. The tensor coefficients will be of the form k^0*k^1 T^{01}: All effects of the metric are already included.
+	INPUT:
+		- graph (or list of graphs) with attribute \"numerator\" , \"momentumMap\", \"loopMomenta\" and/or \"analyticTensorCoeff\". 
+	OPTIONAL INPUT:
+		- numericReplacement\[Rule]{1\[Rule]1}: List with replacements for vectors/constants
 "
 
 
@@ -549,8 +555,8 @@ writeMinimalJSON[graphs_,numAssociation_Association,opts:OptionsPattern[]]:=Bloc
 evaluateNumerator[numerator_,numRepl_]:=Block[{numericNum=numerator,Pair},
   numericNum=numericNum//FCI;
   Pair[Momentum[x_List,d___],Momentum[y_List,d___]]:=x[[1]]*y[[1]]-x[[2;;]].y[[2;;]];
-  (* vectors are assumed to be covariant *)
-   numericNum=(numerator//. numRepl //.x_List[y_Integer]:>If[y==0,x[[1]],-x[[y+1]] ]);
+  (* vectors are assumed to be contravariant *)
+   numericNum=(numerator//. numRepl //.x_List[y_Integer]:>x[[y+1]]);
   If[Length@(Variables@numericNum)!=0,
   Print["Error: The numerator coefficients: "<>ToString[Variables@numericNum,InputForm]<>" have no numeric value!"];
   Abort[];  
@@ -994,8 +1000,8 @@ writeAmplitudeJSON[amp_,numAssociation_Association,opts:OptionsPattern[]]:=Block
 evaluateNumerator[numerator_,numRepl_]:=Block[{numericNum=numerator,Pair},
   numericNum=numericNum//FCI;
   Pair[Momentum[x_List,d___],Momentum[y_List,d___]]:=x[[1]]*y[[1]]-x[[2;;]].y[[2;;]];
-  (* vectors are assumed to be covariant *)
-   numericNum=(numerator//. numRepl //.x_List[y_Integer]:>If[y==0,x[[1]],-x[[y+1]] ]);
+  (* vectors are assumed to be contravariant *)
+   numericNum=(numerator//. numRepl //.x_List[y_Integer]:>x[[y+1]]);
   If[Length@(Variables@numericNum)!=0,
   Print["Error: The numerator coefficients: "<>ToString[Variables@numericNum,InputForm]<>" have no numeric value!"];
   Abort[];  
@@ -1094,4 +1100,41 @@ processAsso=Table[
 		Print["Amplitude written to: "<>"./amplitude_"<>procName<>".json"];
 	];
 	
+]
+
+
+
+Protect[numericReplacement];
+Options[getSymCoeffSP]={numericReplacement->{1->1}};
+getSymCoeffSP[graph_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graph},res,num,sp,dim,vector,Pair,loopMom,loopComponents,formatRule,ruleContraToCovariant,indexMapping,formatRuleLight,verificationRules1,verificationRules2,loopMomMapping,coeffAsso},
+(* The output of getSymCoefficients is k^0 k^1*T_{(0,1)}. Here the output will be k^0 k^1 T^{(0,1)} *)
+
+      
+    res=Table[
+    dim=Flatten@FCGetDimensions[num];
+    If[dim==={D},
+          Pair[Momentum[x_,D],Momentum[y_,D]]:=sp[x,y]
+		,
+          Pair[Momentum[x_],Momentum[y_]]:=sp[x,y]
+	];
+
+	sp[x_List,y_List]:=x[[1]]*y[[1]]-x[[2]]*y[[2]]-x[[3]]*y[[3]]-x[[4]]*y[[4]];
+	loopMom=mygraph[["loopMomenta"]];
+	loopComponents=Map[Map[#,Range[0,3],{1}]&,loopMom];
+	loopMomMapping=Thread@Rule[loopMom,loopComponents];
+
+	num=(mygraph[["numerator"]]//FCI//ExpandScalarProduct)//. Dispatch@OptionValue[numericReplacement]/. Dispatch@loopMomMapping;
+	loopComponents=Flatten@Map[Map[#,Range[0,3],{1}]&,loopMom];
+	indexMapping=Thread@Rule[loopComponents,Flatten@(loopComponents/.x_[i_]:>i+4*(Position[loopMom,x]-1))];
+	formatRule={Rule[a_List,b_]:>{Flatten@((Flatten@(Replace[#,(x_)^(y_/;y>1):>Flatten@{ConstantArray[x,y]}]&/@(Replace[#,1->Nothing]&/@(((loopComponents))^a))))),b}};
+	formatRuleLight={Rule[a_List,b_]:> {a,b}};
+	
+	num=((CoefficientRules[num,loopComponents])/. formatRule)/.indexMapping;
+	coeffAsso=SortBy[num,#[[1]]&];
+	Append[mygraph,<|"symmetrizedExpandedTensorCoeff"->coeffAsso|>]
+	,{mygraph,myGraphs}];
+	If[Length@myGraphs==1,
+	 res[[1]],
+	 res
+	]
 ]
