@@ -876,9 +876,9 @@ getSymCoeff[graphs_,opts:OptionsPattern[]]:=Block[
 	    Total@Table[
 (*	     Print[ind];
 	     Pause[.2];*)
-	     replV=vector[x_,lMomInd[loopMomNum_][loopIndex_]]:>x[ind[[loopMomNum,loopIndex]]];
+	     replV=vector[x_,lMomInd[loopMomNum_][loopIndex_]]:>If[ind[[loopMomNum,loopIndex]]==0,x[ind[[loopMomNum,loopIndex]]],-x[ind[[loopMomNum,loopIndex]]]];
 		 replG=g[lMomInd[loopMomNum_][loopIndex_],lMomInd[loopMomNum2_][loopIndex2_]]:>g[ind[[loopMomNum,loopIndex]],ind[[loopMomNum2,loopIndex2]]];
-		 replRest=lMomInd[loopMomNum_][loopIndex_]:>ind[[loopMomNum,loopIndex]];
+		 replRest=lMomInd[loopMomNum_][loopIndex_]:>covartiantLI[ind[[loopMomNum,loopIndex]]];
 	     resTmp //. replV //. replG //. replRest
 	    ,{ind,myInd}];
 	    {resTmpTmp,Flatten@(myInd[[1]]+indShift)}
@@ -1106,7 +1106,7 @@ processAsso=Table[
 
 Protect[numericReplacement];
 Options[getSymCoeffSP]={numericReplacement->{1->1}};
-getSymCoeffSP[graph_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graph},res,num,sp,dim,vector,Pair,loopMom,loopComponents,formatRule,indexMapping,formatRuleLight,verificationRules1,verificationRules2,loopMomMapping,coeffAsso},
+getSymCoeffSP[graph_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graph},res,num,sp,dim,vector,Pair,loopMom,loopComponents,formatRule,indexMapping,formatRuleLight,verificationRules1,verificationRules2,loopMomMapping,coeffAsso,nonExpandedMomenta,nonExpandedComponents},
 (* The output of getSymCoefficients is k^0 k^1*T_{(0,1)}. Here the output will be k^0 k^1 T^{(0,1)} *)
 
       
@@ -1124,6 +1124,10 @@ getSymCoeffSP[graph_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graph},res
 	loopMomMapping=Thread@Rule[loopMom,loopComponents];
 
 	num=(mygraph[["numerator"]]//FCI//ExpandScalarProduct)//. Dispatch@OptionValue[numericReplacement]/. Dispatch@loopMomMapping;
+	nonExpandedMomenta=Replace[#,x_/;ListQ[x]:>Nothing]&/@Flatten[(Cases[num,sp[x_,y_]:>{x,y},Infinity]//Union),1];
+	nonExpandedComponents=Map[Map[#,Range[0,3],{1}]&,nonExpandedMomenta];
+	num=num/.Thread@Rule[nonExpandedMomenta,nonExpandedComponents];
+	
 	loopComponents=Flatten@Map[Map[#,Range[0,3],{1}]&,loopMom];
 	indexMapping=Thread@Rule[loopComponents,Flatten@(loopComponents/.x_[i_]:>i+4*(Position[loopMom,x]-1))];
 	formatRule={Rule[a_List,b_]:>{Flatten@((Flatten@(Replace[#,(x_)^(y_/;y>1):>Flatten@{ConstantArray[x,y]}]&/@(Replace[#,1->Nothing]&/@(((loopComponents))^a))))),b}};
