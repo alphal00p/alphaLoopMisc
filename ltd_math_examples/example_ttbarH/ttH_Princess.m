@@ -182,7 +182,7 @@ ApplyFunctionToEachTerm[terms_,func_,OptionsPattern[{DEBUG->True,printoutFrequen
 For[i=1,i<=Length[terms],i++,
 If[And[OptionValue[DEBUG],Mod[i,OptionValue[printoutFrequency]]==0],
 NotebookDelete[temp];
-temp=PrintTemporary[OptionValue[msgPrefix]<>"Now processing terms >#"<>ToString[i+OptionValue[termIndexOffset]]<>"..."]];
+temp=PrintTemporary[OptionValue[msgPrefix]<>"Now processing terms >#"<>ToString[i+OptionValue[termIndexOffset]]<>"/"<>ToString[Length[terms]+OptionValue[termIndexOffset]]<>"  "<>ToString[N[i/Length[terms],3]*100.]<>"% "<>"..."]];
 AppendTo[newTerms,func[terms[[i]]]];
 ];
 NotebookDelete[temp];
@@ -299,7 +299,7 @@ FinalAllCoefficients=<|
 Keys[FinalAllSelectedCutkoskyCutsMomentumBases][[iCutkosky]]->GenerateNumeratorCoefficients[
 allCoefficientsForThisCutkoskyNum,
 DEBUG->True,
-msgPrefix->("Cut #"<>ToString[iCutkosky]<>" : "),
+msgPrefix->("Kernel ID="<>ToString[$KernelID]<>" Cut #"<>ToString[iCutkosky]<>" : "),
 termIndexOffset->chosenTermIndexOffset,
 printoutFrequency->10,
 ReplacementRules->{},
