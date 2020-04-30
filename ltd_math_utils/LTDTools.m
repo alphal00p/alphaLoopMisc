@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-Print["The documented functions in this package are: \n ?plotGraph \n ?findIsomorphicGraphs \n ?constructCuts \n ?importGraphs \n ?getLoopLines \n ?getCutStructure \n ?writeMinimalJSON \n ?extractTensCoeff \n ?getSymCoeff \n ?processNumerator \n ?createSuperGraph \n ?translateToFeynCalc
+Print["The documented functions in this package are: \n ?plotGraph \n ?findIsomorphicGraphs \n ?constructCuts \n ?importGraphs \n ?getLoopLines \n ?getCutStructure \n ?writeMinimalJSON \n ?extractTensCoeff \n ?getSymCoeff \n ?processNumerator \n ?createSuperGraph \n ?translateToFeynCalc \n ?getSymCoeffSP
  ----------------------------------------- 
  Needs the package FeynCalc which can installed with Import[\"https://raw.githubusercontent.com/FeynCalc/feyncalc/master/install.m\"]; InstallFeynCalc[]
  Needs the package IGraphM which can be downloaded from https://github.com/szhorvat/IGraphM. !!! \n Run: Get[\"https://raw.githubusercontent.com/szhorvat/IGraphM/master/IGInstaller.m\"] for installation. "
@@ -1106,7 +1106,7 @@ processAsso=Table[
 
 Protect[numericReplacement];
 Options[getSymCoeffSP]={numericReplacement->{1->1}};
-getSymCoeffSP[graph_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graph},res,num,sp,dim,vector,Pair,loopMom,loopComponents,formatRule,ruleContraToCovariant,indexMapping,formatRuleLight,verificationRules1,verificationRules2,loopMomMapping,coeffAsso},
+getSymCoeffSP[graph_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graph},res,num,sp,dim,vector,Pair,loopMom,loopComponents,formatRule,indexMapping,formatRuleLight,verificationRules1,verificationRules2,loopMomMapping,coeffAsso},
 (* The output of getSymCoefficients is k^0 k^1*T_{(0,1)}. Here the output will be k^0 k^1 T^{(0,1)} *)
 
       
