@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    476601,      10941]
-NotebookOptionsPosition[    454623,      10623]
-NotebookOutlinePosition[    454985,      10639]
-CellTagsIndexPosition[    454942,      10636]
+NotebookDataLength[    484793,      11111]
+NotebookOptionsPosition[    462323,      10788]
+NotebookOutlinePosition[    462685,      10804]
+CellTagsIndexPosition[    462642,      10801]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -10205,8 +10205,18 @@ Cell[BoxData[
          "\"\<0.1714388636772608E+03  -0.8090412402507319E+02  \
 -0.4479482240665261E+02   0.1443579945144794E+03\>\"", "]"}]}], ",", 
        "\[IndentingNewLine]", 
-       RowBox[{"\"\<MGresult\>\"", "\[Rule]", "7.6711370371672883*^+28"}]}], 
-      "\[IndentingNewLine]", "|>"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<MGresult\>\"", "\[Rule]", "7.6711370371672883*^+28"}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<MGresultMatchingPolSum\>\"", "\[Rule]", 
+        "2.9524489194032651*^+29"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<MGresultMatchingPolSumCut1\>\"", "\[Rule]", " ", 
+        "7.7294192126577239*^+28"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<MGresultMatchingPolSumCut8\>\"", "\[Rule]", 
+        "2.1795069981374918*^+29"}]}], "\[IndentingNewLine]", "|>"}], ",", 
+     "\[IndentingNewLine]", 
      RowBox[{"<|", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"\"\<ep\>\"", "\[Rule]", "\[IndentingNewLine]", 
@@ -10247,9 +10257,18 @@ Cell[BoxData[
          "\"\<0.2051448113274315E+03  -0.5644963067724370E+02   \
 0.9995443127202908E+02  -0.1700204237144922E+03\>\"", "]"}]}], ",", 
        "\[IndentingNewLine]", 
-       RowBox[{"\"\<MGresult\>\"", "\[Rule]", "2.0564560230088408*^+29"}]}], 
-      "\[IndentingNewLine]", "|>"}]}], "\[IndentingNewLine]", "}"}]}], 
-  ";"}]], "Input",
+       RowBox[{"\"\<MGresult\>\"", "\[Rule]", "2.0564560230088408*^+29"}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<MGresultMatchingPolSum\>\"", "\[Rule]", 
+        "9.2487109149540993*^+29"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<MGresultMatchingPolSumCut1\>\"", "\[Rule]", " ", 
+        "4.4180259949583196*^+29"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<MGresultMatchingPolSumCut8\>\"", "\[Rule]", " ", 
+        "4.8306849199957867*^+29"}]}], "\[IndentingNewLine]", "|>"}]}], 
+    "\[IndentingNewLine]", "}"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.79732598442624*^9, 3.7973260185529633`*^9}, {
    3.797326644215932*^9, 3.797326761461087*^9}, {3.797327220182963*^9, 
    3.7973272458321943`*^9}, {3.797327417156617*^9, 3.797327418217409*^9}, {
@@ -10257,8 +10276,12 @@ Cell[BoxData[
    3.797327621820867*^9}, {3.7973280228371572`*^9, 3.797328047616664*^9}, {
    3.797328088674172*^9, 3.797328091529104*^9}, 3.797328186125486*^9, {
    3.7973284200424013`*^9, 3.797328451337042*^9}, {3.7973305500776863`*^9, 
-   3.797330582999016*^9}, {3.7973308602587147`*^9, 
-   3.797330868539661*^9}},ExpressionUUID->"f8f255d2-3c7b-4e07-981c-\
+   3.797330582999016*^9}, {3.7973308602587147`*^9, 3.797330868539661*^9}, {
+   3.7973348841683407`*^9, 3.797334941274979*^9}, 3.797334988872405*^9, {
+   3.797335200309536*^9, 3.7973352450799503`*^9}, {3.797335279532461*^9, 
+   3.7973353832150307`*^9}, {3.797335860406518*^9, 3.797335961334745*^9}, {
+   3.797336001340695*^9, 
+   3.797336036099517*^9}},ExpressionUUID->"f8f255d2-3c7b-4e07-981c-\
 7d91647025e8"],
 
 Cell[BoxData[
@@ -10435,7 +10458,7 @@ Cell[BoxData[
          RowBox[{"MyPrint", "[", 
           RowBox[{"\"\<Config #\>\"", "<>", 
            RowBox[{"ToString", "[", "i", "]"}], "<>", 
-           "\"\<: (MathematicaCut1+MathematicaCut8) vs Madgraph:\>\""}], " ", 
+           "\"\<: Mathematica vs Madgraph (matching pol. sum.):\>\""}], " ", 
           "]"}], ";", "\[IndentingNewLine]", 
          RowBox[{"MathematicaResultCut1", "=", 
           RowBox[{"EvaluatePolynomial", "[", "\[IndentingNewLine]", 
@@ -10467,8 +10490,52 @@ Cell[BoxData[
               RowBox[{"11", ",", "14", ",", "15", ",", "16", ",", "8"}], 
               "}"}], "]"}]}], "\[IndentingNewLine]", "]"}]}], ";", 
          "\[IndentingNewLine]", 
+         RowBox[{"MyPrint", "[", 
+          RowBox[{"\"\<Cut1 : \>\"", "<>", 
+           RowBox[{"ToString", "[", 
+            RowBox[{"MathematicaResultCut1", ",", "InputForm"}], "]"}], "<>", 
+           "\"\< vs \>\"", "<>", "\[IndentingNewLine]", 
+           RowBox[{"ToString", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "testConfigurations", "\[LeftDoubleBracket]", "i", 
+               "\[RightDoubleBracket]"}], "[", 
+              "\"\<MGresultMatchingPolSumCut1\>\"", "]"}], ",", "InputForm"}],
+             "]"}], "<>", "\"\< , ratio = \>\"", "<>", 
+           RowBox[{"ToString", "[", 
+            RowBox[{
+             FractionBox["MathematicaResultCut1", 
+              RowBox[{
+               RowBox[{
+               "testConfigurations", "\[LeftDoubleBracket]", "i", 
+                "\[RightDoubleBracket]"}], "[", 
+               "\"\<MGresultMatchingPolSumCut1\>\"", "]"}]], ",", 
+             "InputForm"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"MyPrint", "[", 
+          RowBox[{"\"\<Cut8 : \>\"", "<>", 
+           RowBox[{"ToString", "[", 
+            RowBox[{"MathematicaResultCut8", ",", "InputForm"}], "]"}], "<>", 
+           "\"\< vs \>\"", "<>", "\[IndentingNewLine]", 
+           RowBox[{"ToString", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "testConfigurations", "\[LeftDoubleBracket]", "i", 
+               "\[RightDoubleBracket]"}], "[", 
+              "\"\<MGresultMatchingPolSumCut8\>\"", "]"}], ",", "InputForm"}],
+             "]"}], "<>", "\"\< , ratio = \>\"", "<>", 
+           RowBox[{"ToString", "[", 
+            RowBox[{
+             FractionBox["MathematicaResultCut8", 
+              RowBox[{
+               RowBox[{
+               "testConfigurations", "\[LeftDoubleBracket]", "i", 
+                "\[RightDoubleBracket]"}], "[", 
+               "\"\<MGresultMatchingPolSumCut8\>\"", "]"}]], ",", 
+             "InputForm"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
          RowBox[{"MyPrint", "[", "\[IndentingNewLine]", 
-          RowBox[{"\"\<[ ( \>\"", "<>", 
+          RowBox[{"\"\<Total : [ ( \>\"", "<>", 
            RowBox[{"ToString", "[", 
             RowBox[{"MathematicaResultCut1", ",", "InputForm"}], "]"}], "<>", 
            "\"\< ) + ( \>\"", "<>", "\[IndentingNewLine]", 
@@ -10479,14 +10546,32 @@ Cell[BoxData[
             RowBox[{
              RowBox[{"MathematicaResultCut1", "+", "MathematicaResultCut8"}], 
              ",", "InputForm"}], "]"}], "<>", "\"\< ] \>\"", "<>", 
-           "\"\< vs \>\"", "\[IndentingNewLine]", "<>", 
+           "\"\< vs [ \>\"", "\[IndentingNewLine]", "<>", 
            RowBox[{"ToString", "[", 
             RowBox[{
              RowBox[{
               RowBox[{
               "testConfigurations", "\[LeftDoubleBracket]", "i", 
-               "\[RightDoubleBracket]"}], "[", "\"\<MGresult\>\"", "]"}], ",",
-              "InputForm"}], "]"}], "<>", "\"\< , ratio = \>\"", "<>", 
+               "\[RightDoubleBracket]"}], "[", 
+              "\"\<MGresultMatchingPolSumCut1\>\"", "]"}], ",", "InputForm"}],
+             "]"}], "<>", "\"\< + \>\"", "<>", "\[IndentingNewLine]", 
+           RowBox[{"ToString", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "testConfigurations", "\[LeftDoubleBracket]", "i", 
+               "\[RightDoubleBracket]"}], "[", 
+              "\"\<MGresultMatchingPolSumCut8\>\"", "]"}], ",", "InputForm"}],
+             "]"}], "<>", "\"\< = \>\"", "<>", "\[IndentingNewLine]", 
+           RowBox[{"ToString", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+              "testConfigurations", "\[LeftDoubleBracket]", "i", 
+               "\[RightDoubleBracket]"}], "[", 
+              "\"\<MGresultMatchingPolSum\>\"", "]"}], ",", "InputForm"}], 
+            "]"}], "<>", "\"\< ]\>\"", "<>", "\[IndentingNewLine]", 
+           "\"\< , ratio = \>\"", "<>", 
            RowBox[{"ToString", "[", 
             RowBox[{
              FractionBox[
@@ -10494,16 +10579,24 @@ Cell[BoxData[
               RowBox[{
                RowBox[{
                "testConfigurations", "\[LeftDoubleBracket]", "i", 
-                "\[RightDoubleBracket]"}], "[", "\"\<MGresult\>\"", "]"}]], 
-             ",", "InputForm"}], "]"}]}], "]"}], ";"}]}], 
-       "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
-  ";"}]], "Input",
+                "\[RightDoubleBracket]"}], "[", 
+               "\"\<MGresultMatchingPolSum\>\"", "]"}]], ",", "InputForm"}], 
+            "]"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.797330282918079*^9, 3.797330336558199*^9}, {
   3.7973305957600317`*^9, 3.797330599988083*^9}, {3.797330850132716*^9, 
   3.797330993029976*^9}, {3.7973310663632097`*^9, 3.797331413733603*^9}, {
   3.7973314974687*^9, 3.797331499822204*^9}, {3.797331564450042*^9, 
-  3.7973315872957783`*^9}},ExpressionUUID->"fd554aff-1d26-414e-932e-\
+  3.7973315872957783`*^9}, {3.797334956609632*^9, 3.797334965058584*^9}, {
+  3.797335400956217*^9, 3.7973356182947683`*^9}, {3.797335660642414*^9, 
+  3.797335665306591*^9}, {3.79733573614557*^9, 
+  3.797335756268715*^9}},ExpressionUUID->"fd554aff-1d26-414e-932e-\
 288ddb75f851"],
+
+Cell["Now perform the comparison!", "Text",
+ CellChangeTimes->{{3.797336783117035*^9, 
+  3.797336786638102*^9}},ExpressionUUID->"5f1203ad-eb7d-4082-843c-\
+a672fd536f85"],
 
 Cell[CellGroupData[{
 
@@ -10517,53 +10610,118 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  FormBox[
-  StyleBox["\<\"Config #1: (MathematicaCut1+MathematicaCut8) vs Madgraph:\"\>",
+  StyleBox["\<\"Config #1: Mathematica vs Madgraph (matching pol. sum.):\"\>",
+   
    StripOnInput->False,
    FontFamily->"Monaco"], TraditionalForm]], "Print",
  CellChangeTimes->{{3.797331191096692*^9, 3.797331216597001*^9}, 
-   3.797331420262725*^9, 3.797331511880172*^9, 
-   3.797331594649065*^9},ExpressionUUID->"5e6ea0d6-4bc2-4dcb-ae88-\
-b0a384d50e53"],
+   3.797331420262725*^9, 3.797331511880172*^9, 3.797331594649065*^9, {
+   3.797334967439273*^9, 3.7973349936928377`*^9}, 3.797335622270381*^9, 
+   3.797335673418426*^9, 3.7973357589200697`*^9, 
+   3.797336051875358*^9},ExpressionUUID->"641f1b34-e454-4ad1-993f-\
+acb08c26e081"],
 
 Cell[BoxData[
  FormBox[
-  StyleBox["\<\"[ ( 0. - 7.062733085862502*^30*I ) + ( 0. - \
-8.851730926824809*^26*I ) = 0. - 7.063618258955185*^30*I ]  vs \
-7.671137037167288*^28 , ratio = 0. - 92.08045984228119*I\"\>",
+  StyleBox["\<\"Cut1 : 0. - 7.062733085862502*^30*I vs 7.729419212657724*^28 \
+, ratio = 0. - 91.37469312437533*I\"\>",
    StripOnInput->False,
    FontFamily->"Monaco"], TraditionalForm]], "Print",
  CellChangeTimes->{{3.797331191096692*^9, 3.797331216597001*^9}, 
-   3.797331420262725*^9, 3.797331511880172*^9, 
-   3.7973315954731073`*^9},ExpressionUUID->"13ebee1c-dd5f-4a69-b75e-\
-bbed82dcff6d"],
+   3.797331420262725*^9, 3.797331511880172*^9, 3.797331594649065*^9, {
+   3.797334967439273*^9, 3.7973349936928377`*^9}, 3.797335622270381*^9, 
+   3.797335673418426*^9, 3.7973357589200697`*^9, 
+   3.797336052712676*^9},ExpressionUUID->"010c1334-c80b-4629-a773-\
+7717dbd4446d"],
 
 Cell[BoxData[
  FormBox[
-  StyleBox["\<\"Config #2: (MathematicaCut1+MathematicaCut8) vs Madgraph:\"\>",
+  StyleBox["\<\"Cut8 : 0. - 8.851730926824809*^26*I vs 2.1795069981374918*^29 \
+, ratio = 0. - 0.004061345494365973*I\"\>",
    StripOnInput->False,
    FontFamily->"Monaco"], TraditionalForm]], "Print",
  CellChangeTimes->{{3.797331191096692*^9, 3.797331216597001*^9}, 
-   3.797331420262725*^9, 3.797331511880172*^9, 
-   3.79733159548326*^9},ExpressionUUID->"5b23320a-1568-408c-a320-\
-f94240b9fbcc"],
+   3.797331420262725*^9, 3.797331511880172*^9, 3.797331594649065*^9, {
+   3.797334967439273*^9, 3.7973349936928377`*^9}, 3.797335622270381*^9, 
+   3.797335673418426*^9, 3.7973357589200697`*^9, 
+   3.797336052723754*^9},ExpressionUUID->"c6928647-0ed2-49b0-a907-\
+2116be2cb5ee"],
 
 Cell[BoxData[
  FormBox[
-  StyleBox["\<\"[ ( 0. + 4.094782361738684*^29*I ) + ( 0. + \
-6.27892852918091*^30*I ) = 0. + 6.688406765354778*^30*I ]  vs \
-2.0564560230088408*^29 , ratio = 0. + 32.52394746360216*I\"\>",
+  StyleBox["\<\"Total : [ ( 0. - 7.062733085862502*^30*I ) + ( 0. - \
+8.851730926824809*^26*I ) = 0. - 7.063618258955185*^30*I ]  vs [ \
+7.729419212657724*^28 + 2.1795069981374918*^29 = 2.952448919403265*^29 ] , \
+ratio = 0. - 23.924607848534258*I\"\>",
    StripOnInput->False,
    FontFamily->"Monaco"], TraditionalForm]], "Print",
  CellChangeTimes->{{3.797331191096692*^9, 3.797331216597001*^9}, 
-   3.797331420262725*^9, 3.797331511880172*^9, 
-   3.7973315963652077`*^9},ExpressionUUID->"39e39156-0597-4c0c-9e7f-\
-6ba6e3cc06e3"]
+   3.797331420262725*^9, 3.797331511880172*^9, 3.797331594649065*^9, {
+   3.797334967439273*^9, 3.7973349936928377`*^9}, 3.797335622270381*^9, 
+   3.797335673418426*^9, 3.7973357589200697`*^9, 
+   3.797336052736508*^9},ExpressionUUID->"4acaa621-3873-451a-b650-\
+79ac1c0ff2b3"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\"Config #2: Mathematica vs Madgraph (matching pol. sum.):\"\>",
+   
+   StripOnInput->False,
+   FontFamily->"Monaco"], TraditionalForm]], "Print",
+ CellChangeTimes->{{3.797331191096692*^9, 3.797331216597001*^9}, 
+   3.797331420262725*^9, 3.797331511880172*^9, 3.797331594649065*^9, {
+   3.797334967439273*^9, 3.7973349936928377`*^9}, 3.797335622270381*^9, 
+   3.797335673418426*^9, 3.7973357589200697`*^9, 
+   3.797336052748394*^9},ExpressionUUID->"e31c219f-817d-4259-8a48-\
+866fb694d75b"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\"Cut1 : 0. + 4.094782361738684*^29*I vs 4.4180259949583196*^29 \
+, ratio = 0. + 0.9268352803744231*I\"\>",
+   StripOnInput->False,
+   FontFamily->"Monaco"], TraditionalForm]], "Print",
+ CellChangeTimes->{{3.797331191096692*^9, 3.797331216597001*^9}, 
+   3.797331420262725*^9, 3.797331511880172*^9, 3.797331594649065*^9, {
+   3.797334967439273*^9, 3.7973349936928377`*^9}, 3.797335622270381*^9, 
+   3.797335673418426*^9, 3.7973357589200697`*^9, 
+   3.7973360535870132`*^9},ExpressionUUID->"f90fe0c4-e517-4b83-b391-\
+6c2573277ba3"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\"Cut8 : 0. + 6.27892852918091*^30*I vs 4.830684919995787*^29 , \
+ratio = 0. + 12.998008839678963*I\"\>",
+   StripOnInput->False,
+   FontFamily->"Monaco"], TraditionalForm]], "Print",
+ CellChangeTimes->{{3.797331191096692*^9, 3.797331216597001*^9}, 
+   3.797331420262725*^9, 3.797331511880172*^9, 3.797331594649065*^9, {
+   3.797334967439273*^9, 3.7973349936928377`*^9}, 3.797335622270381*^9, 
+   3.797335673418426*^9, 3.7973357589200697`*^9, 
+   3.797336053598946*^9},ExpressionUUID->"e2154bef-51fd-480e-a5d5-\
+2cfb7eb47caa"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["\<\"Total : [ ( 0. + 4.094782361738684*^29*I ) + ( 0. + \
+6.27892852918091*^30*I ) = 0. + 6.688406765354778*^30*I ]  vs [ \
+4.4180259949583196*^29 + 4.830684919995787*^29 = 9.2487109149541*^29 ] , \
+ratio = 0. + 7.231717832741854*I\"\>",
+   StripOnInput->False,
+   FontFamily->"Monaco"], TraditionalForm]], "Print",
+ CellChangeTimes->{{3.797331191096692*^9, 3.797331216597001*^9}, 
+   3.797331420262725*^9, 3.797331511880172*^9, 3.797331594649065*^9, {
+   3.797334967439273*^9, 3.7973349936928377`*^9}, 3.797335622270381*^9, 
+   3.797335673418426*^9, 3.7973357589200697`*^9, 
+   3.7973360536133137`*^9},ExpressionUUID->"c25d219f-547e-4b23-9842-\
+88b1eeed99e9"]
 }, Open  ]]
 }, Open  ]],
 
 Cell[TextData[{
- "We should *not* be surprised that these do not match yet because \nin \
-MadGraph the polarisation sum of the gluon reads ",
+ "The \[OpenCurlyDoubleQuote]matching pol. sum\[CloseCurlyDoubleQuote] \
+comment regards the fact that MadGraph the polarisation sum of the gluon \
+reads ",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -10582,7 +10740,7 @@ MadGraph the polarisation sum of the gluon reads ",
      RowBox[{"k", " ", "\[CenterDot]", 
       OverscriptBox["k", "_"]}]]}], TraditionalForm]],ExpressionUUID->
   "ba26897c-db99-4529-81e5-6a0c01ab9cf7"],
- " piece of the sum over polarisations, with ",
+ ", with ",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -10603,18 +10761,25 @@ MadGraph the polarisation sum of the gluon reads ",
     RowBox[{"(", 
      RowBox[{"1", ",", "0", ",", "0", ",", "0"}], ")"}]}], TraditionalForm]],
   ExpressionUUID->"6d1c49f9-9687-4603-ad81-57e6e02132ff"],
- ",\nwhile in Mathematica the numerator was constructed with the polarisation \
-sum just being ",
+ ",\nwhile in Mathematica, the numerator was constructed with the \
+polarisation sum just being ",
  Cell[BoxData[
   FormBox[
    RowBox[{"-", 
     SuperscriptBox["g", "\[Mu]\[Nu]"]}], TraditionalForm]],ExpressionUUID->
   "37fb003b-5fc8-42d8-a49d-eb0d7b1d58c8"],
- "!"
+ "!\[LineSeparator]So I hacked Madgraph so as to reproduce results one would \
+obtain with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"-", 
+    SuperscriptBox["g", "\[Mu]\[Nu]"]}], TraditionalForm]],ExpressionUUID->
+  "a8ce621e-6fe7-4307-bd0f-5d627d832c6a"],
+ " and now those results are expected to match."
 }], "Text",
  CellChangeTimes->{{3.797333369995908*^9, 3.7973333942742558`*^9}, {
-  3.797333494502983*^9, 
-  3.7973335360286417`*^9}},ExpressionUUID->"b7874e08-9cc6-4086-8d3a-\
+  3.797333494502983*^9, 3.7973335360286417`*^9}, {3.797336661124608*^9, 
+  3.79733675228867*^9}},ExpressionUUID->"b7874e08-9cc6-4086-8d3a-\
 fe062915d67f"]
 }, Open  ]]
 }, Open  ]]
@@ -10919,26 +11084,31 @@ Cell[CellGroupData[{
 Cell[434994, 10144, 247, 4, 30, "Input",ExpressionUUID->"6ee4096a-b673-4e3d-b0b0-c5e02c6dcd69"],
 Cell[435244, 10150, 335, 9, 30, "Output",ExpressionUUID->"9eba152b-3efd-4ebf-bc80-a2545706c833"]
 }, Open  ]],
-Cell[435594, 10162, 4983, 99, 766, "Input",ExpressionUUID->"f8f255d2-3c7b-4e07-981c-7d91647025e8"],
-Cell[440580, 10263, 653, 14, 30, "Input",ExpressionUUID->"412335f5-1f5b-47df-825a-0841e00e1179"],
+Cell[435594, 10162, 6108, 122, 892, "Input",ExpressionUUID->"f8f255d2-3c7b-4e07-981c-7d91647025e8"],
+Cell[441705, 10286, 653, 14, 30, "Input",ExpressionUUID->"412335f5-1f5b-47df-825a-0841e00e1179"],
 Cell[CellGroupData[{
-Cell[441258, 10281, 349, 8, 30, "Input",ExpressionUUID->"6d679c64-f46b-4ce0-8484-388ab4cbb1fc"],
-Cell[441610, 10291, 951, 24, 54, "Output",ExpressionUUID->"c61cd203-bc5d-404b-b515-1a42a22c8088"]
+Cell[442383, 10304, 349, 8, 30, "Input",ExpressionUUID->"6d679c64-f46b-4ce0-8484-388ab4cbb1fc"],
+Cell[442735, 10314, 951, 24, 54, "Output",ExpressionUUID->"c61cd203-bc5d-404b-b515-1a42a22c8088"]
 }, Open  ]],
-Cell[442576, 10318, 254, 6, 35, "Text",ExpressionUUID->"7512b989-a848-45fa-aace-3a6bf17e495d"],
-Cell[442833, 10326, 1123, 27, 178, "Input",ExpressionUUID->"9eddd7bd-ab2a-41a5-88af-d4df16c2d69a"],
-Cell[443959, 10355, 2568, 59, 220, "Input",ExpressionUUID->"8887fa21-a998-41df-b7a7-44b697ea66c4"],
-Cell[446530, 10416, 4205, 89, 487, "Input",ExpressionUUID->"fd554aff-1d26-414e-932e-288ddb75f851"],
+Cell[443701, 10341, 254, 6, 35, "Text",ExpressionUUID->"7512b989-a848-45fa-aace-3a6bf17e495d"],
+Cell[443958, 10349, 1123, 27, 178, "Input",ExpressionUUID->"9eddd7bd-ab2a-41a5-88af-d4df16c2d69a"],
+Cell[445084, 10378, 2568, 59, 220, "Input",ExpressionUUID->"8887fa21-a998-41df-b7a7-44b697ea66c4"],
+Cell[447655, 10439, 7278, 154, 694, "Input",ExpressionUUID->"fd554aff-1d26-414e-932e-288ddb75f851"],
+Cell[454936, 10595, 169, 3, 35, "Text",ExpressionUUID->"5f1203ad-eb7d-4082-843c-a672fd536f85"],
 Cell[CellGroupData[{
-Cell[450760, 10509, 207, 4, 30, "Input",ExpressionUUID->"42ed0d7e-3d55-4e03-ab26-62da37490444"],
+Cell[455130, 10602, 207, 4, 30, "Input",ExpressionUUID->"42ed0d7e-3d55-4e03-ab26-62da37490444"],
 Cell[CellGroupData[{
-Cell[450992, 10517, 378, 8, 23, "Print",ExpressionUUID->"5e6ea0d6-4bc2-4dcb-ae88-b0a384d50e53"],
-Cell[451373, 10527, 490, 10, 23, "Print",ExpressionUUID->"13ebee1c-dd5f-4a69-b75e-bbed82dcff6d"],
-Cell[451866, 10539, 377, 8, 23, "Print",ExpressionUUID->"5b23320a-1568-408c-a320-f94240b9fbcc"],
-Cell[452246, 10549, 490, 10, 23, "Print",ExpressionUUID->"39e39156-0597-4c0c-9e7f-6ba6e3cc06e3"]
+Cell[455362, 10610, 527, 11, 23, "Print",ExpressionUUID->"641f1b34-e454-4ad1-993f-acb08c26e081"],
+Cell[455892, 10623, 564, 11, 23, "Print",ExpressionUUID->"010c1334-c80b-4629-a773-7717dbd4446d"],
+Cell[456459, 10636, 568, 11, 23, "Print",ExpressionUUID->"c6928647-0ed2-49b0-a907-2116be2cb5ee"],
+Cell[457030, 10649, 698, 13, 43, "Print",ExpressionUUID->"4acaa621-3873-451a-b650-79ac1c0ff2b3"],
+Cell[457731, 10664, 527, 11, 23, "Print",ExpressionUUID->"e31c219f-817d-4259-8a48-866fb694d75b"],
+Cell[458261, 10677, 568, 11, 23, "Print",ExpressionUUID->"f90fe0c4-e517-4b83-b391-6c2573277ba3"],
+Cell[458832, 10690, 564, 11, 23, "Print",ExpressionUUID->"e2154bef-51fd-480e-a5d5-2cfb7eb47caa"],
+Cell[459399, 10703, 696, 13, 43, "Print",ExpressionUUID->"c25d219f-547e-4b23-9842-88b1eeed99e9"]
 }, Open  ]]
 }, Open  ]],
-Cell[452763, 10563, 1808, 54, 90, "Text",ExpressionUUID->"b7874e08-9cc6-4086-8d3a-fe062915d67f"]
+Cell[460122, 10720, 2149, 62, 90, "Text",ExpressionUUID->"b7874e08-9cc6-4086-8d3a-fe062915d67f"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
