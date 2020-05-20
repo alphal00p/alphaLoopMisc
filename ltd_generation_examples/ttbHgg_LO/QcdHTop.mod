@@ -6,13 +6,14 @@
 *w+ w- z -> 24, -24, 23
 *h -> 25
 * propagators
-[higgs,higgs,+;m='mh',pdg='25']
-[gluon,gluon,+;m='0',pdg='21']
-[u,ubar,-;m='0',pdg='2']
-[t,tbar,-;m='mt',pdg='6']
-[ghost,ghostbar,-;m='0',pdg='82']
-[photon,photon,+;m='0',pdg='22']
-[eminus,eplus,-,external;m='0',pdg='11']
+[higgs, higgs, +; pdg=('25')]
+[gluon,gluon,+; pdg=('21')]
+* Psi PsiBar
+[ghost,ghostbar,-; pdg=('82','82')]
+[photon,photon,+;pdg=('22')]
+[eminus, eplus, - , external; pdg= ('+11', '-11')]
+[u, ubar, - ; pdg= ('+2','-2')]
+[t, tbar, - ; pdg=('6','-6')]
 *vertices
 [ghostbar,gluon,ghost]
 [ubar,gluon,u]
