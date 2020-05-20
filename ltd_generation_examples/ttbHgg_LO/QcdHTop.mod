@@ -16,7 +16,7 @@
 [t, tbar, - ; pdg=('6','-6')]
 *vertices
 [ghostbar,gluon,ghost]
-[ubar,gluon,u]
+*[ubar,gluon,u]
 [tbar,gluon,t]
 [gluon,gluon,gluon]
 [gluon,gluon,gluon,gluon]
