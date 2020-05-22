@@ -5,32 +5,36 @@ graphs=[[]]
 
 graphs.append(
 {
-"edges": {
-<in_loop> (<field_index>+<legs>+1, 
-<back><vertex_index>+<legs>, 
-<back>[pdg]): {
+"edges":{
+<in_loop> <in_index>:{
+    "name":"e<in_index>", 
     "PDG": [pdg],
     "type": "in",
     "momentum": "<momentum>",
-    "indices": (<field_index>+<legs>+1,)
+    "indices": (<field_index>+<legs>+1,),
+    "vertices": (<field_index>+<legs>+1, 
+<back><vertex_index>+<legs>)
  },
 <end>
-<back><out_loop> (<vertex_index>+<legs>, 
-<back><field_index>+<legs>+1, 
-<back>[pdg]): {
+<back><out_loop><leg_index>:{
+    "name": "e<leg_index>",
     "PDG": [pdg],
     "type": "out",
     "momentum": "<momentum>",
-    "indices": (<field_index>+<legs>+1,)
+    "indices": (<field_index>+<legs>+1,),
+    "vertices":(<vertex_index>+<legs>, 
+<back><field_index>+<legs>+1)
  },
 <end>
-<back><propagator_loop> (<dual-vertex_index>+<legs>,
-<back><vertex_index>+<legs>,[pdg]):{
+<back><propagator_loop><propagator_index>+<legs>:{
+    "name":"e"+str(<propagator_index>+<legs>),
     "PDG": [pdg],
     "type": "virtual",
     "momentum": "<momentum>",
     "indices": (<field_index>+<legs>+1,
-<back><dual-field_index>+<legs>+1,)
+<back><dual-field_index>+<legs>+1,),
+    "vertices":(<dual-vertex_index>+<legs>,
+<back><vertex_index>+<legs>)
  },
 <end>
 <back>
