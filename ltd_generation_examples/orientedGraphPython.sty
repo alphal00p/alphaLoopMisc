@@ -7,7 +7,7 @@ graphs.append(
 {
 "edges":{
 <in_loop> <in_index>:{
-    "name":"e<in_index>", 
+    "name":"p<in_index>", 
     "PDG": [pdg],
     "type": "in",
     "momentum": "<momentum>",
@@ -17,7 +17,7 @@ graphs.append(
  },
 <end>
 <back><out_loop><leg_index>:{
-    "name": "e<leg_index>",
+    "name": "p<leg_index>",
     "PDG": [pdg],
     "type": "out",
     "momentum": "<momentum>",
@@ -27,7 +27,7 @@ graphs.append(
  },
 <end>
 <back><propagator_loop><propagator_index>+<legs>:{
-    "name":"e"+str(<propagator_index>+<legs>),
+    "name":"q"+str(<propagator_index>),
     "PDG": [pdg],
     "type": "virtual",
     "momentum": "<momentum>",
