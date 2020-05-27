@@ -12,7 +12,9 @@ graphs.append(
     "PDG": [pdg],
     "type": "in",
     "momentum": "<momentum>",
-    "indices": (<field_index>+<legs>+1,)
+    "indices": (<field_index>+<legs>+1,),
+    "vertices": (<field_index>+<legs>+1, 
+<back><vertex_index>+<legs>)
  },
 <end>
 <back><out_loop>
@@ -22,7 +24,9 @@ graphs.append(
     "PDG": [pdg],
     "type": "out",
     "momentum": "<momentum>",
-    "indices": (<field_index>+<legs>+1,)
+    "indices": (<field_index>+<legs>+1,),
+    "vertices":(<vertex_index>+<legs>, 
+<back><field_index>+<legs>+1)
  },
 <end>
 <back><propagator_loop>(<dual-vertex_index>+<legs>,
@@ -32,7 +36,9 @@ graphs.append(
     "type": "virtual",
     "momentum": "<momentum>",
     "indices": (<field_index>+<legs>+1,
-<back><dual-field_index>+<legs>+1,)
+<back><dual-field_index>+<legs>+1,),
+    "vertices":(<dual-vertex_index>+<legs>,
+<back><vertex_index>+<legs>)
  },
 <end>
 <back>
