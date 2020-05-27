@@ -710,7 +710,7 @@ extractTensCoeff[graph_,opts:OptionsPattern[]]:=Block[
 	{amp,loopMom,extVect,maxRank,epsK1K1,sp,mySP,tensDecomp,indexSpace,allStruc,allStrucReplRule,allStrucReplRuleVals,res,dummyIndex=Unique[alpha],dummyIndex2=Unique[beta],cleanUpRules
 	,tensIndexSet,tensIndices,tensFinal,tensTMP
 	,resTMP,replRuleTensExtraction,tens,reorderTensors,repl1,repl2,repl3,tensFinalCheck,finalRes,lMomInd,rewriteRule,ampMod,consistencyCheck=OptionValue[consistencyCheckLevel],$randomDummy,dim,vector,g,
-	myCheckII},
+	myCheckII,$vv},
 SetAttributes[sp,Orderless];
 loopMom=graph[["loopMomenta"]];
 amp=$randomDummy*graph[["numerator"]];
@@ -835,12 +835,14 @@ tensFinal=tensFinal //. tens[x_,y_]:>Times@@x;
 tensFinal=tensFinal //. {loopList_List,{x_}}/;(Length@loopList==Length@loopMom && FreeQ[loopList,Alternatives@@extVect]):>{loopList,x};
  tensFinal=DeleteCases[tensFinal,{x_List,0},1];
  (* consistency check --> final expression matches input *)
-(* final check*)
 
+(* final check*)
 If[consistencyCheck>=1,
 	PrintTemporary["Final check started"];
 	(* replace integers by loop-momenta *)
-	tensFinalCheck=(tensFinal//. {indX_List,x_}/;AllTrue[indX,IntegerQ]:>({loopMom^2 loopMom^indX,x}//.mom_^pow_/;MemberQ[loopMom,mom]:>(Times@@(Array[Evaluate@vector[mom,Extract[tensIndexSet,Position[loopMom, mom]][[1]][#-2]]&,pow]//.vector[ll_,_[num_]]/;num <= 0:>1 ))));
+	tensFinalCheck=(tensFinal//. {indX_List,x_}/;AllTrue[indX,IntegerQ]:>{loopMom^2 loopMom^indX,x});
+	tensFinalCheck=tensFinalCheck /.mom_^pow_/;MemberQ[loopMom,mom]:>(Times@@(Table[Evaluate@$vv[mom,Extract[tensIndexSet,Position[loopMom, mom]][[1]][cc]],{cc,-2,pow-2}]));
+	tensFinalCheck=tensFinalCheck//.$vv[ll_,_[num_]]/;(num <= 0):>1 /.$vv:>vector;
 	
 	(* restore input structure *)
 	tensFinalCheck=DiracSimplify[(Contract[(tensFinalCheck //. {loopList_List,x_}/;(Length@loopList==Length@loopMom && FreeQ[loopList,Alternatives@@extVect]):>(Times@@(loopList)*x))]),Expanding->True];
