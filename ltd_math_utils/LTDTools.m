@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-Print["The documented functions in this package are: \n ?plotGraph \n ?findIsomorphicGraphs \n ?constructCuts \n ?importGraphs \n ?getLoopLines \n ?getCutStructure \n ?writeMinimalJSON \n ?extractTensCoeff \n ?getSymCoeff \n ?processNumerator \n ?createSuperGraph \n ?translateToFeynCalc \n ?getSymCoeffSP
+Print["The documented functions in this package are: \n ?constructCuts \n ?createSuperGraph \n ?exportAmplitude \n ?extractTensCoeff \n ?findIsomorphicGraphs \n ?getCutStructure \n ?getLoopLines \n ?getSymCoeff \n ?getSymCoeffSP \n ?importGraphs \n ?plotGraph \n ?processNumerator \n ?writeMinimalJSON \n ?writeLTDSqrtJSON \n ?translateToFeynCalc
  ----------------------------------------- 
  Needs the package FeynCalc which can installed with Import[\"https://raw.githubusercontent.com/FeynCalc/feyncalc/master/install.m\"]; InstallFeynCalc[]
  Needs the package IGraphM which can be downloaded from https://github.com/szhorvat/IGraphM. !!! \n Run: Get[\"https://raw.githubusercontent.com/szhorvat/IGraphM/master/IGInstaller.m\"] for installation. "
@@ -45,6 +45,7 @@ importGraphs::usage="Import QGraf graphs generated with orientedGraphs.sty
 getLoopLines::usage="Appends loop-lines to graph.
 		Input: 
 			graphs (List or single graphs) (see: importGraphs[output from qgraf \"orientedGraph.sty\"])
+			include free edges (Boolean), Default: False, If true, edges of propagators which are free of loop-momenta are appended to the loop-lines and cut-structure
 		Output:
 			graphs with appended association for loop-lines
 "
@@ -119,6 +120,13 @@ getSymCoeffSP::usage="Construct list of symmetric coefficients for given graph, 
 		- graph (or list of graphs) with attribute \"numerator\" , \"momentumMap\", \"loopMomenta\" and/or \"analyticTensorCoeff\". 
 	OPTIONAL INPUT:
 		- numericReplacement\[Rule]{1\[Rule]1}: List with replacements for vectors/constants
+"
+writeLTDSqrtJSON::usage="Writes json-file for rust backend for squared-ltd graphs with Cutkosky-cuts.
+  	INPUT:
+		- graph with cut-info as obtained from construct-cuts
+		- numeric replacements: Association for numeric values for all variables in the process (including external momenta)
+	  OPTIONAL INPUT:
+		- process name (string, default: new_process): the output will be saved as new_process.json
 "
 
 
@@ -209,7 +217,7 @@ graphs
 
 Protect[NumberFinalStates,DisplayCuts,DetectSelfEnergy];
 Options[constructCuts] ={ NumberFinalStates->All,DisplayCuts->True,DetectSelfEnergy-> True};
-constructCuts[graph_,opts:OptionsPattern[]]:=Block[{finalStateNum,detectSE,displayCuts,particles,momenta, trees,edges,cutEdges,forests,external,vertices,tmpDiag,cutTag,loopNum,cutGraphs,seInfo,props,cutProps,cutPos,prop,seEdges,probEdge,selfEnergy,subGEdges,sePostion,sePos,findAllSpanningTrees,externalMom},
+constructCuts[graph_,opts:OptionsPattern[]]:=Block[{finalRes,finalStateNum,detectSE,displayCuts,particles,momenta, trees,edges,cutEdges,forests,external,vertices,tmpDiag,cutTag,loopNum,cutGraphs,seInfo,props,cutProps,cutPos,prop,seEdges,probEdge,selfEnergy,subGEdges,sePostion,sePos,findAllSpanningTrees,externalMom},
 SetAttributes[UndirectedEdge,Orderless];
 (* explorative function to construct all spanning trees *)
 findAllSpanningTrees[edges_,external_,loopNumber_]:=
@@ -343,7 +351,7 @@ If[detectSE==True,
 		If[Length@(Flatten@probEdge)==0,
 			probEdge={}
 		];
-		<|"selfEnergieInfo"-><|"problematicEdges"->probEdge ,
+		<|"problematicEdges"->probEdge ,
 		"seDiagrams"->Table[
 			sePos=Position[edges,Alternatives@@se];
 			<|"EdgesSE"->Extract[graph[["edges"]],sePos],
@@ -351,11 +359,12 @@ If[detectSE==True,
 			"momentumMapSE"->Extract[gg[["momentumMap"]],sePos],
 			"cutInfoSE"-> Extract[gg[["cutInfo"]],sePos]
 		|>
-	,{se,seEdges}]|>|>
+	,{se,seEdges}]|>
 	,{gg,(cutGraphs/. Rule[a_,b_]:>UndirectedEdge[a,b] /. DirectedEdge[a_,b_]:>UndirectedEdge[a,b]/. TwoWayRule[a_,b_]:>UndirectedEdge[a,b])}];
-	cutGraphs=Table[Append[cutGraphs[[gg]],seInfo[[gg]]],{gg,Length@cutGraphs}]
-];
-	cutGraphs
+	];
+	finalRes=Table[Evaluate/@<|"diagram_splitting"->cutGraphs[[infoCount,"cutInfo"]],"self_energy"->seInfo[[infoCount]]|>,{infoCount,Length@cutGraphs}];
+	finalRes=Append[graph,Evaluate/@<|"cutDiagInfo"->finalRes|>];
+	finalRes=constructLeftRightDiagrams[finalRes]
 ]
 
 
@@ -454,7 +463,7 @@ plotGraph[graph_,opt:OptionsPattern[]]:=Block[{mygraph,imSize=OptionValue[plotSi
 
 
 
-getLoopLines[graphs_]:=Block[{eMom,lMom,lLines,lProp,orientation,res,mass,pos},
+getLoopLines[graphs_,includeFreeEdges_:False]:=Block[{eMom,lMom,lLines,lProp,orientation,res,mass,pos,eProp},
 res=Table[
 If[!KeyExistsQ[graph,"loopMomenta"],
 	Print["Error: Graphs have no entry \"loopMomenta\". Import with importGraph[]"];
@@ -462,19 +471,18 @@ If[!KeyExistsQ[graph,"loopMomenta"],
 ];
 eMom=Complement[Variables@(Union@Flatten@graph[["momentumMap"]]),graph[["loopMomenta"]]];
 lLines=CoefficientArrays[((graph[["momentumMap"]] /. Thread[Rule[eMom,0]]/. 0:>Nothing)^2 //FullSimplify)/.(x_)^2:>x// DeleteDuplicates,graph[["loopMomenta"]]][[2]]//Normal;
-
 lProp=Table[
 	orientation=(ReplaceAll[#,x_/;!NumberQ[x]:>0]&/@(FullSimplify@((graph[["momentumMap"]]/. Thread[Rule[eMom,0]])/(Dot[graph[["loopMomenta"]],ll])) ));
 	pos=Position[Abs@orientation,1,Heads->False];
 	<|"signature"->ll,
 	"propagators"->Table[
 	<|"mass"->mass[graph[["particleType",pp]]],
-	  "edge_name"-> If[KeyExistsQ[graph,"edge_name"],
-	  graph[["edge_name",pp]],
-	  "prop"<>ToString@pp
+	  "edge_name"-> If[KeyExistsQ[graph,"edge_names"],
+	  graph[["edge_names",pp]],
+	  "edge"<>ToString@(pp)
 	  ],
-	  "power"->If[KeyExistsQ[graph,"power"],
-	  graph[["power",pp]],
+	  "power"->If[KeyExistsQ[graph,"powers"],
+	  graph[["powers",pp]],
 	  1
 	  ],
 	  "q"->(graph[["momentumMap",pp]]*orientation[[pp]] /. Thread[Rule[graph[["loopMomenta"]],0]] /. 0->ConstantArray[0,4])
@@ -482,7 +490,36 @@ lProp=Table[
 	  ,{pp,Flatten@pos}]	  
 	|>	 
 ,{ll,lLines}];
-Append[graph,<|"loopLines"->lProp|>]
+graph=Append[graph,Association@{"loopLines"->lProp}];
+If[includeFreeEdges===True,
+	graph=getCutStructure[graph];
+	eProp=Association@{Association@("signature"->ConstantArray[0,Length@(graph[["loopMomenta"]])]),
+	Association@("propagators"->
+	Table[
+	pos=Position[graph[["momentumMap"]],freeEdge,Heads->False];
+	Association@{
+	"mass"->mass[Extract[graph[["particleType"]],pos][[1]]]
+	,
+	 "edge_name"->"edge"<>ToString@((Flatten@(pos))[[1]])
+	 ,
+	 "power"->If[KeyExistsQ[graph,"powers"],
+	  Extract[graph[["powers"]],pos][[1]],
+	  1
+	  ],
+	  "q"->Extract[graph[["momentumMap"]],pos][[1]]	  
+	}
+	,{freeEdge,Cases[graph[["momentumMap"]],x_/;FreeQ[x,Alternatives@@(Flatten@{graph[["loopMomenta"]],in,out})],1]}])};
+	If[Length@(Values@eProp[["propagators"]])>0,
+	graph[["loopLines"]]=Append[graph[["loopLines"]],eProp];
+	graph[["cutStructure"]]=Append[#,0]&/@graph[["cutStructure"]];
+	graph
+	,
+	graph
+	]
+	,
+	graph
+]
+
 ,{graph,Flatten@{graphs}}];
 If[Length@res==1,
 res=res[[1]]
@@ -546,8 +583,8 @@ result
 
 
 
-Protect[processName,exportDirectory,exportDiagramwise,writeNumerator,additionalKeys];
-Options[writeMinimalJSON]={processName->"",exportDirectory->"./",exportDiagramwise->False,writeNumerator->False,additionalKeys->{}}
+Protect[processName,exportDirectory,exportDiagramwise,writeNumerator,additionalKeys,export];
+Options[writeMinimalJSON]={processName->"",exportDirectory->"./",exportDiagramwise->False,writeNumerator->False,additionalKeys->{},export->True}
 writeMinimalJSON[graphs_,numAssociation_Association,opts:OptionsPattern[]]:=Block[{mygraphs=Flatten@{graphs},inMom,outMom,extAsso,cutAsso,llAsso,lnAsso,nameAsso,diagCount=0,procName,exportDir,pLong,fullAsso,diagramwise,processAsso,expAsso,evaluateNumerator,numeratorAsso},
 (* small wrapper for plugging in numerical values in the numerator *)
 
@@ -564,7 +601,7 @@ evaluateNumerator[numerator_,numRepl_]:=Block[{numericNum=numerator,Pair},
   (* short vs long export format *)
   If[!ListQ[numericNum[[1]]],
     numericNum=((numericNum)/.x_/;NumericQ[x]:>ImportString[ExportString[(ReIm@x),"Real64"],"Real64"]),
-    numericNum[[All,1]]=(numericNum[[All,1]]/.x_/;NumericQ[x]:>ImportString[ExportString[(ReIm@x),"Real64"],"Real64"]);    
+    numericNum[[All,2]]=(numericNum[[All,2]]/.x_/;NumericQ[x]:>ImportString[ExportString[(ReIm@x),"Real64"],"Real64"]);    
   ];
   numericNum
 ];
@@ -636,8 +673,11 @@ processAsso=Table[
 	    If[!KeyExistsQ[mygraph,"symmetrizedExpandedTensorCoeff"],
 	         mygraph=getSymCoeff[mygraph]
 	      ];
-		numeratorAsso=<|"numerator_tensor_coefficients"->evaluateNumerator[mygraph[["symmetrizedExpandedTensorCoeff"]],numAssociation]|>;
-		numeratorAsso=Evaluate/@numeratorAsso
+		numeratorAsso=evaluateNumerator[mygraph[["symmetrizedExpandedTensorCoeff"]],numAssociation];
+		If[ListQ[numeratorAsso[[-1]]],
+		numeratorAsso=Association@("numerator_tensor_coefficients_sparse"->evaluateNumerator[numeratorAsso,numAssociation]),
+		numeratorAsso=Association@("numerator_tensor_coefficients"->evaluateNumerator[numeratorAsso,numAssociation])		
+		]		
 		,
 		numeratorAsso=<|"numerator_tensor_coefficients"->{{1,0}}|>
 	];
@@ -652,10 +692,12 @@ processAsso=Table[
 	];
 	fullAsso
 	,{mygraph,mygraphs}];
+	If[OptionValue[export]===True,
 	If[DirectoryQ[exportDir],
 		Export[exportDir<>"allDiags"<>procName<>".json",processAsso,"JSON"],
 		Print["Couldn't find exportDirectory. Export to standard location."];
 		Export["./allDiags"<>procName<>".json",processAsso,"JSON"]
+	];
 	];
 	processAsso
 ]
@@ -667,7 +709,8 @@ extractTensCoeff[graphs_List,opts:OptionsPattern[]]:=extractTensCoeff[#,opts]&/@
 extractTensCoeff[graph_,opts:OptionsPattern[]]:=Block[
 	{amp,loopMom,extVect,maxRank,epsK1K1,sp,mySP,tensDecomp,indexSpace,allStruc,allStrucReplRule,allStrucReplRuleVals,res,dummyIndex=Unique[alpha],dummyIndex2=Unique[beta],cleanUpRules
 	,tensIndexSet,tensIndices,tensFinal,tensTMP
-	,resTMP,replRuleTensExtraction,tens,reorderTensors,repl1,repl2,repl3,tensFinalCheck,finalRes,lMomInd,rewriteRule,ampMod,consistencyCheck=OptionValue[consistencyCheckLevel],$randomDummy,dim,vector,g},
+	,resTMP,replRuleTensExtraction,tens,reorderTensors,repl1,repl2,repl3,tensFinalCheck,finalRes,lMomInd,rewriteRule,ampMod,consistencyCheck=OptionValue[consistencyCheckLevel],$randomDummy,dim,vector,g,
+	myCheckII},
 SetAttributes[sp,Orderless];
 loopMom=graph[["loopMomenta"]];
 amp=$randomDummy*graph[["numerator"]];
@@ -746,8 +789,9 @@ If[consistencyCheck>1,
 tensDecomp=Table[SeriesCoefficient[(tensDecomp /. vector[x_,ind_]/;MemberQ[loopMom,x]:>epsK1K1 vector[x,ind]),{epsK1K1,0,rank}],{rank,0,maxRank}];
 (* consistency check --> new expression matches input: rank extraction worked *)
 If[consistencyCheck>1,
-	Print["check II started"];
-	If[Simplify@(ampMod-Total@(DiracSimplify@(Contract[tensDecomp]) ))=!=0
+	PrintTemporary["check II started"];
+	myCheckII=Simplify@(ampMod-Total@(DiracSimplify@(Contract[tensDecomp])));
+	If[Simplify@(myCheckII)=!=0
 		,
 		Print["Error in tensor extraction: Check Input"]; Abort[]
 		,
@@ -792,15 +836,20 @@ tensFinal=tensFinal //. {loopList_List,{x_}}/;(Length@loopList==Length@loopMom &
  tensFinal=DeleteCases[tensFinal,{x_List,0},1];
  (* consistency check --> final expression matches input *)
 (* final check*)
+
 If[consistencyCheck>=1,
 	PrintTemporary["Final check started"];
 	(* replace integers by loop-momenta *)
-	tensFinalCheck=(tensFinal//. {indX_List,x_}/;AllTrue[indX,IntegerQ]:>({loopMom^2 loopMom^indX,x}//.mom_^pow_/;MemberQ[loopMom,mom]:>(Times@@(Array[Evaluate@vector[mom,Extract[tensIndexSet,Position[loopMom, mom]][[1]][#-2]]&,pow] ))))//.vector[ll_,_[num_]]/;num <= 0:>1;
+	tensFinalCheck=(tensFinal//. {indX_List,x_}/;AllTrue[indX,IntegerQ]:>({loopMom^2 loopMom^indX,x}//.mom_^pow_/;MemberQ[loopMom,mom]:>(Times@@(Array[Evaluate@vector[mom,Extract[tensIndexSet,Position[loopMom, mom]][[1]][#-2]]&,pow]//.vector[ll_,_[num_]]/;num <= 0:>1 ))));
+	
 	(* restore input structure *)
-	tensFinalCheck=DiracSimplify@(Contract[(tensFinalCheck //. {loopList_List,x_}/;(Length@loopList==Length@loopMom && FreeQ[loopList,Alternatives@@extVect]):>(Times@@(loopList)*x))]);
+	tensFinalCheck=DiracSimplify[(Contract[(tensFinalCheck //. {loopList_List,x_}/;(Length@loopList==Length@loopMom && FreeQ[loopList,Alternatives@@extVect]):>(Times@@(loopList)*x))]),Expanding->True];
+	
 	tensFinalCheck=(Total@tensFinalCheck);
 	
-	If[FullSimplify@((ampMod-tensFinalCheck)//ExpandScalarProduct)=!=0
+	tensFinalCheck=FullSimplify@(FullSimplify@((ampMod-tensFinalCheck)//ExpandScalarProduct));
+	
+	If[tensFinalCheck=!=0
 	,
 	Print["Error in final check: likely a bug :("];Abort[],
 	PrintTemporary["Final check passed"]
@@ -881,7 +930,7 @@ getSymCoeff[graphs_,opts:OptionsPattern[]]:=Block[
 		 replRest=lMomInd[loopMomNum_][loopIndex_]:>covartiantLI[ind[[loopMomNum,loopIndex]]];
 	     resTmp //. replV //. replG //. replRest
 	    ,{ind,myInd}];
-	    {resTmpTmp,Flatten@(myInd[[1]]+indShift)}
+	    {Flatten@(myInd[[1]]+indShift),resTmpTmp}
 	,{myInd,indSet}]
   ,{rankCount,Length@rank}]
   ,1];
@@ -889,7 +938,7 @@ getSymCoeff[graphs_,opts:OptionsPattern[]]:=Block[
 (*res=res //. gamma[x__,y_,z__]/;(!Head[y]===lVec&&!NumericQ[y])\[RuleDelayed]Sum[(gamma[x,y,z]/. y\[Rule]lInd),{lInd,0,3}];*)
 
     If[format==="long",
-      res=res[[All,1]]
+      res=res[[All,2]]
       ,
       (* only non-vanishing coefficients*)
       res=DeleteCases[res,{0,x_List},1]
@@ -907,21 +956,35 @@ fullResult
 
 
 Options[processNumerator]={additionalRules -> {1->1}, spinChainSimplify->True,dimensions->4-2 eps,extractTensors->False, symCoefficients->False,coeffFormat->"long",spinSum->False, consistencyCheckLevel->1};
-processNumerator[graphs_,pathToFeynmanRules_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graphs},loopMom,$rules},
-	If[FileExistsQ[pathToFeynmanRules],
-		Get[pathToFeynmanRules]
+processNumerator[graphs_,pathToFeynmanRules_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graphs},loopMom,$rules,evaluateNumerator},
+	
+	evaluateNumerator[num_,path_]:=Block[{v,prop,in,out},
+	If[FileExistsQ[path],
+		Get[path]
 		,
-		Print["Error: Could not find Feynman rules in: \""<>pathToFeynmanRules<>"\""];
+		Print["Error: Could not find Feynman rules in: \""<>path<>"\""];
 		Abort[]
 		];
+		Evaluate@num (*//. scalarProp[x_,y_]/;!FreeQ[x,Alternatives@@loopMom]:>1 //. scalarProp[x_,y_]/;FreeQ[x,Alternatives@@loopMom]:>1 /(sp[x,x]-y^2)*)
+		];
+		
 		$rules=Thread@Rule[translateToFeynCalc[Keys@OptionValue[additionalRules],dimensions->OptionValue[dimensions]],translateToFeynCalc[Values@OptionValue[additionalRules],dimensions->OptionValue[dimensions]]];
 		
 	loopMom=myGraphs[[1,"loopMomenta"]];
-	myGraphs=Map[Evaluate,#]&/@myGraphs//. scalarProp[x_,y_]/;!FreeQ[x,Alternatives@@loopMom]:>1 //. scalarProp[x_,y_]/;FreeQ[x,Alternatives@@loopMom]:>1 /(sp[x,x]-y^2);
 	myGraphs=Map[Evaluate,#]&/@myGraphs;
-	myGraphs[[All,"numerator"]]=translateToFeynCalc[#,dimensions->OptionValue[dimensions]]&/@myGraphs[[All,"numerator"]];
 	
-	myGraphs[[All,"numerator"]]=SUNFSimplify[SUNSimplify[myGraphs[[All,"numerator"]],SUNTrace->True]];
+	myGraphs=Append[#,<|"numerator_unevaluated"->Zeta[3]|>]&/@myGraphs;
+	myGraphs[[All,"numerator_unevaluated"]]=myGraphs[[All,"numerator"]];
+	
+	
+	myGraphs[[All,"numerator"]]=evaluateNumerator[myGraphs[[All,"numerator"]],pathToFeynmanRules];
+	
+	(* relevant for uv-cts only *)
+	If[KeyExistsQ[myGraphs[[1]],"tree_level_numerator"],
+		myGraphs[[All,"tree_level_numerator"]]=evaluateNumerator[myGraphs[[All,"tree_level_numerator"]],pathToFeynmanRules];
+	];
+	myGraphs[[All,"numerator"]]=translateToFeynCalc[#,dimensions->OptionValue[dimensions]]&/@myGraphs[[All,"numerator"]];
+	myGraphs[[All,"numerator"]]=SUNFSimplify[SUNSimplify[myGraphs[[All,"numerator"]],SUNTrace->True,Factoring->True,Explicit->True]];
 	myGraphs[[All,"numerator"]]=Contract[myGraphs[[All,"numerator"]]]//. $rules;
 	If[OptionValue[spinChainSimplify]==True,
 	 myGraphs[[All,"numerator"]]=DiracSimplify[myGraphs[[All,"numerator"]]]//.$rules
@@ -1111,6 +1174,7 @@ getSymCoeffSP[graph_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graph},res
 
       
     res=Table[
+    num=(mygraph[["numerator"]]//FCI//ExpandScalarProduct);
     dim=Flatten@FCGetDimensions[num];
     If[dim==={D},
           Pair[Momentum[x_,D],Momentum[y_,D]]:=sp[x,y]
@@ -1123,7 +1187,7 @@ getSymCoeffSP[graph_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graph},res
 	loopComponents=Map[Map[#,Range[0,3],{1}]&,loopMom];
 	loopMomMapping=Thread@Rule[loopMom,loopComponents];
 
-	num=(mygraph[["numerator"]]//FCI//ExpandScalarProduct)//. Dispatch@OptionValue[numericReplacement]/. Dispatch@loopMomMapping;
+	num=(num//FCI//ExpandScalarProduct)//. Dispatch@OptionValue[numericReplacement]/. Dispatch@loopMomMapping;
 	nonExpandedMomenta=Replace[#,x_/;ListQ[x]:>Nothing]&/@Flatten[(Cases[num,sp[x_,y_]:>{x,y},Infinity]//Union),1];
 	nonExpandedComponents=Map[Map[#,Range[0,3],{1}]&,nonExpandedMomenta];
 	num=num/.Thread@Rule[nonExpandedMomenta,nonExpandedComponents];
@@ -1142,3 +1206,361 @@ getSymCoeffSP[graph_,opts:OptionsPattern[]]:=Block[{myGraphs=Flatten@{graph},res
 	 res
 	]
 ]
+
+
+
+constructCutInfo[graph_]:=Block[{mygraph=graph,cutInfo,cut,loopMom,extMom,leftEdgePos,rightEdgePos,cutEdgePos,cutInfoKeys,cutInfoValues,mass,basisMapping},
+loopMom=mygraph[["loopMomenta"]];
+extMom=Cases[mygraph[["momentumMap"]],in[x_]:>x,Infinity]//Union;
+(* construct cut basis to LTD basis *)
+basisMapping[cutMom_(*n-1*)]:=Block[{cutMap,replaceLoop,ltdLoopMom,basisTrafo},
+cutMap=Thread@Rule[( Array[cMom,Length@cutMom]),cutMom]/. cMom[x_]:>ToExpression["cMom"~~ToString@x];
+replaceLoop=(Intersection[Variables@cutMom,loopMom])[[1;;Length@cutMom]];
+replaceLoop=(Solve[(cutMap/.Rule->Equal),replaceLoop])[[1]];
+ltdLoopMom=Complement[loopMom,Keys@replaceLoop];
+basisTrafo=Inverse@(Normal@CoefficientArrays[Flatten@{cutMom,ltdLoopMom},loopMom][[2]]);
+Evaluate/@<|"cb_to_lmb"->Flatten@basisTrafo|>
+];
+
+(* cut specific information for yaml *)
+Do[
+cut=mygraph[["cutDiagInfo",countCut,"diagram_splitting"]];
+
+leftEdgePos=Position[cut,"left"];
+rightEdgePos=Position[cut,"right"];
+cutEdgePos=Position[cut,"cut"];
+cutInfoKeys={"level","m_squared","sign","name","signature"};
+cutInfoValues=Table[
+{
+(*cut level*)
+0,
+(* mass *)
+mass[Extract[mygraph[["particleType"]],{cutEdgePos[[cc]]}][[1]]]^2
+,
+ (* sign *) 
+If[
+MemberQ[Flatten@({Keys[#],Values[#]}&@( Extract[mygraph[["edges"]],leftEdgePos])),(Flatten@({Keys[#]}&@( Extract[mygraph[["edges"]],{cutEdgePos[[cc]]}])))[[1]] ],
+1,
+-1
+]
+,
+ (* name *)
+"edge"<>ToString@(cutEdgePos[[cc]][[1]] )
+,
+(* signature *)
+ {
+ Flatten@Table[(Extract[mygraph[["momentumMap"]],{cutEdgePos[[cc]]}])//. ll->1 //. Thread@Rule[Join[loopMom,extMom],ConstantArray[0,Length@loopMom+Length@extMom]],{ll,loopMom}]
+,
+ Join[Flatten@Table[(Extract[mygraph[["momentumMap"]],{cutEdgePos[[cc]]}])//.ee->1 //. Thread@Rule[Join[loopMom,extMom],ConstantArray[0,Length@loopMom+Length@extMom]],{ee,extMom}],ConstantArray[0,Length@extMom]]
+}
+}
+,{cc,Length@cutEdgePos}];
+cutInfo=Association/@(Thread/@Thread[Rule[ConstantArray[cutInfoKeys,Length@cutEdgePos],cutInfoValues]]);
+
+mygraph[["cutDiagInfo",countCut]]=Append[mygraph[["cutDiagInfo",countCut]],<|"cuts"->cutInfo|>];
+mygraph[["cutDiagInfo",countCut]]=Append[mygraph[["cutDiagInfo",countCut]],basisMapping[Extract[mygraph[["momentumMap"]],cutEdgePos][[1;;-2]] ]];
+,{countCut,Length@mygraph[["cutDiagInfo"]]}];
+mygraph
+]
+
+
+
+constructLeftRightDiagrams[graph_]:=Block[{mygraph=graph,leftDiag,rightDiag,signs,leftEdgePos,rightEdgePos,cutEdgePos,cut,cutEdge,compParaShift,cutSol,constructLeft,constructRight,loopLines,props,loopEdges,loopProps,freeProps,loopSig,getLTDSqLL,
+leftName,rightName},
+(* small wraper to get LTD-loop lines plus ltd-cut-structure *)
+getLTDSqLL[subdiag_,parashift_]:=Block[{subgraph=subdiag,eMom,lMom,lLines,lProp,orientation,res,mass,pos},
+		If[!KeyExistsQ[subgraph,"loopMomenta"],
+			Print["Error: Graphs have no entry \"loopMomenta\". Import with importGraph[]"];
+		Abort[]
+		];
+		eMom=Complement[Variables@(Union@Flatten@subgraph[["momentumMap"]]),subgraph[["loopMomenta"]]];
+
+	lLines=CoefficientArrays[((subgraph[["momentumMap"]] /. Thread[Rule[eMom,0]]/. 0:>Nothing)^2 //FullSimplify)/.(x_)^2:>x// DeleteDuplicates,subgraph[["loopMomenta"]]][[2]]//Normal;
+	
+
+		lProp=
+	Table[
+			orientation=(ReplaceAll[#,x_/;!NumberQ[x]:>0]&/@(FullSimplify@((subgraph[["momentumMap"]]/. Thread[Rule[eMom,0]])/(Dot[subgraph[["loopMomenta"]],ll])) ));
+	  
+              pos=Position[Abs@orientation,1,Heads->False];
+	      Association@{
+	"end_node"->"99",
+			"propagators"->Association/@Table[
+	{
+		                "mass"->mass[subgraph[["particleType",pp]]]^2,
+      "name"-> If[
+		KeyExistsQ[subgraph,"name"],
+		subgraph[["name",pp]],
+		"prop"<>ToString@pp
+	  ],
+     "parametric_shift"->orientation[[pp]]*parashift[[pp]] ,
+      "power"->If[KeyExistsQ[subgraph,"power"], subgraph[["power",pp]],  1  ],
+     "q"->(ConstantArray[0,4])}
+	   ,{pp,Flatten@pos}],
+"signature"->ll
+,"start_node"->"99"
+}
+	,{ll,lLines}];
+
+	subgraph=AppendTo[subgraph,<|"loopLines"->lProp|>];
+
+getCutStructure[subgraph]
+          ];
+(* -------------------------------------------------------------------------------------------------------------- *)
+(* function to compute looplines: cutMom momenta of n-1 cut edges *)
+loopLines[diag_,loopMom_,cutMom_]:=Block[{mydiag=diag,cutMap,cMom,replaceLoop,extMom,masses,mass,fullProp,freeEdges,loopGraph,ltdLoopMom,parashift,loopMomMap},
+extMom=Complement[Variables@(mydiag[["momentumMap"]]/. in[x_]:>x /. out[x_]:>x),loopMom];
+cutMap=Thread@Rule[( Array[cMom,Length@cutMom]),cutMom]/. cMom[x_]:>ToExpression["cMom"~~ToString@x];
+replaceLoop=(Intersection[Variables@cutMom,loopMom])[[1;;Length@cutMom]];
+replaceLoop=(Solve[(cutMap/.Rule->Equal),replaceLoop])[[1]];
+mydiag[["momentumMap"]]=mydiag[["momentumMap"]]/. replaceLoop;
+
+(* edges free of any ltd-loop-momentum *)
+freeEdges=Position[(mydiag[["momentumMap"]]),x_/;(FreeQ[Variables@x,Alternatives@@(loopMom)]&&Head[x]=!=in && Head[x]=!=out),1,Heads->False];
+loopEdges=Position[(mydiag[["momentumMap"]]),x_/;!FreeQ[Variables@x,Alternatives@@(loopMom)],1,Heads->False];
+parashift={Join[Coefficient[#,Keys@cutMap],{0}],Join[Coefficient[#,extMom],ConstantArray[0,Length@extMom]]}&/@(diag[["momentumMap"]](*/. in[x_]\[RuleDelayed]Nothing /. out[x_]\[RuleDelayed]Nothing*));
+loopMomMap={loopMom,ConstantArray[0,2*Length@extMom]};
+
+If[Length@(Flatten@loopEdges)>0,
+loopGraph=mydiag;
+ltdLoopMom=Complement[loopMom,Keys@replaceLoop];
+loopGraph=AppendTo[loopGraph,Association@("loopMomenta"->ltdLoopMom)];
+loopGraph=getLTDSqLL[loopGraph,parashift];
+loopMomMap=loopMomMap/. Thread[Rule[ltdLoopMom,ConstantArray[1,Length@ltdLoopMom]]]
+];
+
+ loopMomMap=loopMomMap/. Thread[Rule[loopMom,ConstantArray[0,Length@loopMom]]];
+If[Union@(Flatten@loopMomMap)==={0},
+loopMomMap={}
+];
+masses=mass[#]^2&/@(mydiag[["particleType"]]);
+
+
+If[(Length@(Flatten@loopEdges)>0)&&(Length@(Flatten@freeEdges)>0),
+freeProps=Table[Association@(Association/@{("m_squared"->Extract[masses,cE]),("name"->Extract[mydiag[["name"]],cE]),("parametric_shift"->Extract[parashift,cE]),
+("power"->1),"q"->ConstantArray[0,4]}),{cE,freeEdges}];
+mydiag=Append[mydiag,Association@("loopMomenta"->ltdLoopMom)];
+mydiag=Association@("graphInfo"->mydiag);
+mydiag=AppendTo[mydiag,Association@("cut_momentum_map"->replaceLoop)];
+mydiag=AppendTo[mydiag,Association@("loop_lines"->Join[{Association@{"end_node"->99,"propagators"->freeProps,"signature"->ConstantArray[0,Length@ltdLoopMom],"start_node"->99}},loopGraph[["loopLines"]]])];
+mydiag=AppendTo[mydiag,Association@("ltd_cut_structure"->Flatten/@(Transpose@{ConstantArray[0,Length@loopGraph[["cutStructure"]]],loopGraph[["cutStructure"]]})) ];
+mydiag=AppendTo[mydiag,Association@("loop_momentum_map"->loopMomMap)]
+,
+If[Length@(Flatten@loopEdges)>0,
+(* only loops. not relevant yet *)
+mydiag=Append[mydiag,Association@("loopMomenta"->ltdLoopMom)];
+mydiag=Association@("graphInfo"->mydiag);
+mydiag=AppendTo[mydiag,Association@("cut_momentum_map"->replaceLoop)];
+mydiag=AppendTo[mydiag,Association@("loop_lines"->loopGraph[["loopLines"]])];
+mydiag=AppendTo[mydiag,Association@("ltd_cut_structure"->loopGraph[["cutStructure"]]) ];
+mydiag=AppendTo[mydiag,Association@("loop_momentum_map"->loopMomMap)]
+,
+(* only free edges *)
+freeProps=Table[Association@(Association/@{("m_squared"->Extract[masses,cE]),("name"->Extract[mydiag[["name"]],cE]),("parametric_shift"->Extract[parashift,cE]),
+("power"->1),"q"->ConstantArray[0,4]}),{cE,freeEdges}];
+mydiag=Append[mydiag,Association@("loopMomenta"->{})];
+mydiag=Association@("graphInfo"->mydiag);
+mydiag=AppendTo[mydiag,Association@("cut_momentum_map"->replaceLoop)];
+mydiag=AppendTo[mydiag,Association@("loop_lines"->{Association@{"end_node"->99,"propagators"->freeProps,"signature"->{},"start_node"->99}})];
+mydiag=AppendTo[mydiag,Association@("ltd_cut_structure"->{{0}}) ];
+mydiag=AppendTo[mydiag,Association@("loop_momentum_map"->loopMomMap)]
+]
+]
+
+
+];
+(* -------------------------------------------------------------------------------------------------------------- *)
+(* -------------------------------------------------------------------------------------------------------------- *)
+(* small wrappers to counstruct left- and right diagrams *)
+constructLeft[asso_]:=Block[{},Association@( asso->Join[Extract[mygraph[[asso]],leftEdgePos],
+Table[
+If[asso==="edges",
+If[
+signs[[cP]]==-1,
+	Extract[mygraph[[asso]],cutEdgePos[[cP]]] /. Rule[a_,b_]:>Rule[a,out[cutEdge[cP]]]
+,
+	Extract[mygraph[[asso]] ,cutEdgePos[[cP]]]/. Rule[a_,b_]:>Rule[in[cutEdge[cP]],b ]
+]
+,
+If[
+signs[[cP]]==-1,
+	out@Extract[mygraph[[asso]],cutEdgePos[[cP]]]
+,
+	in@Extract[mygraph[[asso]] ,cutEdgePos[[cP]]]
+]
+]
+,{cP,Length@cutEdgePos}]
+])
+];
+(* -------------------------------------------------------------------------------------------------------------- *)
+constructRight[asso_]:=Block[{},Association@(asso->Join[Extract[mygraph[[asso]],rightEdgePos],
+Table[
+If[asso==="edges",
+If[
+signs[[cP]]==-1,
+	Extract[mygraph[[asso]],cutEdgePos[[cP]]] /. Rule[a_,b_]:>Rule[in[cutEdge[cP]],b]
+,
+	Extract[mygraph[[asso]] ,cutEdgePos[[cP]]]/. Rule[a_,b_]:>Rule[a,out[cutEdge[cP]]]
+]
+,
+If[
+signs[[cP]]==-1,
+	in@Extract[mygraph[[asso]],cutEdgePos[[cP]]]
+,
+	out@Extract[mygraph[[asso]] ,cutEdgePos[[cP]]]
+]
+]
+,{cP,Length@cutEdgePos}]
+])
+];
+(* -------------------------------------------------------------------------------------------------------------- *)
+(* -------------------------------------------------------------------------------------------------------------- *)
+
+(* ------------------ INPUT Checks-------------------------------- *)
+(* check if cutInfo exists *)
+If[KeyExistsQ[mygraph[["cutDiagInfo",1]],"cuts"],
+mygraph=mygraph,
+mygraph=constructCutInfo[mygraph];
+];
+
+
+
+(* ------------------ Definitions Cut Specific -------------------------------- *)
+(* cut specific data *)
+Do[
+cut=mygraph[["cutDiagInfo",cutCount,"diagram_splitting"]];
+signs=mygraph[["cutDiagInfo",cutCount,"cuts",All,"sign"]];
+
+cutEdgePos=Position[cut,"cut"];
+
+leftEdgePos=Position[cut,"left"];
+rightEdgePos=Position[cut,"right"];
+
+leftDiag=Association@(constructLeft/@{"edges","momentumMap","particleType"});
+leftName="edge"<>ToString[#]&/@(Flatten@({leftEdgePos,cutEdgePos}));
+rightName="edge"<>ToString[#]&/@(Flatten@({rightEdgePos,cutEdgePos}));
+leftDiag=AppendTo[leftDiag,Association@("name"->leftName)];
+rightDiag=Association@(constructRight/@{"edges","momentumMap","particleType"});
+rightDiag=AppendTo[rightDiag,Association@("name"->rightName)];
+
+leftDiag=Association@{
+Association@("external_kinematics"->{}(*ConstantArray[{0,0,0,0},Length@(graph[["edges"]])]*)),
+loopLines[leftDiag,mygraph[["loopMomenta"]],Extract[mygraph[["momentumMap"]],cutEdgePos][[1;;-2]] ],
+Association@("name"->"left_diag_cut_"<>StringReplace[ToString@(Flatten@cutEdgePos),{"{"->"e",","->"e","}"->""," "->""}])
+};
+rightDiag=Association@{
+Association@("external_kinematics"->{}(*ConstantArray[{0,0,0,0},Length@(graph[["edges"]])]*)),
+loopLines[rightDiag,mygraph[["loopMomenta"]],Extract[mygraph[["momentumMap"]],cutEdgePos][[1;;-2]] ],
+Association@("name"->"right_diag_cut_"<>StringReplace[ToString@(Flatten@cutEdgePos),{"{"->"e",","->"e","}"->""," "->""}])
+};
+
+mygraph[["cutDiagInfo",cutCount]]=AppendTo[mygraph[["cutDiagInfo",cutCount]],Association@("left_diagram"->leftDiag)];
+mygraph[["cutDiagInfo",cutCount]]=AppendTo[mygraph[["cutDiagInfo",cutCount]],Association@("right_diagram"->rightDiag)];
+,{cutCount,1,Length@mygraph["cutDiagInfo"]}];
+mygraph
+]
+
+
+writeLTDSqrtJSON[graph_,numAssociation_,procName_:"new_process"]:=Block[{mygraph=graph,uvCTAsso,ccCutAsso,cutAsso,fullAsso={},uvBuild,evaluateNumerator,superG,ecm},
+(* -------------------------------------------------- *)
+(* small wrapper for numerical evaluation of numerators *)	 	 
+evaluateNumerator[numerator_,numRepl_]:=Block[{numericNum=numerator,Pair},
+  numericNum=numericNum//FCI;
+  Pair[Momentum[x_List,d___],Momentum[y_List,d___]]:=x[[1]]*y[[1]]-x[[2;;]].y[[2;;]];
+  (* vectors are assumed to be contravariant *)
+   numericNum=(numerator//. numRepl //.x_List[y_Integer]:>x[[y+1]]);
+  If[Length@(Variables@numericNum)!=0,
+  Print["Error: The numerator coefficients: "<>ToString[Variables@numericNum,InputForm]<>" have no numeric value!"];
+  Abort[];  
+  ];
+  (* short vs long export format *)
+  If[!ListQ[numericNum[[1]]],
+           Print["Error: numerator should be in sparse format... Recomputing numerator"];
+numericNum=False;    
+  ];
+  numericNum
+];
+(* -------------------------------------------------- *)
+
+(* small wrapper for extracting uv-limits *)
+uvBuild[cInfoGraphs_]:=Block[{preface,diagAsso,tensorAsso,symCoeff},
+preface={
+cInfoGraphs[[{"cb_to_lmb"}]],
+Association@("conjugate_deformation"->{False,True})
+};
+diagAsso=Flatten/@Association@("diagrams"->
+{
+Association@(Association/@{
+cInfoGraphs[["left_diagram",{"external_kinematics"}]],
+Map[Evaluate,#,-1]&/@(ReplaceAll[#,numAssociation]&/@cInfoGraphs[["left_diagram",{"loop_lines"}]]),
+cInfoGraphs[["left_diagram",{"ltd_cut_structure"}]],
+cInfoGraphs[["left_diagram",{"loop_momentum_map"}]],
+"maximum_ratio_expansion_threshold"->-1,
+"n_loops"->Length@cInfoGraphs[["left_diagram","graphInfo","loopMomenta"]],
+cInfoGraphs[["left_diagram",{"name"}]],
+"numerator_tensor_coefficients"->{{0,0}}
+})
+,
+Association@(Association/@{
+cInfoGraphs[["right_diagram",{"external_kinematics"}]],
+Map[Evaluate,#,-1]&/@(ReplaceAll[#,numAssociation]&/@cInfoGraphs[["right_diagram",{"loop_lines"}]]),
+cInfoGraphs[["right_diagram",{"ltd_cut_structure"}]],
+cInfoGraphs[["right_diagram",{"loop_momentum_map"}]],
+"maximum_ratio_expansion_threshold"->-1,
+"n_loops"->Length@cInfoGraphs[["right_diagram","graphInfo","loopMomenta"]],
+cInfoGraphs[["right_diagram",{"name"}]],
+"numerator_tensor_coefficients"->ConstantArray[{0,0},1(*15*)]
+})
+});
+If[KeyExistsQ[cInfoGraphs,"numerator"],
+If[KeyExistsQ[cInfoGraphs,"symmetrizedExpandedTensorCoeff"],
+symCoeff=evaluateNumerator[cInfoGraphs[["symmetrizedExpandedTensorCoeff"]],numAssociation];
+If[symCoeff===False,
+symCoeff=(getSymCoeffSP[cInfoGraphs,numericReplacement->numAssociation])[["symmetrizedExpandedTensorCoeff"]]
+]
+,
+symCoeff=(getSymCoeffSP[cInfoGraphs,numericReplacement->numAssociation])[["symmetrizedExpandedTensorCoeff"]]
+]
+,
+If[KeyExistsQ[mygraph,"symmetrizedExpandedTensorCoeff"],
+symCoeff=evaluateNumerator[mygraph[["symmetrizedExpandedTensorCoeff"]],numAssociation];
+If[symCoeff===False,
+symCoeff=(getSymCoeffSP[mygraph,numericReplacement->numAssociation])[["symmetrizedExpandedTensorCoeff"]]
+]
+,
+symCoeff=(getSymCoeffSP[mygraph,numericReplacement->numAssociation])[["symmetrizedExpandedTensorCoeff"]]
+],
+symCoeff=(getSymCoeffSP[mygraph,numericReplacement->numAssociation])[["symmetrizedExpandedTensorCoeff"]];
+];
+symCoeff[[All,2]]=((ReIm@symCoeff[[All,2]])/. {x_,y__}/;NumericQ[x]:>ImportString[ExportString[{x,y},"Real64"],"Real64"]);
+symCoeff=Association@("numerator_tensor_coefficients_sparse"->symCoeff);
+Association@("uv_limits"->{Association@(Flatten@({preface,diagAsso,symCoeff,Association@("symmetry_factor"->1)}))})
+];
+(* -------------------------------------------------- *)
+(* Write JSON *)
+(* -------------------------------------------------- *)
+If[!KeyExistsQ[mygraph,"symmetrizedExpandedTensorCoeff"],
+mygraph=getSymCoeffSP[mygraph,numericReplacement->numAssociation]
+];
+(* Loop over all cutkosky cuts *)
+fullAsso=Association@("cutkosky_cuts"->Flatten@Table[
+Association@{Map[Evaluate,#,-1]&/@(ReplaceAll[#,numAssociation]&/@cutInfo[[{"cuts"}]]),Association@("n_bubbles"->0),uvBuild[cutInfo]}
+,{cutInfo,mygraph[["cutDiagInfo"]]}
+]);
+superG=getLoopLines[mygraph,True];
+superG=Association@("topo"->writeMinimalJSON[superG,numAssociation,{export->False,processName->procName}][[1]]);
+ecm=((Total@(Cases[mygraph[["momentumMap"]],in[x_]:>x]//Union))/.numAssociation)/. x_List:>x[[1]]*x[[1]]-x[[2;;]].x[[2;;]];
+Export[procName<>".json",
+Association@{Association@("MG_numerator"-><||>),
+fullAsso,
+Association@("external_momenta"->superG[["topo","external_kinematics"]]),
+Association@("e_cm_squared"->ecm),
+Association@("n_incoming_momenta"->Count[mygraph[["particleType"]],_in]),
+Association@("n_loops"->Length[mygraph[["loopMomenta"]]]),
+Association@("name"->superG[["topo","name"]]),
+Evaluate/@Association@("overall_numerator"->If[KeyExistsQ[mygraph,"overall_numerator"],mygraph[["overall_numerator"]],1]),
+Association@("numerator_in_loop_momentum_basis"->True),
+superG}
+,"JSON"]
+]
+
