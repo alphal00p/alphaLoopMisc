@@ -116,7 +116,7 @@ getUVApproximant[graphs_,opts:OptionsPattern[]]:=Block[
 	];
 	(* plug in scalar topo and expand in epsilon*)
 	epsExpand[num_,epsOrder_]:=Block[{topo1,eps,mUV,epsExpExpr},
-		topo1[n_]:=(-1)^n I Pi^(4-2eps) Gamma[n+eps-2]/Gamma[n] 1/(mUV^2)^(n+eps-2);
+		topo1[n_]:=(-1)^n I Pi^(4-2eps) Gamma[n+eps-2]/Gamma[n] 1/(mUV^2)^(n+eps-2)*1/(2 Pi)^(4-2eps);
 		epsExpExpr=(ChangeDimension[num,4])/. D->4-2eps;
 		epsExpExpr=Normal@(Series[epsExpExpr,{eps,0,epsOrder}]);
 		If[epsExpExpr=!=0,
