@@ -628,7 +628,7 @@ These would allow us to really integrate the self-energy separately from the rea
 However, these local IR counterterms would also need to be analytically integrated in dimensional regularisation and added back as an additional term $\left [ \textrm{CT}_{\textrm{IR}} \right ]_{d=4-2\epsilon}$ in the expression of $ \Delta \textrm{UV}_\psi $ in~\eqref{eq:DeltaUVpsidef}.
 There are many possible choices for the functional form of the local counterterm $\textrm{CT}_{\textrm{IR}}$ (i.e. it must only reproduce the original integrand in the IR limits, but can have arbitrary additional non-diverging contributions in that limit), but the only forms that \emph{directly} match our formalism of local cancellation of IR divergences between real-emission and virtual contributions realised in LTD$^2$ are the ones for which the integrated counterpart $\left [ \textrm{CT}_{\textrm{IR}} \right ]_{d=4-2\epsilon}$ has only IR poles and \emph{no finite part}, thus justifying how its inclusion simply amounts to ignoring the pole of IR origin in $\delta Z_\psi$.
 
-\section{Explicit one-loop expression of the one-loop matching terms $\Delta \textrm{UV}_{\psi}$ for a massless fermion}
+\section{Explicit expression of the one-loop matching terms $\Delta \textrm{UV}_{\psi}$ for a massless fermion}
 \label{sec::explicitDeltaUV}
 
 In this section, we give an explicit expression for the quantity $\Delta \textrm{UV}_{\psi}$ of eq.~\eqref{eq:DeltaUVpsidef} for the case of the one-loop self-energy correction of a massless fermion (sitting on the left of the Cutkosky cut):
@@ -684,7 +684,7 @@ A=\frac{1}{64\pi^2}\left[ \frac{1}{\epsilon} + \log{\frac{\mu^2}{-M_\textrm{UV}^
 \end{equation}
 The negative mass in the denominator will induce an $\pm\textrm{i}\pi$ imaginary contribution which cancels between the self-energy to the left and right of the Cutkosky cut. When considering these two quantities summed already, we can write:
  \begin{equation}
-A=\frac{1}{64\pi^2}\left[ \frac{1}{\epsilon} + \log{\frac{\mu^2}{M_\textrm{UV}^2}} \right].
+A=\frac{1}{64\pi^2}\left[ \frac{1}{\epsilon} + \log{\frac{\mu^2}{M_\textrm{UV}^2}} \right]. \label{eq:FinalAConstantExpr}
 \end{equation}
 This leaves us with the computation of the rational terms which we can obtain by separating the $\epsilon-dimensional$ pieces of both the numerator (yielding $R_1$ and the denominator which yields $R_2$).
 The consensus now however is that these $R$-terms need not be there, because one may think to integrate the integrated UVCT together with $\delta Z_\psi$ and thus obtain directly a finite quantity for which taking the limit $\epsilon\rightarrow 0$ gives no contribution. This needs to be formalised better, but seems legit.
@@ -732,7 +732,64 @@ where upon re-instating the rest of the graph multiplying $\Sigma_{ij}(p)$, we c
 \sigma_{\Delta \textrm{UV}_{\psi}} = \left(+\frac{1}{3}\right) \sigma_{\textrm{NLO}}.
 \end{equation}
 Finally we recall that for our current numerical implementation to be correct, we require $\sigma_{\Delta \textrm{UV}_{\psi}}\sim +96$ [pb]. Since we have $\sigma_{\textrm{NLO}}=290.8$ [pb], the above formula gives us $+96.9$ [pb], which brings us in agreement.
+
+\section{Explicit expression of the one-loop matching term $\Delta \textrm{UV}_{aq\bar{q}}$ for a massless fermion}
+\label{sec::explicitDeltaUVDT}
+In this section, we change our supergraph of interest to that of the double-triangle one, with the particular Cutkosky cut and momentum routing shown below:
+\begin{figure}[ht!]
+\begin{center}
+\begin{minipage}{0.65\linewidth}
+\centering
+{\caption{\label{IntegrationContours} Double-triangle supergraph with the Cutkosky cut leaving a one-loop triangle integral to its left.}}
+{\includegraphics[width=1.0\linewidth]{LxB.png}}
+\end{minipage}\hfill
+\end{center}
+\end{figure}
+We can first write the one-loop corrected $\gamma d \bar{d}$ vertex $\Gamma^\mu_{ij}$ as follows:
+\begin{eqnarray}
+\Gamma^\mu_{ij}\delta_{i_1 i_2} &=& (-\textrm{i} g_{\gamma d\bar{d}}) (\textrm{i}) (-\textrm{i} g_\textrm{s})(-\textrm{i})(-\textrm{i} g_\textrm{s})(\textrm{i}) \delta_{x_1 x_2} T_{i_1 x_1}^{y} T_{x_2 i_2}^{y} \int \frac{\tilde{d} k}{(2\pi)^4} I^{(\textrm{DT}),\mu}_{ij}(k,l,Q) \nonumber\\
+&=& g_\textrm{s}^2 C_F \left [ (-\textrm{i}) \delta_{i_1 i_2} g_{\gamma d\bar{d}} \right] \int \frac{\tilde{d} k}{(2\pi)^4} I^{(\textrm{DT}),\mu}_{ij}(k,l,Q)\nonumber\\
+I^{(\textrm{DT}),\mu}_{ij}(k,l,Q) &=& \frac{ \gamma_{i x_1}^{\rho_2} (\slashed{k}_{x_1 x_2}-\slashed{Q}_{x_1 x_2})\gamma^\mu_{x_2 x_3} \slashed{k}_{x_3 x_4} \gamma^{\rho_1}_{x_4 j}g^{\rho_1\rho_2}  }{k^2 (k-l)^2 (k-Q)^2} = \frac{2 k^2 \gamma^\mu_{ij} -4 k^\mu \slashed{k}_{ij} + 2 \slashed{k}_{i x_1}\gamma^\mu_{x_1 x_2} \slashed{Q}_{x_2 j} }{k^2 (k-l)^2 (k-Q)^2} \nonumber\\ \label{DUVDT}
+\end{eqnarray}
+where  $\int \tilde{d}k\; \equiv \left(\frac{\mu^2}{4\pi e^{-\gamma}}\right)^{\epsilon} \int \frac{d^{4-2\epsilon}k}{(2\pi)^{-2\epsilon}} $ (the additional factor $ \left(\frac{1}{4\pi e^{-\gamma}}\right)^{\epsilon} $ is designed so as to automatically reabsorb into a redefinition of the renormalisation scale the terms removed by finite part of the $\overline{\textrm{MS}}$ renormalisation counterterms). 
+The local UV counterterm $-\overline{I}^{(\textrm{DT}),\mu}_{ij}(k,l,Q)$ and its integrated counterpart $\Delta\bar{I}^{(\textrm{DT}),\mu}_{ij}(l,Q)$ then read:
+\begin{eqnarray}
+\Gamma^\mu_{ij}\delta_{i_1 i_2} &=& g_\textrm{s}^2 C_F \left [ (-\textrm{i}) \delta_{i_1 i_2} g_{\gamma d\bar{d}} \right] \left( \int \frac{\tilde{d} k}{(2\pi)^4} \left[ I^{(\textrm{DT}),\mu}_{ij}(k,l,Q)-\overline{I}^{(\textrm{DT}),\mu}_{ij}(k,l,Q) \right ] + \Delta\bar{I}^{(\textrm{DT}),\mu}_{ij}(l,Q) \right) \nonumber\\
+\Delta\bar{I}^{(\textrm{DT}),\mu}_{ij}(l,Q) &=& \int \frac{\tilde{d} k}{(2\pi)^4} \overline{I}^{(\textrm{DT}),\mu}_{ij}(k,l,Q) \nonumber\\
+\overline{I}^{(\textrm{DT}),\mu}_{ij}(k,l,Q) &=& \frac{2 k^2 \gamma^\mu_{ij} -4 k^\mu \slashed{k}_{ij} + 2 \slashed{k}_{i x_1}\gamma^\mu_{x_1 x_2} \slashed{Q}_{x_2 j} }{\left( k^2-M_{\textrm{UV}}^2\right)^3}
+\end{eqnarray}
+When computing the term $\Delta\bar{I}^{(\textrm{DT}),\mu}_{ij}(l,Q)$ we can immediately drop the part of the numerator linear in $k$ and arrive at:
+\begin{eqnarray}
+\Delta\bar{I}^{(\textrm{DT}),\mu}_{ij}(l,Q) &=& \int \frac{\tilde{d} k}{(2\pi)^4} \frac{2 k^2 \gamma^\mu_{ij} -4 k^\mu \slashed{k}_{ij} }{\left( k^2-M_{\textrm{UV}}^2\right)^3} \nonumber \\
+&=& \left [ 2 \gamma^\mu_{ij} g^{\rho_1 \rho_2} -4 \gamma^{\rho_2}_{ij} g^{\mu \rho_1} \right ] \int \frac{\tilde{d} k}{(2\pi)^4} \frac{k^{\rho_1}k^{\rho_2}}{\left( k^2-M_{\textrm{UV}}^2\right)^3} \label{eq:UVDT_tensor_decomp}
+\end{eqnarray}
+The task of computing the tensor integral~\eqref{eq:UVDT_tensor_decomp} is simplified by the observation that the only manifestly Lorentz invariant structure in which it can be decomposed is $g^{\rho_1\rho_2}$, thus allowing us to write:
+\begin{eqnarray}
+\int \frac{\tilde{d} k}{(2\pi)^4} \frac{k^{\rho_1}k^{\rho_2}}{\left( k^2-M_{\textrm{UV}}^2\right)^3} &=& A g^{\rho_1\rho_2} \nonumber \\
+A &=& \frac{1}{d} \int \frac{\tilde{d} k}{(2\pi)^4} \frac{k^2}{\left( k^2-M_{\textrm{UV}}^2\right)^3}
+\end{eqnarray}
+The constant $A$ is then identical to that computed in sect.~\ref{sec::explicitDeltaUV} where we found an explicit expression for it in~\eqref{eq:FinalAConstantExpr}, leading us to the following expression (already expanded to order $\mathcal{O}(\epsilon)$):
+\begin{eqnarray}
+\int \frac{\tilde{d} k}{(2\pi)^4} \frac{k^{\rho_1}k^{\rho_2}}{\left( k^2-M_{\textrm{UV}}^2\right)^3} &=& \frac{1}{64\pi^2}\left[ \frac{1}{\epsilon} + \log{\frac{\mu^2}{M_\textrm{UV}^2}} \right] g^{\rho_1\rho_2}. \label{eq:tens_integral_expr}
+\end{eqnarray}
+We can set $\mu^2=M_{\textrm{UV}}^2$ (or alternatively, for our process of interest, reckognize that this logarithm always exactly cancel against that of the self-energy integrated UV counterterm in virtue of Ward identities). Substituting~\eqref{eq:tens_integral_expr} in~\eqref{eq:UVDT_tensor_decomp} yields:
+\begin{eqnarray}
+\Delta\bar{I}^{(\textrm{DT}),\mu}_{ij}(l,Q) &=& \left [ 2 \gamma^\mu_{ij} g^{\rho_1 \rho_2} -4 \gamma^{\rho_2}_{ij} g^{\mu \rho_1} \right ] g^{\rho_1\rho_2} \left[ \frac{1}{64\pi^2} \frac{1}{\epsilon}+\mathcal{O}\left(\epsilon\right)\right] \nonumber \\
+&=& \gamma^\mu_{ij}  \frac{1}{32 \pi^2} \frac{1}{\epsilon} \left( d - 2 \right)= \gamma^\mu_{ij}  \frac{1}{16 \pi^2} \left( \frac{1}{\epsilon} - 1 \right)
+\end{eqnarray}
+Finally inserting that expression into the definition of the complete integrated of~\eqref{DUVDT}, we get:
+\begin{eqnarray}
+\Delta^{(\textrm{UV})} \Gamma^\mu_{ij}\delta_{i_1 i_2} &=& g_\textrm{s}^2 C_F \left [ (-\textrm{i}) \delta_{i_1 i_2} g_{\gamma d\bar{d}} \right] \gamma^\mu_{ij}  \frac{1}{16 \pi^2} \left( \frac{1}{\epsilon} - 1 \right) \nonumber\\
+&=& \underbrace{\frac{\alpha_s}{\pi}}_{\textrm{K-factor}} \underbrace{\left[ (-\textrm{i}) \delta_{i_1 i_2} g_{\gamma d\bar{d}} \gamma^\mu_{ij} \right]}_{\textrm{LO form-factor}} \frac{1}{4} C_F \left( \frac{1}{\epsilon} - 1 \right).
+\end{eqnarray}
+When inserting this factorised LO form-factor into the complete LO diagram and accounting for the fact that we have \emph{two} one-loop triangles yielding such integrated UV counterterms, we find our final expression for $\Delta \textrm{UV}^{(\textrm{DT})}$:
+ \begin{eqnarray}
+ \Delta \textrm{UV}^{(\textrm{DT})}\Big |_{\textrm{fin}}=-(2) \frac{\alpha_s}{\pi} \sigma^{(\textrm{LO})}_{e^+ e^-\rightarrow \gamma^\star \rightarrow d \bar{d}} \left( \frac{1}{4} C_F \right) = \sigma^{(\textrm{NLO})}_{e^+ e^-\rightarrow \gamma^\star \rightarrow d \bar{d}} \left(-\frac{1}{2} C_F \right).
+ \end{eqnarray}
+ Sadly, this result is a factor two small of what is needed but makes sense from the perspective of the cancellation of the $\log\left(\frac{\mu^2}{M_{\textrm{UV}^2}}\right)$ between the one double-triangle supergraph and the two bubble supergraphs. So it is not clear what is happening here.
+ 
 \input{section_integral_computation.tex}
+
 \bibliographystyle{JHEP}
 \bibliography{biblio}
 
