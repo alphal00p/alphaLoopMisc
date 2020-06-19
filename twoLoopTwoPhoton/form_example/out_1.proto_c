@@ -1,0 +1,130 @@
+#CONF
+conf(0,k0)
+#NEWMONOMIAL
+f(k0)
+
+   Z5_=2*lm12;
+   Z6_= - lm6 + lm17 + lm8 + Z5_ - lm15;
+   Z6_=lm17*Z6_;
+   Z7_=lm2*lm12;
+   Z8_=lm12 + lm19;
+   Z9_= - lm4*Z8_;
+   Z10_= - 2*lm19 + lm15;
+   Z10_=lm8*Z10_;
+   Z6_=Z10_ + Z7_ + Z9_ + Z6_;
+   Z6_=lm6*Z6_;
+   Z9_=lm8*lm15;
+   Z5_=Z5_ + lm15;
+   Z5_=lm15*Z5_;
+   Z5_= - Z9_ + Z7_ + Z5_;
+   Z5_=lm8*Z5_;
+   Z10_=lm10*lm15;
+   Z9_= - 2*Z10_ - Z7_ - Z9_;
+   Z9_=lm17*Z9_;
+   Z8_= - lm8*Z8_;
+   Z10_=lm12 + lm10;
+   Z10_=lm17*Z10_;
+   Z8_=Z10_ + Z7_ + Z8_;
+   Z8_=lm1*Z8_;
+   Z10_=pow(lm12,2);
+   Z10_= - Z10_ + Z7_;
+   Z10_=lm2*Z10_;
+   Z11_=lm4*lm12;
+   Z11_= - Z7_ + Z11_;
+   Z11_=lm15*Z11_;
+   Z12_=lm2*lm19;
+   Z13_=lm15*lm4;
+   Z12_=Z12_ + Z13_;
+   Z12_=lm10*Z12_;
+   Z7_=lm4*Z7_;
+   Z5_=Z6_ + Z8_ + Z9_ + Z12_ + Z5_ + Z11_ + 2*Z10_ + Z7_;
+
+	return 64./9.*i_*pow(ge,4)*pow(gs,2)*Z5_;
+
+#CONF
+conf(1,k1,k2)
+#NEWMONOMIAL
+f(k0)
+
+   Z5_=2*lm2;
+   Z6_=lm1 + lm6 + Z5_;
+   Z6_=lm2*Z6_;
+   Z7_= - lm6 + lm2;
+   Z7_=lm4*Z7_;
+   Z8_= - lm2 + lm4;
+   Z8_=lm15*Z8_;
+   Z5_= - lm12*Z5_;
+   Z5_=Z5_ + Z8_ + Z7_ + Z6_;
+   Z5_=lm12*Z5_;
+   Z6_=lm1 - lm2;
+   Z7_=2*lm15;
+   Z8_=Z7_ - Z6_;
+   Z8_=lm12*Z8_;
+   Z9_= - lm8 + lm6 + lm15;
+   Z9_=lm15*Z9_;
+   Z10_=2*lm6;
+   Z11_= - Z10_ - lm1;
+   Z11_=lm19*Z11_;
+   Z12_=lm6 - lm15;
+   Z12_=lm17*Z12_;
+   Z8_=Z12_ + Z11_ + Z8_ + Z9_;
+   Z8_=lm8*Z8_;
+   Z6_=Z10_ + Z6_;
+   Z6_=lm12*Z6_;
+   Z9_=lm17 - lm15;
+   Z9_=lm6*Z9_;
+   Z10_=pow(lm6,2);
+   Z6_=Z6_ - Z10_ + Z9_;
+   Z6_=lm17*Z6_;
+   Z9_=lm15*lm4;
+   Z10_=lm19*lm2;
+   Z7_= - Z7_ + lm1;
+   Z7_=lm17*Z7_;
+   Z7_=Z7_ + Z9_ + Z10_;
+   Z7_=lm10*Z7_;
+   Z9_= - lm19*lm4*lm6;
+   Z5_=Z7_ + Z8_ + Z6_ + Z5_ + Z9_;
+
+	return 64./9.*i_*pow(ge,4)*pow(gs,2)*Z5_;
+
+#CONF
+conf(2,k0)
+#NEWMONOMIAL
+f(k0)
+
+   Z5_=2*lm12;
+   Z6_= - lm6 + lm17 + lm8 + Z5_ - lm15;
+   Z6_=lm17*Z6_;
+   Z7_=lm2*lm12;
+   Z8_= - 2*lm19 + lm15;
+   Z8_=lm8*Z8_;
+   Z9_=lm19 + lm12;
+   Z10_= - lm4*Z9_;
+   Z6_=Z10_ + Z7_ + Z8_ + Z6_;
+   Z6_=lm6*Z6_;
+   Z8_=pow(lm12,2);
+   Z8_=Z7_ - Z8_;
+   Z10_=lm19*lm10;
+   Z11_= - lm15*lm12;
+   Z8_=Z11_ + Z10_ + 2*Z8_;
+   Z8_=lm2*Z8_;
+   Z10_=lm8*lm15;
+   Z5_=Z5_ + lm15;
+   Z5_=lm15*Z5_;
+   Z5_= - Z10_ + Z5_ + Z7_;
+   Z5_=lm8*Z5_;
+   Z11_=lm15*lm10;
+   Z10_= - Z10_ - 2*Z11_ - Z7_;
+   Z10_=lm17*Z10_;
+   Z9_= - lm8*Z9_;
+   Z11_=lm12 + lm10;
+   Z12_=lm17*Z11_;
+   Z9_=Z12_ + Z7_ + Z9_;
+   Z9_=lm1*Z9_;
+   Z11_=lm15*Z11_;
+   Z7_=Z11_ + Z7_;
+   Z7_=lm4*Z7_;
+   Z5_=Z9_ + Z6_ + Z7_ + Z10_ + Z8_ + Z5_;
+
+	return 64./9.*i_*pow(ge,4)*pow(gs,2)*Z5_;
+
