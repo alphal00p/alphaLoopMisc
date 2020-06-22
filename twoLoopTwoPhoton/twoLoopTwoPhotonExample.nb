@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     67064,       1447]
-NotebookOptionsPosition[     64308,       1396]
-NotebookOutlinePosition[     64641,       1411]
-CellTagsIndexPosition[     64598,       1408]
+NotebookDataLength[    102179,       2382]
+NotebookOptionsPosition[     95791,       2289]
+NotebookOutlinePosition[     96124,       2304]
+CellTagsIndexPosition[     96081,       2301]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -35,15 +35,409 @@ purposes and can be ignored.\
  FontColor->RGBColor[
   0, 0, 1],ExpressionUUID->"2a32b6b5-a7aa-4a46-862b-3f926cc7697b"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"Get", "[", "\"\<computeDiagramSingularities.m\>\"", "]"}], 
   ";"}]], "Input",
  CellChangeTimes->{{3.801504570773532*^9, 3.801504577911916*^9}, {
   3.801504885141674*^9, 3.801504907922954*^9}, {3.801543054238359*^9, 
-  3.801543074336409*^9}, {3.801544025474515*^9, 
-  3.8015440263868933`*^9}},ExpressionUUID->"b66516a2-d7ae-4894-8580-\
-08e4fe6e6d91"],
+  3.801543074336409*^9}, {3.801544025474515*^9, 3.8015440263868933`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"b66516a2-d7ae-4894-8580-08e4fe6e6d91"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Loaded diagrams including categories:\"\>"], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438096918*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"9cececdd-1d81-4c28-9208-b8baa9c035d5"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"photonic\"\>", ",", "\<\"mod\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"photonic\"\>", ",", "\<\"double\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"photonic\"\>", ",", "\<\"single\"\>"}], "}"}], ",", 
+   RowBox[{"{", "\<\"fbubble\"\>", "}"}], ",", 
+   RowBox[{"{", "\<\"fbox\"\>", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"mod\"\>"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"double\"\>"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"single\"\>"}], "}"}], 
+   ",", 
+   RowBox[{"{", "\<\"fbubbleHardSubtracted\"\>", "}"}], ",", 
+   RowBox[{"{", "\<\"fboxHardSubtracted\"\>", "}"}]}], "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438098838*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"f137cf6b-946f-42e3-bb73-d2f3fe4fa681"],
+
+Cell[BoxData["\<\"inserting numerical external kinematics\"\>"], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.8018374381009893`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"e4dab95f-9c8d-4a68-92db-06d306c8f45b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonic\"\>", ",", "\<\"mod\"\>"}], "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.8018374381022997`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"f0a8f046-6181-432b-abf1-89eef278cee8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonic\"\>", ",", "\<\"double\"\>"}], "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438103532*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"9a176872-149a-4574-a1f3-952a00a43194"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonic\"\>", ",", "\<\"single\"\>"}], "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438104767*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"1e5890f0-2d6a-46ca-b539-777291e3d036"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"fbubble\"\>", "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438105974*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"a980286c-9382-49ca-a7b9-0089f8e4d2f9"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"fbox\"\>", "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438107095*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"ee368a48-c5cb-41d3-a06a-71c7d634210d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"mod\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.8018374381082573`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"a7a1809b-10d1-4f25-a5ef-7e7c9a1b8d1b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"double\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438109476*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"fad5c604-a39a-4407-91d9-23788f3c4d99"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"single\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438110712*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"ddae24e3-1e2c-4193-ad79-2964b4a96d64"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"fbubbleHardSubtracted\"\>", "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438111961*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"451aa590-cd38-43c5-86ba-af1d9ae18f24"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"fboxHardSubtracted\"\>", "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438113065*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"c269e619-b354-41e5-bcb1-63a990c42598"],
+
+Cell[BoxData["\<\"Symmetrizing photonic diagrams.\"\>"], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438113985*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"47526e91-d88e-426b-b510-f0b857128ce7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonic\"\>", ",", "\<\"mod\"\>"}], "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438114903*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"d4b839bc-0fcf-48a4-8a04-6c34da04ba26"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonic\"\>", ",", "\<\"double\"\>"}], "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438115838*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"446ec51e-16f6-4f4c-bcba-81ea5cb5f530"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonic\"\>", ",", "\<\"single\"\>"}], "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.8018374381167307`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"fa5070c2-210c-4f54-a8e4-fd3daec1ba65"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"mod\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438117673*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"b3f0df18-5c78-406d-8f32-23c9a00b1179"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"double\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438141506*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"917f30ad-148c-4084-abdf-fc540aab464a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"single\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438142379*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"3b82f51e-1e06-4b8f-a2d6-01f4b179f313"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"11", ",", "1", ",", "7", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"30", ",", "1", ",", "7", ",", "0"}], "}"}]}], "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438509201*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"55dbdf4f-78b7-417f-8a0d-72a0442f6d78"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"9", ",", "1", ",", "7", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"27", ",", "1", ",", "7", ",", "0"}], "}"}]}], "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438534226*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"8e8475dc-eb5f-4f39-a6a7-f49744cb5fc5"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"10", ",", "1", ",", "2", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"29", ",", "1", ",", "2", ",", "0"}], "}"}]}], "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.8018374385680847`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"a291389e-a527-4356-a987-4111a37b7992"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"7", ",", "1", ",", "2", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"26", ",", "1", ",", "2", ",", "0"}], "}"}]}], "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438618585*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"bb7f8563-029c-48d4-926c-b35d32af69bb"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Finding double-UV divergent diagrams. \"\>", 
+   "\[InvisibleSpace]", "\<\"Mon 22 Jun 2020 19:57:18\"\>"}],
+  SequenceForm[
+  "Finding double-UV divergent diagrams. ", "Mon 22 Jun 2020 19:57:18"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837438830985*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"8f48714d-b339-4ae8-a7aa-a7293d59f1c5"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Finished finding double-UV divergent diagrams. \"\>", 
+   "\[InvisibleSpace]", "\<\"Mon 22 Jun 2020 19:57:22\"\>"}],
+  SequenceForm[
+  "Finished finding double-UV divergent diagrams. ", 
+   "Mon 22 Jun 2020 19:57:22"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837442230126*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"fe6adba1-16d5-4f8b-81b2-56746a359262"],
+
+Cell[BoxData["\<\"inserting numerical external kinematics into double-UV CTs.\
+\"\>"], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837445101255*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"b09056aa-df37-4902-ad1b-ac820d05f437"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"mod\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837445103015*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"75524f2b-e067-4b25-9cf1-5c3f93dcd96d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"single\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837445105785*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"2d10c565-6444-4161-8294-9058b703f0e4"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"double\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837445107193*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"90d76ee0-e04a-4ca0-a800-160f2e9c4052"],
+
+Cell[BoxData["\<\"Symmetrizing double-UV CTs.\"\>"], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.8018374451086817`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"57dd742b-389a-473f-b735-4ed2181431fd"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"mod\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837445109807*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"addc5b74-aae7-4951-a35c-2b9ee975f9b6"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"single\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837445133299*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"008de5a4-c779-4ae1-8cdb-f73298258627"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"photonicHardSubtracted\"\>", ",", "\<\"double\"\>"}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837445136677*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"7483d93d-8fe2-4a1d-9f29-30a1de879c4c"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Finished evaluating diagrams and constructing double-UV CTs. \
+Time used by MathKernel: \"\>", "\[InvisibleSpace]", "7.4965589999999995`"}],
+  SequenceForm[
+  "Finished evaluating diagrams and constructing double-UV CTs. Time used by \
+MathKernel: ", 7.4965589999999995`],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837445158822*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"d3411019-f0c9-4882-993a-16044c387ae4"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+  "61", "\[InvisibleSpace]", "\<\" integrand expressions to be \
+exported.\"\>"}],
+  SequenceForm[61, " integrand expressions to be exported."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.8018374456230383`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"07ef338b-834c-4d7f-9536-ecc36f432327"],
+
+Cell[BoxData["\<\"$runNumericalChecks is not set to True. Stop further \
+evaluations by Abort[].\"\>"], "Print",
+ CellChangeTimes->{3.8018087432655897`*^9, 3.801837268330967*^9, 
+  3.801837445624527*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"6093d8c9-78f8-40b8-835c-a768ad749659"]
+}, Open  ]],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.801808749683432*^9, 3.801837275574407*^9, 
+  3.801837445626048*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"d645146a-d194-46ca-8b66-ba783bc61619"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -56,13 +450,13 @@ Cell[BoxData[
     " ", "subtracted", " ", 
     RowBox[{"integrand", "."}]}], " ", "*)"}], "\[IndentingNewLine]", 
   RowBox[{"Length", "[", "allFeynAmps", "]"}]}]], "Input",
- CellChangeTimes->{{3.8015046373629913`*^9, 
-  3.801504682119605*^9}},ExpressionUUID->"ec65eeed-8287-43ad-9491-\
-7eec7f4038b5"],
+ CellChangeTimes->{{3.8015046373629913`*^9, 3.801504682119605*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"ec65eeed-8287-43ad-9491-7eec7f4038b5"],
 
 Cell[BoxData["61"], "Output",
- CellChangeTimes->{3.8015046403762217`*^9},
- CellLabel->"Out[4]=",ExpressionUUID->"d600a5c1-135c-42f9-a1df-9ac24b70ff71"]
+ CellChangeTimes->{3.8015046403762217`*^9, 3.801808756830768*^9, 
+  3.801837280861238*^9, 3.801837447192418*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"a8113dea-d0db-495c-824e-d9c5afc42021"]
 }, Open  ]],
 
 Cell["\<\
@@ -818,338 +1212,837 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"allFeynAmps", "[", 
-  RowBox[{"[", "39", "]"}], "]"}]], "Input",
- CellChangeTimes->{{3.801543117284754*^9, 3.801543134203395*^9}, {
-  3.801543166817524*^9, 3.801543176725325*^9}, {3.801543227336211*^9, 
-  3.801543296810053*^9}, {3.801543343166586*^9, 
-  3.801543792546604*^9}},ExpressionUUID->"a05cc6ba-d5c2-44fa-b16f-\
-d8847be37287"],
+  RowBox[{"[", "7", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.801837462536601*^9, 3.801837470500173*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"ac207cb5-ff46-4322-8dee-eb52f160c7e2"],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{
+   RowBox[{"-", "2"}], " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"component", "[", 
+    RowBox[{
+     RowBox[{"-", "p2"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
    RowBox[{"fermionChain", "[", 
     RowBox[{
      RowBox[{"spinor", "[", 
       RowBox[{"-", "3"}], "]"}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "1", "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k1", "-", "p2"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"k1", "-", "p2"}], "]"}]}], ",", 
-     FractionBox[
-      RowBox[{"fermionChain", "[", 
-       RowBox[{
-        RowBox[{"slash", "[", "p1", "]"}], ",", 
-        RowBox[{"slash", "[", "p2", "]"}]}], "]"}], 
-      RowBox[{"lorentzDot", "[", 
-       RowBox[{"p1", "+", "p2"}], "]"}]], ",", 
-     RowBox[{
-      RowBox[{"-", "\[ImaginaryI]"}], " ", "lambda", " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"polVec", "[", 
-        RowBox[{"-", "4"}], "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"p1", "-", "q1"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"p1", "-", "q1"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "14", "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k2", "+", "p1", "-", "q1"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"k2", "+", "p1", "-", "q1"}], "]"}]}], ",", 
-     RowBox[{
-      RowBox[{"-", "\[ImaginaryI]"}], " ", "lambda", " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"polVec", "[", 
-        RowBox[{"-", "2"}], "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k2", "+", "p1"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"k2", "+", "p1"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "13", "]"}], "]"}]}], ",", 
-     FractionBox[
-      RowBox[{"fermionChain", "[", 
-       RowBox[{
-        RowBox[{"slash", "[", "p1", "]"}], ",", 
-        RowBox[{"slash", "[", "p2", "]"}]}], "]"}], 
-      RowBox[{"lorentzDot", "[", 
-       RowBox[{"p1", "+", "p2"}], "]"}]], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k1", "+", "p1"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"k1", "+", "p1"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "2", "]"}], "]"}]}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
      RowBox[{"spinor", "[", 
       RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
    RowBox[{"metricTensor", "[", 
     RowBox[{
-     RowBox[{"lorentzIndex", "[", "1", "]"}], ",", 
-     RowBox[{"lorentzIndex", "[", "2", "]"}]}], "]"}], " ", 
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k2", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "+", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"component", "[", 
+       RowBox[{
+        RowBox[{"k2", "-", "p2"}], ",", 
+        RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}]}], "+", 
+     RowBox[{"component", "[", 
+      RowBox[{
+       RowBox[{"-", "p2"}], ",", 
+       RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}]}], ")"}], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k2", "-", "p2"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
    RowBox[{"metricTensor", "[", 
     RowBox[{
-     RowBox[{"lorentzIndex", "[", "13", "]"}], ",", 
-     RowBox[{"lorentzIndex", "[", "14", "]"}]}], "]"}], " ", 
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
    RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k2", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "-", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"component", "[", 
+       RowBox[{
+        RowBox[{"k2", "-", "p2"}], ",", 
+        RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}]}], "+", 
+     RowBox[{"component", "[", 
+      RowBox[{
+       RowBox[{"-", "p2"}], ",", 
+       RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}]}], ")"}], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "p2"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
+   RowBox[{"metricTensor", "[", 
+    RowBox[{
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k2", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "+", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"component", "[", 
+       RowBox[{
+        RowBox[{"k2", "-", "p2"}], ",", 
+        RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}]}], "+", 
+     RowBox[{"component", "[", 
+      RowBox[{
+       RowBox[{"-", "p2"}], ",", 
+       RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}]}], ")"}], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
+   RowBox[{"lorentzDot", "[", 
     RowBox[{"-", "k1"}], "]"}], " ", 
-   RowBox[{"propagator", "[", "k2", "]"}]}], "-", 
-  RowBox[{
+   RowBox[{"metricTensor", "[", 
+    RowBox[{
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k2", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "+", 
+  RowBox[{"4", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"component", "[", 
+       RowBox[{
+        RowBox[{"-", "k1"}], ",", 
+        RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}]}], "+", 
+     RowBox[{"component", "[", 
+      RowBox[{
+       RowBox[{"-", "p2"}], ",", 
+       RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}]}], ")"}], " ", 
    RowBox[{"fermionChain", "[", 
     RowBox[{
      RowBox[{"spinor", "[", 
       RowBox[{"-", "3"}], "]"}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "1", "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{
-        RowBox[{"-", "k1"}], ",", "M"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"-", "k1"}], "]"}]}], ",", 
-     FractionBox[
-      RowBox[{"fermionChain", "[", 
-       RowBox[{
-        RowBox[{"slash", "[", "p1", "]"}], ",", 
-        RowBox[{"slash", "[", "p2", "]"}]}], "]"}], 
-      RowBox[{"lorentzDot", "[", 
-       RowBox[{"p1", "+", "p2"}], "]"}]], ",", 
-     RowBox[{
-      RowBox[{"-", "\[ImaginaryI]"}], " ", "lambda", " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"polVec", "[", 
-        RowBox[{"-", "4"}], "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"p1", "-", "q1"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"p1", "-", "q1"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "14", "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k2", "+", "p1", "-", "q1"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"k2", "+", "p1", "-", "q1"}], "]"}]}], ",", 
-     RowBox[{
-      RowBox[{"-", "\[ImaginaryI]"}], " ", "lambda", " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"polVec", "[", 
-        RowBox[{"-", "2"}], "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k2", "+", "p1"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"k2", "+", "p1"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "13", "]"}], "]"}]}], ",", 
-     FractionBox[
-      RowBox[{"fermionChain", "[", 
-       RowBox[{
-        RowBox[{"slash", "[", "p1", "]"}], ",", 
-        RowBox[{"slash", "[", "p2", "]"}]}], "]"}], 
-      RowBox[{"lorentzDot", "[", 
-       RowBox[{"p1", "+", "p2"}], "]"}]], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{
-        RowBox[{"-", "k1"}], ",", "M"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"-", "k1"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "2", "]"}], "]"}]}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
      RowBox[{"spinor", "[", 
       RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
    RowBox[{"metricTensor", "[", 
     RowBox[{
-     RowBox[{"lorentzIndex", "[", "1", "]"}], ",", 
-     RowBox[{"lorentzIndex", "[", "2", "]"}]}], "]"}], " ", 
-   RowBox[{"metricTensor", "[", 
-    RowBox[{
-     RowBox[{"lorentzIndex", "[", "13", "]"}], ",", 
-     RowBox[{"lorentzIndex", "[", "14", "]"}]}], "]"}], " ", 
-   RowBox[{"propagator", "[", "k2", "]"}], " ", 
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
    RowBox[{"propagator", "[", 
     RowBox[{
-     RowBox[{"-", "k1"}], ",", "M"}], "]"}]}], "-", 
-  RowBox[{
+     RowBox[{"-", "k1"}], "-", "k2", "+", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "+", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
    RowBox[{"fermionChain", "[", 
     RowBox[{
      RowBox[{"spinor", "[", 
       RowBox[{"-", "3"}], "]"}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "1", "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k1", "-", "p2"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"k1", "-", "p2"}], "]"}]}], ",", 
-     FractionBox[
-      RowBox[{"fermionChain", "[", 
-       RowBox[{
-        RowBox[{"slash", "[", "p1", "]"}], ",", 
-        RowBox[{"slash", "[", "p2", "]"}]}], "]"}], 
-      RowBox[{"lorentzDot", "[", 
-       RowBox[{"p1", "+", "p2"}], "]"}]], ",", 
-     RowBox[{
-      RowBox[{"-", "\[ImaginaryI]"}], " ", "lambda", " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"polVec", "[", 
-        RowBox[{"-", "4"}], "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"p1", "-", "q1"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"p1", "-", "q1"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "14", "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k2", ",", "M"}], "]"}], " ", 
-      RowBox[{"slash", "[", "k2", "]"}]}], ",", 
-     RowBox[{
-      RowBox[{"-", "\[ImaginaryI]"}], " ", "lambda", " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"polVec", "[", 
-        RowBox[{"-", "2"}], "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k2", ",", "M"}], "]"}], " ", 
-      RowBox[{"slash", "[", "k2", "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "13", "]"}], "]"}]}], ",", 
-     FractionBox[
-      RowBox[{"fermionChain", "[", 
-       RowBox[{
-        RowBox[{"slash", "[", "p1", "]"}], ",", 
-        RowBox[{"slash", "[", "p2", "]"}]}], "]"}], 
-      RowBox[{"lorentzDot", "[", 
-       RowBox[{"p1", "+", "p2"}], "]"}]], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k1", "+", "p1"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"k1", "+", "p1"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "2", "]"}], "]"}]}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "12", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
      RowBox[{"spinor", "[", 
       RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
    RowBox[{"metricTensor", "[", 
     RowBox[{
-     RowBox[{"lorentzIndex", "[", "1", "]"}], ",", 
-     RowBox[{"lorentzIndex", "[", "2", "]"}]}], "]"}], " ", 
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{
+     RowBox[{"-", "k1"}], "-", "k2", "+", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "+", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"component", "[", 
+    RowBox[{
+     RowBox[{"-", "k1"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
    RowBox[{"metricTensor", "[", 
     RowBox[{
-     RowBox[{"lorentzIndex", "[", "14", "]"}], ",", 
-     RowBox[{"lorentzIndex", "[", "13", "]"}]}], "]"}], " ", 
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
    RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k2", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{
+     RowBox[{"-", "k1"}], "-", "k2", "+", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "-", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"component", "[", 
+    RowBox[{
+     RowBox[{"k2", "-", "p2"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k2", "-", "p2"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
+   RowBox[{"metricTensor", "[", 
+    RowBox[{
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k2", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{
+     RowBox[{"-", "k1"}], "-", "k2", "+", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "-", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "12", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k2", "-", "p2"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
+   RowBox[{"metricTensor", "[", 
+    RowBox[{
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k2", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{
+     RowBox[{"-", "k1"}], "-", "k2", "+", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "+", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "12", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k2", "-", "p2"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "p2"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
+   RowBox[{"metricTensor", "[", 
+    RowBox[{
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k2", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{
+     RowBox[{"-", "k1"}], "-", "k2", "+", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "+", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", "eps", " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k2", "-", "p2"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "12", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
+   RowBox[{"metricTensor", "[", 
+    RowBox[{
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k2", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{
+     RowBox[{"-", "k1"}], "-", "k2", "+", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "-", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", "eps", " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k2", "-", "p2"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "12", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "p2"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
+   RowBox[{"metricTensor", "[", 
+    RowBox[{
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k2", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{
+     RowBox[{"-", "k1"}], "-", "k2", "+", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "+", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"component", "[", 
+    RowBox[{
+     RowBox[{"k2", "-", "p2"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
+   RowBox[{"lorentzDot", "[", 
     RowBox[{"-", "k1"}], "]"}], " ", 
+   RowBox[{"metricTensor", "[", 
+    RowBox[{
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
    RowBox[{"propagator", "[", 
-    RowBox[{"k2", ",", "M"}], "]"}]}], "+", 
-  RowBox[{
+    RowBox[{"-", "k2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k2", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{
+     RowBox[{"-", "k1"}], "-", "k2", "+", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}]}], "-", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"component", "[", 
+    RowBox[{
+     RowBox[{"-", "k1"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
    RowBox[{"fermionChain", "[", 
     RowBox[{
      RowBox[{"spinor", "[", 
       RowBox[{"-", "3"}], "]"}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "1", "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{
-        RowBox[{"-", "k1"}], ",", "M"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"-", "k1"}], "]"}]}], ",", 
-     FractionBox[
-      RowBox[{"fermionChain", "[", 
-       RowBox[{
-        RowBox[{"slash", "[", "p1", "]"}], ",", 
-        RowBox[{"slash", "[", "p2", "]"}]}], "]"}], 
-      RowBox[{"lorentzDot", "[", 
-       RowBox[{"p1", "+", "p2"}], "]"}]], ",", 
-     RowBox[{
-      RowBox[{"-", "\[ImaginaryI]"}], " ", "lambda", " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"polVec", "[", 
-        RowBox[{"-", "4"}], "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"p1", "-", "q1"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"p1", "-", "q1"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "14", "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k2", ",", "M"}], "]"}], " ", 
-      RowBox[{"slash", "[", "k2", "]"}]}], ",", 
-     RowBox[{
-      RowBox[{"-", "\[ImaginaryI]"}], " ", "lambda", " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"polVec", "[", 
-        RowBox[{"-", "2"}], "]"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{"k2", ",", "M"}], "]"}], " ", 
-      RowBox[{"slash", "[", "k2", "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "13", "]"}], "]"}]}], ",", 
-     FractionBox[
-      RowBox[{"fermionChain", "[", 
-       RowBox[{
-        RowBox[{"slash", "[", "p1", "]"}], ",", 
-        RowBox[{"slash", "[", "p2", "]"}]}], "]"}], 
-      RowBox[{"lorentzDot", "[", 
-       RowBox[{"p1", "+", "p2"}], "]"}]], ",", 
-     RowBox[{"\[ImaginaryI]", " ", 
-      RowBox[{"propagator", "[", 
-       RowBox[{
-        RowBox[{"-", "k1"}], ",", "M"}], "]"}], " ", 
-      RowBox[{"slash", "[", 
-       RowBox[{"-", "k1"}], "]"}]}], ",", 
-     RowBox[{"\[ImaginaryI]", " ", "g", " ", 
-      RowBox[{"gamma", "[", 
-       RowBox[{"lorentzIndex", "[", "2", "]"}], "]"}]}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
      RowBox[{"spinor", "[", 
       RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
    RowBox[{"metricTensor", "[", 
     RowBox[{
-     RowBox[{"lorentzIndex", "[", "1", "]"}], ",", 
-     RowBox[{"lorentzIndex", "[", "2", "]"}]}], "]"}], " ", 
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{"propagator", "[", 
+     RowBox[{"k2", ",", "M"}], "]"}], "2"]}], "+", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"component", "[", 
+    RowBox[{
+     RowBox[{"-", "p2"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
    RowBox[{"metricTensor", "[", 
     RowBox[{
-     RowBox[{"lorentzIndex", "[", "14", "]"}], ",", 
-     RowBox[{"lorentzIndex", "[", "13", "]"}]}], "]"}], " ", 
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
    RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{"propagator", "[", 
+     RowBox[{"k2", ",", "M"}], "]"}], "2"]}], "-", 
+  RowBox[{"4", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"(", 
     RowBox[{
-     RowBox[{"-", "k1"}], ",", "M"}], "]"}], " ", 
+     RowBox[{"-", 
+      RowBox[{"component", "[", 
+       RowBox[{
+        RowBox[{"-", "k1"}], ",", 
+        RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}]}], "+", 
+     RowBox[{"component", "[", 
+      RowBox[{
+       RowBox[{"-", "p2"}], ",", 
+       RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}]}], ")"}], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
+   RowBox[{"metricTensor", "[", 
+    RowBox[{
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
    RowBox[{"propagator", "[", 
-    RowBox[{"k2", ",", "M"}], "]"}]}]}]], "Output",
- CellChangeTimes->{
-  3.8015431346077347`*^9, {3.8015432812058773`*^9, 3.80154329709767*^9}},
- CellLabel->"Out[8]=",ExpressionUUID->"d5e13c9d-9df2-4863-85cf-3a963138fc09"]
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{"propagator", "[", 
+     RowBox[{"k2", ",", "M"}], "]"}], "2"]}], "-", 
+  RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "12", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
+   RowBox[{"metricTensor", "[", 
+    RowBox[{
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{"propagator", "[", 
+     RowBox[{"k2", ",", "M"}], "]"}], "2"]}], "+", 
+  RowBox[{"4", " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", "eps"}], ")"}], " ", "g", " ", 
+   SuperscriptBox["lambda", "2"], " ", 
+   RowBox[{"component", "[", 
+    RowBox[{"k2", ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"fermionChain", "[", 
+    RowBox[{
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "3"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"-", "k1"}], "]"}], ",", 
+     RowBox[{"slash", "[", "k2", "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "4"}], "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"gamma", "[", 
+      RowBox[{"lorentzIndex", "[", "11", "]"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"p1", "-", "q1"}], "]"}], ",", 
+     RowBox[{"slash", "[", 
+      RowBox[{"polVec", "[", 
+       RowBox[{"-", "2"}], "]"}], "]"}], ",", 
+     RowBox[{"spinor", "[", 
+      RowBox[{"-", "1"}], "]"}]}], "]"}], " ", 
+   RowBox[{"metricTensor", "[", 
+    RowBox[{
+     RowBox[{"lorentzIndex", "[", "11", "]"}], ",", 
+     RowBox[{"lorentzIndex", "[", "12", "]"}]}], "]"}], " ", 
+   RowBox[{"propagator", "[", "k1", "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "-", "p2"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"p1", "-", "q1"}], "]"}], " ", 
+   RowBox[{"propagator", "[", 
+    RowBox[{"k1", "+", "p1", "-", "q1"}], "]"}], " ", 
+   SuperscriptBox[
+    RowBox[{"propagator", "[", 
+     RowBox[{"k2", ",", "M"}], "]"}], "3"]}]}]], "Output",
+ CellChangeTimes->{{3.801837466028323*^9, 3.801837470708108*^9}, {
+  3.801837972833179*^9, 3.80183799626647*^9}},
+ CellLabel->"Out[15]=",ExpressionUUID->"b81777ff-d854-4384-bb1e-09ba51bd30f5"]
 }, Open  ]],
 
 Cell["\<\
@@ -1412,42 +2305,84 @@ CellTagsIndex->{}
 Notebook[{
 Cell[558, 20, 266, 5, 31, "Input",ExpressionUUID->"b807df8d-a87b-4482-96d6-44067d9ba8e3"],
 Cell[827, 27, 377, 8, 62, "Text",ExpressionUUID->"2a32b6b5-a7aa-4a46-862b-3f926cc7697b"],
-Cell[1207, 37, 385, 8, 31, "Input",ExpressionUUID->"b66516a2-d7ae-4894-8580-08e4fe6e6d91"],
 Cell[CellGroupData[{
-Cell[1617, 49, 500, 11, 55, "Input",ExpressionUUID->"ec65eeed-8287-43ad-9491-7eec7f4038b5"],
-Cell[2120, 62, 151, 2, 35, "Output",ExpressionUUID->"d600a5c1-135c-42f9-a1df-9ac24b70ff71"]
+Cell[1229, 39, 403, 7, 31, "Input",ExpressionUUID->"b66516a2-d7ae-4894-8580-08e4fe6e6d91"],
+Cell[CellGroupData[{
+Cell[1657, 50, 266, 5, 25, "Print",ExpressionUUID->"9cececdd-1d81-4c28-9208-b8baa9c035d5"],
+Cell[1926, 57, 1031, 26, 48, "Print",ExpressionUUID->"f137cf6b-946f-42e3-bb73-d2f3fe4fa681"],
+Cell[2960, 85, 270, 5, 25, "Print",ExpressionUUID->"e4dab95f-9c8d-4a68-92db-06d306c8f45b"],
+Cell[3233, 92, 294, 7, 25, "Print",ExpressionUUID->"f0a8f046-6181-432b-abf1-89eef278cee8"],
+Cell[3530, 101, 295, 7, 25, "Print",ExpressionUUID->"9a176872-149a-4574-a1f3-952a00a43194"],
+Cell[3828, 110, 295, 7, 25, "Print",ExpressionUUID->"1e5890f0-2d6a-46ca-b539-777291e3d036"],
+Cell[4126, 119, 258, 6, 25, "Print",ExpressionUUID->"a980286c-9382-49ca-a7b9-0089f8e4d2f9"],
+Cell[4387, 127, 255, 6, 25, "Print",ExpressionUUID->"ee368a48-c5cb-41d3-a06a-71c7d634210d"],
+Cell[4645, 135, 311, 8, 25, "Print",ExpressionUUID->"a7a1809b-10d1-4f25-a5ef-7e7c9a1b8d1b"],
+Cell[4959, 145, 312, 8, 25, "Print",ExpressionUUID->"fad5c604-a39a-4407-91d9-23788f3c4d99"],
+Cell[5274, 155, 312, 8, 25, "Print",ExpressionUUID->"ddae24e3-1e2c-4193-ad79-2964b4a96d64"],
+Cell[5589, 165, 272, 6, 25, "Print",ExpressionUUID->"451aa590-cd38-43c5-86ba-af1d9ae18f24"],
+Cell[5864, 173, 269, 6, 25, "Print",ExpressionUUID->"c269e619-b354-41e5-bcb1-63a990c42598"],
+Cell[6136, 181, 260, 5, 25, "Print",ExpressionUUID->"47526e91-d88e-426b-b510-f0b857128ce7"],
+Cell[6399, 188, 292, 7, 25, "Print",ExpressionUUID->"d4b839bc-0fcf-48a4-8a04-6c34da04ba26"],
+Cell[6694, 197, 295, 7, 25, "Print",ExpressionUUID->"446ec51e-16f6-4f4c-bcba-81ea5cb5f530"],
+Cell[6992, 206, 297, 7, 25, "Print",ExpressionUUID->"fa5070c2-210c-4f54-a8e4-fd3daec1ba65"],
+Cell[7292, 215, 309, 8, 25, "Print",ExpressionUUID->"b3f0df18-5c78-406d-8f32-23c9a00b1179"],
+Cell[7604, 225, 312, 8, 25, "Print",ExpressionUUID->"917f30ad-148c-4084-abdf-fc540aab464a"],
+Cell[7919, 235, 312, 8, 25, "Print",ExpressionUUID->"3b82f51e-1e06-4b8f-a2d6-01f4b179f313"],
+Cell[8234, 245, 407, 11, 25, "Print",ExpressionUUID->"55dbdf4f-78b7-417f-8a0d-72a0442f6d78"],
+Cell[8644, 258, 406, 11, 25, "Print",ExpressionUUID->"8e8475dc-eb5f-4f39-a6a7-f49744cb5fc5"],
+Cell[9053, 271, 409, 11, 25, "Print",ExpressionUUID->"a291389e-a527-4356-a987-4111a37b7992"],
+Cell[9465, 284, 406, 11, 25, "Print",ExpressionUUID->"bb7f8563-029c-48d4-926c-b35d32af69bb"],
+Cell[9874, 297, 470, 11, 25, "Print",ExpressionUUID->"8f48714d-b339-4ae8-a7aa-a7293d59f1c5"],
+Cell[10347, 310, 492, 12, 25, "Print",ExpressionUUID->"fe6adba1-16d5-4f8b-81b2-56746a359262"],
+Cell[10842, 324, 290, 6, 25, "Print",ExpressionUUID->"b09056aa-df37-4902-ad1b-ac820d05f437"],
+Cell[11135, 332, 309, 8, 25, "Print",ExpressionUUID->"75524f2b-e067-4b25-9cf1-5c3f93dcd96d"],
+Cell[11447, 342, 312, 8, 25, "Print",ExpressionUUID->"2d10c565-6444-4161-8294-9058b703f0e4"],
+Cell[11762, 352, 312, 8, 25, "Print",ExpressionUUID->"90d76ee0-e04a-4ca0-a800-160f2e9c4052"],
+Cell[12077, 362, 258, 5, 25, "Print",ExpressionUUID->"57dd742b-389a-473f-b735-4ed2181431fd"],
+Cell[12338, 369, 309, 8, 25, "Print",ExpressionUUID->"addc5b74-aae7-4951-a35c-2b9ee975f9b6"],
+Cell[12650, 379, 312, 8, 25, "Print",ExpressionUUID->"008de5a4-c779-4ae1-8cdb-f73298258627"],
+Cell[12965, 389, 312, 8, 25, "Print",ExpressionUUID->"7483d93d-8fe2-4a1d-9f29-30a1de879c4c"],
+Cell[13280, 399, 546, 12, 25, "Print",ExpressionUUID->"d3411019-f0c9-4882-993a-16044c387ae4"],
+Cell[13829, 413, 416, 11, 25, "Print",ExpressionUUID->"07ef338b-834c-4d7f-9536-ecc36f432327"],
+Cell[14248, 426, 307, 6, 25, "Print",ExpressionUUID->"6093d8c9-78f8-40b8-835c-a768ad749659"]
 }, Open  ]],
-Cell[2286, 67, 349, 8, 37, "Text",ExpressionUUID->"5b7a598b-6528-4528-abab-a6879f36494b"],
-Cell[2638, 77, 37499, 690, 199, "Output",ExpressionUUID->"45b0045e-e8bc-4db4-9c40-1a124c4d52ea",
+Cell[14570, 435, 202, 3, 35, "Output",ExpressionUUID->"d645146a-d194-46ca-8b66-ba783bc61619"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14809, 443, 518, 10, 55, "Input",ExpressionUUID->"ec65eeed-8287-43ad-9491-7eec7f4038b5"],
+Cell[15330, 455, 220, 3, 35, "Output",ExpressionUUID->"a8113dea-d0db-495c-824e-d9c5afc42021"]
+}, Open  ]],
+Cell[15565, 461, 349, 8, 37, "Text",ExpressionUUID->"5b7a598b-6528-4528-abab-a6879f36494b"],
+Cell[15917, 471, 37499, 690, 199, "Output",ExpressionUUID->"45b0045e-e8bc-4db4-9c40-1a124c4d52ea",
  CellGroupingRules->{GroupTogetherGrouping, 999.}],
-Cell[40140, 769, 2627, 45, 562, "Text",ExpressionUUID->"cde68326-8554-43c6-8795-1ef952675047"],
+Cell[53419, 1163, 2627, 45, 562, "Text",ExpressionUUID->"cde68326-8554-43c6-8795-1ef952675047"],
 Cell[CellGroupData[{
-Cell[42792, 818, 358, 7, 31, "Input",ExpressionUUID->"a05cc6ba-d5c2-44fa-b16f-d8847be37287"],
-Cell[43153, 827, 12476, 324, 751, "Output",ExpressionUUID->"d5e13c9d-9df2-4863-85cf-3a963138fc09"]
+Cell[56071, 1212, 232, 4, 31, "Input",ExpressionUUID->"ac207cb5-ff46-4322-8dee-eb52f160c7e2"],
+Cell[56306, 1218, 30806, 826, 1531, "Output",ExpressionUUID->"b81777ff-d854-4384-bb1e-09ba51bd30f5"]
 }, Open  ]],
-Cell[55644, 1154, 707, 13, 87, "Text",ExpressionUUID->"72bc92bf-d6a2-41b5-a0ba-174156d17311"],
+Cell[87127, 2047, 707, 13, 87, "Text",ExpressionUUID->"72bc92bf-d6a2-41b5-a0ba-174156d17311"],
 Cell[CellGroupData[{
-Cell[56376, 1171, 188, 2, 31, "Input",ExpressionUUID->"18fb7946-530f-44a0-8812-ab8f7de4778a"],
-Cell[56567, 1175, 1488, 44, 59, "Output",ExpressionUUID->"4f24e301-909a-4da7-9c38-97bf6641c673"]
+Cell[87859, 2064, 188, 2, 31, "Input",ExpressionUUID->"18fb7946-530f-44a0-8812-ab8f7de4778a"],
+Cell[88050, 2068, 1488, 44, 59, "Output",ExpressionUUID->"4f24e301-909a-4da7-9c38-97bf6641c673"]
 }, Open  ]],
-Cell[58070, 1222, 700, 15, 137, "Text",ExpressionUUID->"32ae7b11-273e-4e6b-90a8-7e7b5e849806"],
+Cell[89553, 2115, 700, 15, 137, "Text",ExpressionUUID->"32ae7b11-273e-4e6b-90a8-7e7b5e849806"],
 Cell[CellGroupData[{
-Cell[58795, 1241, 186, 2, 31, "Input",ExpressionUUID->"f3d869ca-f4f2-47a8-b01f-deadd18c9372"],
-Cell[58984, 1245, 1325, 42, 55, "Output",ExpressionUUID->"4ac7d38a-7a6a-4a88-8775-0418765220f2"]
+Cell[90278, 2134, 186, 2, 31, "Input",ExpressionUUID->"f3d869ca-f4f2-47a8-b01f-deadd18c9372"],
+Cell[90467, 2138, 1325, 42, 55, "Output",ExpressionUUID->"4ac7d38a-7a6a-4a88-8775-0418765220f2"]
 }, Open  ]],
-Cell[60324, 1290, 418, 9, 37, "Text",ExpressionUUID->"123da560-7c4e-4a96-a311-b178db635798"],
+Cell[91807, 2183, 418, 9, 37, "Text",ExpressionUUID->"123da560-7c4e-4a96-a311-b178db635798"],
 Cell[CellGroupData[{
-Cell[60767, 1303, 417, 10, 31, "Input",ExpressionUUID->"255f6bc1-b477-4c3f-a9e3-d254c972b3ef"],
-Cell[61187, 1315, 860, 18, 197, "Output",ExpressionUUID->"a89adb3d-ae92-471e-97e2-aa28200a7880"]
+Cell[92250, 2196, 417, 10, 31, "Input",ExpressionUUID->"255f6bc1-b477-4c3f-a9e3-d254c972b3ef"],
+Cell[92670, 2208, 860, 18, 197, "Output",ExpressionUUID->"a89adb3d-ae92-471e-97e2-aa28200a7880"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[62084, 1338, 200, 3, 31, "Input",ExpressionUUID->"1e3bddf9-aee8-43e0-993c-b5dcef0dbbc5"],
-Cell[62287, 1343, 258, 5, 35, "Output",ExpressionUUID->"f3360ddd-4fa6-4a14-b487-6cb2abff2547"]
+Cell[93567, 2231, 200, 3, 31, "Input",ExpressionUUID->"1e3bddf9-aee8-43e0-993c-b5dcef0dbbc5"],
+Cell[93770, 2236, 258, 5, 35, "Output",ExpressionUUID->"f3360ddd-4fa6-4a14-b487-6cb2abff2547"]
 }, Open  ]],
-Cell[62560, 1351, 498, 10, 62, "Text",ExpressionUUID->"2f5456a7-cc00-411c-aec1-35fb260b9ac5"],
+Cell[94043, 2244, 498, 10, 62, "Text",ExpressionUUID->"2f5456a7-cc00-411c-aec1-35fb260b9ac5"],
 Cell[CellGroupData[{
-Cell[63083, 1365, 864, 19, 147, "Input",ExpressionUUID->"c09df3aa-657a-4c62-abfe-48a5d22c90b7"],
-Cell[63950, 1386, 342, 7, 35, "Output",ExpressionUUID->"764a55a5-f7a3-44f4-ad2f-218ff1844cbf"]
+Cell[94566, 2258, 864, 19, 147, "Input",ExpressionUUID->"c09df3aa-657a-4c62-abfe-48a5d22c90b7"],
+Cell[95433, 2279, 342, 7, 35, "Output",ExpressionUUID->"764a55a5-f7a3-44f4-ad2f-218ff1844cbf"]
 }, Open  ]]
 }
 ]

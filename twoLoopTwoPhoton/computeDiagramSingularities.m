@@ -1001,10 +1001,21 @@ Print["Finished evaluating diagrams and constructing double-UV CTs. Time used by
 subUVfudgeFactor=1;
 
 
-allFeynAmps = Join[diagsParam[{"photonicHardSubtracted", "mod"}], diagsParam[{"photonicHardSubtracted", "double"}],
-    diagsParam[{"photonicHardSubtracted", "single"}], diagsParamDoubleUV[{"photonicHardSubtracted", "mod"}],
-    diagsParamDoubleUV[{"photonicHardSubtracted", "double"}], diagsParamDoubleUV[{"photonicHardSubtracted", "single"}]] /.
+cleanFermionChain[expr_] := expr//removeNestedFermionChain // breakUpFermionChain // Expand[#, diracGamma[__]]& //
+    rebuildFermionChain// # /. id[_]->id  /. fermionChain[a___, id, b___] :> fermionChain[a, b] &;
+
+
+allFeynAmps = Join[
+    diagsParam[{"photonicHardSubtracted", "mod"}],
+    diagsParam[{"photonicHardSubtracted", "double"}],
+    diagsParam[{"photonicHardSubtracted", "single"}],
+    diagsParamDoubleUV[{"photonicHardSubtracted", "mod"}],
+    diagsParamDoubleUV[{"photonicHardSubtracted", "double"}],
+    diagsParamDoubleUV[{"photonicHardSubtracted", "single"}]] /.
     eval[a_, b___] :> insertFeynmanRules[a] // DeleteCases[#, 0]&;
+
+
+allFeynAmps = cleanFermionChain /@ allFeynAmps;
 
 
 Print[Length[allFeynAmps], " integrand expressions to be exported."];
