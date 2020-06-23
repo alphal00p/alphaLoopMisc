@@ -6,6 +6,7 @@ CrossSection:
   do_rescaling: true
   inherit_deformation_for_uv_counterterm: false
   numerator_source: FORM
+  compare_with_additional_topologies: false
   picobarns: true
 Deformation:
   additive:
@@ -72,7 +73,7 @@ General:
   numerical_instability_check: true
   numerical_threshold: 0.0
   partial_fractioning_multiloop: true
-  partial_fractioning_threshold: -1.0e-99
+  partial_fractioning_threshold: 1.0e-99
   python_numerator: null
   relative_precision: 5.0
   res_file_prefix: ''
