@@ -8,7 +8,7 @@ scalingRule can be used, but otherwise can be set to the empty list {}.";
 allFeynAmps::usage = "allFeynAmps is a list of expressions whose sum is the subtracted finite integrand for qqbar -> \!\(\*SuperscriptBox[\(\[Gamma]\), \(*\)]\) + \!\(\*SuperscriptBox[\(\[Gamma]\), \(*\)]\).";
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Settings*)
 
 
@@ -1018,10 +1018,48 @@ allFeynAmps = Join[
 allFeynAmps = cleanFermionChain /@ allFeynAmps;
 
 
-Print[Length[allFeynAmps], " integrand expressions to be exported."];
+Print[Length[allFeynAmps], " two-loop integrand expressions to be exported."];
 
 
-(*Put[allFeynAmps, "twoPhotonIntegrand.m"];*)
+extractOneLoopPart[diag_]:=diag/.(*remove outer UV CT*)fermionChain[cpol[qbar[-3, p2]], v3[__], propFermionUV[__], projectorP1P2, __,
+projectorP1P2, propFermionUV[__], v3[__], cpol[quark[-1, p1]]]->0 /.
+(* remove outer layer to reveal inner one-loop part*)fermionChain[cpol[qbar[-3, p2]], v3[__], prop[__], projectorP1P2, oneloop__,
+projectorP1P2, prop[__], v3[__], cpol[quark[-1, p1]]] :>fermionChain[cpol[qbar[-3, p2]], oneloop, cpol[quark[-1, p1]]];
+
+
+allOneLoopFeynAmps = cleanFermionChain /@ (diagsParam[{"photonicHardSubtracted", "single"}]/.
+    eval[a_, b___] :> insertFeynmanRules[extractOneLoopPart[a]] (*remove outer gluon propagator*) /.
+    propagator[k1|-k1]->1 /. k2->k1 // DeleteCases[#, 0]&);
+
+
+Print[Length[allOneLoopFeynAmps], " one-loop integrand expressions to be exported."];
+
+
+fermionProjection[expr_]:=expr/.{spinor[-3]->slash[p2], spinor[-1]->slash[p1]};
+
+
+momentumConversion[expr_]:= expr //.{plusPart[-mom_]:>-plusPart[mom], minusPart[-mom_]:>-minusPart[mom], plusPart[a_+b_]:>plusPart[a]+plusPart[b], minusPart[a_+b_]:>minusPart[a]+minusPart[b], component[k1_+k2_, mu_]:>component[k1, mu]+component[k2, mu], component[-mom_, mu_]:>-component[mom, mu]}/. {q1->p3, q2->p4, plusPart[k1]->k3, minusPart[k1]->k4, plusPart[k2]->k5, minusPart[k2]->k6,
+plusPart[p1]->p1, minusPart[p1]->0, plusPart[p2]->0, minusPart[p2]->p2, polVec[-2]->p5, polVec[-4]->p6};
+
+
+functionNameConversion[expr_]:=expr/.lorentzIndex[i_]:>ToExpression["mu" <> ToString[i]] /. {gamma-> Identity, slash->Identity}/.fermionChain->gamma/.{metricTensor->d, component[k_, mu_]:>k[mu]};
+
+
+toForm[expr_]:=functionNameConversion[
+momentumConversion[
+fermionProjection[
+expr
+]]]/.{lambda->1, g->-1};
+
+
+ampForm=Table[toForm[allFeynAmps[[i]]], {i, 1, Length[allFeynAmps]}];
+propVars=Cases[ampForm, propagator[__], Infinity]//DeleteDuplicates;
+ampDecomposed=Simplify/@MonomialList[Total[ampForm], propVars];
+
+
+ampFormOneLoop=Table[toForm[allOneLoopFeynAmps[[i]]], {i, 1, Length[allOneLoopFeynAmps]}];
+propVarsOneLoop=Cases[ampFormOneLoop, propagator[__], Infinity]//DeleteDuplicates;
+ampDecomposedOneLoop=Simplify/@MonomialList[Total[ampFormOneLoop], propVarsOneLoop];
 
 
 If[$runNumericalChecks =!= True,
@@ -1030,7 +1068,7 @@ If[$runNumericalChecks =!= True,
 ];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Check cancellations in IR / UV limits - photonic diagrams*)
 
 
