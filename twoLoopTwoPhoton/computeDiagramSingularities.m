@@ -1054,12 +1054,12 @@ expr
 
 ampForm=Table[toForm[allFeynAmps[[i]]], {i, 1, Length[allFeynAmps]}];
 propVars=Cases[ampForm, propagator[__], Infinity]//DeleteDuplicates;
-ampDecomposed=Simplify/@MonomialList[Total[ampForm], propVars];
+ampDecomposed=Simplify/@MonomialList[Total[ampForm], propVars] /. gamma[a__]:>gamma[tree, a];
 
 
 ampFormOneLoop=Table[toForm[allOneLoopFeynAmps[[i]]], {i, 1, Length[allOneLoopFeynAmps]}];
 propVarsOneLoop=Cases[ampFormOneLoop, propagator[__], Infinity]//DeleteDuplicates;
-ampDecomposedOneLoop=Simplify/@MonomialList[Total[ampFormOneLoop], propVarsOneLoop];
+ampDecomposedOneLoop=Simplify/@MonomialList[Total[ampFormOneLoop], propVarsOneLoop] /. gamma[a__]:>gamma[tree, a];
 
 
 If[$runNumericalChecks =!= True,
