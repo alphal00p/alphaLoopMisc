@@ -393,7 +393,7 @@ bubble2UV = bubble1UV /. {fermionChain -> fermionChainReverse, p1->-p2, minusPar
 vertex2UV = vertex1UV /. {fermionChain -> fermionChainReverse, p1->-p2, p2->-p1, k1->k2, k2->k1};
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Load diagrams*)
 
 
@@ -404,7 +404,7 @@ Print["Loaded diagrams including categories:"];
 Print[Keys[diags]];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Numerical evaluation*)
 
 
@@ -994,7 +994,7 @@ diagsAllTotal = diagsSymTotal + diagsSymDoubleUVTotal;
 Print["Finished evaluating diagrams and constructing double-UV CTs. Time used by MathKernel: ", TimeUsed[]];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Export (unsymmetrized) diagrams for numerical integration*)
 
 
@@ -1068,8 +1068,11 @@ If[$runNumericalChecks =!= True,
 ];
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Check cancellations in IR / UV limits - photonic diagrams*)
+
+
+subUVfudgeFactor = 1;
 
 
 (* The first argument is a diagram expression with numerical external kinematics but analytic internal kinematics.
@@ -1092,7 +1095,7 @@ limitScaling[diag_, limit:{(HoldPattern[Rule[__] | RuleDelayed[__]]) ..}, random
     result = Log[result1/result2] / Log[\[Delta]1/\[Delta]2];
     Print["unrounded result: ", result];
     Round[result]
-];    
+];
 
 
 limitScaling[diag_, transformation:{(HoldPattern[Rule[__] | RuleDelayed[__]]) ..},
@@ -1164,6 +1167,30 @@ myTiming[
 ];
 
 
+Print["Mixed soft and UV - exponent choice 1"];
+myTiming[
+    limitScaling[diagsAllTotal,
+    {k[1, x_] :> k[1,x] * \[Delta]^2, k[2, i_] :> k[2, i] / \[Delta]},
+    randomNumerics]
+];
+
+
+Print["Mixed soft and UV - exponent choice 2"];
+myTiming[
+    limitScaling[diagsAllTotal,
+    {k[1, x_] :> k[1,x] * \[Delta], k[2, i_] :> k[2, i] / \[Delta]^2},
+    randomNumerics]
+];
+
+
+Print["k1 // p1, k2 UV limit"];
+myTiming[
+    limitScaling[diagsAllTotal,
+    {k[1, minus] :> k[1, minus] * \[Delta]^2, k[1, i:(x|y)]:> k[1, i] * \[Delta], k[2, i_] :> k[2, i] / \[Delta]^2},
+    randomNumerics]
+];
+
+
 (* ::Section::Closed:: *)
 (*Check the lack of divergence in "potential region" due to the massive reference vector \[Eta] - photonic diagrams (only for gammaHat scheme)*)
 
@@ -1198,6 +1225,14 @@ myTiming[
 Print["Computing limits of fermion box diagrams."];
 
 
+Print["l soft limit"];
+myTiming[
+    limitScaling[diagsFbubbleTotal,
+    {k[2, x_] :> k[2,x] * \[Delta]},
+    randomNumerics]
+];
+
+
 Print["l // p2 limit"];
 myTiming[
     limitScaling[diagsFbubbleTotal,
@@ -1206,18 +1241,18 @@ myTiming[
 ];
 
 
-Print["l soft limit limit"];
-myTiming[
-    limitScaling[diagsFbubbleTotal,
-    {k[2, x_] :> k[2,x] * \[Delta]},
-    randomNumerics]
-];
-
-
 Print["double-soft limit"];
 myTiming[
     limitScaling[diagsFbubbleTotal,
     {k[i_, x_] :> k[i,x] * \[Delta]},
+    randomNumerics]
+];
+
+
+Print["k, l // p2 limit"];
+myTiming[
+    limitScaling[diagsFbubbleTotal,
+    {k[2, plus] :> k[2, plus] * \[Delta]^2, k[2, i:(x|y)]:> k[2, i] * \[Delta], k[1, plus] :> k[1, plus] * \[Delta]^2, k[1, i:(x|y)]:> k[1, i] * \[Delta]},
     randomNumerics]
 ];
 
@@ -1283,7 +1318,7 @@ myTiming[
 Print["Checked all limits. Time used by MathKernel: ", TimeUsed[]];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Exporting double-UV counterterms for analytic integration*)
 
 
