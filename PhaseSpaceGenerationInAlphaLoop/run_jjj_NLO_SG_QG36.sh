@@ -1,0 +1,1 @@
+./alphaLoop_SCPS.py --process /Users/valentin/Documents/MG5/3.0.2.py3/TEST_QGRAF_epem_a_jjj_NLO --diag_name=SG_QG36 --min_jets 4 --min_jpt 100 --seed 1 --verbosity 2 --n_points_survey $1 --n_points_refine $2 --cores 8 --run_mode=$3 ${@:4}
