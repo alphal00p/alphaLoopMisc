@@ -1,0 +1,17 @@
+
+output = 'ttbgg.qgr';
+
+style = './orientedGraphMixed.sty';
+
+model = './SM.dat';
+
+in = t[p1], tbar[p2]; 
+
+out = gluon[p3], gluon[p4];
+
+loops = 0;
+
+loop_momentum = k;
+
+options = onshell, notadpole, nosnail;
+

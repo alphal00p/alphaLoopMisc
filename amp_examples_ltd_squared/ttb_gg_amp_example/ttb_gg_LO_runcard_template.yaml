@@ -1,0 +1,20 @@
+process_specification:
+    name: "ttb_gg"
+    generate_from_math: True
+    interference_type: "effective_vertex" # alternative: "squared"
+    # set the path to mock-up dictionary encoding the amplitude
+    math_sg: "PATHTOHERE/generation/ttbggAmpDiags.py"
+    perform_color: True
+    # if true: the color structure per graph will be factorized: e.g. Tr(T^a T^b T^c)-Tr(T^a T^c T^b) will be treated as ``independent'' color-structure
+    # if false: every structure is treated independently
+    #   Example
+    #  q q~ > g g:    True:     3 color-structures appear {T^a T^b T^c,T^a T^c T^b,T^a T^b T^c-T^a T^c T^b} where the last one is due to the 3g-vertex
+    #                 False:    2 color-structures for all diagrams {T^a T^b T^c,T^a T^c T^b}
+    color_per_graph: False
+    external_data:
+        spinorV: []
+        spinorVbar: [[1,0,0,1]]
+        spinorU: [[1,1,1,1]]
+        spinorUbar: []
+        pol: []
+        cpol: [[1,0,0,0],[1,0,0,0]]
