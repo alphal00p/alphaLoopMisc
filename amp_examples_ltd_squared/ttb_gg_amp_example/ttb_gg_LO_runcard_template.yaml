@@ -12,15 +12,15 @@ process_specification:
     #                 False:    2 color-structures for all diagrams {T^a T^b T^c,T^a T^c T^b}
     color_per_graph: False
     external_data:
-        in_momenta : [[1,0,0,1],[1,0,0,-1]]
-        out_momenta : [[1,0,0,1],[1,0,0,-1]]
+        in_momenta : [[1.0,0.0,0.0,1],[1.0,0.0,0.0,-1]]
+        out_momenta : [[1.0,0.0,0.0,1],[1.0,0.0,0.0,-1]]
         # The following are complex valued: compenents are [Real part, Imaginary part]
         spinor_v: []
-        spinor_vbar: [[[1,0],[0,0],[0,0],[1,0]]]
-        spinor_u: [[[1,0],[0,0],[0,0],[1,0]]]
+        spinor_vbar: [[[1.0,0.0],[0.0,0.0],[0.0,0.0],[1.0,0.0]]]
+        spinor_u: [[[1.0,0.0],[0.0,0.0],[0.0,0.0],[1.0,0.0]]]
         spinor_ubar: []
         pol: []
-        cpol: [[[1,0],[0,0],[0,0],[1,0]],[[1,0],[0,0],[0,0],[1,0]]]
+        cpol: [[[1.0,0.0],[0.0,0.0],[0.0,0.0],[1.0,0.0]],[[1.0,0.0],[0.0,0.0],[0.0,0.0],[1.0,0.0]]]
         n_in: 2
         n_out: 2
 
