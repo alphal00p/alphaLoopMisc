@@ -3,7 +3,7 @@ process_specification:
     generate_from_math: True
     interference_type: "effective_vertex" # alternative: "squared"
     # set the path to mock-up dictionary encoding the amplitude
-    math_sg: "PATHTOHERE/generation/ttbggAmpDiags.py"
+    math_sg: "PATHTOHERE/generation_of_py_dict/gg_hhh_AmpDiags.py"
     perform_color: True
     # if true: the color structure per graph will be factorized: e.g. Tr(T^a T^b T^c)-Tr(T^a T^c T^b) will be treated as ``independent'' color-structure
     # if false: every structure is treated independently
@@ -18,52 +18,57 @@ process_specification:
                     5.000000000000000E+002,
                     0.000000000000000E+000,
                     0.000000000000000E+000,
-                    4.691172561311297E+002,
+                    5.000000000000000E+002,
                 ],
                 [
                     5.000000000000000E+002,
                     0.000000000000000E+000,
                     0.000000000000000E+000,
-                    -4.691172561311297E+002,
+                    -5.000000000000000E+002,
                 ],
             ]
         out_momenta:
             [
                 [
-                    4.999999999999998E+002,
-                    1.109242844438328E+002,
-                    4.448307894881214E+002,
-                    -1.995529299308788E+002,
+                    4.385555662246945E+002,
+                    1.553322001835377E+002,
+                    3.480160396513587E+002,
+                    -1.773773615718413E+002,
                 ],
                 [
-                    5.000000000000000E+002,
-                    -1.109242844438328E+002,
-                    -4.448307894881214E+002,
-                    1.995529299308787E+002,
+                    3.563696374921923E+002,
+                    -1.680238900851100E+001,
+                    -3.187291102436004E+002,
+                    9.748719163688099E+001,
+                ],
+                [
+                    2.050747962831133E+002,
+                    -1.385298111750267E+002,
+                    -2.928692940775819E+001,
+                    7.989016993496030E+001,
                 ],
             ]
         # The following are complex valued: compenents are [Real part, Imaginary part]
         spinor_v: []
-        spinor_vbar:
-            [[[0, 0], [31.1306481803886, 0], [0, 0], [5.5572244752997, 0]]]
-        spinor_u:
-            [[[5.5572244752997, 0], [0, 0], [31.1306481803886, 0], [0, 0]]]
+        spinor_vbar: []
+        spinor_u: []
         spinor_ubar: []
-        pol: []
-        cpol:
+        # + +
+        pol:
             [
                 [
                     [0, 0],
-                    [0.707106781186548, 0],
-                    [0, 0.7071067811865475],
+                    [-0.70710678118654752440084436210485, 0],
+                    [0, -0.70710678118654752440084436210485],
                     [0, 0],
                 ],
                 [
                     [0, 0],
-                    [0.707106781186548, 0],
-                    [0, -0.7071067811865475],
+                    [-0.70710678118654752440084436210485, 0],
+                    [0, 0.70710678118654752440084436210485],
                     [0, 0],
                 ],
             ]
+        cpol: []
         n_in: 2
-        n_out: 2
+        n_out: 3

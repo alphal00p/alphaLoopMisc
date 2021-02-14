@@ -93,11 +93,11 @@ int main(int argc, char *argv[])
     double complex lm[size];
     int lm_size = form_lm(ext_moms,loop_moms,pol,cpol,spinor_u,spinor_ubar, //
         spinor_v,spinor_vbar,n_ext,n_loops,n_pol,n_cpol,n_su,n_subar,n_sv,n_svbar,lm);
-    // for (int i = 0; i < lm_size; i++)
-    //  {
-    //      printf("lm[%d]: %f+ %f*i, ",i,creal(lm[i]), cimag(lm[i]));
-    //     printf("\n");
-    //  }
+    for (int i = 0; i < lm_size; i++)
+     {
+         printf("lm[%d]: %f+ %f*i, ",i,creal(lm[i]), cimag(lm[i]));
+        printf("\n");
+     }
     
     if (size != lm_size)
     {
@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
             
         }       
         printf("\033[1m   RESULT : diag %d: %+.15f%+.15f*i\033[0m\n", dia, creal(sres), cimag(sres));
-        printf("\033[1m   RATIO WITH MATHEMATICA : diag %d: %+.15f%+.15f*i\033[0m\n", dia, creal(sres)/creal(diags[dia]), cimag(sres)/cimag(diags[dia]));
+        //printf("\033[1m   RATIO WITH MATHEMATICA : diag %d: %+.15f%+.15f*i\033[0m\n", dia, creal(sres)/creal(diags[dia]), cimag(sres)/cimag(diags[dia]));
         
         printf("\n");
     }
@@ -162,6 +162,8 @@ int form_lm(double complex ext_moms[],double complex loop_moms[],  double comple
             lm[pos++] = spatial_dot(p, q);
         }
     }
+    printf("lm after external: %d",pos);
+    printf("\n");
 
     // Add lm for loop and externals
     for (int i = 0; i < n_loops; i++)
@@ -181,6 +183,8 @@ int form_lm(double complex ext_moms[],double complex loop_moms[],  double comple
             lm[pos++] = spatial_dot(k, q);
         }
     }
+    printf("lm after momenta: %d",pos);
+    printf("\n");
 
     // Add lm for spatial components of external
     for (int i = 0; i < n_ext; i++)
@@ -189,6 +193,9 @@ int form_lm(double complex ext_moms[],double complex loop_moms[],  double comple
         lm[pos++] = ext_moms[i * 4 + 2];
         lm[pos++] = ext_moms[i * 4 + 3];        
     }
+
+    printf("lm after ext momenta componenets: %d",pos);
+    printf("\n");
     // Add lm for spatial components of loop-momenta
     for (int i = 0; i < n_loops; i++)
     {   
@@ -196,8 +203,10 @@ int form_lm(double complex ext_moms[],double complex loop_moms[],  double comple
         lm[pos++] = loop_moms[i * 4 + 2];
         lm[pos++] = loop_moms[i * 4 + 3];        
     }
-    // printf("lm after momenta: %d",pos);
-    // printf("\n");
+    printf("lm after loop momenta componenets: %d",pos);
+    printf("\n");
+
+
     // Add lm for polarizations
     for (int i = 0; i < n_pol; i++)
     {   
@@ -228,8 +237,8 @@ int form_lm(double complex ext_moms[],double complex loop_moms[],  double comple
             lm[pos++] = dot(k, q);
         }
     }
-    // printf("lm after EPS: %d",pos);
-    // printf("\n");
+    printf("lm after EPS: %d",pos);
+    printf("\n");
     
     // Add lm for conjugated polarizations
     for (int i = 0; i < n_cpol; i++)
@@ -257,8 +266,8 @@ int form_lm(double complex ext_moms[],double complex loop_moms[],  double comple
         }
     }
 
-    // printf("lm after CEPS: %d",pos);
-    // printf("\n");
+    printf("lm after CEPS: %d",pos);
+    printf("\n");
     // Add lm for spinor components
     for (int i = 0; i < n_sv; i++)
     {   

@@ -1,0 +1,19 @@
+
+output = './gghhh.qgr';
+
+style = './orientedGraphMixed.sty';
+
+model = './SM.dat';
+
+in = gluon[p1], gluon[p2]; 
+
+out = higgs[p3], higgs[p4], higgs[p5];
+
+loops = 1;
+
+loop_momentum = k;
+
+options = onshell, notadpole, nosnail;
+
+true= iprop[b, 0,0];
+ 
