@@ -1,5 +1,5 @@
 process_specification:
-    name: "ttb_gg"
+    name: "gg_hhh"
     generate_from_math: True
     interference_type: "effective_vertex" # alternative: "squared"
     # set the path to mock-up dictionary encoding the amplitude
