@@ -1,0 +1,91 @@
+process_specification:
+    name: "gg_hhh"
+    generate_from_math: True
+    interference_type: "effective_vertex" # alternative: "squared"
+    # set the path to mock-up dictionary encoding the amplitude
+    math_sg: "/home/armin/my_programs/alphaLoopMisc/amp_examples_ltd_squared/gg_hhh_amp_example/generation_of_py_dict/gg_hhh_AmpDiags.py"
+    perform_color: True
+    # if true: the color structure per graph will be factorized: e.g. Tr(T^a T^b T^c)-Tr(T^a T^c T^b) will be treated as ``independent'' color-structure
+    # if false: every structure is treated independently
+    #   Example
+    #  q q~ > g g:    True:     3 color-structures appear {T^a T^b T^c,T^a T^c T^b,T^a T^b T^c-T^a T^c T^b} where the last one is due to the 3g-vertex
+    #                 False:    2 color-structures for all diagrams {T^a T^b T^c,T^a T^c T^b}
+    color_per_graph: False
+    external_data:
+        in_momenta:
+            [
+                [
+                    5.000000000000000E+002,
+                    0.000000000000000E+000,
+                    0.000000000000000E+000,
+                    5.000000000000000E+002,
+                ],
+                [
+                    5.000000000000000E+002,
+                    0.000000000000000E+000,
+                    0.000000000000000E+000,
+                    -5.000000000000000E+002,
+                ],
+            ]
+        out_momenta:
+            [
+                [
+                    4.385555662246945E+002,
+                    1.553322001835377E+002,
+                    3.480160396513587E+002,
+                    -1.773773615718413E+002,
+                ],
+                [
+                    3.563696374921923E+002,
+                    -1.680238900851100E+001,
+                    -3.187291102436004E+002,
+                    9.748719163688099E+001,
+                ],
+                [
+                    2.050747962831133E+002,
+                    -1.385298111750267E+002,
+                    -2.928692940775819E+001,
+                    7.989016993496030E+001,
+                ],
+            ]
+        # The following are complex valued: compenents are [Real part, Imaginary part]
+        spinor_v: []
+        spinor_vbar: []
+        spinor_u: []
+        spinor_ubar: []
+        # + +
+        pol:
+            [
+                [
+                    [0, 0],
+                    [-0.70710678118654752440084436210485, 0],
+                    [0, -0.70710678118654752440084436210485],
+                    [0, 0],
+                ],
+                [
+                    [0, 0],
+                    [-0.70710678118654752440084436210485, 0],
+                    [0, 0.70710678118654752440084436210485],
+                    [0, 0],
+                ],
+            ]
+        # + -
+        # pol:
+        #     [
+        #         [
+        #             [0, 0],
+        #             [-0.70710678118654752440084436210485, 0],
+        #             [0, -0.70710678118654752440084436210485],
+        #             [0, 0],
+        #         ],
+        #         [
+        #             [0, 0],
+        #             [0.70710678118654752440084436210485, 0],
+        #             [0, 0.70710678118654752440084436210485],
+        #             [0, 0],
+        #         ],
+        #     ]
+
+        cpol: []
+        n_in: 2
+        n_out: 3
