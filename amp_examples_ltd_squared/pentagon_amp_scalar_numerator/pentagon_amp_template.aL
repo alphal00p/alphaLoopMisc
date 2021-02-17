@@ -1,4 +1,4 @@
-import model aL_sm-no_widths
+import model aL_sm-no_widths_massless_scalar
 
 set_alphaLoop_option n_rust_inputs_to_generate -1
 set_alphaLoop_option differentiate_particle_from_antiparticle_in_graph_isomorphism False
@@ -17,7 +17,7 @@ set_alphaLoop_option FORM_compile_optimization 3
 set_alphaLoop_option FORM_compile_arg all 
 
 # SET PATH TO AMPLITUDE RUN-CARD
-set_alphaLoop_option AMPLITUDE_runcard_path /home/armin/my_programs/alphaLoopMisc/amp_examples_ltd_squared/pentagon_amp_scalar/pentagon_runcard.yaml
+set_alphaLoop_option AMPLITUDE_runcard_path PATHTOHERE/pentagon_runcard.yaml
 
 # Process
 process_amplitude psiS psiS > psiS psiS psiS  []
