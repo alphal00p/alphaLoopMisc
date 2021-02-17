@@ -1,0 +1,7 @@
+#CONF
+conf(0,0,c3)
+
+
+#NEWMONOMIAL
+f(c0)
+return 1;
