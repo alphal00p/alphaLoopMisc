@@ -1,0 +1,9 @@
+{'generation_time_in_s': 0.4,
+ 'integrand_C_source_size_in_kB': 53,
+ 'integrand_both_optimized_op_count': {'additions': 514,
+                                       'multiplications': 729,
+                                       'powers': 5},
+ 'integrand_both_original_op_count': {'additions': 334,
+                                      'multiplications': 1531,
+                                      'powers': 5},
+ 'numerator_C_source_size_in_kB': 2}

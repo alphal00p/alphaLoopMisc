@@ -1,0 +1,64 @@
+#CONF
+conf(0,0,c3,c4)
+#CONSTANTS
+
+#CONSTANTS
+#ENERGIES
+lm38,lm38+2*lm34+lm2,lm38+2*lm34-2*lm29+lm27-2*lm23+lm2,lm38-2*lm36+2*
+   lm18+lm14-2*lm12+lm7,lm38-2*lm36+lm7,lm47,lm47+2*lm40+lm38
+#ENERGIES
+#ELLIPSOIDS
+E0+E6-E5,-E0+E6-E5,lm0+E1+E6-E5,lm0-E1+E6-E5,-lm21+lm0+E2+E6-E5,-lm21+
+   lm0-E2+E6-E5,lm8-lm5+E3+E6-E5,lm8-lm5-E3+E6-E5,-lm5+E4+E6-E5,-lm5-E4+
+   E6-E5,2*E5,2*E6,-2*E0,lm0+E1-E0,lm0-E1-E0,-lm21+lm0+E2-E0,-lm21+lm0-
+   E2-E0,lm8-lm5+E3-E0,lm8-lm5-E3-E0,-lm5+E4-E0,-lm5-E4-E0,E0+E6+E5,E0+
+   E6-E5,2*E6,-lm0-E1+E0,-lm0-E1-E0,-2*E1,-lm21+E2-E1,-lm21-E2-E1,lm8-
+   lm5-lm0+E3-E1,lm8-lm5-lm0-E3-E1,-lm5-lm0+E4-E1,-lm5-lm0-E4-E1,lm0+E1+
+   E6+E5,lm0+E1+E6-E5,2*E6,lm21-lm0-E2+E0,lm21-lm0-E2-E0,lm21-E2+E1,
+   lm21-E2-E1,-2*E2,lm21+lm8-lm5-lm0+E3-E2,lm21+lm8-lm5-lm0-E3-E2,lm21-
+   lm5-lm0+E4-E2,lm21-lm5-lm0-E4-E2,-lm21+lm0+E2+E6+E5,-lm21+lm0+E2+E6-
+   E5,2*E6,-lm8+lm5-E3+E0,-lm8+lm5-E3-E0,-lm8+lm5+lm0-E3+E1,-lm8+lm5+
+   lm0-E3-E1,-lm21-lm8+lm5+lm0-E3+E2,-lm21-lm8+lm5+lm0-E3-E2,-2*E3,-lm8+
+   E4-E3,-lm8-E4-E3,lm8-lm5+E3+E6+E5,lm8-lm5+E3+E6-E5,2*E6,lm5-E4+E0,
+   lm5-E4-E0,lm5+lm0-E4+E1,lm5+lm0-E4-E1,-lm21+lm5+lm0-E4+E2,-lm21+lm5+
+   lm0-E4-E2,lm8-E4+E3,lm8-E4-E3,-2*E4,-lm5+E4+E6+E5,-lm5+E4+E6-E5,2*E6,
+   2*E0,lm0+E1+E0,lm0-E1+E0,-lm21+lm0+E2+E0,-lm21+lm0-E2+E0,lm8-lm5+E3+
+   E0,lm8-lm5-E3+E0,-lm5+E4+E0,-lm5-E4+E0,2*E5,E0+E6+E5,E0-E6+E5,-lm0+
+   E1+E0,-lm0+E1-E0,2*E1,-lm21+E2+E1,-lm21-E2+E1,lm8-lm5-lm0+E3+E1,lm8-
+   lm5-lm0-E3+E1,-lm5-lm0+E4+E1,-lm5-lm0-E4+E1,2*E5,-lm0+E1+E6+E5,-lm0+
+   E1-E6+E5,lm21-lm0+E2+E0,lm21-lm0+E2-E0,lm21+E2+E1,lm21+E2-E1,2*E2,
+   lm21+lm8-lm5-lm0+E3+E2,lm21+lm8-lm5-lm0-E3+E2,lm21-lm5-lm0+E4+E2,
+   lm21-lm5-lm0-E4+E2,2*E5,lm21-lm0+E2+E6+E5,lm21-lm0+E2-E6+E5,-lm8+lm5+
+   E3+E0,-lm8+lm5+E3-E0,-lm8+lm5+lm0+E3+E1,-lm8+lm5+lm0+E3-E1,-lm21-lm8+
+   lm5+lm0+E3+E2,-lm21-lm8+lm5+lm0+E3-E2,2*E3,-lm8+E4+E3,-lm8-E4+E3,2*
+   E5,-lm8+lm5+E3+E6+E5,-lm8+lm5+E3-E6+E5,lm5+E4+E0,lm5+E4-E0,lm5+lm0+
+   E4+E1,lm5+lm0+E4-E1,-lm21+lm5+lm0+E4+E2,-lm21+lm5+lm0+E4-E2,lm8+E4+
+   E3,lm8+E4-E3,2*E4,2*E5,lm5+E4+E6+E5,lm5+E4-E6+E5
+#ELLIPSOIDS
+
+   Z4_=invd120*invd121*invd122*invd123*invd124*invd125*invd126*invd127*
+   invd128*invd129*invd130*invd131;
+   Z5_=invd108*invd109*invd110*invd111*invd112*invd113*invd114*invd115*
+   invd116*invd117*invd118*invd119;
+   Z6_=invd96*invd97*invd98*invd99*invd100*invd101*invd102*invd103*
+   invd104*invd105*invd106*invd107;
+   Z7_=invd84*invd85*invd86*invd87*invd88*invd89*invd90*invd91*invd92*
+   invd93*invd94*invd95;
+   Z8_=invd72*invd73*invd74*invd75*invd76*invd77*invd78*invd79*invd80*
+   invd81*invd82*invd83;
+   Z9_= - invd60*invd61*invd62*invd63*invd64*invd65*invd66*invd67*
+   invd68*invd69*invd70*invd71;
+   Z10_= - invd48*invd49*invd50*invd51*invd52*invd53*invd54*invd55*
+   invd56*invd57*invd58*invd59;
+   Z11_= - invd36*invd37*invd38*invd39*invd40*invd41*invd42*invd43*
+   invd44*invd45*invd46*invd47;
+   Z12_= - invd24*invd25*invd26*invd27*invd28*invd29*invd30*invd31*
+   invd32*invd33*invd34*invd35;
+   Z13_= - invd12*invd13*invd14*invd15*invd16*invd17*invd18*invd19*
+   invd20*invd21*invd22*invd23;
+   Z14_=invd0*invd1*invd2*invd3*invd4*invd5*invd6*invd7*invd8*invd9*
+   invd10*invd11;
+
+
+	return Z4_ + Z5_ + Z6_ + Z7_ + Z8_ + Z9_ + Z10_ + Z11_ + Z12_ + Z13_
+       + Z14_;

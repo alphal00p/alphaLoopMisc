@@ -1,0 +1,613 @@
+FORM 4.2.1 (Nov 10 2020, v4.2.1-30-gb0e72a8) 64-bits  Run: Fri Feb 19 11:57:14 2021
+    #-
+
+Time =       0.00 sec    Generated terms =          1
+            CONF         Terms in output =          1
+              load-input Bytes used      =        272
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+              load-input Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                 trace-1 Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                 trace-2 Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                 trace-3 Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                 trace-4 Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                 trace-5 Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                 trace-6 Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                 trace-7 Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                 trace-8 Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                 trace-9 Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                trace-10 Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =         48
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        272
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+        bubble-treatment Bytes used      =        276
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+      local-uv-treatment Bytes used      =        264
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                   cmb-1 Bytes used      =        328
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                   cmb-1 Bytes used      =        312
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                   cmb-1 Bytes used      =        296
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                   cmb-1 Bytes used      =        280
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                   cmb-1 Bytes used      =        252
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                   cmb-2 Bytes used      =        240
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+            tensor-start Bytes used      =        252
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                tensor-2 Bytes used      =        252
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                tensor-4 Bytes used      =        252
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                tensor-6 Bytes used      =        252
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                tensor-8 Bytes used      =        252
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+  tensor-projection-loop Bytes used      =        240
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+           ibp-reduction Bytes used      =        240
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+               masters-1 Bytes used      =        252
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        232
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+           normalization Bytes used      =        244
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        232
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+         integrated-ct-1 Bytes used      =        232
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+         integrated-ct-2 Bytes used      =        212
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        212
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        212
+
+Time =       0.00 sec    Generated terms =          1
+   FINTEGRANDLTD         Terms in output =          1
+                         Bytes used      =        212
+
+Time =       0.00 sec    Generated terms =          1
+               F         Terms in output =          1
+                load-ltd Bytes used      =        212
+
+Time =       0.00 sec    Generated terms =          1
+   FINTEGRANDLTD         Terms in output =          1
+                load-ltd Bytes used      =        212
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                   cmb-1 Bytes used      =      54632
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                   cmb-1 Bytes used      =      54552
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                   cmb-1 Bytes used      =      54472
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                   cmb-1 Bytes used      =      54392
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                   cmb-1 Bytes used      =      54252
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                         Bytes used      =      54192
+
+Time =       0.01 sec    Generated terms =          1
+               F         Terms in output =          1
+       energy-splitoff-1 Bytes used      =        224
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+       energy-splitoff-1 Bytes used      =      54204
+
+Time =       0.01 sec    Generated terms =          1
+               F         Terms in output =          1
+       energy-splitoff-2 Bytes used      =        224
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+       energy-splitoff-2 Bytes used      =      54028
+
+Time =       0.01 sec    Generated terms =          1
+               F         Terms in output =          1
+       energy-splitoff-3 Bytes used      =        268
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+       energy-splitoff-3 Bytes used      =      54472
+
+Time =       0.01 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        280
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                         Bytes used      =      54484
+
+Time =       0.01 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        268
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                         Bytes used      =      54472
+
+Time =       0.01 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        268
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                         Bytes used      =      54472
+
+Time =       0.01 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        268
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                         Bytes used      =      54472
+
+Time =       0.01 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        280
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                         Bytes used      =      54484
+
+Time =       0.01 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        268
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                         Bytes used      =      54472
+
+Time =       0.01 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        268
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                         Bytes used      =      54472
+
+Time =       0.01 sec    Generated terms =          1
+               F         Terms in output =          1
+    gamma-chain-explicit Bytes used      =        268
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+    gamma-chain-explicit Bytes used      =      54472
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                         Bytes used      =      54472
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                   der-1 Bytes used      =      52392
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                   der-2 Bytes used      =      52392
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                   der-3 Bytes used      =      52392
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                   der-4 Bytes used      =      52392
+
+Time =       0.01 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+           integrand-ltd Bytes used      =       8768
+
+Time =       0.01 sec    Generated terms =          1
+    FINTEGRANDPF         Terms in output =          1
+                 load-pf Bytes used      =        280
+
+Time =       0.01 sec    Generated terms =          1
+    FINTEGRANDPF         Terms in output =          1
+                  diag-1 Bytes used      =        180
+
+Time =       0.01 sec    Generated terms =          1
+    FINTEGRANDPF         Terms in output =          1
+             pf-splitoff Bytes used      =        104
+
+Time =       0.01 sec    Generated terms =          1
+           diag1         Terms in output =          1
+             pf-splitoff Bytes used      =        104
+
+Time =       0.06 sec    Generated terms =        378
+           diag2         Terms in output =        252
+             pf-splitoff Bytes used      =     249044
+
+Time =       0.06 sec    Generated terms =          1
+           diag1         Terms in output =          1
+            collect-ncmd Bytes used      =        116
+
+Time =       0.06 sec    Generated terms =        252
+           diag2         Terms in output =        252
+            collect-ncmd Bytes used      =     242228
+
+Time =       0.06 sec    Generated terms =          1
+           diag1         Terms in output =          1
+               collect-a Bytes used      =        116
+
+Time =       0.07 sec    Generated terms =        140
+           diag2         Terms in output =        140
+               collect-a Bytes used      =      13372
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+                energy-0 Bytes used      =        104
+
+Time =       0.07 sec    Generated terms =        140
+           diag2         Terms in output =        140
+                energy-0 Bytes used      =      13332
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+            collect-ncmd Bytes used      =        116
+
+Time =       0.07 sec    Generated terms =        140
+           diag2         Terms in output =        140
+            collect-ncmd Bytes used      =      13340
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+               collect-a Bytes used      =        116
+
+Time =       0.07 sec    Generated terms =         70
+           diag2         Terms in output =         70
+               collect-a Bytes used      =       6740
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+                energy-1 Bytes used      =        104
+
+Time =       0.07 sec    Generated terms =         70
+           diag2         Terms in output =         70
+                energy-1 Bytes used      =       6700
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+            collect-ncmd Bytes used      =        116
+
+Time =       0.07 sec    Generated terms =         70
+           diag2         Terms in output =         70
+            collect-ncmd Bytes used      =       6712
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+               collect-a Bytes used      =        116
+
+Time =       0.07 sec    Generated terms =         70
+           diag2         Terms in output =         70
+               collect-a Bytes used      =       6712
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+                energy-2 Bytes used      =        104
+
+Time =       0.07 sec    Generated terms =         70
+           diag2         Terms in output =         70
+                energy-2 Bytes used      =       6700
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+            collect-ncmd Bytes used      =        116
+
+Time =       0.07 sec    Generated terms =         70
+           diag2         Terms in output =         70
+            collect-ncmd Bytes used      =       6712
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+               collect-a Bytes used      =        116
+
+Time =       0.07 sec    Generated terms =         70
+           diag2         Terms in output =         70
+               collect-a Bytes used      =       6712
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+                energy-3 Bytes used      =        104
+
+Time =       0.07 sec    Generated terms =         70
+           diag2         Terms in output =         70
+                energy-3 Bytes used      =       6700
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+                         Bytes used      =         92
+
+Time =       0.07 sec    Generated terms =         70
+           diag2         Terms in output =         70
+                         Bytes used      =       6676
+
+Time =       0.07 sec    Generated terms =          1
+    FINTEGRANDPF         Terms in output =          1
+                         Bytes used      =        104
+
+Time =       0.07 sec    Generated terms =          1
+           diag1         Terms in output =          1
+                         Bytes used      =         92
+
+Time =       0.07 sec    Generated terms =         70
+           diag2         Terms in output =         70
+                         Bytes used      =       6676
+
+Time =       0.07 sec    Generated terms =         72
+    FINTEGRANDPF         Terms in output =         72
+                         Bytes used      =       6852
+
+Time =       0.07 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+               func-prep Bytes used      =       8780
+
+Time =       0.07 sec    Generated terms =         72
+    FINTEGRANDPF         Terms in output =         72
+               func-prep Bytes used      =       6900
+
+Time =       0.07 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                         Bytes used      =       7544
+
+Time =       0.07 sec    Generated terms =         72
+    FINTEGRANDPF         Terms in output =         72
+                         Bytes used      =       7356
+
+Time =       0.08 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+               conv-func Bytes used      =       7180
+
+Time =       0.08 sec    Generated terms =         72
+    FINTEGRANDPF         Terms in output =         72
+               conv-func Bytes used      =       6924
+
+Time =       0.08 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+               conv-dots Bytes used      =       7180
+
+Time =       0.08 sec    Generated terms =         72
+    FINTEGRANDPF         Terms in output =         72
+               conv-dots Bytes used      =       6924
+
+Time =       0.08 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+       conv-amp-specific Bytes used      =       7180
+
+Time =       0.08 sec    Generated terms =         72
+    FINTEGRANDPF         Terms in output =         72
+       conv-amp-specific Bytes used      =       6924
+
+Time =       0.08 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+            conf-collect Bytes used      =       7192
+
+Time =       0.08 sec    Generated terms =         72
+    FINTEGRANDPF         Terms in output =         72
+            conf-collect Bytes used      =       6948
+
+Time =       0.08 sec    Generated terms =         72
+    FINTEGRANDPF         Terms in output =         72
+                         Bytes used      =       6948
+
+Time =       0.08 sec    Generated terms =         72
+    FINTEGRANDPF         Terms in output =         72
+                  conf-1 Bytes used      =       6880
+START integrand
+
+Time =       0.08 sec    Generated terms =         70
+             FF3         Terms in output =         70
+                         Bytes used      =       3144
+
+Time =       0.08 sec    Generated terms =          1
+             FF3         Terms in output =          1
+                         Bytes used      =         44
+
+*** STATS: original	0P 350M 69A : 419
+*** STATS: optimized 0P 71M 67A : 138
+
+Time =       0.08 sec    Generated terms =          1
+             FF3         Terms in output =          1
+               optim-3-1 Bytes used      =         44
+END integrand
+START integrand
+
+Time =       0.08 sec    Generated terms =          1
+             FF4         Terms in output =          1
+                         Bytes used      =         20
+
+Time =       0.08 sec    Generated terms =          1
+             FF4         Terms in output =          1
+                         Bytes used      =         20
+
+*** STATS: original	0P 0M 0A : 0
+*** STATS: optimized 0P 71M 67A : 138
+
+Time =       0.08 sec    Generated terms =          1
+             FF4         Terms in output =          1
+               optim-4-1 Bytes used      =         20
+END integrand
+START integrand
+
+Time =       0.08 sec    Generated terms =          1
+             FF5         Terms in output =          1
+                         Bytes used      =         60
+
+Time =       0.08 sec    Generated terms =          1
+             FF5         Terms in output =          1
+                         Bytes used      =         44
+
+*** STATS: original	0P 1M 0A : 1
+*** STATS: optimized 0P 1M 0A : 1
+
+Time =       0.08 sec    Generated terms =          1
+             FF5         Terms in output =          1
+               optim-5-1 Bytes used      =         44
+END integrand
+
+Time =       0.08 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                         Bytes used      =       7192
+
+Time =       0.08 sec    Generated terms =          5
+   FINTEGRANDLTD         Terms in output =          5
+                  conf-1 Bytes used      =       7168
+START integrand
+
+Time =       0.08 sec    Generated terms =          5
+             FF3         Terms in output =          5
+                         Bytes used      =        508
+
+Time =       0.08 sec    Generated terms =          1
+             FF3         Terms in output =          1
+                         Bytes used      =         36
+
+*** STATS: original	5P 50M 4A : 64
+*** STATS: optimized 5P 46M 4A : 60
+
+Time =       0.08 sec    Generated terms =          1
+             FF3         Terms in output =          1
+               optim-3-1 Bytes used      =         36
+END integrand
+
+Time =       0.08 sec    Generated terms =          1
+               F         Terms in output =          1
+                         Bytes used      =        268
+
+Time =       0.08 sec    Generated terms =          1
+               F         Terms in output =          1
+            conf-collect Bytes used      =        132
+
+Time =       0.08 sec    Generated terms =          1
+               F         Terms in output =          1
+                  conf-1 Bytes used      =        108
+START numerator
+
+Time =       0.08 sec    Generated terms =          1
+             FF3         Terms in output =          1
+                         Bytes used      =         76
+
+Time =       0.08 sec    Generated terms =          1
+             FF3         Terms in output =          1
+                         Bytes used      =         36
+
+Time =       0.08 sec    Generated terms =          1
+             FF3         Terms in output =          1
+                  conf-2 Bytes used      =         48
+
+Time =       0.08 sec    Generated terms =          1
+             FF3         Terms in output =          1
+                         Bytes used      =         36
+
+Time =       0.08 sec    Generated terms =          1
+             FF3         Terms in output =          1
+               optim-3-1 Bytes used      =         48
+END numerator
+  0.08 sec out of 0.08 sec

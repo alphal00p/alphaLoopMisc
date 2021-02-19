@@ -10,7 +10,9 @@ process_specification:
                   [
                       ["q1", 1, 101],
                       ["q2", 2, 102],
-                      ["p1", 102, 101],
+                      ["p1", 102, 88],
+                      ["pNew1",101,88], # l
+                      ["pNew2",88,101], # k+l
                       ["p2", 101, 103],
                       ["p3", 103, 104],
                       ["p4", 104, 105],
@@ -19,10 +21,33 @@ process_specification:
                       ["pout4", 104, 4],
                       ["pout5", 105, 5],
                   ]
-              pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
-              numerator: "1-xZenoConst1*(k1.k1+2*k1.p1+p1.p1)*(k1.k1+k2.k2+p1.p1+2*k1.p1-2*k1.k2-2*k2.p1)+xZenoConst2*(k1.k1+2*k1.p1+p1.p1)*(k1.k1+k2.k2+k3.k3+p1.p1+2*k1.p1-2*k1.k2-2*k2.p1-2*k3.k1+2*k3.k2-2*k3.p1)+xZenoConst3*(k1.k1+k2.k2+p1.p1+2*k1.p1-2*k1.k2-2*k2.p1)*(k1.k1+k2.k2+k3.k3+p1.p1+2*k1.p1-2*k1.k2-2*k2.p1-2*k3.k1+2*k3.k2-2*k3.p1)+xZenoConst4*(k1.k1+k2.k2+p1.p1+2*k1.p1-2*k1.k2-2*k2.p1)*(k1.k1-2*k1.p2+p2.p2)+xZenoConst5*(k1.k1+k2.k2+k3.k3+p1.p1+2*k1.p1-2*k1.k2-2*k2.p1-2*k3.k1+2*k3.k2-2*k3.p1)*(k1.k1-2*k1.p2+p2.p2)"
+              pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
+              numerator: "1-xZenoConst1*(k1.k1+2*k1.p1+p1.p1)*(k1.k1+p3.p3+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1)+xZenoConst2*(k1.k1+2*k1.p1+p1.p1)*(k1.k1+p3.p3+p4.p4+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1-2*p4.k1+2*p4.p3-2*p4.p1)+xZenoConst3*(k1.k1+p3.p3+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1)*(k1.k1+p3.p3+p4.p4+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1-2*p4.k1+2*p4.p3-2*p4.p1)+xZenoConst4*(k1.k1+p3.p3+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1)*(k1.k1-2*k1.p2+p2.p2)+xZenoConst5*(k1.k1+p3.p3+p4.p4+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1-2*p4.k1+2*p4.p3-2*p4.p1)*(k1.k1-2*k1.p2+p2.p2)"
               externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
-              lmb: ["p1"]
+              lmb: ["p1","pNew1"]
+        - topo2:
+              definition:
+                  [
+                      ["q1", 1, 101],
+                      ["q2", 2, 102],
+                      ["p1", 102, 101],
+                      ["pUV",101,101], # l
+                      ["p2", 101, 103],
+                      ["p3", 103, 104],
+                      ["p4", 104, 105],
+                      ["p5", 105, 102],
+                      ["pout3", 103, 3],
+                      ["pout4", 104, 4],
+                      ["pout5", 105, 5],
+                  ]
+              # 667 is UV scalar
+              pdgs: [666, 666, 666, 667, 666, 666, 666, 666, 666, 666, 666]
+              numerator: "(-1)*(1-xZenoConst1*(k1.k1+2*k1.p1+p1.p1)*(k1.k1+p3.p3+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1)+xZenoConst2*(k1.k1+2*k1.p1+p1.p1)*(k1.k1+p3.p3+p4.p4+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1-2*p4.k1+2*p4.p3-2*p4.p1)+xZenoConst3*(k1.k1+p3.p3+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1)*(k1.k1+p3.p3+p4.p4+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1-2*p4.k1+2*p4.p3-2*p4.p1)+xZenoConst4*(k1.k1+p3.p3+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1)*(k1.k1-2*k1.p2+p2.p2)+xZenoConst5*(k1.k1+p3.p3+p4.p4+p1.p1+2*k1.p1-2*k1.p3-2*p3.p1-2*p4.k1+2*p4.p3-2*p4.p1)*(k1.k1-2*k1.p2+p2.p2))"
+              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
+              lmb: ["p1","pUV"]
+              powers:
+                "pUV": 2
+              
     # The constants have to be real and start with x to be understood by FORM as symbols
     constants:
         xZenoConst1: 3.37842E-012
