@@ -6,6 +6,7 @@ process_specification:
     # put here the topology list
     topologies:
         - topo1:
+              diag_set: "pentagon"
               definition:
                   [
                       ["q1", 1, 101],
@@ -26,6 +27,7 @@ process_specification:
               externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
               lmb: ["p1","pNew1"]
         - topo2:
+              diag_set: "pentagon"
               definition:
                   [
                       ["q1", 1, 101],
@@ -50,11 +52,11 @@ process_specification:
               
     # The constants have to be real and start with x to be understood by FORM as symbols
     constants:
-        xZenoConst1: 3.37842E-012
-        xZenoConst2: 7.30516E-012
-        xZenoConst3: -5.16867E-012
-        xZenoConst4: 1.39356E-011
-        xZenoConst5: -4.24593E-012
+        xZenoConst1: 3.3784171251193006761264490165655E-012
+        xZenoConst2: 7.3051575324184594399979069236035E-012
+        xZenoConst3: -5.1686727976357706471402894571666E-012
+        xZenoConst4: 1.3935627702105088384886921878241E-011
+        xZenoConst5: -4.2459269495283520077877238690562E-012
     external_data:
         n_in: 2
         n_out: 3
