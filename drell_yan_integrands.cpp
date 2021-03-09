@@ -4,6 +4,7 @@
 
 using namespace std;
 
+#include "cuba.h"
 
 
 
@@ -1318,11 +1319,68 @@ class integrands{
                     );
         }
 
-
-
 };
 
 
+
+static int Integrand(const int *ndim, const double xx[],
+  const int *ncomp, double ff[], void *userdata) {
+
+#define x1 xx[0]
+#define y1 xx[1]
+#define z1 xx[2]
+#define x2 xx[3]
+#define y2 xx[4]
+#define z2 xx[5]
+#define f ff[0]
+
+double p1[4]={1,0,0,1};
+double p2[4]={1,0,0,-1};
+
+flows fo=flows(p1,p2);
+integrands integrando(p1,p2,1,fo,1);
+
+f = integrando.t_channel_LU(x1,y1,z1,x2,y2,z2);
+
+  return 0;
+}
+
+
+#define NDIM 6
+#define NCOMP 1
+#define USERDATA NULL
+#define EPSREL 1e-3
+#define EPSABS 1e-12 
+#define LAST 4
+#define SEED 0
+#define MINEVAL 0
+#define MAXEVAL 50000
+
+#define NSTART 1000
+#define NINCREASE 500
+#define NBATCH 1000
+#define GRIDNO 0
+#define STATEFILE NULL
+
+#define SPIN NULL
+
+#define NVEC 0
+
+#define NNEW 1000
+#define FLATNESS 25.
+
+#define KEY1 47
+#define KEY2 1
+#define KEY3 1
+#define MAXPASS 5
+#define BORDER 0.
+#define MAXCHISQ 10.
+#define MINDEVIATION .25
+#define NGIVEN 0
+#define LDXGIVEN NDIM
+#define NEXTRA 0
+
+#define KEY 0
 
 
 
@@ -1332,31 +1390,31 @@ int main(){
 double p1[4]={1,0,0,1};
 double p2[4]={1,0,0,-1};
 
-flows f=flows(p1,p2);
+flows fu=flows(p1,p2);
 
-cout<<f.flow1(0.1,0.23,0.3,0.37,0.5,0.8,0)<<endl;
-cout<<f.flow1(0.1,0.23,0.3,0.37,0.5,0.8,1)<<endl;
-cout<<f.flow2(0.1,0.23,0.3,0.37,0.5,0.8,0)<<endl;
-cout<<f.flow2(0.1,0.23,0.3,0.37,0.5,0.8,1)<<endl;
-cout<<f.flow3(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
-cout<<f.flow4(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
-cout<<f.flow5(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
-cout<<f.flow6(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
-cout<<f.flow7(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
+cout<<fu.flow1(0.1,0.23,0.3,0.37,0.5,0.8,0)<<endl;
+cout<<fu.flow1(0.1,0.23,0.3,0.37,0.5,0.8,1)<<endl;
+cout<<fu.flow2(0.1,0.23,0.3,0.37,0.5,0.8,0)<<endl;
+cout<<fu.flow2(0.1,0.23,0.3,0.37,0.5,0.8,1)<<endl;
+cout<<fu.flow3(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
+cout<<fu.flow4(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
+cout<<fu.flow5(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
+cout<<fu.flow6(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
+cout<<fu.flow7(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
 
 cout<<"----"<<endl;
 
-cout<<f.jacques1(0.1,0.23,0.3,0.37,0.5,0.8,0)<<endl;
-cout<<f.jacques1(0.1,0.23,0.3,0.37,0.5,0.8,1)<<endl;
-cout<<f.jacques2(0.1,0.23,0.3,0.37,0.5,0.8,0)<<endl;
-cout<<f.jacques2(0.1,0.23,0.3,0.37,0.5,0.8,1)<<endl;
-cout<<f.jacques3(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
-cout<<f.jacques4(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
-cout<<f.jacques5(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
-cout<<f.jacques6(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
-cout<<f.jacques7(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
+cout<<fu.jacques1(0.1,0.23,0.3,0.37,0.5,0.8,0)<<endl;
+cout<<fu.jacques1(0.1,0.23,0.3,0.37,0.5,0.8,1)<<endl;
+cout<<fu.jacques2(0.1,0.23,0.3,0.37,0.5,0.8,0)<<endl;
+cout<<fu.jacques2(0.1,0.23,0.3,0.37,0.5,0.8,1)<<endl;
+cout<<fu.jacques3(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
+cout<<fu.jacques4(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
+cout<<fu.jacques5(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
+cout<<fu.jacques6(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
+cout<<fu.jacques7(0.1,0.23,0.3,0.37,0.5,0.8)<<endl;
 
-integrands integrand(p1,p2,1,f,1);
+integrands integrand(p1,p2,1,fu,1);
 
 cout<<"-----"<<endl;
 
@@ -1414,6 +1472,29 @@ cout<<integrand.s_channel_LU(0.23,0.3,0.37,0.8,1.1,0.2)<<endl;
 cout<<integrand.bub_LU(0.23,0.3,0.37,0.8,1.1,0.2)<<endl;
 cout<<integrand.st_channel_LU(0.23,0.3,0.37,0.8,1.1,0.2)<<endl;
 cout<<integrand.t_channel_2_LU(0.23,0.3,0.37,0.8,1.1,0.2)<<endl;
+
+
+
+int verbose, comp, nregions, neval, fail;
+  double integral[NCOMP], error[NCOMP], prob[NCOMP];
+
+
+
+const char *env = getenv("CUBAVERBOSE");
+verbose = 2;
+if( env ) verbose = atoi(env);
+
+Vegas(NDIM, NCOMP, Integrand, USERDATA, NVEC,
+EPSREL, EPSABS, verbose, SEED,
+MINEVAL, MAXEVAL, NSTART, NINCREASE, NBATCH,
+GRIDNO, STATEFILE,
+&neval, &fail, SPIN, integral, error, prob);
+
+printf("VEGAS RESULT:\tneval %d\tfail %d\n",
+  neval, fail);
+for( comp = 0; comp < NCOMP; ++comp )
+printf("VEGAS RESULT:\t%.8f +- %.8f\tp = %.3f\n",
+  integral[comp], error[comp], prob[comp]);
 
 
 return 0;
