@@ -1,0 +1,251 @@
+#************************************************************
+#*                     MadGraph5_aMC@NLO                    *
+#*                                                          *
+#*                *                       *                 *
+#*                  *        * *        *                   *
+#*                    * * * * 5 * * * *                     *
+#*                  *        * *        *                   *
+#*                *                       *                 *
+#*                                                          *
+#*                                                          *
+#*         VERSION 3.0.2.py3             2020-05-25         *
+#*                                                          *
+#*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+#*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+#*                                                          *
+#************************************************************
+#*                                                          *
+#*               Command File for MadGraph5_aMC@NLO         *
+#*                                                          *
+#*     run as ./bin/mg5_aMC  filename                       *
+#*                                                          *
+#************************************************************
+set group_subprocesses Auto
+set ignore_six_quark_processes False
+set low_mem_multicore_nlo_generation False
+set complex_mass_scheme False
+set include_lepton_initiated_processes False
+set gauge unitary
+set loop_optimized_output True
+set loop_color_flows False
+set max_npoint_for_channel 0
+set default_unset_couplings 99
+import model aL_sm-no_widths
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+set_alphaLoop_option n_rust_inputs_to_generate -1
+set_alphaLoop_option differentiate_particle_from_antiparticle_in_graph_isomorphism False
+set_alphaLoop_option consider_edge_orientation_in_graph_isomorphism False
+set_alphaLoop_option consider_vertex_id_in_graph_isomorphism False
+set_alphaLoop_option apply_graph_isomorphisms False
+set_alphaLoop_option virtual_memory 100G
+set_alphaLoop_option FORM_compile_cores 10
+set_alphaLoop_option FORM_processing_output_format c
+set_alphaLoop_option FORM_compile_optimization 3
+set_alphaLoop_option FORM_compile_arg all
+set_alphaLoop_option AMPLITUDE_runcard_path /scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/bubble_box_runcard.yaml
+process_amplitude psiS psiS > psiS psiS  []
+!rm -rf TEST_bubble_box
+output amplitude TEST_bubble_box
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/PLUGIN/alphaloop/alpha_loop/FORM_processing.py", line 2374, in generate_numerator_file_helper
+    return args[0].generate_numerator_file(*args[1:])
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/PLUGIN/alphaloop/alpha_loop/FORM_processing.py", line 2244, in generate_numerator_file
+    num = self.generate_numerator_functions(additional_overall_factor,
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/PLUGIN/alphaloop/alpha_loop/FORM_processing.py", line 2095, in generate_numerator_functions
+    raise FormProcessingError("FORM processing failed with error:\n%s\nFORM command to reproduce:\ncd %s; %s" % (
+alpha_loop.FORM_processing.FormProcessingError: FORM processing failed with error:
+FORM 4.2.1 (Nov 10 2020, v4.2.1-30-gb0e72a8) 64-bits  Run: Thu Mar 11 11:30:04 2021
+    #-
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+Program terminating at /scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared
+/box_bubble/TEST_bubble_box/color_struc_0/FORM/workspace/amp_numerator.frm 
+Line 1186 --> 
+  0.02 sec out of 0.02 sec
+
+FORM command to reproduce:
+cd /scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble_box/color_struc_0/FORM/workspace; /scratch/zcapatti/MG5_aMC_v3_0_2_py3/PLUGIN/alphaloop/libraries/form/sources/form -D SELECTEDEPSILONORDER=0 -D OPTIMISATIONSTRATEGY=CSEgreedy -D UVRENORMFINITEPOWERTODISCARD=0 -D INTEGRAND=both -D SGID=0 -D NINITIALMOMENTA=2 -D NFINALMOMENTA=3 -D NPOL=0 -D NCPOL=0 -D NSPINV=0 -D NSPINU=0 -D NSPINVBAR=0 -D NSPINUBAR=0 -D OPTIMITERATIONS=1000 -D NUMERATOR=0 -D SUMDIAGRAMSETS=nosum -D OPTIMLVL=4 -M -l -C numerator_0.log /scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble_box/color_struc_0/FORM/workspace/amp_numerator.frm
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/madgraph/interface/extended_cmd.py", line 1544, in onecmd
+    return self.onecmd_orig(line, **opt)
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/madgraph/interface/extended_cmd.py", line 1493, in onecmd_orig
+    return func(arg, **opt)
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/madgraph/interface/madgraph_interface.py", line 5527, in do_import
+    self.import_command_file(args[1])
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/madgraph/interface/extended_cmd.py", line 1690, in import_command_file
+    self.exec_cmd(line, precmd=True)
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/madgraph/interface/extended_cmd.py", line 1573, in exec_cmd
+    stop = Cmd.onecmd_orig(current_interface, line, **opt)
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/madgraph/interface/extended_cmd.py", line 1493, in onecmd_orig
+    return func(arg, **opt)
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/PLUGIN/alphaloop/alpha_loop/interface.py", line 827, in do_output
+    self.do_output_amp(' '.join(args[1:]))
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/PLUGIN/alphaloop/alpha_loop/interface.py", line 843, in do_output_amp
+    self.amp_exporter.output(' '.join(args))
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/PLUGIN/alphaloop/alpha_loop/exporters.py", line 1380, in output
+    form_processor.generate_numerator_functions(pjoin(self.dir_path,'FORM'),
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/PLUGIN/alphaloop/alpha_loop/FORM_processing.py", line 4143, in generate_numerator_functions
+    res = self.super_graphs_list.generate_numerator_functions(
+  File "/scratch/zcapatti/MG5_aMC_v3_0_2_py3/PLUGIN/alphaloop/alpha_loop/FORM_processing.py", line 3340, in generate_numerator_functions
+    for (graph_index, num_ids, max_buffer_graph, is_zero, timing, code_generation_statistics) in graph_it:
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 868, in next
+    raise value
+alpha_loop.FORM_processing.FormProcessingError: FORM processing failed with error:
+FORM 4.2.1 (Nov 10 2020, v4.2.1-30-gb0e72a8) 64-bits  Run: Thu Mar 11 11:30:04 2021
+    #-
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: -5
+/scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble
+_box/color_struc_0/FORM/workspace/amp_numerator.frm Line 175 --> Internal error
+ in code generator. Unknown object: 19
+Program terminating at /scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared
+/box_bubble/TEST_bubble_box/color_struc_0/FORM/workspace/amp_numerator.frm 
+Line 1186 --> 
+  0.02 sec out of 0.02 sec
+
+FORM command to reproduce:
+cd /scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble_box/color_struc_0/FORM/workspace; /scratch/zcapatti/MG5_aMC_v3_0_2_py3/PLUGIN/alphaloop/libraries/form/sources/form -D SELECTEDEPSILONORDER=0 -D OPTIMISATIONSTRATEGY=CSEgreedy -D UVRENORMFINITEPOWERTODISCARD=0 -D INTEGRAND=both -D SGID=0 -D NINITIALMOMENTA=2 -D NFINALMOMENTA=3 -D NPOL=0 -D NCPOL=0 -D NSPINV=0 -D NSPINU=0 -D NSPINVBAR=0 -D NSPINUBAR=0 -D OPTIMITERATIONS=1000 -D NUMERATOR=0 -D SUMDIAGRAMSETS=nosum -D OPTIMLVL=4 -M -l -C numerator_0.log /scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble_box/color_struc_0/FORM/workspace/amp_numerator.frm
+                          MadGraph5_aMC@NLO Options    
+                          ----------------    
+        complex_mass_scheme 	:	False
+    default_unset_couplings 	:	99
+                      gauge 	:	unitary
+         group_subprocesses 	:	Auto
+  ignore_six_quark_processes 	:	False
+  include_lepton_initiated_processes 	:	False
+           loop_color_flows 	:	False
+      loop_optimized_output 	:	True
+  low_mem_multicore_nlo_generation 	:	False
+     max_npoint_for_channel 	:	0
+               stdout_level 	:	20 (user set)
+
+                         MadEvent Options    
+                          ----------------    
+     automatic_html_opening 	:	True
+                    nb_core 	:	None
+        notification_center 	:	True
+                   run_mode 	:	2
+
+                      Configuration Options    
+                      ---------------------    
+                        OLP 	:	MadLoop
+                    amcfast 	:	amcfast-config
+                   applgrid 	:	applgrid-config
+                auto_update 	:	7
+         cluster_local_path 	:	None
+           cluster_nb_retry 	:	1
+              cluster_queue 	:	None (user set)
+         cluster_retry_wait 	:	300
+               cluster_size 	:	100
+      cluster_status_update 	:	(600, 30)
+          cluster_temp_path 	:	None
+               cluster_type 	:	condor
+                    collier 	:	/scratch/zcapatti/MG5_aMC_v3_0_2_py3/HEPTools/lib (user set)
+               cpp_compiler 	:	None
+             crash_on_error 	:	False
+               delphes_path 	:	./Delphes
+                 eps_viewer 	:	None
+        exrootanalysis_path 	:	./ExRootAnalysis
+              f2py_compiler 	:	None
+          f2py_compiler_py2 	:	None
+          f2py_compiler_py3 	:	None
+                    fastjet 	:	None (user set)
+           fortran_compiler 	:	None
+                      golem 	:	None (user set)
+                 hepmc_path 	:	None (user set)
+                  hwpp_path 	:	None (user set)
+                     lhapdf 	:	lhapdf-config
+                 lhapdf_py2 	:	None
+                 lhapdf_py3 	:	None
+          madanalysis5_path 	:	None (user set)
+           madanalysis_path 	:	./MadAnalysis
+  mg5amc_py8_interface_path 	:	None (user set)
+                      ninja 	:	/scratch/zcapatti/MG5_aMC_v3_0_2_py3/HEPTools/lib (user set)
+        output_dependencies 	:	external
+            pythia-pgs_path 	:	./pythia-pgs
+               pythia8_path 	:	None (user set)
+                    samurai 	:	None
+               syscalc_path 	:	./SysCalc
+                    td_path 	:	./td
+                text_editor 	:	None
+                thepeg_path 	:	None (user set)
+                    timeout 	:	60
+                web_browser 	:	None

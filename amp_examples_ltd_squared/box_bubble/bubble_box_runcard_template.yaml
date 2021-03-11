@@ -1,0 +1,79 @@
+process_specification:
+    # See the restriction card in the .al: The scalars are massless!
+    name: "bubble_box"
+    generate_from_topo_list: true
+
+    # put here the topology list
+    topologies:
+        - topo1:
+              diag_set: "bubble_box"
+              definition:
+                  [
+                      ["q1", 1, 101],
+                      ["q2", 2, 102],
+                      ["p1", 102, 88],
+                      ["pNew1",101,88], # l
+                      ["pNew2",88,101], # k+l
+                      ["p2", 101, 103],
+                      ["p3", 103, 104],
+                      ["p4", 104, 102],
+                      ["pout3", 103, 3],
+                      ["pout4", 104, 4],
+                  ]
+              pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
+              numerator: "1-xs*(sp(k1,k1))-xt*sp(k1+p1,k1+p1)-xs*sp(k1+p1-p3,k1+p1-p3)-xt*sp(k1+p1-p3-p4,k1+p1-p3-p4)"
+              externals: [["q1", "q2"], ["pout3", "pout4"]]
+              lmb: ["p1","pNew1"]
+        - topo2:
+              diag_set: "bubble_box"
+              definition:
+                  [
+                      ["q1", 1, 101],
+                      ["q2", 2, 102],
+                      ["p1", 102, 101],
+                      ["pUV",101,101], # l
+                      ["p2", 101, 103],
+                      ["p3", 103, 104],
+                      ["p4", 104, 102],
+                      ["pout3", 103, 3],
+                      ["pout4", 104, 4],
+                  ]
+              # 667 is UV scalar
+              pdgs: [666, 666, 666, 667, 666, 666, 666, 666, 666]
+              numerator: "1-xs*(sp(k1,k1))-xt*sp(k1+p1,k1+p1)-xs*sp(k1+p1-p3,k1+p1-p3)-xt*sp(k1+p1-p3-p4,k1+p1-p3-p4)"
+              externals: [["q1", "q2"], ["pout3", "pout4"]]
+              lmb: ["p1","pUV"]
+              powers:
+                "pUV": 2
+              
+    # The constants have to be real and start with x to be understood by FORM as symbols
+    constants:
+        xt: -231215.0
+        xs: 1000000.0
+    external_data:
+        n_in: 2
+        n_out: 2
+        in_momenta: [[500.0, 0, 0, 500], [500.0, 0, 0, -500.0]]
+        out_momenta:
+            [
+                [349.0, 197.0, 277.0, -4.0],
+            ]
+        # The following are complex valued: compenents are [Real part, Imaginary part]
+        spinor_v: []
+        spinor_vbar: []
+        spinor_u: []
+        spinor_ubar: []
+        pol: []
+        cpol: []
+    # FOR now, leave these as they are
+    interference_type: "effective_vertex" # alternative: "squared"
+    # set the path to mock-up dictionary encoding the amplitude
+    math_sg: ""
+    perform_color: True # for now, always leave that
+    generate_from_math: True
+    # if true: the color structure per graph will be factorized: e.g. Tr[T^a T^b T^c]-Tr[T^a T^c T^b] will be treated as ``independent'' color-structure
+    # if false: every structure is treated independently
+    #   Example
+    #  q q~ > g g:    True:     3 color-structures appear {T^a T^b T^c,T^a T^c T^b,T^a T^b T^c-T^a T^c T^b} where the last one is due to the 3g-vertex
+    #                 False:    2 color-structures for all diagrams {T^a T^b T^c,T^a T^c T^b}
+    color_per_graph: False
