@@ -1,0 +1,62 @@
+process_specification:
+  color_per_graph: false
+  constants: {xS: 4.0, xT: -1.0}
+  external_data:
+    cpol: []
+    in_momenta:
+    - [1.0, 0.0, 0.0, 1.0]
+    - [1.0, 0.0, 0.0, -1.0]
+    n_in: 2
+    n_out: 2
+    out_momenta:
+    - [1.0, 0.707107, 0.5, 0.5]
+    pol: []
+    spinor_u: []
+    spinor_ubar: []
+    spinor_v: []
+    spinor_vbar: []
+  generate_from_math: true
+  generate_from_topo_list: true
+  interference_type: effective_vertex
+  math_sg: /scratch/zcapatti/alphaLoopMisc/amp_examples_ltd_squared/box_bubble/TEST_bubble_box/bubble_box_input/bubble_box.py
+  name: bubble_box
+  perform_color: true
+  topologies:
+  - topo1:
+      definition:
+      - [q1, 1, 101]
+      - [q2, 2, 102]
+      - [p1, 102, 88]
+      - [pNew1, 101, 88]
+      - [pNew2, 88, 101]
+      - [p2, 101, 103]
+      - [p3, 103, 104]
+      - [p4, 104, 102]
+      - [pout3, 103, 3]
+      - [pout4, 104, 4]
+      diag_set: bubble_box
+      externals:
+      - [q1, q2]
+      - [pout3, pout4]
+      lmb: [p1, pNew1]
+      numerator: 1-(1/xT)*(sp(k1,k1))-(1/xS)*sp(k1+p1,k1+p1)-(1/xT)*sp(k1+p1-p3,k1+p1-p3)-(1/xS)*sp(k1+p1-p3-p4,k1+p1-p3-p4)
+      pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
+  - topo2:
+      definition:
+      - [q1, 1, 101]
+      - [q2, 2, 102]
+      - [p1, 102, 101]
+      - [pUV, 101, 101]
+      - [p2, 101, 103]
+      - [p3, 103, 104]
+      - [p4, 104, 102]
+      - [pout3, 103, 3]
+      - [pout4, 104, 4]
+      diag_set: bubble_box
+      externals:
+      - [q1, q2]
+      - [pout3, pout4]
+      lmb: [p1, pUV]
+      numerator: 1-(1/xT)*(sp(k1,k1))-(1/xS)*sp(k1+p1,k1+p1)-(1/xT)*sp(k1+p1-p3,k1+p1-p3)-(1/xS)*sp(k1+p1-p3-p4,k1+p1-p3-p4)
+      pdgs: [666, 666, 666, 667, 666, 666, 666, 666, 666]
+      powers: {pUV: 2}

@@ -1,0 +1,377 @@
+#CONF
+conf(-4,0,0)
+#CONSTANTS
+
+#CONSTANTS
+#ENERGIES
+lm53,lm53-2*lm51+2*lm44+lm42-2*lm40+2*lm33+2*lm31+lm29-2*lm27+lm7,lm53-2*lm51+
+2*lm44+lm42-2*lm40+lm7,lm53-2*lm51+lm7,lm62,lm62-2*lm60-2*lm58+2*lm46+lm42-2*
+lm40-2*lm38+2*lm35+2*lm31+lm29-2*lm27-2*lm25+2*lm22+2*lm18+2*lm16+lm14-2*lm12-
+2*lm10+lm7+2*lm4+lm2
+#ENERGIES
+#ELLIPSOIDS
+lm5+E3+E0,lm36+lm23+E3+E1,lm36+E3+E2,-lm36-lm23-lm8+lm5+lm0+E5+E4,lm36+lm23+
+lm8-lm5-lm0+E5+E4,-lm36+lm5+E2+E0,lm23+E2+E1,-lm36+E3+E2,-lm36-lm23+lm5+E1+E0,-
+lm23+E2+E1,-lm36-lm23+E3+E1,lm36+lm23-lm5+E1+E0,lm36-lm5+E2+E0,-lm5+E3+E0
+#ELLIPSOIDS
+
+Z10_=invd5*invd0;
+Z11_=invd10*invd9;
+Z12_=invd0 + invd9;
+Z12_=invd2*Z12_;
+Z13_=invd5 + invd10;
+Z13_=invd7*Z13_;
+Z10_=Z13_ + Z12_ + Z10_ + Z11_;
+Z10_=invd8*Z10_;
+Z11_=invd1*invd6;
+Z12_=invd12*invd13;
+Z13_=invd1 + invd12;
+Z13_=invd2*Z13_;
+Z14_=invd6 + invd13;
+Z14_=invd7*Z14_;
+Z11_=Z14_ + Z13_ + Z11_ + Z12_;
+Z11_=invd11*Z11_;
+Z12_=invd1*invd0;
+Z13_=invd12*invd9;
+Z12_=Z12_ + Z13_;
+Z12_=invd2*Z12_;
+Z13_=invd5*invd6;
+Z14_=invd10*invd13;
+Z13_=Z13_ + Z14_;
+Z13_=invd7*Z13_;
+Z14_=invd0 + invd6;
+Z14_=invd5*invd1*Z14_;
+Z15_=invd9 + invd13;
+Z15_=invd12*invd10*Z15_;
+Z10_=Z11_ + Z10_ + Z13_ + Z12_ + Z14_ + Z15_;
+Z11_=invd3*Z10_;
+Z10_=invd4*Z10_;
+
+
+	return Z10_ + Z11_;
+#CONF
+conf(-3,0,0)
+#CONSTANTS
+
+#CONSTANTS
+#ENERGIES
+lm53,lm53-2*lm51+2*lm44+lm42-2*lm40+2*lm33+2*lm31+lm29-2*lm27+lm7,lm53-
+   2*lm51+2*lm44+lm42-2*lm40+lm7,lm53-2*lm51+lm7,lm62,lm62-2*lm60-2*
+   lm58+2*lm46+lm42-2*lm40-2*lm38+2*lm35+2*lm31+lm29-2*lm27-2*lm25+2*
+   lm22+2*lm18+2*lm16+lm14-2*lm12-2*lm10+lm7+2*lm4+lm2
+#ENERGIES
+#ELLIPSOIDS
+lm5+E3+E0,lm36+lm23+E3+E1,lm36+E3+E2,-lm36-lm23-lm8+lm5+lm0+E5+E4,lm36+
+   lm23+lm8-lm5-lm0+E5+E4,-lm36+lm5+E2+E0,lm23+E2+E1,-lm36+E3+E2,-lm36-
+   lm23+lm5+E1+E0,-lm23+E2+E1,-lm36-lm23+E3+E1,lm36+lm23-lm5+E1+E0,lm36-
+   lm5+E2+E0,-lm5+E3+E0
+#ELLIPSOIDS
+
+   Z10_= - invd10*invd9;
+   Z11_= - invd2*invd9;
+   Z11_=Z10_ + Z11_;
+   Z11_=lm36*Z11_;
+   Z12_=E1 - lm23;
+   Z13_=invd2*Z12_;
+   Z14_= - lm36*invd2;
+   Z13_=Z13_ + Z14_;
+   Z13_=invd0*Z13_;
+   Z14_=invd10*Z12_;
+   Z15_= - lm36*invd10;
+   Z14_=Z14_ + Z15_;
+   Z14_=invd7*Z14_;
+   Z15_=invd9*Z12_;
+   Z16_=invd10*Z15_;
+   Z15_=invd2*Z15_;
+   Z11_=Z14_ + Z13_ + Z11_ + Z16_ + Z15_;
+   Z13_=invd10*invd9;
+   Z14_=invd2*invd9;
+   Z15_=Z13_ + Z14_;
+   Z16_=invd0*invd2;
+   Z17_=invd7*invd10;
+   Z16_=Z17_ + Z15_ + Z16_;
+   Z16_=lm5*Z16_;
+   Z11_=2*Z11_ + Z16_;
+   Z11_=lm5*Z11_;
+   Z16_=pow(E1,2);
+   Z17_= - 2*E1 + lm23;
+   Z17_=lm23*Z17_;
+   Z16_=Z16_ + Z17_;
+   Z17_= - E1 + lm23;
+   Z18_=2*Z17_ + lm36;
+   Z18_=lm36*Z18_;
+   Z18_=Z16_ + Z18_;
+   Z19_=invd0*Z18_;
+   Z18_=invd7*Z18_;
+   Z12_=Z12_ - lm36;
+   Z20_=invd0*Z12_;
+   Z12_=invd7*Z12_;
+   Z12_=Z20_ + Z12_;
+   Z20_=invd0 + invd7;
+   Z20_=lm5*Z20_;
+   Z12_=2*Z12_ + Z20_;
+   Z12_=lm5*Z12_;
+   Z12_=Z12_ + Z19_ + Z18_;
+   Z12_=invd5*Z12_;
+   Z18_=invd9*Z17_;
+   Z19_=invd10*Z18_;
+   Z18_=invd2*Z18_;
+   Z18_=Z19_ + Z18_;
+   Z15_=lm36*Z15_;
+   Z15_=2*Z18_ + Z15_;
+   Z15_=lm36*Z15_;
+   Z18_=invd2*Z16_;
+   Z19_=invd2*Z17_;
+   Z20_=lm36*invd2;
+   Z19_=2*Z19_ + Z20_;
+   Z19_=lm36*Z19_;
+   Z18_=Z18_ + Z19_;
+   Z18_=invd0*Z18_;
+   Z19_=invd10*Z16_;
+   Z17_=invd10*Z17_;
+   Z20_=lm36*invd10;
+   Z17_=2*Z17_ + Z20_;
+   Z17_=lm36*Z17_;
+   Z17_=Z19_ + Z17_;
+   Z17_=invd7*Z17_;
+   Z16_=invd9*Z16_;
+   Z19_=invd10*Z16_;
+   Z16_=invd2*Z16_;
+   Z11_=Z12_ + Z11_ + Z17_ + Z18_ + Z15_ + Z19_ + Z16_;
+   Z11_=invd8*Z11_;
+   Z12_= - invd1 - invd9;
+   Z12_=invd2*Z12_;
+   Z15_=invd1*E3;
+   Z15_= - 1 + Z15_;
+   Z15_=invd2*Z15_;
+   Z15_= - invd1 + Z15_;
+   Z15_=invd0*Z15_;
+   Z16_= - invd6 - invd10;
+   Z16_=invd7*Z16_;
+   Z17_=lm5*invd0*invd2*invd1;
+   Z18_= - invd1*invd6;
+   Z10_=Z17_ + Z16_ + 2*Z15_ + Z12_ + Z18_ + Z10_;
+   Z10_=lm5*Z10_;
+   Z12_=invd1*E2;
+   Z15_= - lm36*invd1;
+   Z12_=Z15_ - 1 + Z12_;
+   Z12_=invd0*Z12_;
+   Z15_=invd6*E2;
+   Z16_= - lm36*invd6;
+   Z16_=Z16_ - 1 + Z15_;
+   Z16_=invd7*Z16_;
+   Z15_=invd1*Z15_;
+   Z17_=lm36*Z18_;
+   Z12_=Z16_ + Z12_ + Z15_ + Z17_;
+   Z15_=invd1*invd6;
+   Z16_=invd0*invd1;
+   Z17_=invd7*invd6;
+   Z16_=Z17_ + Z15_ + Z16_;
+   Z16_=lm5*Z16_;
+   Z12_=2*Z12_ + Z16_;
+   Z12_=lm5*Z12_;
+   Z16_= - invd6*E2;
+   Z17_=invd1*Z16_;
+   Z18_=lm36*Z15_;
+   Z17_=2*Z17_ + Z18_;
+   Z17_=lm36*Z17_;
+   Z18_= - invd1*E2;
+   Z18_=1 + Z18_;
+   Z19_=lm36*invd1;
+   Z18_=2*Z18_ + Z19_;
+   Z18_=lm36*Z18_;
+   Z19_=pow(E2,2);
+   Z20_=invd1*Z19_;
+   Z18_=Z18_ + lm23 - E1 - E2 + Z20_;
+   Z18_=invd0*Z18_;
+   Z16_=1 + Z16_;
+   Z20_=lm36*invd6;
+   Z16_=2*Z16_ + Z20_;
+   Z16_=lm36*Z16_;
+   Z19_=invd6*Z19_;
+   Z16_=Z16_ + lm23 - E1 - E2 + Z19_;
+   Z16_=invd7*Z16_;
+   Z19_=invd1*Z19_;
+   Z12_=Z12_ + Z16_ + Z18_ + Z19_ + Z17_;
+   Z12_=invd5*Z12_;
+   Z16_=pow(E0,2);
+   Z17_=Z16_*invd11*invd13;
+   Z18_=E0*invd11;
+   Z18_= - 1 + Z18_;
+   Z18_=E0*Z18_;
+   Z19_= - E2 + Z18_;
+   Z19_=invd6*Z19_;
+   Z20_=E0*invd13;
+   Z20_= - 1 + Z20_;
+   Z20_=E0*Z20_;
+   Z20_=lm23 + Z20_ - E1;
+   Z20_=invd10*Z20_;
+   Z21_=invd6 + invd10;
+   Z21_=lm36*Z21_;
+   Z17_=Z21_ + Z20_ + Z19_ + 1 + Z17_;
+   Z17_=invd7*Z17_;
+   Z20_=Z16_*invd11*invd12;
+   Z18_= - E3 + Z18_;
+   Z18_=invd1*Z18_;
+   Z21_=E0*invd12;
+   Z21_= - 1 + Z21_;
+   Z21_=E0*Z21_;
+   Z21_=lm23 + Z21_ - E1;
+   Z21_=invd9*Z21_;
+   Z18_=Z21_ + Z18_ + 1 + Z20_;
+   Z18_=invd2*Z18_;
+   Z13_=Z14_ + Z15_ + Z13_;
+   Z13_=lm36*Z13_;
+   Z14_= - E3 - E2;
+   Z14_=invd1*Z14_;
+   Z15_=invd1*pow(E3,2);
+   Z15_=lm23 - E1 - E3 + Z15_;
+   Z15_=invd2*Z15_;
+   Z20_=invd1 + invd2;
+   Z20_=lm36*Z20_;
+   Z14_=Z20_ + Z15_ + 1 + Z14_;
+   Z14_=invd0*Z14_;
+   Z15_=invd12*invd13;
+   Z20_=Z16_*invd11*Z15_;
+   Z15_=Z16_*Z15_;
+   Z15_=Z15_ + Z21_;
+   Z15_=invd10*Z15_;
+   Z16_=1 + Z19_;
+   Z16_=invd1*Z16_;
+   Z10_=Z11_ + Z12_ + Z10_ + Z17_ + Z14_ + Z13_ + Z18_ + Z15_ + Z20_ + 
+   Z16_;
+   Z11_=invd3*Z10_;
+   Z10_=invd4*Z10_;
+
+
+	return Z10_ + Z11_;
+#CONF
+conf(-2,0,0)
+#CONSTANTS
+
+#CONSTANTS
+#ENERGIES
+lm53,lm53-2*lm51+2*lm44+lm42-2*lm40+2*lm33+2*lm31+lm29-2*lm27+lm7,lm53-
+   2*lm51+2*lm44+lm42-2*lm40+lm7,lm53-2*lm51+lm7,lm62,lm62-2*lm60-2*
+   lm58+2*lm46+lm42-2*lm40-2*lm38+2*lm35+2*lm31+lm29-2*lm27-2*lm25+2*
+   lm22+2*lm18+2*lm16+lm14-2*lm12-2*lm10+lm7+2*lm4+lm2
+#ENERGIES
+#ELLIPSOIDS
+lm5+E3+E0,lm36+lm23+E3+E1,lm36+E3+E2,-lm36-lm23-lm8+lm5+lm0+E5+E4,lm36+
+   lm23+lm8-lm5-lm0+E5+E4,-lm36+lm5+E2+E0,lm23+E2+E1,-lm36+E3+E2,-lm36-
+   lm23+lm5+E1+E0,-lm23+E2+E1,-lm36-lm23+E3+E1,lm36+lm23-lm5+E1+E0,lm36-
+   lm5+E2+E0,-lm5+E3+E0
+#ELLIPSOIDS
+
+   Z10_=E0*invd11*invd12;
+   Z11_=E0*invd12;
+   Z11_= - 1 + Z11_;
+   Z11_=invd9*Z11_;
+   Z12_=E0*invd11;
+   Z12_= - 1 + Z12_;
+   Z12_=invd1*Z12_;
+   Z13_=E3 + lm5;
+   Z13_=invd1*Z13_;
+   Z13_= - 1 + Z13_;
+   Z13_=invd0*Z13_;
+   Z10_=Z13_ + Z12_ + Z10_ + Z11_;
+   Z10_=invd2*Z10_;
+   Z12_=lm5 - lm36 + E1 - lm23;
+   Z13_=invd9*Z12_;
+   Z14_=invd0*Z12_;
+   Z15_=Z13_ + Z14_;
+   Z15_=invd2*Z15_;
+   Z16_=invd7*Z12_;
+   Z14_=Z14_ + Z16_;
+   Z14_=invd5*Z14_;
+   Z13_=invd10*Z13_;
+   Z12_=invd7*invd10*Z12_;
+   Z12_=Z14_ + Z12_ + Z13_ + Z15_;
+   Z12_=invd8*Z12_;
+   Z13_=E2 - lm36;
+   Z14_=invd6*Z13_;
+   Z15_=lm5*invd6;
+   Z16_=Z14_ + Z15_;
+   Z16_=invd1*Z16_;
+   Z14_=Z15_ - 1 + Z14_;
+   Z14_=invd7*Z14_;
+   Z13_=Z13_ + lm5;
+   Z13_=invd1*Z13_;
+   Z13_= - 1 + Z13_;
+   Z13_=invd0*Z13_;
+   Z13_=Z14_ + Z16_ + Z13_;
+   Z13_=invd5*Z13_;
+   Z14_=invd12*invd13;
+   Z15_=E0*Z14_;
+   Z11_=Z15_ + Z11_;
+   Z11_=invd10*Z11_;
+   Z15_=invd11*invd13;
+   Z16_=invd6*invd11;
+   Z15_=Z15_ + Z16_;
+   Z15_=E0*Z15_;
+   Z17_=E0*invd13;
+   Z17_= - 1 + Z17_;
+   Z17_=invd10*Z17_;
+   Z15_=Z17_ - invd6 + Z15_;
+   Z15_=invd7*Z15_;
+   Z14_=E0*invd11*Z14_;
+   Z16_=E0*Z16_;
+   Z16_= - invd6 + Z16_;
+   Z16_=invd1*Z16_;
+   Z17_= - invd0*invd1;
+   Z10_=Z12_ + Z13_ + Z15_ + Z10_ + Z17_ + Z11_ + Z14_ + Z16_;
+   Z11_=invd3*Z10_;
+   Z10_=invd4*Z10_;
+
+
+	return Z10_ + Z11_;
+#CONF
+conf(-1,0,1)
+#CONSTANTS
+
+#CONSTANTS
+#ENERGIES
+
+#ENERGIES
+#ELLIPSOIDS
+
+#ELLIPSOIDS
+
+
+
+	return 1;
+#CONF
+conf(0,0,c4,c5)
+
+    Z10_=diag(1);
+    Z11_=diag(2);
+    Z12_=pow(xT,-1);
+    Z13_=pow(xS,-1);
+    Z14_=diag(3);
+    Z15_=diag(4);
+   Z16_=lm23*Z11_;
+   Z17_=lm24*Z15_;
+   Z16_=Z17_ + Z16_ - Z14_;
+   Z17_=lm53 - lm33;
+   Z18_=2*lm49 - lm1;
+   Z19_=lm37 - lm30 - lm44 + Z18_ + Z17_;
+   Z19_=Z15_*Z19_;
+   Z20_=lm36*Z11_;
+   Z21_= - 2*lm0*Z11_;
+   Z19_=Z21_ + Z19_ + Z20_ + Z16_;
+   Z20_= - lm41*Z15_;
+   Z19_=2*Z19_ + Z20_;
+   Z19_=Z10_*Z19_;
+   Z20_=Z10_*Z15_;
+   Z22_= - lm28*Z20_;
+   Z19_=Z19_ + Z22_;
+   Z19_=Z13_*Z19_;
+   Z17_=Z18_ + 2*Z17_;
+   Z17_=Z15_*Z17_;
+   Z16_=Z21_ + Z17_ + 2*Z16_;
+   Z16_=Z10_*Z16_;
+   Z16_=Z16_ + Z22_;
+   Z16_=Z12_*Z16_;
+
+
+	return Z16_ + Z19_ + Z20_;

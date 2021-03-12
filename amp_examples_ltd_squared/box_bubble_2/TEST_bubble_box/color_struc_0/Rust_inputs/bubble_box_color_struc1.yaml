@@ -1,0 +1,23 @@
+color_struc: color(1)
+external_data:
+  cpol: []
+  in_momenta:
+  - [1.0, 0.0, 0.0, 1.0]
+  - [1.0, 0.0, 0.0, -1.0]
+  n_in: 2
+  n_out: 4
+  out_momenta:
+  - [1.0, 0.707107, 0.5, 0.5]
+  - [1.0, -0.707107, -0.5, -0.5]
+  - [-2.0, 0.0, 0.0, 0.0]
+  - [2.0, 0.0, 0.0, 0.0]
+  pol: []
+  spinor_u: []
+  spinor_ubar: []
+  spinor_v: []
+  spinor_vbar: []
+name: bubble_box_color_struc1
+topologies:
+- additional_LMBs: []
+  multiplicity: 1
+  name: SG_QG0

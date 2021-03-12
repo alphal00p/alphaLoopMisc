@@ -1,0 +1,30 @@
+#CONF
+conf(0,0,c2,c3)
+
+    Z9_=pow(xT,-1);
+    Z10_=pow(xS,-1);
+   Z11_=lm5 - lm0;
+   Z11_=Z10_*Z11_;
+   Z12_=lm8 - lm0;
+   Z12_=Z9_*Z12_;
+   Z11_=Z11_ + Z12_;
+   Z11_=2*Z11_;
+   Z12_= - Z10_ - Z9_;
+   Z12_=2*Z12_;
+   Z13_=2*lm21;
+   Z14_=2*lm25;
+   Z15_=Z14_ + Z13_ - lm1 - lm6 - 2*lm23;
+   Z15_=Z10_*Z15_;
+   Z13_=Z14_ + Z13_ - lm1 - 2*lm16 + 2*lm9 - lm13;
+   Z13_=Z9_*Z13_;
+   Z13_=Z13_ + 1 + Z15_;
+
+#NEWMONOMIAL
+f(c2)
+return Z11_;
+#NEWMONOMIAL
+f(c2,c2)
+return Z12_;
+#NEWMONOMIAL
+f(c0)
+return Z13_;

@@ -19,10 +19,12 @@ process_specification:
                       ["p4", 104, 102],
                       ["pout3", 103, 3],
                       ["pout4", 104, 4],
+                      ["fakep",88,188],
+                      ["fakep2",88,1188],
                   ]
-              pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
+              pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
               numerator: "1-(1/xT)*(sp(k1,k1))-(1/xS)*sp(k1+p1,k1+p1)-(1/xT)*sp(k1+p1-p3,k1+p1-p3)-(1/xS)*sp(k1+p1-p3-p4,k1+p1-p3-p4)"
-              externals: [["q1", "q2"], ["pout3", "pout4"]]
+              externals: [["q1", "q2"], ["pout3", "pout4","fakep","fakep2"]]
               lmb: ["p1","pNew1"]
         - topo2:
               diag_set: "bubble_box"
@@ -31,32 +33,36 @@ process_specification:
                       ["q1", 1, 101],
                       ["q2", 2, 102],
                       ["p1", 102, 101],
-                      ["pUV",101,101], # l
+                      ["pUV1",101,88],
+                      ["pUV2",88,101],
                       ["p2", 101, 103],
                       ["p3", 103, 104],
                       ["p4", 104, 102],
                       ["pout3", 103, 3],
                       ["pout4", 104, 4],
+                      ["fakep",88,188],
+                      ["fakep2",101,1101],
                   ]
-              # 667 is UV scalar
-              pdgs: [666, 666, 666, 667, 666, 666, 666, 666, 666]
+              pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
               numerator: "1-(1/xT)*(sp(k1,k1))-(1/xS)*sp(k1+p1,k1+p1)-(1/xT)*sp(k1+p1-p3,k1+p1-p3)-(1/xS)*sp(k1+p1-p3-p4,k1+p1-p3-p4)"
-              externals: [["q1", "q2"], ["pout3", "pout4"]]
-              lmb: ["p1","pUV"]
-              powers:
-                "pUV": 2
-              
+              externals: [["q1", "q2"], ["pout3", "pout4","fakep","fakep2"]]
+              lmb: ["p1","pUV1"]
+
     # The constants have to be real and start with x to be understood by FORM as symbols
     constants:
         xT: -1.0
         xS: 4.0
+        xX: 0.01
     external_data:
         n_in: 2
-        n_out: 2
+        n_out: 4
         in_momenta: [[1.0,0.0,0.0,1.0], [1.0,0.0,0.0,-1.0]]
         out_momenta:
             [
                 [1.0,0.707107,0.5,0.5],
+                [1.0,-0.707107,-0.5,-0.5],
+                [-2.0,0.0,0.0,0.0],
+                [2.0,0.0,0.0,0.0],
             ]
         # The following are complex valued: compenents are [Real part, Imaginary part]
         spinor_v: []
