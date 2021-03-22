@@ -12,7 +12,7 @@ process_specification:
             lmb: ['p1']
     # maybe we need this later: for now, not working
     constants:
-        - xConst1: 1.0
+        xConst1: 1.0
     external_data:
         n_in: 2
         n_out: 3

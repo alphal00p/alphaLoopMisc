@@ -20,10 +20,9 @@ process_specification:
                       ["pout5", 105, 5],
                   ]
               pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
-              
-              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
+              numerator : "1"
               lmb: ["p1"]
-              numerator: "1"
+              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
         - topo1x1Only:
               definition:
                   [
@@ -39,10 +38,9 @@ process_specification:
                       ["pout5", 105, 5],
                   ]
               pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
-              
-              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
+              numerator : "-1*(((sp(k1, k1) + 2*sp(k1, p1) + sp(p1, p1))*(-sp(p1, p2) + sp(p2, p3) + sp(p2, p4))^2*(sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3)))/(sp(p1, p2)*(-2*sp(p1, p3) - 2*sp(p1, p4) + sp(p3, p3) + 2*sp(p3, p4) + sp(p4, p4))*(sp(p2, p4)*(-2*sp(p1, p3) + sp(p3, p3)) + sp(p1, p2)*(-2*sp(p1, p4) + 2*sp(p3, p4) + sp(p4, p4)) - sp(p2, p3)*(-2*sp(p1, p4) + 2*sp(p3, p4) + sp(p4, p4)))))"
               lmb: ["p1"]
-              numerator: "-(xZenoConst1*(sp(k1, k1) + 2*sp(k1, p1) + sp(p1, p1))*(sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3)))"
+              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
         - topo1x2Only:
               definition:
                   [
@@ -58,10 +56,9 @@ process_specification:
                       ["pout5", 105, 5],
                   ]
               pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
-              
-              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
+              numerator : "((sp(k1, k1) + 2*sp(k1, p1) + sp(p1, p1))*(sp(p1, p2) - sp(p2, p3))^2*(sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3) - 2*sp(p4, k1) - 2*sp(p4, p1) + 2*sp(p4, p3) + sp(p4, p4)))/(sp(p1, p2)*(-2*sp(p1, p3) + sp(p3, p3))*(sp(p2, p4)*(-2*sp(p1, p3) + sp(p3, p3)) + sp(p1, p2)*(-2*sp(p1, p4) + 2*sp(p3, p4) + sp(p4, p4)) - sp(p2, p3)*(-2*sp(p1, p4) + 2*sp(p3, p4) + sp(p4, p4))))"
               lmb: ["p1"]
-              numerator: "xZenoConst2*(sp(k1, k1) + 2*sp(k1, p1) + sp(p1, p1))*(sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3) - 2*sp(p4, k1) - 2*sp(p4, p1) + 2*sp(p4, p3) + sp(p4, p4))"
+              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
         - topo1x3Only:
               definition:
                   [
@@ -77,10 +74,9 @@ process_specification:
                       ["pout5", 105, 5],
                   ]
               pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
-              
-              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
+              numerator : "-(((sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3))*(sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3) - 2*sp(p4, k1) - 2*sp(p4, p1) + 2*sp(p4, p3) + sp(p4, p4)))/((-2*sp(p1, p3) + sp(p3, p3))*(-2*sp(p1, p3) - 2*sp(p1, p4) + sp(p3, p3) + 2*sp(p3, p4) + sp(p4, p4))))"
               lmb: ["p1"]
-              numerator: "xZenoConst3*(sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3))*(sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3) - 2*sp(p4, k1) - 2*sp(p4, p1) + 2*sp(p4, p3) + sp(p4, p4))"
+              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
         - topo1x4Only:
               definition:
                   [
@@ -96,10 +92,9 @@ process_specification:
                       ["pout5", 105, 5],
                   ]
               pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
-              
-              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
+              numerator : "((sp(p1, p3) + sp(p1, p4))^2*(sp(k1, k1) - 2*sp(k1, p2) + sp(p2, p2))*(sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3)))/(sp(p1, p2)*(-2*sp(p1, p3) - 2*sp(p1, p4) + sp(p3, p3) + 2*sp(p3, p4) + sp(p4, p4))*(sp(p1, p4)*sp(p3, p3) - sp(p1, p3)*(2*sp(p3, p4) + sp(p4, p4))))"
               lmb: ["p1"]
-              numerator: "xZenoConst4*(sp(k1, k1) - 2*sp(k1, p2) + sp(p2, p2))*(sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3))"
+              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
         - topo1x5Only:
               definition:
                   [
@@ -115,17 +110,16 @@ process_specification:
                       ["pout5", 105, 5],
                   ]
               pdgs: [666, 666, 666, 666, 666, 666, 666, 666, 666, 666]
-              numerator: "xZenoConst5*(sp(k1, k1) - 2*sp(k1, p2) + sp(p2, p2))*(sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3) - 2*sp(p4, k1) - 2*sp(p4, p1) + 2*sp(p4, p3) + sp(p4, p4))"
-              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
+              numerator : "-((sp(p1, p3)^2*(sp(k1, k1) - 2*sp(k1, p2) + sp(p2, p2))*(sp(k1, k1) + 2*sp(k1, p1) - 2*sp(k1, p3) + sp(p1, p1) - 2*sp(p3, p1) + sp(p3, p3) - 2*sp(p4, k1) - 2*sp(p4, p1) + 2*sp(p4, p3) + sp(p4, p4)))/(sp(p1, p2)*(-2*sp(p1, p3) + sp(p3, p3))*(sp(p1, p4)*sp(p3, p3) - sp(p1, p3)*(2*sp(p3, p4) + sp(p4, p4)))))"
               lmb: ["p1"]
-              
+              externals: [["q1", "q2"], ["pout3", "pout4", "pout5"]]
     # The constants have to be real and start with x to be understood by FORM as symbols
     constants:
-        xZenoConst1: 0.00536501 #works
-        xZenoConst2: 0.00362445 # works
-        xZenoConst3: -0.0128812 # works
-        xZenoConst4: -0.369613 # works
-        xZenoConst5: 0.103361 # works
+        xZenoConst1: 0.00536501
+        xZenoConst2: 0.00362445
+        xZenoConst3: -0.0128812
+        xZenoConst4: -0.369613
+        xZenoConst5: 0.103361
     external_data:
         n_in: 2
         n_out: 3
