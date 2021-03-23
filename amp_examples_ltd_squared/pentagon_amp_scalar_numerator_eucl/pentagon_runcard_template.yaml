@@ -121,11 +121,11 @@ process_specification:
               
     # The constants have to be real and start with x to be understood by FORM as symbols
     constants:
-        xZenoConst1: 0.00536501 #works
-        xZenoConst2: 0.00362445 # works
-        xZenoConst3: -0.0128812 # works
-        xZenoConst4: -0.369613 # works
-        xZenoConst5: 0.103361 # works
+        xZenoConst1: 0.0053650140884830586537 #works
+        xZenoConst2: 0.0036244527077015446119 # works
+        xZenoConst3: -0.012881162641930610747 # works
+        xZenoConst4: -0.36961316479565609284 # works
+        xZenoConst5: 0.10336086045121994676 # works
     external_data:
         n_in: 2
         n_out: 3
