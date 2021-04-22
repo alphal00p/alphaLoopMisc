@@ -265,7 +265,7 @@
 			"power":3,
 			"name":"l16"
 		},
-		"analytic_num":"-1/2*(cpol(1,muL(2))*cpol(2,muL(3))*gam(indS(1),muL(1),lVec(k1+p2),muL(2),lVec(k1+p2-p3),muL(1),lVec(p2-p3),muL(3),indS(2))*uSpinor(1,indS(2))*vbarSpinor(1,indS(1)))/sp(p2,-p3)"
+		"analytic_num":"-1/2*(cpol(1,muL(2))*cpol(2,muL(3))*gam(indS(1),muL(1),lVec(k1),muL(2),lVec(k1),muL(1),lVec(p2-p3),muL(3),indS(2))*uSpinor(1,indS(2))*vbarSpinor(1,indS(1)))/sp(p2,-p3)"
 	},
 	{
 		"propagators":{
@@ -283,7 +283,7 @@
 			"power":3,
 			"name":"l17"
 		},
-		"analytic_num":"-1/2*(cpol(1,muL(2))*cpol(2,muL(3))*gam(indS(1),muL(2),lVec(p2-p3),muL(1),lVec(k1+p2-p3),muL(3),lVec(k1-p1),muL(1),indS(2))*uSpinor(1,indS(2))*vbarSpinor(1,indS(1)))/sp(p2,-p3)"
+		"analytic_num":"-1/2*(cpol(1,muL(2))*cpol(2,muL(3))*gam(indS(1),muL(2),lVec(p2-p3),muL(1),lVec(k1),muL(3),lVec(k1),muL(1),indS(2))*uSpinor(1,indS(2))*vbarSpinor(1,indS(1)))/sp(p2,-p3)"
 	},
 	{
 		"propagators":{
@@ -301,7 +301,7 @@
 			"power":2,
 			"name":"l18"
 		},
-		"analytic_num":"-1/4*(cpol(1,muL(2))*cpol(2,muL(3))*gam(indS(1),muL(2),lVec(p2-p3),muL(1),lVec(k1+p2-p3),muL(1),lVec(p2-p3),muL(3),indS(2))*uSpinor(1,indS(2))*vbarSpinor(1,indS(1)))/sp(p2,-p3)^2"
+		"analytic_num":"-1/4*(cpol(1,muL(2))*cpol(2,muL(3))*gam(indS(1),muL(2),lVec(p2-p3),muL(1),lVec(k1),muL(1),lVec(p2-p3),muL(3),indS(2))*uSpinor(1,indS(2))*vbarSpinor(1,indS(1)))/sp(p2,-p3)^2"
 	},
 	{
 		"propagators":{
@@ -319,6 +319,24 @@
 			"power":3,
 			"name":"l19"
 		},
-		"analytic_num":"(cpol(1,muL(2))*cpol(2,muL(3))*gam(indS(1),muL(1),lVec(k1+p2),muL(2),lVec(p2-p3),muL(3),lVec(k1-p1),muL(1),indS(2))*uSpinor(1,indS(2))*vbarSpinor(1,indS(1)))/(2*sp(p2,-p3))"
+		"analytic_num":"(cpol(1,muL(2))*cpol(2,muL(3))*gam(indS(1),muL(1),lVec(k1),muL(2),lVec(p2-p3),muL(3),lVec(k1),muL(1),indS(2))*uSpinor(1,indS(2))*vbarSpinor(1,indS(1)))/(2*sp(p2,-p3))"
+	},
+	{
+		"propagators":{
+			"loop_signature":[
+				1
+			],
+			"outgoing_signature":[
+				0
+			],
+			"incoming_signature":[
+				0,
+				0
+			],
+			"mass":"muv",
+			"power":3,
+			"name":"l20"
+		},
+		"analytic_num":"(cpol(1,muL(2))*cpol(2,muL(3))*gam(indS(1),muL(2),lVec(p2-p3),muL(1),lVec(k1),lVec(p2-p3),lVec(k1),muL(1),lVec(p2-p3),muL(3),indS(2))*uSpinor(1,indS(2))*vbarSpinor(1,indS(1)))/(4*sp(p2,-p3)^2)"
 	}
 ]
