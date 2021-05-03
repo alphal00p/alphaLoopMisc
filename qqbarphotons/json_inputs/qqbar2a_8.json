@@ -1,0 +1,24 @@
+{
+	"diagram_list":[
+		{
+			"propagators":[
+				{
+					"loop_signature":[
+						1
+					],
+					"outgoing_signature":[
+						0
+					],
+					"incoming_signature":[
+						0,
+						0
+					],
+					"mass":"muv",
+					"power":2,
+					"name":"l18"
+				}
+			],
+			"analytic_num":"-1/4*(cpol(1,muL(2))*cpol(2,muL(3))*gam(indS(1),muL(2),lVec(p2-p3),muL(1),lVec(k1),muL(1),lVec(p2-p3),muL(3),indS(2))*uSpinor(1,indS(2))*vbarSpinor(1,indS(1)))/sp(p2,-p3)^2"
+		}
+	]
+}
