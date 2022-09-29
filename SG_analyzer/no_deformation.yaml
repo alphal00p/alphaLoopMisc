@@ -18,7 +18,7 @@ CrossSection:
     - -500.0
   inherit_deformation_for_uv_counterterm: true
   integrand_type: PF
-  m_uv_sq: 8315.251344
+  m_uv_sq: 36100.0
   mu_r_sq: 8315.251344
   picobarns: true
   small_mass_sq: 0.0
