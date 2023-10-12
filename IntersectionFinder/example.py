@@ -166,6 +166,8 @@ def random_three_two_loop_E_surfaces_examples(signatures, energy_scale=10., spat
             # Abort as if there is no interior point there, cannot be an intersection
             continue
 
+        n_attempts += 1
+
         if use_m_solve:
             m_solve_intersection(E_surfaces,out='ms_candidate_case_%d.in'%n_attempts)
             logger.info("Wrote msolve input file to process case %d to file 'ms_candidate_case_%d.in'.\n> You can process it by running './msolve -p 128 -f ms_candidate_case_%d.in -o out.ms -v 2; python3 read_msolve.py'."%(n_attempts,n_attempts,n_attempts))
@@ -178,7 +180,6 @@ def random_three_two_loop_E_surfaces_examples(signatures, energy_scale=10., spat
         interior_point = [[float(c.value[0]), float(
             c.value[1]), float(c.value[2])] for c in cvxpy_coordinates]
 
-        n_attempts += 1
         logger.info(
             "Attempting to find intersection for candidate case #%d" % n_attempts)
         logger.info("E-surface evaluation at interior point = \n%s" %
@@ -232,6 +233,15 @@ if __name__ == '__main__':
                 [[1, 0], [0, 1], [1, 1]],
                 [[1, 0], [0, 1], [1, 1]],
             ]
+        case "2L_6E":
+            signatures = [
+                [[1, 0], [0, 1], [1, 1]],
+                [[1, 0], [0, 1], [1, 1]],
+                [[1, 0], [0, 1], [1, 1]],
+                [[1, 0], [0, 1], [1, 1]],
+                [[1, 0], [0, 1], [1, 1]],
+                [[1, 0], [0, 1], [1, 1]],
+            ]
         case _:
             logger.critical("Unknown test case %s" % args.test_case)
             sys.exit(1)
@@ -241,5 +251,5 @@ if __name__ == '__main__':
         signatures,
         seed=1,
         energy_scale=3., spatial_scale=1., mass_scale=1.,
-        max_attempts=100, debug=DEBUG
+        max_attempts=1000, debug=DEBUG
     )
