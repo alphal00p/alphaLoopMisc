@@ -5,6 +5,12 @@ import logging
 import sys
 import vectors
 import math
+import re
+import sympy as sp
+from polynomial_formatter import format_polynomial
+import argparse
+import sys
+
 logging.basicConfig(
     format='%(asctime)s :: %(levelname)s:%(message)s', level=logging.DEBUG)
 
@@ -26,8 +32,67 @@ def eval_e_surf(e_surf, ks):
         for os_e in e_surf["onshell_propagators"]
     )+e_surf['E_shift']
 
+def eval_oses(e_surf, ks):
+    return [
+        math.sqrt((sum(vectors.Vector(ks[i_loop_momentum])*sig for i_loop_momentum, sig in enumerate(
+            os_e['loop_sig']) if sig != 0)+os_e['v_shift']).square()+os_e['m_squared'])
+        for os_e in e_surf["onshell_propagators"]
+    ]
 
-def random_three_two_loop_E_surfaces_examples(signatures, energy_scale=10., spatial_scale=1., mass_scale=1., seed=1, max_attempts=100, debug=False):
+
+
+def m_solve_intersection(e_surfaces, in_prec=128, out_prec=None,out='ms.in', ks=None):
+
+    def format_for_m_solve(str_expr):
+        # Below would be more precise but generate larger rationalized coefs 
+        #sp.nsimplify(sp.parse_expr(sp_expr_str), rational=True, rational_conversion='exact').simplify().expand()
+        # So better to expand first
+        sp_expr=sp.nsimplify(sp.parse_expr(str_expr).expand(), rational=True, rational_conversion='exact').simplify()
+        res = format_polynomial(str(sp_expr))
+        return res
+
+
+    n_loops = e_surfaces[0]['n_loops']
+    n_E_surfaces = len(e_surfaces)
+
+    coords=['x','y','z']
+    ms_input_file = []
+    ms_input_file.append(','.join( 
+       ([','.join( 'k%d%s'%(i,j) for j in coords for i in range(1, n_loops+1)),] if ks is None else [])
+        + [','.join( 'OSE%d%d'%(i,j) for i in range(1, n_E_surfaces+1) for j in range(1,len(e_surfaces[i-1]['onshell_propagators'])+1)),]
+    ) )
+    ms_input_file.append('0')
+    ms_eqs = []
+    for i_surf, e_surf in enumerate(e_surfaces):
+        ms_eqs.append('+'.join('OSE%d%d'%(i_surf+1,j) for j in range(1,len(e_surf['onshell_propagators'])+1))+'%s'%format_for_m_solve(str(e_surf['E_shift'])))
+        for i_prop, os_prop in enumerate(e_surf['onshell_propagators']):
+            sp_expr_str = '%s+%s'%(
+                '+'.join('(%s+(%s))**2'%( '+'.join(
+                    '(%s%s%s%s)'%(
+                        ('+' if s>0 else '-','k',i_sig+1,j) if ks is None else ('',ks[i_sig][i_coord],'','')
+                    ) for i_sig, s in enumerate(os_prop['loop_sig']) if s!=0)
+                ,
+                os_prop['v_shift'][i_coord]
+                ) for i_coord, j in enumerate(coords)),
+                os_prop['m_squared']
+            )
+            ms_eqs.append(format_for_m_solve(sp_expr_str)+'-OSE%d%d^2'%(i_surf+1,i_prop+1))
+
+    ms_input_file.append(',\n'.join(ms_eqs))
+
+    with open(out,'w') as f:
+        f.write('\n'.join(ms_input_file))
+
+    def parse_ms_output(data):
+        def replace_decimal(match):
+            int_num = match.group(1)
+            base = match.group(2)
+            exp = match.group(3)
+            return f"Decimal({int_num} / {base}**{exp})"
+        modified_data = re.sub(r"(-?\d+) / (\d+)\^(\d+)", replace_decimal, data.replace(':',''))
+        return eval(modified_data)
+
+def random_three_two_loop_E_surfaces_examples(signatures, energy_scale=10., spatial_scale=1., mass_scale=1., seed=1, max_attempts=100, debug=False, use_m_solve=True):
 
     n_loops = len(signatures[0][0])
     n_E_surfaces = len(signatures)
@@ -79,7 +144,6 @@ def random_three_two_loop_E_surfaces_examples(signatures, energy_scale=10., spat
             )+e_surf['E_shift']
 
             E_surfaces.append(e_surf)
-
         # First make sure there is an interior point to all E-surfaces
         p = cvxpy.Problem(
             cvxpy.Minimize(1),
@@ -102,6 +166,10 @@ def random_three_two_loop_E_surfaces_examples(signatures, energy_scale=10., spat
             # Abort as if there is no interior point there, cannot be an intersection
             continue
 
+        if use_m_solve:
+            m_solve_intersection(E_surfaces,out='ms_candidate_case_%d.in'%n_attempts)
+            logger.info("Wrote msolve input file to process case %d to file 'ms_candidate_case_%d.in'.\n> You can process it by running './msolve -p 128 -f ms_candidate_case_%d.in -o out.ms -v 2; python3 read_msolve.py'."%(n_attempts,n_attempts,n_attempts))
+
         # Now find a point well in the interior by minimizing the sum of the E-surfaces evals
         p = cvxpy.Problem(
             cvxpy.Minimize(sum(E_surf['cxpy_expression']
@@ -122,8 +190,11 @@ def random_three_two_loop_E_surfaces_examples(signatures, energy_scale=10., spat
             logger.info(
                 "Could not find an intersection for this candidate case #%d" % n_attempts)
             continue
-        logger.info("Found intersectin point = %s\nE-surf evaluations = %s" % (
-            intersection_point, ['%.16e' % eval_e_surf(e_surf, intersection_point) for e_surf in E_surfaces]))
+        logger.info("Found intersectin point = \n%s\nE-surf evaluations = %s" % (
+            pformat([[
+                ['%.16e' % k_i for k_i in k]
+            ] for k in intersection_point]), ['%.16e' % eval_e_surf(e_surf, intersection_point) for e_surf in E_surfaces]))
+        #res = m_solve_intersection(E_surfaces,ks=intersection_point, out='ms_test.in')
         return
 
     if n_attempts == 0:
@@ -136,13 +207,38 @@ def random_three_two_loop_E_surfaces_examples(signatures, energy_scale=10., spat
 
 if __name__ == '__main__':
 
+    argparse = argparse.ArgumentParser("Test script for finding intersection of E-surfaces")
+    argparse.add_argument("--test-case", help="Test case to run", default='1L_3E')
+    args = argparse.parse_args()
+
+    match args.test_case:
+        case "2L_3E":
+            signatures = [
+                [[1, 0], [0, 1], [1, 1]],
+                [[1, 0], [0, 1], [1, 1]],
+                [[1, 0], [0, 1], [1, 1]]
+            ]
+        case "1L_3E":
+            signatures = [
+                [[1,], [1,]],
+                [[1,], [1,]],
+                [[1,], [1,]]
+            ]
+        case "2L_5E":
+            signatures = [
+                [[1, 0], [0, 1], [1, 1]],
+                [[1, 0], [0, 1], [1, 1]],
+                [[1, 0], [0, 1], [1, 1]],
+                [[1, 0], [0, 1], [1, 1]],
+                [[1, 0], [0, 1], [1, 1]],
+            ]
+        case _:
+            logger.critical("Unknown test case %s" % args.test_case)
+            sys.exit(1)
+    
     DEBUG = logger.level == logging.DEBUG
     random_three_two_loop_E_surfaces_examples(
-        [
-            [[1, 0], [0, 1], [1, 1]],
-            [[1, 0], [0, 1], [1, 1]],
-            [[1, 0], [0, 1], [1, 1]]
-        ],
+        signatures,
         seed=1,
         energy_scale=3., spatial_scale=1., mass_scale=1.,
         max_attempts=100, debug=DEBUG
