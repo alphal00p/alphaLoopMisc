@@ -1,0 +1,1491 @@
+FORM_integrand:
+  call_signature: {id: 2}
+cutkosky_cuts:
+- amplitudes:
+  - conjugate_deformation: false
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 5
+        propagators:
+        - m_squared: 0.0
+          name: pq1
+          parametric_shift:
+          - [0, 0, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq3
+          parametric_shift:
+          - [1, 0, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq8
+          parametric_shift:
+          - [0, 1, 1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 5
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG6_pq4pq10pq5pq7_0
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  - conjugate_deformation: true
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 8
+        propagators:
+        - m_squared: 0.0
+          name: pq2
+          parametric_shift:
+          - [0, 0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq6
+          parametric_shift:
+          - [0, 0, 1, 0]
+          - [0, 0, 1, 1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq9
+          parametric_shift:
+          - [0, 1, 1, 0]
+          - [0, 0, 1, 1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 8
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG6_pq4pq10pq5pq7_1
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  cb_to_lmb: [1, 0, 0, 0, 0, 1, 0, 1, 1]
+  cuts:
+  - m_squared: 0.0
+    name: pq4
+    particle_id: 2
+    power: 1
+    sign: 1
+    signature:
+    - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 0.0
+    name: pq10
+    particle_id: 21
+    power: 1
+    sign: -1
+    signature:
+    - [0, -1, 1]
+    - [0, 0, 0, 0]
+  - m_squared: 0.0
+    name: pq5
+    particle_id: 2
+    power: 1
+    sign: -1
+    signature:
+    - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - m_squared: 0.0
+    name: pq7
+    particle_id: 1337
+    power: 1
+    sign: -1
+    signature:
+    - [1, 0, -1]
+    - [0, 0, 0, 0]
+  id: 0
+  lmb_to_cb: [1, 0, 0, 0, -1, 1, 0, 1, 0]
+- amplitudes:
+  - conjugate_deformation: false
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 5
+        propagators:
+        - m_squared: 0.0
+          name: pq1
+          parametric_shift:
+          - [0, 0, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq4
+          parametric_shift:
+          - [0, 0, 1, 0]
+          - [1, 1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq9
+          parametric_shift:
+          - [1, 1, 0, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 12
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG6_pq6pq10pq3pq7_0
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  - conjugate_deformation: true
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 9
+        propagators:
+        - m_squared: 0.0
+          name: pq2
+          parametric_shift:
+          - [0, 0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq5
+          parametric_shift:
+          - [1, 0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq8
+          parametric_shift:
+          - [1, 1, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 9
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG6_pq6pq10pq3pq7_1
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  cb_to_lmb: [0, 0, 1, 1, 0, 0, 1, 1, 0]
+  cuts:
+  - m_squared: 0.0
+    name: pq6
+    particle_id: 2
+    power: 1
+    sign: 1
+    signature:
+    - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 0.0
+    name: pq10
+    particle_id: 21
+    power: 1
+    sign: 1
+    signature:
+    - [0, -1, 1]
+    - [0, 0, 0, 0]
+  - m_squared: 0.0
+    name: pq3
+    particle_id: 2
+    power: 1
+    sign: -1
+    signature:
+    - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - m_squared: 0.0
+    name: pq7
+    particle_id: 1337
+    power: 1
+    sign: 1
+    signature:
+    - [1, 0, -1]
+    - [0, 0, 0, 0]
+  id: 1
+  lmb_to_cb: [0, 1, 0, 0, -1, 1, 1, 0, 0]
+- amplitudes:
+  - conjugate_deformation: false
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 5
+        propagators:
+        - m_squared: 0.0
+          name: pq1
+          parametric_shift:
+          - [0, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq4
+          parametric_shift:
+          - [0, 1, 0]
+          - [1, 1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 10
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG6_pq9pq3pq7_0
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  - conjugate_deformation: true
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha:
+        - [0.0, 0.0, 0.0, 1.0]
+        beta:
+        - [0.0, 0.0, 0.0, 0.0]
+      external_kinematics: []
+      loop_lines:
+      - end_node: 8
+        propagators:
+        - m_squared: 0.0
+          name: pq2
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq8
+          parametric_shift:
+          - [1, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [0]
+        start_node: 8
+      - end_node: 8
+        propagators:
+        - m_squared: 0.0
+          name: pq5
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq6
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq10
+          parametric_shift:
+          - [-1, 0, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [-0.0, -0.0, -0.0, -0.0]
+          uv: false
+        signature: [1]
+        start_node: 8
+      loop_momentum_map:
+      - - [0, 1, 0]
+        - [0, 0, 0, 0]
+      ltd_cut_structure:
+      - [0, 1]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 1
+      name: SG_QG6_pq9pq3pq7_1
+    n_loops: 1
+    propagators:
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0]
+      - [-1, -1, 0, 0]
+      amp_sig: [1]
+      id: 0
+      lmb_sig:
+      - [0, 1, 0]
+      - [-1, -1, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1]
+      id: 1
+      lmb_sig:
+      - [0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq6
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [1, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 2
+      lmb_sig:
+      - [0, -1, 1]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1]
+      id: 3
+      lmb_sig:
+      - [0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 4
+      lmb_sig:
+      - [0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: false
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 5
+      lmb_sig:
+      - [0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: true
+      uv_only: true
+    thresholds:
+    - fb_to_cmb: [-1.0]
+      foci: [2, 0]
+      id: 0
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 1]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [-1.0]
+      foci: [2, 0]
+      id: 1
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, -1]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [-1.0]
+      foci: [2, 1]
+      id: 2
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, -1]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [-1.0]
+      foci: [2, 1]
+      id: 3
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 1]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [1.0]
+      foci: [0, 1]
+      id: 4
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [1.0]
+      foci: [0, 1]
+      id: 5
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [1.0]
+      foci: [5, 3]
+      id: 6
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [1.0]
+      foci: [3, 3]
+      id: 7
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+  cb_to_lmb: [0, 1, 0, 0, 0, 1, 1, 0, 0]
+  cuts:
+  - m_squared: 0.0
+    name: pq9
+    particle_id: 2
+    power: 1
+    sign: 1
+    signature:
+    - [0, 0, 1]
+    - [0, 0, 0, 0]
+  - m_squared: 0.0
+    name: pq3
+    particle_id: 2
+    power: 1
+    sign: -1
+    signature:
+    - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - m_squared: 0.0
+    name: pq7
+    particle_id: 1337
+    power: 1
+    sign: 1
+    signature:
+    - [1, 0, -1]
+    - [0, 0, 0, 0]
+  id: 2
+  lmb_to_cb: [0, 0, 1, 1, 0, 0, 0, 1, 0]
+- amplitudes:
+  - conjugate_deformation: false
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 5
+        propagators:
+        - m_squared: 0.0
+          name: pq1
+          parametric_shift:
+          - [0, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq3
+          parametric_shift:
+          - [1, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 5
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG6_pq4pq7pq8_0
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  - conjugate_deformation: true
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha:
+        - [0.0, 0.0, 0.0, 1.0]
+        beta:
+        - [0.0, 0.0, 0.0, 0.0]
+      external_kinematics: []
+      loop_lines:
+      - end_node: 8
+        propagators:
+        - m_squared: 0.0
+          name: pq2
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq9
+          parametric_shift:
+          - [1, -1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [0]
+        start_node: 8
+      - end_node: 8
+        propagators:
+        - m_squared: 0.0
+          name: pq5
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq6
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq10
+          parametric_shift:
+          - [-1, 1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [-0.0, -0.0, -0.0, -0.0]
+          uv: false
+        signature: [1]
+        start_node: 8
+      loop_momentum_map:
+      - - [0, 1, 0]
+        - [0, 0, 0, 0]
+      ltd_cut_structure:
+      - [0, 1]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 1
+      name: SG_QG6_pq4pq7pq8_1
+    n_loops: 1
+    propagators:
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0]
+      - [-1, -1, 0, 0]
+      amp_sig: [1]
+      id: 0
+      lmb_sig:
+      - [0, 1, 0]
+      - [-1, -1, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1]
+      id: 1
+      lmb_sig:
+      - [0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq6
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [1, -1, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 2
+      lmb_sig:
+      - [0, -1, 1]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1]
+      id: 3
+      lmb_sig:
+      - [0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 4
+      lmb_sig:
+      - [0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: false
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 5
+      lmb_sig:
+      - [0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: true
+      uv_only: true
+    thresholds:
+    - fb_to_cmb: [-1.0]
+      foci: [2, 0]
+      id: 0
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 1]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [-1.0]
+      foci: [2, 0]
+      id: 1
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, -1]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [-1.0]
+      foci: [2, 1]
+      id: 2
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, -1]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [-1.0]
+      foci: [2, 1]
+      id: 3
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 1]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [1.0]
+      foci: [0, 1]
+      id: 4
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [1.0]
+      foci: [0, 1]
+      id: 5
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [1.0]
+      foci: [5, 3]
+      id: 6
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [1.0]
+      foci: [3, 3]
+      id: 7
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+  cb_to_lmb: [1, 0, 0, 0, 0, 1, 1, -1, 0]
+  cuts:
+  - m_squared: 0.0
+    name: pq4
+    particle_id: 2
+    power: 1
+    sign: 1
+    signature:
+    - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 0.0
+    name: pq7
+    particle_id: 1337
+    power: 1
+    sign: -1
+    signature:
+    - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - m_squared: 0.0
+    name: pq8
+    particle_id: 2
+    power: 1
+    sign: -1
+    signature:
+    - [0, 0, 1]
+    - [-1, -1, 0, 0]
+  id: 3
+  lmb_to_cb: [1, 0, 0, 1, 0, -1, 0, 1, 0]
+default_fixed_cut_momenta:
+- []
+- []
+e_cm_squared: 1000000.0
+edge_PDGs:
+- [q1, -11]
+- [q2, 11]
+- [q3, -11]
+- [q4, 11]
+- [pq1, 22]
+- [pq2, 22]
+- [pq3, 2]
+- [pq4, 2]
+- [pq5, 2]
+- [pq6, 2]
+- [pq7, 1337]
+- [pq8, 2]
+- [pq9, 2]
+- [pq10, 21]
+edge_signatures:
+  pq1:
+  - [0, 0, 0]
+  - [-1, -1, 0, 0]
+  pq10:
+  - [0, -1, 1]
+  - [0, 0, 0, 0]
+  pq2:
+  - [0, 0, 0]
+  - [-1, -1, 0, 0]
+  pq3:
+  - [1, 0, 0]
+  - [-1, -1, 0, 0]
+  pq4:
+  - [1, 0, 0]
+  - [0, 0, 0, 0]
+  pq5:
+  - [0, 1, 0]
+  - [-1, -1, 0, 0]
+  pq6:
+  - [0, 1, 0]
+  - [0, 0, 0, 0]
+  pq7:
+  - [1, 0, -1]
+  - [0, 0, 0, 0]
+  pq8:
+  - [0, 0, 1]
+  - [-1, -1, 0, 0]
+  pq9:
+  - [0, 0, 1]
+  - [0, 0, 0, 0]
+  q1:
+  - [0, 0, 0]
+  - [1, 0, 0, 0]
+  q2:
+  - [0, 0, 0]
+  - [0, 1, 0, 0]
+  q3:
+  - [0, 0, 0]
+  - [0, 0, 1, 0]
+  q4:
+  - [0, 0, 0]
+  - [0, 0, 0, 1]
+external_momenta:
+- [500.0, 0.0, 0.0, 500.0]
+- [500.0, 0.0, 0.0, -500.0]
+- [500.0, 0.0, 0.0, 500.0]
+- [500.0, 0.0, 0.0, -500.0]
+loop_momentum_basis: [pq4, pq6, pq9]
+multi_channeling_bases:
+- channel_id: 0
+  cutkosky_cut_id: 0
+  defining_propagator_masses: [0.0, 173.0, 125.0]
+  defining_propagators: [pq10, pq5, pq7]
+  defining_propagators_powers: [1, 1, 1]
+  signatures:
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 1
+  cutkosky_cut_id: 1
+  defining_propagator_masses: [0.0, 173.0, 125.0]
+  defining_propagators: [pq10, pq3, pq7]
+  defining_propagators_powers: [1, 1, 1]
+  signatures:
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 2
+  cutkosky_cut_id: 2
+  defining_propagator_masses: [173.0, 125.0, 173.0]
+  defining_propagators: [pq3, pq7, pq6]
+  defining_propagators_powers: [1, 1, 1]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 3
+  cutkosky_cut_id: 2
+  defining_propagator_masses: [173.0, 125.0, 173.0]
+  defining_propagators: [pq3, pq7, pq5]
+  defining_propagators_powers: [1, 1, 1]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+- channel_id: 4
+  cutkosky_cut_id: 3
+  defining_propagator_masses: [125.0, 173.0, 0.0]
+  defining_propagators: [pq7, pq8, pq10]
+  defining_propagators_powers: [1, 1, 1]
+  signatures:
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 5
+  cutkosky_cut_id: 3
+  defining_propagator_masses: [125.0, 173.0, 173.0]
+  defining_propagators: [pq7, pq8, pq6]
+  defining_propagators_powers: [1, 1, 1]
+  signatures:
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 6
+  cutkosky_cut_id: 3
+  defining_propagator_masses: [125.0, 173.0, 173.0]
+  defining_propagators: [pq7, pq8, pq5]
+  defining_propagators_powers: [1, 1, 1]
+  signatures:
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+multi_channeling_lmb_bases:
+- channel_id: 0
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [125.0, 173.0, 0.0]
+  defining_propagators: [pq7, pq9, pq10]
+  signatures:
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [0, 0, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 1
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0]
+  defining_propagators: [pq6, pq7, pq10]
+  signatures:
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 2
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0]
+  defining_propagators: [pq6, pq7, pq9]
+  signatures:
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 3
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0]
+  defining_propagators: [pq5, pq7, pq10]
+  signatures:
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 4
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0]
+  defining_propagators: [pq5, pq7, pq9]
+  signatures:
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 5
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [125.0, 173.0, 0.0]
+  defining_propagators: [pq7, pq8, pq10]
+  signatures:
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 6
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0]
+  defining_propagators: [pq5, pq7, pq8]
+  signatures:
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+- channel_id: 7
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0]
+  defining_propagators: [pq6, pq7, pq8]
+  signatures:
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+- channel_id: 8
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq9, pq10]
+  signatures:
+  - - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [0, 0, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 9
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq6, pq10]
+  signatures:
+  - - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 10
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq6, pq9]
+  signatures:
+  - - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 11
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq5, pq10]
+  signatures:
+  - - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 12
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq5, pq9]
+  signatures:
+  - - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 13
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq8, pq10]
+  signatures:
+  - - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 14
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq5, pq8]
+  signatures:
+  - - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+- channel_id: 15
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq6, pq8]
+  signatures:
+  - - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+- channel_id: 16
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0]
+  defining_propagators: [pq4, pq7, pq10]
+  signatures:
+  - - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 17
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0]
+  defining_propagators: [pq4, pq6, pq7]
+  signatures:
+  - - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 18
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0]
+  defining_propagators: [pq4, pq5, pq7]
+  signatures:
+  - - [1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 19
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq9, pq10]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1]
+    - [0, 0, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 20
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq6, pq10]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 21
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq6, pq9]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 22
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq5, pq10]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 23
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq5, pq9]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 24
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq8, pq10]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 25
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq5, pq8]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+- channel_id: 26
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq6, pq8]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1]
+    - [-1, -1, 0, 0]
+- channel_id: 27
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0]
+  defining_propagators: [pq3, pq7, pq10]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, -1, 1]
+    - [0, 0, 0, 0]
+- channel_id: 28
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0]
+  defining_propagators: [pq3, pq5, pq7]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0]
+    - [-1, -1, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 29
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0]
+  defining_propagators: [pq3, pq6, pq7]
+  signatures:
+  - - [1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, 0, -1]
+    - [0, 0, 0, 0]
+n_incoming_momenta: 2
+n_loops: 3
+name: SG_QG6
+optimal_channel_ids: [1]
+overall_numerator: 1.0
+propagators:
+- PDG: 22
+  m_squared: 0.0
+  name: pq1
+  power: 1
+  signature:
+  - [0, 0, 0]
+  - [-1, -1, 0, 0]
+  vertices: [7, 5]
+- PDG: 22
+  m_squared: 0.0
+  name: pq2
+  power: 1
+  signature:
+  - [0, 0, 0]
+  - [-1, -1, 0, 0]
+  vertices: [6, 8]
+- PDG: 2
+  m_squared: 0.0
+  name: pq3
+  power: 1
+  signature:
+  - [1, 0, 0]
+  - [-1, -1, 0, 0]
+  vertices: [9, 7]
+- PDG: 2
+  m_squared: 0.0
+  name: pq4
+  power: 1
+  signature:
+  - [1, 0, 0]
+  - [0, 0, 0, 0]
+  vertices: [7, 10]
+- PDG: 2
+  m_squared: 0.0
+  name: pq5
+  power: 1
+  signature:
+  - [0, 1, 0]
+  - [-1, -1, 0, 0]
+  vertices: [8, 11]
+- PDG: 2
+  m_squared: 0.0
+  name: pq6
+  power: 1
+  signature:
+  - [0, 1, 0]
+  - [0, 0, 0, 0]
+  vertices: [12, 8]
+- PDG: 1337
+  m_squared: 0.0
+  name: pq7
+  power: 1
+  signature:
+  - [1, 0, -1]
+  - [0, 0, 0, 0]
+  vertices: [10, 9]
+- PDG: 2
+  m_squared: 0.0
+  name: pq8
+  power: 1
+  signature:
+  - [0, 0, 1]
+  - [-1, -1, 0, 0]
+  vertices: [11, 9]
+- PDG: 2
+  m_squared: 0.0
+  name: pq9
+  power: 1
+  signature:
+  - [0, 0, 1]
+  - [0, 0, 0, 0]
+  vertices: [10, 12]
+- PDG: 21
+  m_squared: 0.0
+  name: pq10
+  power: 1
+  signature:
+  - [0, -1, 1]
+  - [0, 0, 0, 0]
+  vertices: [12, 11]
+topo:
+  analytical_result_imag: 0.0
+  analytical_result_real: 0.0
+  constant_deformation:
+    alpha:
+    - [0.0, 0.0, 0.0, 1.0]
+    - [0.0, 0.0, 0.0, 1.0]
+    - [0.0, 0.0, 0.0, 1.0]
+    beta:
+    - [0.0, 0.0, 0.0, 0.0]
+    - [0.0, 0.0, 0.0, 0.0]
+    - [0.0, 0.0, 0.0, 0.0]
+  external_kinematics:
+  - [500.0, 0.0, 0.0, 500.0]
+  - [500.0, 0.0, 0.0, -500.0]
+  - [500.0, 0.0, 0.0, 500.0]
+  - [500.0, 0.0, 0.0, -500.0]
+  loop_lines:
+  - end_node: 8
+    propagators:
+    - m_squared: 0.0
+      name: pq1
+      power: 2
+      q: [-1000.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [0, 0, 0]
+    start_node: 8
+  - end_node: 8
+    propagators:
+    - m_squared: 0.0
+      name: pq3
+      power: 1
+      q: [-1000.0, 0.0, 0.0, 0.0]
+      uv: false
+    - m_squared: 0.0
+      name: pq4
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [1, 0, 0]
+    start_node: 9
+  - end_node: 11
+    propagators:
+    - m_squared: 0.0
+      name: pq5
+      power: 1
+      q: [-1000.0, 0.0, 0.0, 0.0]
+      uv: false
+    - m_squared: 0.0
+      name: pq6
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [0, 1, 0]
+    start_node: 8
+  - end_node: 9
+    propagators:
+    - m_squared: 0.0
+      name: pq7
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [1, 0, -1]
+    start_node: 8
+  - end_node: 9
+    propagators:
+    - m_squared: 0.0
+      name: pq8
+      power: 1
+      q: [-1000.0, 0.0, 0.0, 0.0]
+      uv: false
+    - m_squared: 0.0
+      name: pq9
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [0, 0, 1]
+    start_node: 11
+  - end_node: 11
+    propagators:
+    - m_squared: 0.0
+      name: pq10
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [0, -1, 1]
+    start_node: 8
+  ltd_cut_structure:
+  - [0, 0, 0, 1, 1, -1]
+  - [0, 0, 1, 1, 0, 1]
+  - [0, 0, 1, 1, 1, 0]
+  - [0, 1, 0, 0, 1, -1]
+  - [0, 1, 1, 0, 0, 1]
+  - [0, 1, 1, 0, 1, 0]
+  - [0, 1, 0, -1, 0, -1]
+  - [0, 1, 1, -1, 0, 0]
+  maximum_ratio_expansion_threshold: -1.0
+  n_loops: 3
+  name: SG_QG6
+topo_edges:
+- [q1, 4, 5, 0]
+- [q2, 2, 5, 0]
+- [q3, 6, 3, 0]
+- [q4, 6, 1, 0]
+- [pq1, 7, 5, 1]
+- [pq2, 6, 8, 1]
+- [pq3, 9, 7, 1]
+- [pq4, 7, 10, 1]
+- [pq5, 8, 11, 1]
+- [pq6, 12, 8, 1]
+- [pq7, 10, 9, 1]
+- [pq8, 11, 9, 1]
+- [pq9, 10, 12, 1]
+- [pq10, 12, 11, 1]

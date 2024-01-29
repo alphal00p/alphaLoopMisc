@@ -1,0 +1,4244 @@
+FORM_integrand:
+  call_signature: {id: 0}
+cutkosky_cuts:
+- amplitudes:
+  - conjugate_deformation: false
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 5
+        propagators:
+        - m_squared: 0.0
+          name: pq1
+          parametric_shift:
+          - [0, 0, 0, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq3
+          parametric_shift:
+          - [0, 0, 1, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq8
+          parametric_shift:
+          - [0, 0, 1, -1, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq11
+          parametric_shift:
+          - [0, -1, 1, -1, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 5
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG182_pq10pq13pq4pq7pq5_0
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  - conjugate_deformation: true
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 8
+        propagators:
+        - m_squared: 0.0
+          name: pq2
+          parametric_shift:
+          - [0, 0, 0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq6
+          parametric_shift:
+          - [-1, -1, 1, -1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq9
+          parametric_shift:
+          - [0, 0, 1, -1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq12
+          parametric_shift:
+          - [0, -1, 1, -1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 8
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG182_pq10pq13pq4pq7pq5_1
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  cb_to_lmb: [0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0]
+  cuts:
+  - m_squared: 0.0
+    name: pq10
+    particle_id: 21
+    power: 1
+    sign: -1
+    signature:
+    - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 0.0
+    name: pq13
+    particle_id: 21
+    power: 1
+    sign: -1
+    signature:
+    - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - m_squared: 29929.0
+    name: pq4
+    particle_id: 6
+    power: 1
+    sign: 1
+    signature:
+    - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 15625.0
+    name: pq7
+    particle_id: 25
+    power: 1
+    sign: -1
+    signature:
+    - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 29929.0
+    name: pq5
+    particle_id: 6
+    power: 1
+    sign: -1
+    signature:
+    - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  id: 0
+  lmb_to_cb: [0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0]
+- amplitudes:
+  - conjugate_deformation: false
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 5
+        propagators:
+        - m_squared: 0.0
+          name: pq1
+          parametric_shift:
+          - [0, 0, 0, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq4
+          parametric_shift:
+          - [0, 0, 0, 1, 0]
+          - [1, 1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq9
+          parametric_shift:
+          - [0, 0, -1, 1, 0]
+          - [1, 1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq12
+          parametric_shift:
+          - [0, -1, -1, 1, 0]
+          - [1, 1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 12
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG182_pq10pq13pq7pq3pq6_0
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  - conjugate_deformation: true
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 9
+        propagators:
+        - m_squared: 0.0
+          name: pq2
+          parametric_shift:
+          - [0, 0, 0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq5
+          parametric_shift:
+          - [-1, -1, -1, 1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq8
+          parametric_shift:
+          - [0, 0, -1, 1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq11
+          parametric_shift:
+          - [0, -1, -1, 1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 9
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG182_pq10pq13pq7pq3pq6_1
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  cb_to_lmb: [0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0]
+  cuts:
+  - m_squared: 0.0
+    name: pq10
+    particle_id: 21
+    power: 1
+    sign: 1
+    signature:
+    - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 0.0
+    name: pq13
+    particle_id: 21
+    power: 1
+    sign: 1
+    signature:
+    - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - m_squared: 15625.0
+    name: pq7
+    particle_id: 25
+    power: 1
+    sign: 1
+    signature:
+    - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 29929.0
+    name: pq3
+    particle_id: 6
+    power: 1
+    sign: -1
+    signature:
+    - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - m_squared: 29929.0
+    name: pq6
+    particle_id: 6
+    power: 1
+    sign: 1
+    signature:
+    - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  id: 1
+  lmb_to_cb: [0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0]
+- amplitudes:
+  - conjugate_deformation: false
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 5
+        propagators:
+        - m_squared: 0.0
+          name: pq1
+          parametric_shift:
+          - [0, 0, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq3
+          parametric_shift:
+          - [0, 1, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq8
+          parametric_shift:
+          - [0, 1, -1, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 5
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG182_pq13pq4pq7pq11_0
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  - conjugate_deformation: true
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha:
+        - [0.0, 0.0, 0.0, 1.0]
+        beta:
+        - [0.0, 0.0, 0.0, 0.0]
+      external_kinematics: []
+      loop_lines:
+      - end_node: 11
+        propagators:
+        - m_squared: 0.0
+          name: pq2
+          parametric_shift:
+          - [0, 0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq9
+          parametric_shift:
+          - [0, 1, -1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq12
+          parametric_shift:
+          - [-1, 1, -1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [0]
+        start_node: 11
+      - end_node: 11
+        propagators:
+        - m_squared: 29929.0
+          name: pq5
+          parametric_shift:
+          - [1, -1, 1, 0]
+          - [0, 0, 1, 1]
+          power: 1
+          q: [-0.0, -0.0, -0.0, -0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq6
+          parametric_shift:
+          - [1, -1, 1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [-0.0, -0.0, -0.0, -0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq10
+          parametric_shift:
+          - [0, 0, 0, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [1]
+        start_node: 11
+      loop_momentum_map:
+      - - [0, 0, 1, 0]
+        - [0, 0, 0, 0]
+      ltd_cut_structure:
+      - [0, 1]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 1
+      name: SG_QG182_pq13pq4pq7pq11_1
+    n_loops: 1
+    propagators:
+    - amp_shift_in_cmb_sig:
+      - [-1, 1, -1, 0]
+      - [-1, -1, 0, 0]
+      amp_sig: [-1]
+      id: 0
+      lmb_sig:
+      - [1, -1, -1, -1]
+      - [-1, -1, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [-1, 1, -1, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 1
+      lmb_sig:
+      - [1, -1, -1, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq6
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1]
+      id: 2
+      lmb_sig:
+      - [0, 0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 3
+      lmb_sig:
+      - [0, 0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 4
+      lmb_sig:
+      - [0, 0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1]
+      id: 5
+      lmb_sig:
+      - [0, 0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: true
+      uv_only: true
+    thresholds:
+    - fb_to_cmb: [1.0]
+      foci: [2, 0]
+      id: 0
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, -1]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [1.0]
+      foci: [2, 0]
+      id: 1
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 1]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [1.0]
+      foci: [2, 1]
+      id: 2
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 1]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [1.0]
+      foci: [2, 1]
+      id: 3
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, -1]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [-1.0]
+      foci: [0, 1]
+      id: 4
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-1.0]
+      foci: [0, 1]
+      id: 5
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-1.0]
+      foci: [5, 4]
+      id: 6
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-1.0]
+      foci: [4, 4]
+      id: 7
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+  cb_to_lmb: [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0]
+  cuts:
+  - m_squared: 0.0
+    name: pq13
+    particle_id: 21
+    power: 1
+    sign: -1
+    signature:
+    - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - m_squared: 29929.0
+    name: pq4
+    particle_id: 6
+    power: 1
+    sign: 1
+    signature:
+    - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 15625.0
+    name: pq7
+    particle_id: 25
+    power: 1
+    sign: -1
+    signature:
+    - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 29929.0
+    name: pq11
+    particle_id: 6
+    power: 1
+    sign: -1
+    signature:
+    - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  id: 2
+  lmb_to_cb: [0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0]
+- amplitudes:
+  - conjugate_deformation: false
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 5
+        propagators:
+        - m_squared: 0.0
+          name: pq1
+          parametric_shift:
+          - [0, 0, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq4
+          parametric_shift:
+          - [1, 1, 1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq9
+          parametric_shift:
+          - [1, 0, 1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 14
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG182_pq13pq7pq12pq3_0
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  - conjugate_deformation: true
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha:
+        - [0.0, 0.0, 0.0, 1.0]
+        beta:
+        - [0.0, 0.0, 0.0, 0.0]
+      external_kinematics: []
+      loop_lines:
+      - end_node: 9
+        propagators:
+        - m_squared: 0.0
+          name: pq2
+          parametric_shift:
+          - [0, 0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq8
+          parametric_shift:
+          - [1, 0, 1, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq11
+          parametric_shift:
+          - [0, 0, 1, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [0]
+        start_node: 9
+      - end_node: 9
+        propagators:
+        - m_squared: 29929.0
+          name: pq5
+          parametric_shift:
+          - [0, 0, -1, 0]
+          - [0, 0, 1, 1]
+          power: 1
+          q: [-0.0, -0.0, -0.0, -0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq6
+          parametric_shift:
+          - [0, 0, -1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [-0.0, -0.0, -0.0, -0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq10
+          parametric_shift:
+          - [0, 0, 0, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [1]
+        start_node: 9
+      loop_momentum_map:
+      - - [0, 0, 1, 0]
+        - [0, 0, 0, 0]
+      ltd_cut_structure:
+      - [0, 1]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 1
+      name: SG_QG182_pq13pq7pq12pq3_1
+    n_loops: 1
+    propagators:
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 1, 0]
+      - [-1, -1, 0, 0]
+      amp_sig: [-1]
+      id: 0
+      lmb_sig:
+      - [1, -1, -1, -1]
+      - [-1, -1, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 1, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 1
+      lmb_sig:
+      - [1, -1, -1, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq6
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1]
+      id: 2
+      lmb_sig:
+      - [0, 0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 3
+      lmb_sig:
+      - [0, 0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1]
+      id: 4
+      lmb_sig:
+      - [0, 0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1]
+      id: 5
+      lmb_sig:
+      - [0, 0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: true
+      uv_only: true
+    thresholds:
+    - fb_to_cmb: [1.0]
+      foci: [2, 0]
+      id: 0
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, -1]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [1.0]
+      foci: [2, 0]
+      id: 1
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 1]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [1.0]
+      foci: [2, 1]
+      id: 2
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 1]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [1.0]
+      foci: [2, 1]
+      id: 3
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, -1]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [-1.0]
+      foci: [0, 1]
+      id: 4
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-1.0]
+      foci: [0, 1]
+      id: 5
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-1.0]
+      foci: [5, 4]
+      id: 6
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-1.0]
+      foci: [4, 4]
+      id: 7
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+  cb_to_lmb: [1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0]
+  cuts:
+  - m_squared: 0.0
+    name: pq13
+    particle_id: 21
+    power: 1
+    sign: 1
+    signature:
+    - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - m_squared: 15625.0
+    name: pq7
+    particle_id: 25
+    power: 1
+    sign: 1
+    signature:
+    - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 29929.0
+    name: pq12
+    particle_id: 6
+    power: 1
+    sign: 1
+    signature:
+    - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - m_squared: 29929.0
+    name: pq3
+    particle_id: 6
+    power: 1
+    sign: -1
+    signature:
+    - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  id: 3
+  lmb_to_cb: [0, 0, 0, 1, 0, 1, 0, 0, 1, -1, 0, -1, 0, 0, 1, 0]
+- amplitudes:
+  - conjugate_deformation: false
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 5
+        propagators:
+        - m_squared: 0.0
+          name: pq1
+          parametric_shift:
+          - [0, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq4
+          parametric_shift:
+          - [0, 1, 0]
+          - [1, 1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 10
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG182_pq7pq3pq9_0
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  - conjugate_deformation: true
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha:
+        - [0.0, 0.0, 0.0, 1.0]
+        - [0.0, 0.0, 0.0, 1.0]
+        beta:
+        - [0.0, 0.0, 0.0, 0.0]
+        - [0.0, 0.0, 0.0, 0.0]
+      external_kinematics: []
+      loop_lines:
+      - end_node: 9
+        propagators:
+        - m_squared: 0.0
+          name: pq2
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq8
+          parametric_shift:
+          - [-1, 1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [0, 0]
+        start_node: 9
+      - end_node: 11
+        propagators:
+        - m_squared: 29929.0
+          name: pq5
+          parametric_shift:
+          - [-1, 1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq6
+          parametric_shift:
+          - [-1, 1, 0]
+          - [0, 0, 1, 1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [-1, -1]
+        start_node: 9
+      - end_node: 11
+        propagators:
+        - m_squared: 0.0
+          name: pq10
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [1, 0]
+        start_node: 9
+      - end_node: 11
+        propagators:
+        - m_squared: 29929.0
+          name: pq11
+          parametric_shift:
+          - [1, -1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [-0.0, -0.0, -0.0, -0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq12
+          parametric_shift:
+          - [1, -1, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [-0.0, -0.0, -0.0, -0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq13
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [0, 1]
+        start_node: 9
+      loop_momentum_map:
+      - - [0, 0, 1, 0]
+        - [0, 0, 0, 0]
+      - - [0, 0, 0, 1]
+        - [0, 0, 0, 0]
+      ltd_cut_structure:
+      - [0, 0, 1, 1]
+      - [0, -1, 0, 1]
+      - [0, -1, -1, 0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 2
+      name: SG_QG182_pq7pq3pq9_1
+    n_loops: 2
+    propagators:
+    - amp_shift_in_cmb_sig:
+      - [-1, 1, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1, -1]
+      id: 0
+      lmb_sig:
+      - [1, -1, -1, -1]
+      - [-1, -1, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [-1, 1, 0, 0]
+      - [1, 1, 0, 0]
+      amp_sig: [-1, -1]
+      id: 1
+      lmb_sig:
+      - [1, -1, -1, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq6
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1, 0]
+      id: 2
+      lmb_sig:
+      - [0, 0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [-1, 1, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [0, -1]
+      id: 3
+      lmb_sig:
+      - [1, -1, 0, -1]
+      - [-1, -1, 0, 0]
+      mass: 173.0
+      name: pq11
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [-1, 1, 0, 0]
+      - [1, 1, 0, 0]
+      amp_sig: [0, -1]
+      id: 4
+      lmb_sig:
+      - [1, -1, 0, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq12
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [0, 1]
+      id: 5
+      lmb_sig:
+      - [0, 0, 0, 1]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq13
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1, 0]
+      id: 6
+      lmb_sig:
+      - [0, 0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1, 0]
+      id: 7
+      lmb_sig:
+      - [0, 0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1, 0]
+      id: 8
+      lmb_sig:
+      - [0, 0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1, -1]
+      id: 9
+      lmb_sig:
+      - [0, 0, -1, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1, -1]
+      id: 10
+      lmb_sig:
+      - [0, 0, -1, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [0, -1]
+      id: 11
+      lmb_sig:
+      - [0, 0, 0, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq11
+      uv_mass: false
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [0, -1]
+      id: 12
+      lmb_sig:
+      - [0, 0, 0, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq11
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [0, 1]
+      id: 13
+      lmb_sig:
+      - [0, 0, 0, 1]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq13
+      uv_mass: true
+      uv_only: true
+    thresholds:
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 3, 0]
+      id: 0
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 3, 1]
+      id: 1
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 3, 1]
+      id: 2
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 4, 0]
+      id: 3
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 4, 0]
+      id: 4
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 4, 1]
+      id: 5
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, 1.0]
+      foci: [2, 5, 0]
+      id: 6
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1, -1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, 1.0]
+      foci: [2, 5, 0]
+      id: 7
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1, -1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, 1.0]
+      foci: [2, 5, 1]
+      id: 8
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1, -1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, 1.0]
+      foci: [2, 5, 1]
+      id: 9
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1, -1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [3, 4]
+      id: 10
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [3, 4]
+      id: 11
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [3, 5]
+      id: 12
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [3, 5]
+      id: 13
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [4, 5]
+      id: 14
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [4, 5]
+      id: 15
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [-0.5, -0.5]
+      foci: [0, 1]
+      id: 16
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-0.5, -0.5]
+      foci: [0, 1]
+      id: 17
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-0.5, -0.5]
+      foci: [8, 7]
+      id: 18
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-0.5, -0.5]
+      foci: [7, 7]
+      id: 19
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [8, 12, 10]
+      id: 20
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [8, 13, 10]
+      id: 21
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [12, 12]
+      id: 22
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [12, 13]
+      id: 23
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [10, 10]
+      id: 24
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [8, 7]
+      id: 25
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [7, 7]
+      id: 26
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+  cb_to_lmb: [0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+  cuts:
+  - m_squared: 15625.0
+    name: pq7
+    particle_id: 25
+    power: 1
+    sign: 1
+    signature:
+    - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 29929.0
+    name: pq3
+    particle_id: 6
+    power: 1
+    sign: -1
+    signature:
+    - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - m_squared: 29929.0
+    name: pq9
+    particle_id: 6
+    power: 1
+    sign: 1
+    signature:
+    - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  id: 4
+  lmb_to_cb: [0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+- amplitudes:
+  - conjugate_deformation: false
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha: []
+        beta: []
+      external_kinematics: []
+      loop_lines:
+      - end_node: 5
+        propagators:
+        - m_squared: 0.0
+          name: pq1
+          parametric_shift:
+          - [0, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq3
+          parametric_shift:
+          - [1, 0, 0]
+          - [-1, -1, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: []
+        start_node: 5
+      loop_momentum_map: []
+      ltd_cut_structure:
+      - [0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 0
+      name: SG_QG182_pq4pq7pq8_0
+    n_loops: 0
+    propagators: []
+    thresholds: []
+  - conjugate_deformation: true
+    graph:
+      analytical_result_imag: 0.0
+      analytical_result_real: 0.0
+      constant_deformation:
+        alpha:
+        - [0.0, 0.0, 0.0, 1.0]
+        - [0.0, 0.0, 0.0, 1.0]
+        beta:
+        - [0.0, 0.0, 0.0, 0.0]
+        - [0.0, 0.0, 0.0, 0.0]
+      external_kinematics: []
+      loop_lines:
+      - end_node: 13
+        propagators:
+        - m_squared: 0.0
+          name: pq2
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq9
+          parametric_shift:
+          - [1, -1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [0, 0]
+        start_node: 13
+      - end_node: 11
+        propagators:
+        - m_squared: 29929.0
+          name: pq5
+          parametric_shift:
+          - [1, -1, 0]
+          - [0, 0, -1, -1]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq6
+          parametric_shift:
+          - [1, -1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [-1, -1]
+        start_node: 13
+      - end_node: 11
+        propagators:
+        - m_squared: 0.0
+          name: pq10
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [1, 0]
+        start_node: 13
+      - end_node: 11
+        propagators:
+        - m_squared: 29929.0
+          name: pq11
+          parametric_shift:
+          - [-1, 1, 0]
+          - [0, 0, 1, 1]
+          power: 1
+          q: [-0.0, -0.0, -0.0, -0.0]
+          uv: false
+        - m_squared: 29929.0
+          name: pq12
+          parametric_shift:
+          - [-1, 1, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [-0.0, -0.0, -0.0, -0.0]
+          uv: false
+        - m_squared: 0.0
+          name: pq13
+          parametric_shift:
+          - [0, 0, 0]
+          - [0, 0, 0, 0]
+          power: 1
+          q: [0.0, 0.0, 0.0, 0.0]
+          uv: false
+        signature: [0, 1]
+        start_node: 13
+      loop_momentum_map:
+      - - [0, 0, 1, 0]
+        - [0, 0, 0, 0]
+      - - [0, 0, 0, 1]
+        - [0, 0, 0, 0]
+      ltd_cut_structure:
+      - [0, 0, 1, 1]
+      - [0, -1, 0, 1]
+      - [0, -1, -1, 0]
+      maximum_ratio_expansion_threshold: -1.0
+      n_loops: 2
+      name: SG_QG182_pq4pq7pq8_1
+    n_loops: 2
+    propagators:
+    - amp_shift_in_cmb_sig:
+      - [1, -1, 0, 0]
+      - [-1, -1, 0, 0]
+      amp_sig: [-1, -1]
+      id: 0
+      lmb_sig:
+      - [1, -1, -1, -1]
+      - [-1, -1, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [1, -1, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1, -1]
+      id: 1
+      lmb_sig:
+      - [1, -1, -1, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq6
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1, 0]
+      id: 2
+      lmb_sig:
+      - [0, 0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [1, -1, 0, 0]
+      - [-1, -1, 0, 0]
+      amp_sig: [0, -1]
+      id: 3
+      lmb_sig:
+      - [1, -1, 0, -1]
+      - [-1, -1, 0, 0]
+      mass: 173.0
+      name: pq11
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [1, -1, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [0, -1]
+      id: 4
+      lmb_sig:
+      - [1, -1, 0, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq12
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [0, 1]
+      id: 5
+      lmb_sig:
+      - [0, 0, 0, 1]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq13
+      uv_mass: false
+      uv_only: false
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1, 0]
+      id: 6
+      lmb_sig:
+      - [0, 0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1, 0]
+      id: 7
+      lmb_sig:
+      - [0, 0, -1, 0]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [1, 0]
+      id: 8
+      lmb_sig:
+      - [0, 0, 1, 0]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq10
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1, -1]
+      id: 9
+      lmb_sig:
+      - [0, 0, -1, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: false
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [-1, -1]
+      id: 10
+      lmb_sig:
+      - [0, 0, -1, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq5
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [0, -1]
+      id: 11
+      lmb_sig:
+      - [0, 0, 0, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq11
+      uv_mass: false
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [0, -1]
+      id: 12
+      lmb_sig:
+      - [0, 0, 0, -1]
+      - [0, 0, 0, 0]
+      mass: 173.0
+      name: pq11
+      uv_mass: true
+      uv_only: true
+    - amp_shift_in_cmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      amp_sig: [0, 1]
+      id: 13
+      lmb_sig:
+      - [0, 0, 0, 1]
+      - [0, 0, 0, 0]
+      mass: 0.0
+      name: pq13
+      uv_mass: true
+      uv_only: true
+    thresholds:
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 3, 0]
+      id: 0
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 3, 1]
+      id: 1
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 3, 1]
+      id: 2
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 4, 0]
+      id: 3
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 4, 0]
+      id: 4
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, -1.0]
+      foci: [2, 4, 1]
+      id: 5
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1, 1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, 1.0]
+      foci: [2, 5, 0]
+      id: 6
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1, -1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, 1.0]
+      foci: [2, 5, 0]
+      id: 7
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1, -1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, 1.0]
+      foci: [2, 5, 1]
+      id: 8
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1, -1]
+    - fb_to_cmb: [1.0, 0.0, 0.0, 1.0]
+      foci: [2, 5, 1]
+      id: 9
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1, -1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [3, 4]
+      id: 10
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [3, 4]
+      id: 11
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [3, 5]
+      id: 12
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [3, 5]
+      id: 13
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [4, 5]
+      id: 14
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [-1, 1, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [4, 5]
+      id: 15
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [1, -1, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [-0.5, -0.5]
+      foci: [0, 1]
+      id: 16
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [-1, -1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-0.5, -0.5]
+      foci: [0, 1]
+      id: 17
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [1, 1, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-0.5, -0.5]
+      foci: [8, 7]
+      id: 18
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [-0.5, -0.5]
+      foci: [7, 7]
+      id: 19
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [8, 12, 10]
+      id: 20
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [8, 13, 10]
+      id: 21
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [12, 12]
+      id: 22
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [12, 13]
+      id: 23
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [10, 10]
+      id: 24
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [8, 7]
+      id: 25
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+    - fb_to_cmb: [0.0, -1.0]
+      foci: [7, 7]
+      id: 26
+      mass_shift: 0.0
+      shift_in_lmb_sig:
+      - [0, 0, 0, 0]
+      - [0, 0, 0, 0]
+      sig_in_fb: [-1]
+  cb_to_lmb: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+  cuts:
+  - m_squared: 29929.0
+    name: pq4
+    particle_id: 6
+    power: 1
+    sign: 1
+    signature:
+    - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 15625.0
+    name: pq7
+    particle_id: 25
+    power: 1
+    sign: -1
+    signature:
+    - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - m_squared: 29929.0
+    name: pq8
+    particle_id: 6
+    power: 1
+    sign: -1
+    signature:
+    - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  id: 5
+  lmb_to_cb: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+default_fixed_cut_momenta:
+- []
+- []
+e_cm_squared: 1000000.0
+edge_PDGs:
+- [q1, -11]
+- [q2, 11]
+- [q3, -11]
+- [q4, 11]
+- [pq1, 22]
+- [pq2, 22]
+- [pq3, 6]
+- [pq4, 6]
+- [pq5, 6]
+- [pq6, 6]
+- [pq7, 25]
+- [pq8, 6]
+- [pq9, 6]
+- [pq10, 21]
+- [pq11, 6]
+- [pq12, 6]
+- [pq13, 21]
+edge_signatures:
+  pq1:
+  - [0, 0, 0, 0]
+  - [-1, -1, 0, 0]
+  pq10:
+  - [0, 0, 1, 0]
+  - [0, 0, 0, 0]
+  pq11:
+  - [1, -1, 0, -1]
+  - [-1, -1, 0, 0]
+  pq12:
+  - [1, -1, 0, -1]
+  - [0, 0, 0, 0]
+  pq13:
+  - [0, 0, 0, 1]
+  - [0, 0, 0, 0]
+  pq2:
+  - [0, 0, 0, 0]
+  - [-1, -1, 0, 0]
+  pq3:
+  - [1, 0, 0, 0]
+  - [-1, -1, 0, 0]
+  pq4:
+  - [1, 0, 0, 0]
+  - [0, 0, 0, 0]
+  pq5:
+  - [1, -1, -1, -1]
+  - [-1, -1, 0, 0]
+  pq6:
+  - [1, -1, -1, -1]
+  - [0, 0, 0, 0]
+  pq7:
+  - [0, 1, 0, 0]
+  - [0, 0, 0, 0]
+  pq8:
+  - [1, -1, 0, 0]
+  - [-1, -1, 0, 0]
+  pq9:
+  - [1, -1, 0, 0]
+  - [0, 0, 0, 0]
+  q1:
+  - [0, 0, 0, 0]
+  - [1, 0, 0, 0]
+  q2:
+  - [0, 0, 0, 0]
+  - [0, 1, 0, 0]
+  q3:
+  - [0, 0, 0, 0]
+  - [0, 0, 1, 0]
+  q4:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 1]
+external_momenta:
+- [500.0, 0.0, 0.0, 500.0]
+- [500.0, 0.0, 0.0, -500.0]
+- [500.0, 0.0, 0.0, 500.0]
+- [500.0, 0.0, 0.0, -500.0]
+loop_momentum_basis: [pq4, pq7, pq10, pq13]
+multi_channeling_bases:
+- channel_id: 0
+  cutkosky_cut_id: 0
+  defining_propagator_masses: [0.0, 0.0, 125.0, 173.0]
+  defining_propagators: [pq10, pq13, pq7, pq5]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 1
+  cutkosky_cut_id: 1
+  defining_propagator_masses: [0.0, 0.0, 173.0, 173.0]
+  defining_propagators: [pq10, pq13, pq3, pq6]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+- channel_id: 2
+  cutkosky_cut_id: 2
+  defining_propagator_masses: [0.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq13, pq7, pq11, pq10]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 3
+  cutkosky_cut_id: 2
+  defining_propagator_masses: [0.0, 125.0, 173.0, 173.0]
+  defining_propagators: [pq13, pq7, pq11, pq6]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+- channel_id: 4
+  cutkosky_cut_id: 2
+  defining_propagator_masses: [0.0, 125.0, 173.0, 173.0]
+  defining_propagators: [pq13, pq7, pq11, pq5]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 5
+  cutkosky_cut_id: 3
+  defining_propagator_masses: [0.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq13, pq12, pq3, pq10]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 6
+  cutkosky_cut_id: 3
+  defining_propagator_masses: [0.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq13, pq12, pq3, pq6]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+- channel_id: 7
+  cutkosky_cut_id: 3
+  defining_propagator_masses: [0.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq13, pq12, pq3, pq5]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 8
+  cutkosky_cut_id: 4
+  defining_propagator_masses: [173.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq3, pq9, pq10, pq13]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 9
+  cutkosky_cut_id: 4
+  defining_propagator_masses: [173.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq3, pq9, pq10, pq12]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 10
+  cutkosky_cut_id: 4
+  defining_propagator_masses: [173.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq3, pq9, pq10, pq11]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 11
+  cutkosky_cut_id: 4
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq9, pq6, pq13]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 12
+  cutkosky_cut_id: 4
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq9, pq6, pq12]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 13
+  cutkosky_cut_id: 4
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq9, pq6, pq11]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 14
+  cutkosky_cut_id: 4
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq9, pq6, pq10]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 15
+  cutkosky_cut_id: 4
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq9, pq5, pq13]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 16
+  cutkosky_cut_id: 4
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq9, pq5, pq12]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 17
+  cutkosky_cut_id: 4
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq9, pq5, pq11]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 18
+  cutkosky_cut_id: 4
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq9, pq5, pq10]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 19
+  cutkosky_cut_id: 5
+  defining_propagator_masses: [125.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq7, pq8, pq10, pq13]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 20
+  cutkosky_cut_id: 5
+  defining_propagator_masses: [125.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq7, pq8, pq10, pq12]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 21
+  cutkosky_cut_id: 5
+  defining_propagator_masses: [125.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq7, pq8, pq10, pq11]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 22
+  cutkosky_cut_id: 5
+  defining_propagator_masses: [125.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq7, pq8, pq6, pq13]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 23
+  cutkosky_cut_id: 5
+  defining_propagator_masses: [125.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq7, pq8, pq6, pq12]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 24
+  cutkosky_cut_id: 5
+  defining_propagator_masses: [125.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq7, pq8, pq6, pq11]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 25
+  cutkosky_cut_id: 5
+  defining_propagator_masses: [125.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq7, pq8, pq6, pq10]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 26
+  cutkosky_cut_id: 5
+  defining_propagator_masses: [125.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq7, pq8, pq5, pq13]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 27
+  cutkosky_cut_id: 5
+  defining_propagator_masses: [125.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq7, pq8, pq5, pq12]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 28
+  cutkosky_cut_id: 5
+  defining_propagator_masses: [125.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq7, pq8, pq5, pq11]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 29
+  cutkosky_cut_id: 5
+  defining_propagator_masses: [125.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq7, pq8, pq5, pq10]
+  defining_propagators_powers: [1, 1, 1, 1]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+multi_channeling_lmb_bases:
+- channel_id: 0
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [125.0, 0.0, 173.0, 0.0]
+  defining_propagators: [pq7, pq10, pq12, pq13]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 1
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq6, pq7, pq12, pq13]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 2
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0, 0.0]
+  defining_propagators: [pq6, pq7, pq10, pq13]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 3
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq5, pq7, pq12, pq13]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 4
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0, 0.0]
+  defining_propagators: [pq5, pq7, pq10, pq13]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 5
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [125.0, 0.0, 173.0, 0.0]
+  defining_propagators: [pq7, pq10, pq11, pq13]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 6
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq5, pq7, pq11, pq13]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 7
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq6, pq7, pq11, pq13]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 8
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [125.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq7, pq9, pq10, pq13]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 9
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [125.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq7, pq9, pq10, pq12]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 10
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq6, pq7, pq9, pq13]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 11
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 173.0]
+  defining_propagators: [pq6, pq7, pq9, pq12]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 12
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq6, pq7, pq9, pq10]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 13
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq5, pq7, pq9, pq13]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 14
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 173.0]
+  defining_propagators: [pq5, pq7, pq9, pq12]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 15
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq5, pq7, pq9, pq10]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 16
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [125.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq7, pq9, pq10, pq11]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 17
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 173.0]
+  defining_propagators: [pq5, pq7, pq9, pq11]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 18
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 173.0]
+  defining_propagators: [pq6, pq7, pq9, pq11]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 19
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [125.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq7, pq8, pq10, pq13]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 20
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [125.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq7, pq8, pq10, pq11]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 21
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq5, pq7, pq8, pq13]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 22
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 173.0]
+  defining_propagators: [pq5, pq7, pq8, pq11]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 23
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq5, pq7, pq8, pq10]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 24
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq6, pq7, pq8, pq13]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 25
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 173.0]
+  defining_propagators: [pq6, pq7, pq8, pq11]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 26
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 0.0]
+  defining_propagators: [pq6, pq7, pq8, pq10]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 27
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [125.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq7, pq8, pq10, pq12]
+  signatures:
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 28
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 173.0]
+  defining_propagators: [pq6, pq7, pq8, pq12]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 29
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 173.0, 173.0]
+  defining_propagators: [pq5, pq7, pq8, pq12]
+  signatures:
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 30
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 0.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq10, pq12, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 31
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq6, pq12, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 32
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq4, pq6, pq10, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 33
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq5, pq12, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 34
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq4, pq5, pq10, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 35
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 0.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq10, pq11, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 36
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq5, pq11, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 37
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq6, pq11, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 38
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq4, pq9, pq10, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 39
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq4, pq9, pq10, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 40
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq6, pq9, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 41
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq6, pq9, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 42
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq6, pq9, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 43
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq5, pq9, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 44
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq5, pq9, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 45
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq5, pq9, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 46
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq4, pq9, pq10, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 47
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq5, pq9, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 48
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq6, pq9, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 49
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq4, pq8, pq10, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 50
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq4, pq8, pq10, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 51
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq5, pq8, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 52
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq5, pq8, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 53
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq5, pq8, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 54
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq6, pq8, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 55
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq6, pq8, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 56
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq4, pq6, pq8, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 57
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq4, pq8, pq10, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 58
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq6, pq8, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 59
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq4, pq5, pq8, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 60
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0, 0.0]
+  defining_propagators: [pq4, pq7, pq10, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 61
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0, 173.0]
+  defining_propagators: [pq4, pq7, pq10, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 62
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 0.0]
+  defining_propagators: [pq4, pq6, pq7, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 63
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 173.0]
+  defining_propagators: [pq4, pq6, pq7, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 64
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 0.0]
+  defining_propagators: [pq4, pq6, pq7, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 65
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 0.0]
+  defining_propagators: [pq4, pq5, pq7, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 66
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 173.0]
+  defining_propagators: [pq4, pq5, pq7, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 67
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 0.0]
+  defining_propagators: [pq4, pq5, pq7, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 68
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0, 173.0]
+  defining_propagators: [pq4, pq7, pq10, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 69
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 173.0]
+  defining_propagators: [pq4, pq5, pq7, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 70
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 173.0]
+  defining_propagators: [pq4, pq6, pq7, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 71
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 0.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq10, pq12, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 72
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq6, pq12, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 73
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq3, pq6, pq10, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 74
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq5, pq12, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 75
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq3, pq5, pq10, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 76
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 0.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq10, pq11, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 77
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq5, pq11, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 78
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq6, pq11, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 79
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq3, pq9, pq10, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 80
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq3, pq9, pq10, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 81
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq6, pq9, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 82
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq6, pq9, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 83
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq6, pq9, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 84
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq5, pq9, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 85
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq5, pq9, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 86
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq5, pq9, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 87
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq3, pq9, pq10, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 88
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq5, pq9, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 89
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq6, pq9, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 90
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 0.0]
+  defining_propagators: [pq3, pq8, pq10, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 91
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq3, pq8, pq10, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 92
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq5, pq8, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 93
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq5, pq8, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 94
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq5, pq8, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 95
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq6, pq8, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 96
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq6, pq8, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 97
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 0.0]
+  defining_propagators: [pq3, pq6, pq8, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 98
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 0.0, 173.0]
+  defining_propagators: [pq3, pq8, pq10, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 99
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq6, pq8, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 100
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 173.0, 173.0]
+  defining_propagators: [pq3, pq5, pq8, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 101
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0, 0.0]
+  defining_propagators: [pq3, pq7, pq10, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 102
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0, 173.0]
+  defining_propagators: [pq3, pq7, pq10, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 103
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 0.0]
+  defining_propagators: [pq3, pq5, pq7, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 104
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 173.0]
+  defining_propagators: [pq3, pq5, pq7, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 105
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 0.0]
+  defining_propagators: [pq3, pq5, pq7, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 106
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 0.0]
+  defining_propagators: [pq3, pq6, pq7, pq13]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+- channel_id: 107
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 173.0]
+  defining_propagators: [pq3, pq6, pq7, pq11]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [-1, -1, 0, 0]
+- channel_id: 108
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 0.0]
+  defining_propagators: [pq3, pq6, pq7, pq10]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+- channel_id: 109
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 125.0, 0.0, 173.0]
+  defining_propagators: [pq3, pq7, pq10, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [0, 0, 1, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 110
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 173.0]
+  defining_propagators: [pq3, pq6, pq7, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [0, 0, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+- channel_id: 111
+  cutkosky_cut_id: -1
+  defining_propagator_masses: [173.0, 173.0, 125.0, 173.0]
+  defining_propagators: [pq3, pq5, pq7, pq12]
+  signatures:
+  - - [1, 0, 0, 0]
+    - [-1, -1, 0, 0]
+  - - [1, -1, -1, -1]
+    - [-1, -1, 0, 0]
+  - - [0, 1, 0, 0]
+    - [0, 0, 0, 0]
+  - - [1, -1, 0, -1]
+    - [0, 0, 0, 0]
+n_incoming_momenta: 2
+n_loops: 4
+name: SG_QG182
+optimal_channel_ids: [0]
+overall_numerator: 1.0
+propagators:
+- PDG: 22
+  m_squared: 0.0
+  name: pq1
+  power: 1
+  signature:
+  - [0, 0, 0, 0]
+  - [-1, -1, 0, 0]
+  vertices: [7, 5]
+- PDG: 22
+  m_squared: 0.0
+  name: pq2
+  power: 1
+  signature:
+  - [0, 0, 0, 0]
+  - [-1, -1, 0, 0]
+  vertices: [6, 8]
+- PDG: 6
+  m_squared: 29929.0
+  name: pq3
+  power: 1
+  signature:
+  - [1, 0, 0, 0]
+  - [-1, -1, 0, 0]
+  vertices: [9, 7]
+- PDG: 6
+  m_squared: 29929.0
+  name: pq4
+  power: 1
+  signature:
+  - [1, 0, 0, 0]
+  - [0, 0, 0, 0]
+  vertices: [7, 10]
+- PDG: 6
+  m_squared: 29929.0
+  name: pq5
+  power: 1
+  signature:
+  - [1, -1, -1, -1]
+  - [-1, -1, 0, 0]
+  vertices: [8, 11]
+- PDG: 6
+  m_squared: 29929.0
+  name: pq6
+  power: 1
+  signature:
+  - [1, -1, -1, -1]
+  - [0, 0, 0, 0]
+  vertices: [12, 8]
+- PDG: 25
+  m_squared: 15625.0
+  name: pq7
+  power: 1
+  signature:
+  - [0, 1, 0, 0]
+  - [0, 0, 0, 0]
+  vertices: [10, 9]
+- PDG: 6
+  m_squared: 29929.0
+  name: pq8
+  power: 1
+  signature:
+  - [1, -1, 0, 0]
+  - [-1, -1, 0, 0]
+  vertices: [13, 9]
+- PDG: 6
+  m_squared: 29929.0
+  name: pq9
+  power: 1
+  signature:
+  - [1, -1, 0, 0]
+  - [0, 0, 0, 0]
+  vertices: [10, 14]
+- PDG: 21
+  m_squared: 0.0
+  name: pq10
+  power: 1
+  signature:
+  - [0, 0, 1, 0]
+  - [0, 0, 0, 0]
+  vertices: [12, 11]
+- PDG: 6
+  m_squared: 29929.0
+  name: pq11
+  power: 1
+  signature:
+  - [1, -1, 0, -1]
+  - [-1, -1, 0, 0]
+  vertices: [11, 13]
+- PDG: 6
+  m_squared: 29929.0
+  name: pq12
+  power: 1
+  signature:
+  - [1, -1, 0, -1]
+  - [0, 0, 0, 0]
+  vertices: [14, 12]
+- PDG: 21
+  m_squared: 0.0
+  name: pq13
+  power: 1
+  signature:
+  - [0, 0, 0, 1]
+  - [0, 0, 0, 0]
+  vertices: [14, 13]
+topo:
+  analytical_result_imag: 0.0
+  analytical_result_real: 0.0
+  constant_deformation:
+    alpha:
+    - [0.0, 0.0, 0.0, 1.0]
+    - [0.0, 0.0, 0.0, 1.0]
+    - [0.0, 0.0, 0.0, 1.0]
+    - [0.0, 0.0, 0.0, 1.0]
+    beta:
+    - [0.0, 0.0, 0.0, 0.0]
+    - [0.0, 0.0, 0.0, 0.0]
+    - [0.0, 0.0, 0.0, 0.0]
+    - [0.0, 0.0, 0.0, 0.0]
+  external_kinematics:
+  - [500.0, 0.0, 0.0, 500.0]
+  - [500.0, 0.0, 0.0, -500.0]
+  - [500.0, 0.0, 0.0, 500.0]
+  - [500.0, 0.0, 0.0, -500.0]
+  loop_lines:
+  - end_node: 8
+    propagators:
+    - m_squared: 0.0
+      name: pq1
+      power: 2
+      q: [-1000.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [0, 0, 0, 0]
+    start_node: 8
+  - end_node: 8
+    propagators:
+    - m_squared: 29929.0
+      name: pq3
+      power: 1
+      q: [-1000.0, 0.0, 0.0, 0.0]
+      uv: false
+    - m_squared: 29929.0
+      name: pq4
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [1, 0, 0, 0]
+    start_node: 9
+  - end_node: 11
+    propagators:
+    - m_squared: 29929.0
+      name: pq5
+      power: 1
+      q: [-1000.0, 0.0, 0.0, 0.0]
+      uv: false
+    - m_squared: 29929.0
+      name: pq6
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [1, -1, -1, -1]
+    start_node: 8
+  - end_node: 9
+    propagators:
+    - m_squared: 15625.0
+      name: pq7
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [0, 1, 0, 0]
+    start_node: 8
+  - end_node: 9
+    propagators:
+    - m_squared: 29929.0
+      name: pq8
+      power: 1
+      q: [-1000.0, 0.0, 0.0, 0.0]
+      uv: false
+    - m_squared: 29929.0
+      name: pq9
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [1, -1, 0, 0]
+    start_node: 13
+  - end_node: 11
+    propagators:
+    - m_squared: 0.0
+      name: pq10
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [0, 0, 1, 0]
+    start_node: 8
+  - end_node: 13
+    propagators:
+    - m_squared: 29929.0
+      name: pq11
+      power: 1
+      q: [-1000.0, 0.0, 0.0, 0.0]
+      uv: false
+    - m_squared: 29929.0
+      name: pq12
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [1, -1, 0, -1]
+    start_node: 11
+  - end_node: 13
+    propagators:
+    - m_squared: 0.0
+      name: pq13
+      power: 1
+      q: [0.0, 0.0, 0.0, 0.0]
+      uv: false
+    signature: [0, 0, 0, 1]
+    start_node: 8
+  ltd_cut_structure:
+  - [0, 0, 0, 1, 0, 1, 1, 1]
+  - [0, 0, 0, 1, 1, 1, 0, 1]
+  - [0, 0, 0, 1, 1, 1, -1, 0]
+  - [0, 0, -1, 1, 0, 0, 1, 1]
+  - [0, 0, 1, 1, 0, 1, 0, 1]
+  - [0, 0, -1, 1, 1, 0, 0, 1]
+  - [0, 0, -1, 1, 1, 0, -1, 0]
+  - [0, 0, -1, 1, 1, -1, 0, 0]
+  - [0, 1, 0, 0, 0, 1, -1, 1]
+  - [0, 1, 0, 0, -1, 1, 0, 1]
+  - [0, 1, 0, 0, 1, 1, -1, 0]
+  - [0, 1, -1, 0, 0, 0, 1, 1]
+  - [0, 1, -1, 0, 0, 1, 0, 1]
+  - [0, 1, -1, 0, 1, 0, 0, 1]
+  - [0, 1, -1, 0, 1, 0, -1, 0]
+  - [0, 1, -1, 0, 1, -1, 0, 0]
+  - [0, 1, 0, 1, 0, 1, 0, 1]
+  - [0, 1, -1, -1, 0, 0, 0, 1]
+  - [0, 1, -1, -1, 0, -1, 0, 0]
+  - [0, 1, 0, -1, 0, 1, -1, 0]
+  - [0, 1, -1, -1, 0, 0, -1, 0]
+  maximum_ratio_expansion_threshold: -1.0
+  n_loops: 4
+  name: SG_QG182
+topo_edges:
+- [q1, 4, 5, 0]
+- [q2, 2, 5, 0]
+- [q3, 6, 3, 0]
+- [q4, 6, 1, 0]
+- [pq1, 7, 5, 1]
+- [pq2, 6, 8, 1]
+- [pq3, 9, 7, 1]
+- [pq4, 7, 10, 1]
+- [pq5, 8, 11, 1]
+- [pq6, 12, 8, 1]
+- [pq7, 10, 9, 1]
+- [pq8, 13, 9, 1]
+- [pq9, 10, 14, 1]
+- [pq10, 12, 11, 1]
+- [pq11, 11, 13, 1]
+- [pq12, 14, 12, 1]
+- [pq13, 14, 13, 1]
