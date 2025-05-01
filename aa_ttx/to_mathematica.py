@@ -2,6 +2,12 @@
 import re
 import sys
 
+import re, pathlib
+
+ansi_escape = re.compile(r'\x1b\[[0-9;]*[mK]')
+def clean_ansi(txt):
+    return ansi_escape.sub('', txt)
+
 def float_to_mathematica(v):
     """
     Convert a Python float to Mathematica scientific or decimal notation.
@@ -30,7 +36,7 @@ def parse_table(filename):
     )
 
     with open(filename) as f:
-        lines = f.read().splitlines()
+        lines = clean_ansi(f.read()).splitlines()
 
     # Locate header separator
     sep_idxs = [i for i,l in enumerate(lines) if l.startswith('+') and l.endswith('+')]
