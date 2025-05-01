@@ -1,0 +1,20 @@
+import model aL_sm-no_widths
+
+launch /shared/vhirschi/aa_ttx/runs/NNLO_from_gL__all_non_singlet_no_four_tops
+set_hyperparameter Selectors []
+set_hyperparameter CrossSection.picobarns True
+set_hyperparameter General.deformation_strategy "none"
+#set_hyperparameter CrossSection.inherit_deformation_for_uv_counterterm True
+#set_hyperparameter Deformation.fixed.dampen_on_pinch True
+#set_hyperparameter Deformation.fixed.dampen_on_pinch_after_lambda True
+#set_hyperparameter Deformation.fixed.pinch_dampening_alpha 1.0
+#set_hyperparameter Deformation.scaling.branch_cut_alpha 1.0
+#set_hyperparameter Deformation.scaling.lambda 10.0
+#set_hyperparameter Deformation.overall_scaling "constant"
+#set_hyperparameter Deformation.overall_scaling_constant 10.0
+set_hyperparameter CrossSection.m_uv_sq 250000.0
+set_hyperparameter CrossSection.mu_r_sq 8315.251344
+set_hyperparameter General.multi_channeling False
+set_hyperparameter General.use_optimal_channels False
+set_hyperparameter General.use_lmb_channels False
+

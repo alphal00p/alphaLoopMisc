@@ -1,0 +1,13 @@
+
+set_hyperparameter CrossSection.incoming_momenta [[{sqrts_over_2},0.,0.,-{sqrts_over_2}],[{sqrts_over_2},0.,0.,{sqrts_over_2}]]
+integrate \
+all {options}\
+-i havana -bs {batch_size} --n_start {n_start} --n_max {n_max} --n_increase 0 \
+-nw {n_workers} -c 1 --cluster_type local \
+--run_id {run_id} \
+--run_description {run_description} \
+--no_mc_over_channels \
+--show_selected_phase_only \
+--integrand_descriptions mu_r_x_1 \
+--integrands \
+CrossSection.mu_r_sq=8315.251344
