@@ -2,6 +2,8 @@
 set_hyperparameter CrossSection.incoming_momenta [[{sqrts_over_2},0.,0.,-{sqrts_over_2}],[{sqrts_over_2},0.,0.,{sqrts_over_2}]]
 integrate \
 all {options}\
+--al_h_function left_right_polynomial \
+--al_h_function_sigma 3 \
 -i havana -bs {batch_size} --n_start {n_start} --n_max {n_max} --n_increase 0 \
 -nw {n_workers} -c 1 --cluster_type local \
 --run_id {run_id} \
