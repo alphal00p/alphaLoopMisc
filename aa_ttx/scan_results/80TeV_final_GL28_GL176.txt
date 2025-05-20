@@ -1,0 +1,18 @@
+madgraph.havana 2025-05-14,06:33:25.903683 Now running iteration #10
+| Status of 500 workers: 0 pending, 500 available, 0 running. A total of 0 jobs are pending.
+| Jobs completed: overall = 10000 (avg 13 min/job), and for this iteration = 1000/1000/1000 on 500 cpus.
+| Total n_pts: 1000.0M ( 9.4 ms / pt on one core,  53.2K pts / s overall ). n_pts for this iteration #10: 100.00M/100.00M (100.0%).
+| Wall time: 5.223 h, IO: 0.01%, processing: 0.00%, jobs: 2172.684 CPU-hours, efficiency: 83.20%
+
+Run description: 80TeV_final_GL28_GL176 (run id: 12345)
+Result after 1000.0M evaluations and 9 iterations: -0.00162281 +/- 1.17e-05   (0.72%), chi2=5.31, max_wgt_infl=0.995, zero_evals=0.106%
+  -> Re[I0(mu_r_x_1)] = -0.0016228 +/- 1.1697e-05 (0.72%), chi2=47.8, max_wgt_infl=0.995, zero_evals=0.106%
+     Im[I0(mu_r_x_1)] = 0 +/- 4.7122e-09 (0%), chi2=0, max_wgt_infl=0, zero_evals=100%
++--------+--------------------------------------------------------------------------------------------+
+| Result | Re[I0(mu_r_x_1)]                                                                           |
++--------+--------------------------------------------------------------------------------------------+
+| Total  | -0.00162281  +- 1.17e-05 (0.72%)  | chi2=5.31|mwi=0.995|n=1000.0M(1e+02%)|n0=1.1M(0.11%)   |
+| Sum    | -0.0016232   +- 1.17e-05 (0.72%)                                                           |
+| GL28   | -0.00150262  +- 1.17e-05 (0.78%)  | chi2=4.57|mwi=1.04|n=917.5M(92%)|n0=0.5M(0.054%)|p=98% |
+| GL176  | -0.000120581 +- 7.05e-07 (0.58%)  | chi2=7.63|mwi=3.53|n=82.5M(8.3%)|n0=0.6M(0.68%)|p=2%   |
++--------+--------------------------------------------------------------------------------------------+

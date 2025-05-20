@@ -1,0 +1,19 @@
+
+madgraph.havana 2025-05-14,20:37:11.735172 Now running iteration #20
+| Status of 500 workers: 0 pending, 500 available, 0 running. A total of 0 jobs are pending.
+| Jobs completed: overall = 20000 (avg 15.7 min/job), and for this iteration = 1000/1000/1000 on 500 cpus.
+| Total n_pts: 40000.0M ( 0.601 ms / pt on one core,  832.5K pts / s overall ). n_pts for this iteration #20: 2000.00M/2000.00M (100.0%).
+| Wall time: 13.347 h, IO: 0.01%, processing: 0.00%, jobs: 5227.358 CPU-hours, efficiency: 78.33%
+
+Run description: 80TeV_final_GL218_GL32 (run id: 12346)
+Result after 40000.0M evaluations and 19 iterations: 3.01873e-05 +/- 1.924e-05   (64%), chi2=0.683, max_wgt_infl=1.81, zero_evals=0.0606%
+  -> Re[I0(mu_r_x_1)] = 3.0187e-05 +/- 1.9237e-05 (64%), chi2=13, max_wgt_infl=1.81, zero_evals=0.0606%
+     Im[I0(mu_r_x_1)] = 0 +/- 3.332e-09 (0%), chi2=0, max_wgt_infl=0, zero_evals=100%
++--------+-----------------------------------------------------------------------------------------------+
+| Result | Re[I0(mu_r_x_1)]                                                                              |
++--------+-----------------------------------------------------------------------------------------------+
+| Total  | +3.01873e-05 +- 1.92e-05 (64%)    | chi2=0.683|mwi=1.81|n=40000.0M(1e+02%)|n0=24.2M(0.061%)   |
+| Sum    | +3.09213e-05 +- 1.91e-05 (62%)                                                                |
+| GL32   | -7.57847e-05 +- 1.37e-05 (18%)    | chi2=0.858|mwi=2.12|n=22308.3M(56%)|n0=8.3M(0.037%)|p=54% |
+| GL218  | +0.000106706 +- 1.33e-05 (12%)    | chi2=0.826|mwi=2.95|n=17691.7M(44%)|n0=16.0M(0.09%)|p=46% |
++--------+-----------------------------------------------------------------------------------------------+
