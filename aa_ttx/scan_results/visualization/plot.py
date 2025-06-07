@@ -9,7 +9,7 @@ import random
 # CONFIGURATION
 # -----------------------------------------------------------------------------
 SORT_MODE = 'global' # 'global' or 'local'
-GLOBAL_SORT_ANCHOR_SQRT_S = 1600.0 # e.g., 1600.0 or None (for mean sort)
+GLOBAL_SORT_ANCHOR_SQRT_S = 0.0-2*173.0 # e.g., 1600.0 or None (for mean sort)
 SQRT_S_MIN_DISPLAY = None
 SQRT_S_MAX_DISPLAY = 9001.0
 LOWER_INSET_WIDTH_SCALE = 1.0 # Adjust to align x-axes data areas
@@ -215,7 +215,7 @@ if SORT_MODE == 'global':
         anchor_idx = np.argmin(np.abs(sqrt_s_values_loaded - GLOBAL_SORT_ANCHOR_SQRT_S))
         anchor_contributions = np.abs(data_matrix_loaded[:, anchor_idx])
         sorted_indices_global = np.argsort(anchor_contributions)[::-1]
-        actual_anchor_s_val_for_title = sqrt_s_values_loaded[anchor_idx]
+        actual_anchor_s_val_for_title = sqrt_s_values_loaded[anchor_idx]+2*173.0
     elif N_supergraphs_loaded > 0 and N_energies_loaded > 0: # Default global sort: by mean absolute contribution
         mean_abs_contributions_global = np.mean(np.abs(data_matrix_loaded), axis=1)
         sorted_indices_global = np.argsort(mean_abs_contributions_global)[::-1]
@@ -413,17 +413,20 @@ cbar.set_label(r'Normalized Contribution (scaled to max +ve/-ve in each $\sqrt{s
 
 
 # Panel 2: Relative Aggregate Contributions
-ax_lineplot.plot(sqrt_s_values_loaded, rel_sum_positive, label='Sum of Positive Contrib. / Total', color='crimson', linestyle='-', lw=2)
-ax_lineplot.plot(sqrt_s_values_loaded, rel_sum_negative, label='Sum of Negative Contrib. / Total', color='royalblue', linestyle='-', lw=2)
+#rel_sum_positive=np.abs(rel_sum_positive)
+#rel_sum_negative=np.abs(rel_sum_negative)
+#ax_lineplot.set_yscale('log')
+ax_lineplot.set_ylim([-100.01, 100.01])
+ax_lineplot.plot(sqrt_s_values_loaded, rel_sum_positive, label='Sum of positive relative contributions', color='crimson', linestyle='-', lw=2)
+ax_lineplot.plot(sqrt_s_values_loaded, rel_sum_negative, label='Sum of negative relative contributions', color='royalblue', linestyle='-', lw=2)
 ax_lineplot.fill_between(sqrt_s_values_loaded, rel_sum_positive, 0, color='lightcoral', alpha=0.5, interpolate=True)
 ax_lineplot.fill_between(sqrt_s_values_loaded, rel_sum_negative, 0, color='lightskyblue', alpha=0.5, interpolate=True)
-ax_lineplot.set_ylabel('Relative Contribution to Total', fontsize=10)
+ax_lineplot.set_ylabel('Relative contribution [-]', fontsize=10)
 ax_lineplot.grid(True, which='both', linestyle=':', linewidth=0.7)
 ax_lineplot.legend(loc='best', fontsize=8)
-ax_lineplot.set_title('Relative Aggregate Contributions & Cancellations', fontsize=12)
+ax_lineplot.set_title('Relative aggregate contributions & cancellations', fontsize=12)
 ax_lineplot.tick_params(axis='both', which='major', labelsize=9)
 ax_lineplot.axhline(0, color='black', linewidth=0.7, linestyle='-')
-
 
 # Panel 3: Relative Contribution from Top % Supergraphs
 percentile_colors = ['darkgreen', 'darkorchid', 'sienna', 'teal', 'gold'] # Colors for different percentiles
@@ -437,7 +440,7 @@ ax_percent_contrib.axhline(1.0, label='Net Total / Total (=1)', color='black', l
 ax_percent_contrib.set_ylabel('Sum / Total Net XS', fontsize=10)
 ax_percent_contrib.grid(True, which='both', linestyle=':', linewidth=0.7)
 ax_percent_contrib.legend(loc='best', fontsize=8)
-ax_percent_contrib.set_title(r'Relative Contribution from Top % Supergraphs (Ranked per $\sqrt{s}$ by |Magnitude|)', fontsize=12)
+ax_percent_contrib.set_title(r'Relative contribution from top percentiles of forward scattering graphs (ranked per $\sqrt{s}$ by magnitude)', fontsize=12)
 ax_percent_contrib.tick_params(axis='both', which='major', labelsize=9)
 ax_percent_contrib.axhline(0, color='black', linewidth=0.7, linestyle='-') # Zero line
 
@@ -454,18 +457,18 @@ total_xs_positive_part_masked = np.ma.masked_where(total_cross_section <= log_pl
 total_xs_negative_part_abs_masked = np.ma.masked_where(total_cross_section >= -log_plot_threshold, np.abs(total_cross_section))
 
 if has_plottable_positive_total_xs:
-    ax_total_xs_loglog.plot(sqrt_s_values_loaded, total_xs_positive_part_masked, label='Total Net XS (Positive)', color='darkgreen', linestyle='-', lw=2)
+    ax_total_xs_loglog.plot(sqrt_s_values_loaded, total_xs_positive_part_masked, label='positive $\Delta \sigma^{(NNLO QCD)}$ ($\mu_r=\sqrt{s}$)', color='darkgreen', linestyle='-', lw=2)
 if has_plottable_negative_total_xs: # If there are significant negative contributions
-    ax_total_xs_loglog.plot(sqrt_s_values_loaded, total_xs_negative_part_abs_masked, label='|Total Net XS (Negative)|', color='darkred', linestyle='--', lw=2)
+    ax_total_xs_loglog.plot(sqrt_s_values_loaded, total_xs_negative_part_abs_masked, label='negative $\Delta \sigma^{(NNLO QCD)}$ ($\mu_r=\sqrt{s}$)', color='darkred', linestyle='--', lw=2)
 
 ax_total_xs_loglog.set_xscale('log')
 ax_total_xs_loglog.set_yscale('log')
-ax_total_xs_loglog.set_xlabel(r'$\sqrt{s}$ (GeV)', fontsize=12)
-ax_total_xs_loglog.set_ylabel('Total Cross-Section [arb. units]', fontsize=10) # Adjust unit if known
+ax_total_xs_loglog.set_xlabel(r'$\sqrt{s}-2 m_t$ (GeV)', fontsize=12)
+ax_total_xs_loglog.set_ylabel('$\Delta \sigma^{(NNLO QCD)}$ [pb]', fontsize=10) # Adjust unit if known
 if has_plottable_positive_total_xs or has_plottable_negative_total_xs: # Show legend only if something is plotted
     ax_total_xs_loglog.legend(loc='best', fontsize=8)
 ax_total_xs_loglog.grid(True, which='both', linestyle=':', linewidth=0.7)
-ax_total_xs_loglog.set_title('Total Net Cross-Section (Log-Log Scale)', fontsize=12)
+ax_total_xs_loglog.set_title('$\Delta \sigma^{(NNLO QCD)}$', fontsize=12)
 ax_total_xs_loglog.tick_params(axis='both', which='major', labelsize=9)
 
 
@@ -497,7 +500,7 @@ if N_energies_loaded > 0 :
 
 
 # Overall Figure Title and Layout Adjustments
-fig.suptitle(fr'$\gamma\gamma \to t\bar{{t}}$ Supergraph Contributions ({fig_title_sort_part})', fontsize=18)
+#fig.suptitle(fr'$\gamma\gamma \to t\bar{{t}}$ Supergraph Contributions ({fig_title_sort_part})', fontsize=18)
 plt.tight_layout(rect=[0, 0.01, 1, 0.96]) # rect to make space for suptitle
 
 # Fine-tune subplot widths to align data areas (experimental)
