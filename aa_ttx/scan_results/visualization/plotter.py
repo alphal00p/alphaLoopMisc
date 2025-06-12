@@ -16,6 +16,7 @@ LOWER_INSET_WIDTH_SCALE = 1.0
 TOP_PERCENTILES_TO_PLOT = [0.1, 0.2, 0.5, 0.8]
 X_MIN, X_MAX = 1.0, 9001.0
 THRESHOLD = 1e-9  # for masking zero/near-zero in total-xs
+USE_ABS_CONTRIBS_FOR_PERCENTILE_PLOT = True
 
 # Styling
 MAGNIFY = 6
@@ -46,7 +47,10 @@ MIN_ROW_WIDTH, MAX_ROW_WIDTH = 1.0, 5.0
 
 # Panel y-limits
 YLIMIT_LINE    = (0.5, 2000.01)
-YLIMIT_PERCENT = (8.0e-7, 2000.01)
+if USE_ABS_CONTRIBS_FOR_PERCENTILE_PLOT:
+    YLIMIT_PERCENT = (8.0e-6, 1.01)
+else:
+    YLIMIT_PERCENT = (8.0e-7, 2000.01)
 YLIMIT_TOTAL   = (1.0e-5, 2.01)
 # -----------------------------------------------------------------------------
 
@@ -181,11 +185,18 @@ def main(raw_file):
     sum_contrib_top = {p: np.zeros_like(s_vals) for p in TOP_PERCENTILES_TO_PLOT}
     rel_contrib_top = {p: np.zeros_like(s_vals) for p in TOP_PERCENTILES_TO_PLOT}
     for j in range(len(s_vals)):
-        col = data[:, j]; tot = total_xs[j]
+        col = data[:, j]; 
+        if USE_ABS_CONTRIBS_FOR_PERCENTILE_PLOT:
+            tot = np.sum(np.abs(col))
+        else:
+            tot = total_xs[j]
         idxs = np.argsort(np.abs(col))[::-1]
         for p in TOP_PERCENTILES_TO_PLOT:
             n_top = max(1, int(p * M))
-            s_top = np.sum(col[idxs[:n_top]])
+            if USE_ABS_CONTRIBS_FOR_PERCENTILE_PLOT:
+                s_top = np.sum(np.abs(col[idxs[:n_top]]))
+            else:
+                s_top = np.sum(col[idxs[:n_top]])
             sum_contrib_top[p][j] = s_top
             rel_contrib_top[p][j] = abs(1.0 - s_top / tot) if abs(tot)>1e-15 else 0.0
 
@@ -280,26 +291,41 @@ def main(raw_file):
     ax_pct.set_yscale('log')
     palette = ['darkgreen','darkorchid','sienna','teal','gold']
     for i, p in enumerate(TOP_PERCENTILES_TO_PLOT):
-        ax_pct.plot(
-            s_vals, rel_contrib_top[p],
-            label=f'abs(1 - sum of top {int(p*100)}% relative contributions)',
-            color=palette[i % len(palette)], lw=2
-        )
+        if not USE_ABS_CONTRIBS_FOR_PERCENTILE_PLOT:    
+            ax_pct.plot(
+                s_vals, rel_contrib_top[p],
+                label=f'abs(1 - sum of top {int(p*100)}% relative contributions)',
+                color=palette[i % len(palette)], lw=2
+            )
+        else:
+            ax_pct.plot(
+                s_vals, rel_contrib_top[p],
+                label=f'1 - sum of top {int(p*100)}% relative abs. contributions)',
+                color=palette[i % len(palette)], lw=2
+            )
+
     ax_pct.set_ylabel('Relative aggr. contribution [-]', fontsize=FONT_SIZE_AXIS)
     ax_pct.set_ylim(YLIMIT_PERCENT)
     ax_pct.grid(True, which='both', linestyle=':', linewidth=0.7)
     ax_pct.legend(loc='best', fontsize=FONT_SIZE_TICKS)
-    ax_pct.set_title(
-        r'Abs. value of relative contribution from percentiles of forward scattering graphs '
-        r'(ranked per $\sqrt{s}$ by magnitude)',
-        fontsize=FONT_SIZE_SUBTITLE
-    )
+    if USE_ABS_CONTRIBS_FOR_PERCENTILE_PLOT:
+        ax_pct.set_title(
+            r'Cum. relative |contribution| from percentiles of forward scattering graphs '
+            r'(ranked per $\sqrt{s}$ by magnitude)',
+            fontsize=FONT_SIZE_SUBTITLE
+        )
+    else:
+        ax_pct.set_title(
+            r'Abs. value of relative contribution from percentiles of forward scattering graphs '
+            r'(ranked per $\sqrt{s}$ by magnitude)',
+            fontsize=FONT_SIZE_SUBTITLE
+        )
     ax_pct.set_xlabel('')
 
     # Panel 4: Total cross-section
     ax_tot.set_xscale('log'); ax_tot.set_yscale('log')
     ax_tot.set_title(
-        r'Inclusive cross-section for $\gamma \gamma \rightarrow t \bar{t}\;(\mu_r = m_Z)$, with $n_f=5$, $n_h(m_t)=1$',
+        r'Inclusive cross-section for $\gamma \gamma \rightarrow t \bar{t}$ $(\mu_r = m_Z)$, with $n_f=5$, $n_h(m_t)=1$',
         fontsize=FONT_SIZE_SUBTITLE
     )
     # NNLO
