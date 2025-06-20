@@ -13,7 +13,7 @@ GLOBAL_SORT_ANCHOR_SQRT_S = 500.0  # anchor slice (None to integrate across rang
 SQRT_S_MIN_DISPLAY = 0.1
 SQRT_S_MAX_DISPLAY = None
 LOWER_INSET_WIDTH_SCALE = 1.0
-TOP_PERCENTILES_TO_PLOT = [0.1, 0.2, 0.5, 0.8]
+TOP_PERCENTILES_TO_PLOT = [0.05, 0.1, 0.2, 0.3]
 X_MIN, X_MAX = 1.0, 9001.0
 THRESHOLD = 1e-9  # for masking zero/near-zero in total-xs
 USE_ABS_CONTRIBS_FOR_PERCENTILE_PLOT = True
@@ -25,6 +25,13 @@ FONT_SIZE_SUBTITLE = 10 + MAGNIFY
 FONT_SIZE_LEGEND = 10 + MAGNIFY
 FONT_SIZE_AXIS = 12 + MAGNIFY
 FONT_SIZE_TICKS = 8 + MAGNIFY
+
+MARKER_LINE = 'o'
+MARKER_PERCENT = 'o'
+MARKER_TOTAL = 'o'
+MARKERSIZE_LINE = 3
+MARKERSIZE_PERCENT = 3
+MARKERSIZE_TOTAL = 3
 
 # layout margins
 LEFT_MARGIN      = 0.06   # fraction of figure width (0…1)
@@ -48,7 +55,8 @@ MIN_ROW_WIDTH, MAX_ROW_WIDTH = 1.0, 5.0
 # Panel y-limits
 YLIMIT_LINE    = (0.5, 2000.01)
 if USE_ABS_CONTRIBS_FOR_PERCENTILE_PLOT:
-    YLIMIT_PERCENT = (8.0e-6, 1.01)
+#    YLIMIT_PERCENT = (8.0e-7, 10.01)
+    YLIMIT_PERCENT = (1.99, 16.01)
 else:
     YLIMIT_PERCENT = (8.0e-7, 2000.01)
 YLIMIT_TOTAL   = (1.0e-5, 2.01)
@@ -106,22 +114,86 @@ def drop_two_point_runs(branch):
     groups = np.split(idx, np.where(np.diff(idx) != 1)[0] + 1)
     for run in groups:
         if len(run) == 2:
-            branch[run] = 0.0
+            #branch[run] = 0.0
+            branch.mask[run] = True
 
-def glue_sign_flips(xs):
+#def glue_sign_flips(xs):
+#    tp = np.ma.masked_where(xs <= THRESHOLD, xs).copy()
+#    tn = np.ma.masked_where(xs >= -THRESHOLD, np.abs(xs)).copy()
+#    for j in range(len(xs) - 1):
+#        a, b = xs[j], xs[j+1]
+#        if a * b < 0:
+#            glue = min(abs(a), abs(b))
+#            if a > 0:
+#                tp[j+1] = glue
+#            else:
+#                tn[j+1] = glue
+#    drop_two_point_runs(tp)
+#    drop_two_point_runs(tn)
+#    return tp, tn
+
+def glue_sign_flips(xs, errs=None):
+    """
+    Glue small sign flips in xs and propagate each point’s original error,
+    ensuring that whenever we insert a “glue” value we un-mask its error.
+
+    Parameters
+    ----------
+    xs : array-like, shape (N,)
+        Central values.
+    errs : array-like or None, shape (N,)
+        Corresponding errors for each xs entry.
+
+    Returns
+    -------
+    tp : MaskedArray shape (N,)
+        Positive-branch contributions, with flips glued and two-point runs masked.
+    tn : MaskedArray shape (N,)
+        Negative-branch contributions (abs), with flips glued and runs masked.
+    err_tp : MaskedArray or None
+        Errors for tp, masked in the same spots (None if errs is None).
+    err_tn : MaskedArray or None
+        Errors for tn, masked in the same spots (None if errs is None).
+    """
+    xs = np.asarray(xs)
+
+    # initial masks: anything below threshold goes away
     tp = np.ma.masked_where(xs <= THRESHOLD, xs).copy()
     tn = np.ma.masked_where(xs >= -THRESHOLD, np.abs(xs)).copy()
+
+    # if errors were provided, mask them the same way initially
+    if errs is not None:
+        errs = np.asarray(errs)
+        err_tp = np.ma.masked_where(xs <= THRESHOLD, errs).copy()
+        err_tn = np.ma.masked_where(xs >= -THRESHOLD, errs).copy()
+    else:
+        err_tp = err_tn = None
+
+    # glue any genuine sign flips, and un-mask the error at the glued point
     for j in range(len(xs) - 1):
         a, b = xs[j], xs[j+1]
         if a * b < 0:
             glue = min(abs(a), abs(b))
             if a > 0:
                 tp[j+1] = glue
+                if err_tp is not None:
+                    # un-mask error at this point so the bar is drawn
+                    err_tp.mask[j+1] = False
             else:
                 tn[j+1] = glue
+                if err_tn is not None:
+                    err_tn.mask[j+1] = False
+
+    # drop isolated two-point runs in both branches (this may re-mask points)
     drop_two_point_runs(tp)
     drop_two_point_runs(tn)
-    return tp, tn
+
+    # make sure the final masks are applied to the error arrays as well
+    if err_tp is not None:
+        err_tp.mask = tp.mask.copy()
+        err_tn.mask = tn.mask.copy()
+
+    return tp, tn, err_tp, err_tn
 
 def main(raw_file):
     # --- NNLO data ---
@@ -198,7 +270,8 @@ def main(raw_file):
             else:
                 s_top = np.sum(col[idxs[:n_top]])
             sum_contrib_top[p][j] = s_top
-            rel_contrib_top[p][j] = abs(1.0 - s_top / tot) if abs(tot)>1e-15 else 0.0
+            #rel_contrib_top[p][j] = abs(1.0 - s_top / (float(n_top/float(M))*tot)) if abs(tot)>1e-15 else 0.0
+            rel_contrib_top[p][j] = s_top / (float(n_top/float(M))*tot)
 
     err_tot = np.sqrt(np.sum(errors**2, axis=0))
     err_pos = np.where(total_xs > THRESHOLD, err_tot, 0.0)
@@ -277,8 +350,8 @@ def main(raw_file):
     ax_line.set_yscale('log')
     ax_line.plot(
         s_vals, rel_agg,
-        label='1 - sum of relative absolute value contributions',
-        color='darkgreen', lw=2
+        label='sum of relative absolute value contributions - 1',
+        color='darkgreen', lw=2, marker=MARKER_LINE, markersize=MARKERSIZE_LINE
     )
     ax_line.set_ylabel('Relative aggregate contributions', fontsize=FONT_SIZE_AXIS)
     ax_line.set_ylim(YLIMIT_LINE)
@@ -288,20 +361,20 @@ def main(raw_file):
     ax_line.set_xlabel('')
 
     # Panel 3: Top-percentile relative contributions
-    ax_pct.set_yscale('log')
+    #ax_pct.set_yscale('log')
     palette = ['darkgreen','darkorchid','sienna','teal','gold']
     for i, p in enumerate(TOP_PERCENTILES_TO_PLOT):
         if not USE_ABS_CONTRIBS_FOR_PERCENTILE_PLOT:    
             ax_pct.plot(
                 s_vals, rel_contrib_top[p],
                 label=f'abs(1 - sum of top {int(p*100)}% relative contributions)',
-                color=palette[i % len(palette)], lw=2
+                color=palette[i % len(palette)], lw=2, marker=MARKER_PERCENT, markersize=MARKERSIZE_PERCENT
             )
         else:
             ax_pct.plot(
                 s_vals, rel_contrib_top[p],
-                label=f'1 - sum of top {int(p*100)}% relative abs. contributions)',
-                color=palette[i % len(palette)], lw=2
+                label=f'(sum of top {int(p*100)}% relative abs. contributions)) / {p}',
+                color=palette[i % len(palette)], lw=2, marker=MARKER_PERCENT, markersize=MARKERSIZE_PERCENT
             )
 
     ax_pct.set_ylabel('Relative aggr. contribution [-]', fontsize=FONT_SIZE_AXIS)
@@ -325,29 +398,33 @@ def main(raw_file):
     # Panel 4: Total cross-section
     ax_tot.set_xscale('log'); ax_tot.set_yscale('log')
     ax_tot.set_title(
-        r'Inclusive cross-section for $\gamma \gamma \rightarrow t \bar{t}$ $(\mu_r = m_Z)$, with $n_f=5$, $n_h(m_t)=1$',
+        r'Inclusive cross-section for $\gamma \gamma \rightarrow t \bar{t}$ $(\mu_r = m_Z)$, with $n_f=5$ and $n_h(m_t)=1$',
         fontsize=FONT_SIZE_SUBTITLE
     )
     # NNLO
-    tp_nnlo, tn_nnlo = glue_sign_flips(total_xs)
+    #tp_nnlo, tn_nnlo = glue_sign_flips(total_xs)
+    tp_nnlo, tn_nnlo, err_pos, err_neg = glue_sign_flips(total_xs, err_tot)
+    #from pprint import pprint
+    #pprint(list(zip(s_vals,tp_nnlo,err_pos)))
+    #pprint(list(zip(s_vals,tn_nnlo,err_neg)))
     has_pos_nnlo = np.any(tp_nnlo > THRESHOLD)
     has_neg_nnlo = np.any(tn_nnlo > THRESHOLD)
     if has_pos_nnlo:
         lbl = (r'$\Delta\sigma^{(\mathrm{NNLO~QCD})}$' if not has_neg_nnlo
                else r'$+\Delta\sigma^{(\mathrm{NNLO~QCD})}$')
-        ax_tot.plot(s_vals, tp_nnlo, label=lbl, color='darkgreen', lw=2)
+        ax_tot.plot(s_vals, tp_nnlo, label=lbl, color='darkgreen', lw=2, marker=MARKER_TOTAL, markersize=MARKERSIZE_TOTAL)
         ax_tot.errorbar(s_vals, tp_nnlo, yerr=err_pos,
                         fmt='none', ecolor='gray', elinewidth=1, capsize=2)
     if has_neg_nnlo:
         ax_tot.plot(s_vals, tn_nnlo,
                     label=r'$-\Delta\sigma^{(\mathrm{NNLO~QCD})}$',
-                    color='darkred', lw=2, ls='--')
+                    color='darkred', lw=2, ls='--', marker=MARKER_TOTAL, markersize=MARKERSIZE_TOTAL)
         ax_tot.errorbar(s_vals, tn_nnlo, yerr=err_neg,
                         fmt='none', ecolor='gray', elinewidth=1, capsize=2)
 
     # NLO
     if s_nlo is not None:
-        tp_nlo, tn_nlo = glue_sign_flips(xs_nlo)
+        tp_nlo, tn_nlo, _, _ = glue_sign_flips(xs_nlo)
         mask_nlo   = (s_nlo >= X_MIN) & (s_nlo <= X_MAX)
         has_pos_nlo = np.any(tp_nlo[mask_nlo] > THRESHOLD)
         has_neg_nlo = np.any(tn_nlo[mask_nlo] > THRESHOLD)
@@ -362,7 +439,7 @@ def main(raw_file):
 
     # LO
     if s_lo is not None:
-        tp_lo, tn_lo = glue_sign_flips(xs_lo)
+        tp_lo, tn_lo, _, _ = glue_sign_flips(xs_lo)
         mask_lo   = (s_lo >= X_MIN) & (s_lo <= X_MAX)
         has_pos_lo = np.any(tp_lo[mask_lo] > THRESHOLD)
         has_neg_lo = np.any(tn_lo[mask_lo] > THRESHOLD)
@@ -384,7 +461,7 @@ def main(raw_file):
             s_tot   = s_nlo
             xs_lo_i = np.interp(s_nlo, s_lo, xs_lo)
             xs_tot  = xs_nlo + xs_lo_i
-        tp_tot, tn_tot = glue_sign_flips(xs_tot)
+        tp_tot, tn_tot, _, _ = glue_sign_flips(xs_tot)
         mask_tot       = (s_tot >= X_MIN) & (s_tot <= X_MAX)
         has_pos_tot    = np.any(tp_tot[mask_tot] > THRESHOLD)
         has_neg_tot    = np.any(tn_tot[mask_tot] > THRESHOLD)
