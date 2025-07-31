@@ -1,19 +1,19 @@
-| Status of 500 workers: 0 pending, 0 available, [92m500[0m running. A total of 22 jobs are pending.
-| Jobs completed: overall = 11151 (avg 3.86 min/job), and for this iteration = 151/675/1000 on 500 cpus.
-| Total n_pts: [92m2787.8M[0m ( [92m1.07 ms / pt[0m on one core, [92m 468.0K pts / s[0m overall ). n_pts for this iteration [94m#12: 37.75M/250.00M (15.1%)[0m.
-| Wall time: 1.655 h, IO: 0.02%, processing: 0.00%, jobs: 717.635 CPU-hours, efficiency: [91m86.74%[0m
+| Status of 500 workers: 0 pending, 500 available, [92m0[0m running. A total of 0 jobs are pending.
+| Jobs completed: overall = 9000 (avg 3.95 min/job), and for this iteration = 1000/1000/1000 on 500 cpus.
+| Total n_pts: [92m2250.0M[0m ( [92m1.07 ms / pt[0m on one core, [92m 465.4K pts / s[0m overall ). n_pts for this iteration [94m#9: 250.00M/250.00M (100.0%)[0m.
+| Wall time: 1.343 h, IO: 0.03%, processing: 0.00%, jobs: 592.150 CPU-hours, efficiency: [91m88.19%[0m
 
 [94mRun description:[0m [92mnnlo_all_singlets_15_sqrts_1900_0[0m (run id: [92m1337015[0m)
-Result after 2787.8M evaluations and 11 iterations: [91m1.26852e-05 +/- 7.762e-05   (6.1e+02%)[0m, chi2=[92m1.56[0m, max_wgt_infl=[92m0.699[0m, zero_evals=0%
-  -> Re[I0([92mmu_r_x_1[0m)] = 1.2685e-05 +/- 7.7623e-05 (6.1e+02%), chi2=17.2, max_wgt_infl=0.699, zero_evals=0%
-     Im[I0([92mmu_r_x_1[0m)] = 0 +/- 4.3016e-09 (0%), chi2=0, max_wgt_infl=0, zero_evals=100%
+Result after 10000.0M evaluations and 39 iterations: [91m3.73785e-05 +/- 3.385e-05   (91%)[0m, chi2=[92m0.976[0m, max_wgt_infl=[92m0.513[0m, zero_evals=0%
+  -> Re[I0([92mmu_r_x_1[0m)] = 3.7379e-05 +/- 3.385e-05 (91%), chi2=38, max_wgt_infl=0.513, zero_evals=0%
+     Im[I0([92mmu_r_x_1[0m)] = 0 +/- 2.3561e-09 (0%), chi2=0, max_wgt_infl=0, zero_evals=100%
 +--------+------------------------------------------------------------------------------------------+
 | Result | Re[I0(mu_r_x_1)]                                                                         |
 +--------+------------------------------------------------------------------------------------------+
-| Total  | [91m+1.26852e-05 +- 7.76e-05 (6.1e+02%)[0m | chi2=[92m1.56[0m|mwi=[92m0.699[0m|n=2787.8M(1e+02%)|n0=0.0M(0%)  |
-| Sum    | [91m-4.64439e-05 +- 5.55e-05 (1.2e+02%)[0m                                                      |
-| GL168  | [91m-0.000760151 +- 4.12e-05 (5.4%)  [0m | chi2=[92m1.27[0m|mwi=[92m1.55[0m|n=1054.0M(38%)|n0=0.0M(0%)|p=48%  |
-| GL208  | [91m+0.00151716  +- 2.72e-05 (1.8%)  [0m | chi2=[92m0.708[0m|mwi=[92m1.33[0m|n=1107.9M(40%)|n0=0.0M(0%)|p=31% |
-| GL172  | [91m+0.000113121 +- 2.51e-05 (22%)   [0m | chi2=[92m1.31[0m|mwi=[92m1.26[0m|n=441.3M(16%)|n0=0.0M(0%)|p=19%   |
-| GL380  | [92m-0.000916573 +- 3.69e-06 (0.4%)  [0m | chi2=[92m3.22[0m|mwi=[91m18.8[0m|n=184.5M(6.6%)|n0=0.0M(0%)|p=1.8% |
+| Total  | [91m+3.73785e-05 +- 3.39e-05 (91%)   [0m | chi2=[92m0.976[0m|mwi=[92m0.513[0m|n=10000.0M(1e+02%)|n0=0.0M(0%)  |
+| Sum    | [91m+5.79821e-06 +- 2.58e-05 (4.5e+02%)[0m                                                      |
+| GL168  | [91m-0.000706113 +- 1.74e-05 (2.5%)  [0m | chi2=[92m1[0m|mwi=[92m1.01[0m|n=4148.1M(41%)|n0=0.0M(0%)|p=43%     |
+| GL208  | [91m+0.00150164  +- 1.57e-05 (1%)    [0m | chi2=[92m1.01[0m|mwi=[92m0.819[0m|n=3800.7M(38%)|n0=0.0M(0%)|p=38% |
+| GL172  | [91m+0.000126383 +- 1.07e-05 (8.5%)  [0m | chi2=[92m1.28[0m|mwi=[92m0.809[0m|n=1775.1M(18%)|n0=0.0M(0%)|p=18% |
+| GL380  | [92m-0.000916108 +- 1.72e-06 (0.19%) [0m | chi2=[92m1.5[0m|mwi=[91m27[0m|n=276.1M(2.8%)|n0=0.0M(0%)|p=1.1%    |
 +--------+------------------------------------------------------------------------------------------+
