@@ -5,6 +5,6 @@ digraph qqx_aaa_tree_1 {
             v1:3 -> ext [particle="a" id=3];
             v2:4 -> ext [particle="a" id=4];
             v3:0 -> ext [particle="a" id=0];
-            v1 -> v2 [particle="d" id=5];
+            v1:5 -> v2:6 [particle="d" id=5];
             v2 -> v3 [particle="d" id=6];
 }
