@@ -1,5 +1,5 @@
 digraph dot_106_0_GL286 {
-label="FSG GL286 #106 x ( -2 )";
+label="FSG GL286 #99 x ( -2 )";
 noverlap="scale"; layout="neato";
 graph [ 
 overall_factor="NumeratorDependentGrouping(286,1,AntiFermionSpinSumSign(1)*AutG(2)^-1*ExternalFermionOrderingSign(1)*InternalFermionLoopSign(-1)*NumeratorIndependentSymmetryGrouping(2))+NumeratorDependentGrouping(287,1,AntiFermionSpinSumSign(1)*AutG(2)^-1*ExternalFermionOrderingSign(1)*InternalFermionLoopSign(-1)*NumeratorIndependentSymmetryGrouping(2))",

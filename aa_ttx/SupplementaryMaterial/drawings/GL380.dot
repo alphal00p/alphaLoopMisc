@@ -1,5 +1,5 @@
 digraph dot_130_0_GL380 {
-label="FSG GL380 #130 x ( 2 )";
+label="FSG GL380 #116 x ( 2 )";
 noverlap="scale"; layout="neato";
 graph [ 
 overall_factor="NumeratorDependentGrouping(380,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1))+NumeratorDependentGrouping(381,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1))",

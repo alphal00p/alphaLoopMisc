@@ -1,5 +1,5 @@
 digraph dot_151_0_GL450 {
-label="FSG GL450 #151 x ( 2 )";
+label="FSG GL450 #136 x ( 2 )";
 noverlap="scale"; layout="neato";
 graph [ 
 overall_factor="NumeratorDependentGrouping(450,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1))+NumeratorDependentGrouping(451,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1))",

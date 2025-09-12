@@ -1,5 +1,5 @@
 digraph dot_67_0_GL172 {
-label="FSG GL172 #67 x ( 4 )";
+label="FSG GL172 #60 x ( 4 )";
 noverlap="scale"; layout="neato";
 graph [ 
 overall_factor="NumeratorDependentGrouping(172,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1))+NumeratorDependentGrouping(173,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1))+NumeratorDependentGrouping(174,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1))+NumeratorDependentGrouping(175,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1))",

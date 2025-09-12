@@ -1,5 +1,5 @@
 digraph dot_147_0_GL430 {
-label="FSG GL430 #147 x ( 8 )";
+label="FSG GL430 #132 x ( 8 )";
 noverlap="scale"; layout="neato";
 graph [ 
 overall_factor="NumeratorDependentGrouping(430,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1)*NumeratorIndependentSymmetryGrouping(4))+NumeratorDependentGrouping(431,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1)*NumeratorIndependentSymmetryGrouping(4))",

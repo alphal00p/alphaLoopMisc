@@ -1,5 +1,5 @@
 digraph dot_9_0_GL18 {
-label="FSG GL18 #9 x ( 2 )";
+label="FSG GL18 #10 x ( 2 )";
 noverlap="scale"; layout="neato";
 graph [ 
 overall_factor="NumeratorDependentGrouping(18,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1))+NumeratorDependentGrouping(19,1,AntiFermionSpinSumSign(1)*AutG(1)^-1*ExternalFermionOrderingSign(1))",
