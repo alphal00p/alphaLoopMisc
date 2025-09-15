@@ -1,0 +1,160 @@
+WARNING :: Cuba shared library could not be found, install it if needed.
+alphaLoop.Interface: [91malphaLoop temporarily dynamically patched 'helas_objects.HelasMultiProcess.generate_matrix_elements' so as to turn off wavefunction recycling.[0m[0m
+alphaLoop.Interface: [91malphaLoop temporarily dynamically patched 'aloha_writers.ALOHAWriterForFortran.define_expression' so as to turn off all propagator denominators.[0m[0m
+alphaLoop.Interface: [91malphaLoop temporarily dynamically patched 'create_aloha.AbstractALOHAModel.compute_subset' so as to force it to use the loop mode in all cases.[0m[0m
+alphaLoop.Interface: [91malphaLoop temporarily dynamically patched 'aloha_writers.ALOHAWriterForFortran.get_header_txt' and 'aloha_writers.ALOHAWriterForFortran.get_declaration_txt' so as to allow for 'manual' complex conjugation in ALOHA.[0m[0m
+[1;34mPlugin PLUGIN.new_aL_deformation has marked as NOT being validated with this version. 
+It has been validated for the last time with version: 2.0.0[0m
+************************************************************
+*                                                          *
+*                     W E L C O M E to                     *
+*              M A D G R A P H 5 _ a M C @ N L O           *
+*                                                          *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.5.8                 2024-03-15         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*              http://madgraph.phys.ucl.ac.be/             *
+*                            and                           *
+*            http://amcatnlo.web.cern.ch/amcatnlo/         *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*           Type 'tutorial' to learn how MG5 works         *
+*    Type 'tutorial aMCatNLO' to learn how aMC@NLO works   *
+*    Type 'tutorial MadLoop' to learn how MadLoop works    *
+*                                                          *
+************************************************************
+load MG5 configuration from input/mg5_configuration.txt 
+fastjet-config does not seem to correspond to a valid fastjet-config executable (v3+). We will use fjcore instead.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/fastjet-config (including fastjet-config).
+ MG5_aMC> set fastjet /PATH/TO/fastjet-config
+
+eMELA-config does not seem to correspond to a valid eMELA-config executable.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/eMELA-config (including eMELA-config).
+ MG5_aMC> set eMELA /PATH/TO/eMELA-config
+
+lhapdf-config does not seem to correspond to a valid lhapdf-config executable. 
+Please set the 'lhapdf' variable to the (absolute) /PATH/TO/lhapdf-config (including lhapdf-config).
+Note that you can still compile and run aMC@NLO with the built-in PDFs
+ MG5_aMC> set lhapdf /PATH/TO/lhapdf-config
+
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+import /home/vhirschi/MG5_aMC_v3_5_8/bench_LO.aL
+The import format was not given, so we guess it as command
+import model aL_sm-no_widths
+INFO: Restrict model aL_sm-no_widths with file models/aL_sm/restrict_no_widths.dat . 
+INFO: Run "set stdout_level DEBUG" before import for more information. 
+INFO: Change particles name to pass to MG5 convention 
+Defined multiparticle p = g u c d s u~ c~ d~ s~
+Defined multiparticle j = g u c d s u~ c~ d~ s~
+Defined multiparticle l+ = e+ mu+
+Defined multiparticle l- = e- mu-
+Defined multiparticle vl = ve vm vt
+Defined multiparticle vl~ = ve~ vm~ vt~
+Defined multiparticle all = gh g ghg gh~ ghg~ u c d s u~ c~ d~ s~ a gha gha~ ve vm vt e- mu- ve~ vm~ vt~ e+ mu+ t b t~ b~ z w+ ghz ghwp ghwm h w- ghz~ ghwp~ ghwm~ ta- ta+
+launch /shared/vhirschi/aa_ttx/runs/LO_from_gL
+alphaLoop.Interface: Loading supergraphs from '/shared/vhirschi/aa_ttx/runs/LO_from_gL'...
+alphaLoop.Interface: 2 supergraphs ([92m2[0m with [92mpickle[0m format and [91m0[0m with [91myaml[0m format) loaded in [94m0s[0m.
+************************************************************
+*                                                          *
+*                     W E L C O M E to                     *
+*              M A D G R A P H 5 _ a M C @ N L O           *
+*                                                          *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.5.8                 2024-03-15         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*              http://madgraph.phys.ucl.ac.be/             *
+*                            and                           *
+*            http://amcatnlo.web.cern.ch/amcatnlo/         *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*           Type 'tutorial' to learn how MG5 works         *
+*    Type 'tutorial aMCatNLO' to learn how aMC@NLO works   *
+*    Type 'tutorial MadLoop' to learn how MadLoop works    *
+*                                                          *
+************************************************************
+load MG5 configuration from input/mg5_configuration.txt 
+fastjet-config does not seem to correspond to a valid fastjet-config executable (v3+). We will use fjcore instead.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/fastjet-config (including fastjet-config).
+ MG5_aMC> set fastjet /PATH/TO/fastjet-config
+
+eMELA-config does not seem to correspond to a valid eMELA-config executable.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/eMELA-config (including eMELA-config).
+ MG5_aMC> set eMELA /PATH/TO/eMELA-config
+
+lhapdf-config does not seem to correspond to a valid lhapdf-config executable. 
+Please set the 'lhapdf' variable to the (absolute) /PATH/TO/lhapdf-config (including lhapdf-config).
+Note that you can still compile and run aMC@NLO with the built-in PDFs
+ MG5_aMC> set lhapdf /PATH/TO/lhapdf-config
+
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+set_hyperparameter Selectors []
+set_hyperparameter CrossSection.incoming_momenta [[250.0,0.,0.,-250.0],[250.0,0.,0.,250.0]]
+set_hyperparameter CrossSection.picobarns True
+set_hyperparameter General.deformation_strategy "none"
+set_hyperparameter CrossSection.m_uv_sq 160000.0
+set_hyperparameter CrossSection.mu_r_sq 8315.251344
+set_hyperparameter General.multi_channeling True
+set_hyperparameter General.use_optimal_channels False
+set_hyperparameter General.use_lmb_channels False
+refresh_derived_data
+alphaLoop.Interface: Loading supergraphs from '/shared/vhirschi/aa_ttx/runs/LO_from_gL'...
+alphaLoop.Interface: 2 supergraphs ([92m0[0m with [92mpickle[0m format and [91m2[0m with [91myaml[0m format) loaded in [94m0s[0m.
+timing_profile ALL -n 10000
+alphaLoop.Interface: Starting timing profile...
+alphaLoop.Interface: Timing profile completed in 0 [s].
+alphaLoop.Interface: Writing out processed yaml supergaphs on disk...
+alphaLoop.Interface: Overall timing profile for all supergraphs:
+
+[94mStatistics for individual supergraphs[0m
+
+Timing profile for supergraph [92mGL0[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.005 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.033 ms
+[92mSlowest cut evaluation                  [0m : 0.033 ms (cut #0)
+[92mFastest cut evaluation                  [0m : 0.033 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.033 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mGL2[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.005 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.033 ms
+[92mSlowest cut evaluation                  [0m : 0.033 ms (cut #0)
+[92mFastest cut evaluation                  [0m : 0.033 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.033 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+[94mOverall statistics for f64_with_cLTD precision and 2 supergraphs:[0m
+[94m-----------------------------------------------------------------[0m
+[92mSummed timing for overall evaluate      [0m : 0.010 ms
+[92mSummed timing for summed evaluate cuts  [0m : 0.067 ms
+[92mAverage timing over all supergaphs      [0m : 0.005 ms
+[92mSlowest supergraph evaluation           [0m : 0.005 ms (GL2)
+[92mFastest supergraph evaluation           [0m : 0.005 ms (GL0)
+
+ ---
+ FINAL PARSEABLE RESULTS:
+ ---
+SG_ID SG_name n_cuts t_sample[ms]
+ ---
+0   GL0    1  0.0048
+1   GL2    1  0.0048
+quit
+quit

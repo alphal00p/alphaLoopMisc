@@ -1,0 +1,358 @@
+WARNING :: Cuba shared library could not be found, install it if needed.
+alphaLoop.Interface: [91malphaLoop temporarily dynamically patched 'helas_objects.HelasMultiProcess.generate_matrix_elements' so as to turn off wavefunction recycling.[0m[0m
+alphaLoop.Interface: [91malphaLoop temporarily dynamically patched 'aloha_writers.ALOHAWriterForFortran.define_expression' so as to turn off all propagator denominators.[0m[0m
+alphaLoop.Interface: [91malphaLoop temporarily dynamically patched 'create_aloha.AbstractALOHAModel.compute_subset' so as to force it to use the loop mode in all cases.[0m[0m
+alphaLoop.Interface: [91malphaLoop temporarily dynamically patched 'aloha_writers.ALOHAWriterForFortran.get_header_txt' and 'aloha_writers.ALOHAWriterForFortran.get_declaration_txt' so as to allow for 'manual' complex conjugation in ALOHA.[0m[0m
+[1;34mPlugin PLUGIN.new_aL_deformation has marked as NOT being validated with this version. 
+It has been validated for the last time with version: 2.0.0[0m
+************************************************************
+*                                                          *
+*                     W E L C O M E to                     *
+*              M A D G R A P H 5 _ a M C @ N L O           *
+*                                                          *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.5.8                 2024-03-15         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*              http://madgraph.phys.ucl.ac.be/             *
+*                            and                           *
+*            http://amcatnlo.web.cern.ch/amcatnlo/         *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*           Type 'tutorial' to learn how MG5 works         *
+*    Type 'tutorial aMCatNLO' to learn how aMC@NLO works   *
+*    Type 'tutorial MadLoop' to learn how MadLoop works    *
+*                                                          *
+************************************************************
+load MG5 configuration from input/mg5_configuration.txt 
+fastjet-config does not seem to correspond to a valid fastjet-config executable (v3+). We will use fjcore instead.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/fastjet-config (including fastjet-config).
+ MG5_aMC> set fastjet /PATH/TO/fastjet-config
+
+eMELA-config does not seem to correspond to a valid eMELA-config executable.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/eMELA-config (including eMELA-config).
+ MG5_aMC> set eMELA /PATH/TO/eMELA-config
+
+lhapdf-config does not seem to correspond to a valid lhapdf-config executable. 
+Please set the 'lhapdf' variable to the (absolute) /PATH/TO/lhapdf-config (including lhapdf-config).
+Note that you can still compile and run aMC@NLO with the built-in PDFs
+ MG5_aMC> set lhapdf /PATH/TO/lhapdf-config
+
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+import /home/vhirschi/MG5_aMC_v3_5_8/bench_NLO.aL
+The import format was not given, so we guess it as command
+import model aL_sm-no_widths
+INFO: Restrict model aL_sm-no_widths with file models/aL_sm/restrict_no_widths.dat . 
+INFO: Run "set stdout_level DEBUG" before import for more information. 
+INFO: Change particles name to pass to MG5 convention 
+Defined multiparticle p = g u c d s u~ c~ d~ s~
+Defined multiparticle j = g u c d s u~ c~ d~ s~
+Defined multiparticle l+ = e+ mu+
+Defined multiparticle l- = e- mu-
+Defined multiparticle vl = ve vm vt
+Defined multiparticle vl~ = ve~ vm~ vt~
+Defined multiparticle all = gh g ghg gh~ ghg~ u c d s u~ c~ d~ s~ a gha gha~ ve vm vt e- mu- ve~ vm~ vt~ e+ mu+ t b t~ b~ z w+ ghz ghwp ghwm h w- ghz~ ghwp~ ghwm~ ta- ta+
+launch ./LU_aa_ttx_NLO_all_aligned
+alphaLoop.Interface: Loading supergraphs from '/home/vhirschi/MG5_aMC_v3_5_8/LU_aa_ttx_NLO_all_aligned'...
+alphaLoop.Interface: 20 supergraphs ([92m20[0m with [92mpickle[0m format and [91m0[0m with [91myaml[0m format) loaded in [94m0s[0m.
+************************************************************
+*                                                          *
+*                     W E L C O M E to                     *
+*              M A D G R A P H 5 _ a M C @ N L O           *
+*                                                          *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 3.5.8                 2024-03-15         *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*              http://madgraph.phys.ucl.ac.be/             *
+*                            and                           *
+*            http://amcatnlo.web.cern.ch/amcatnlo/         *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*           Type 'tutorial' to learn how MG5 works         *
+*    Type 'tutorial aMCatNLO' to learn how aMC@NLO works   *
+*    Type 'tutorial MadLoop' to learn how MadLoop works    *
+*                                                          *
+************************************************************
+load MG5 configuration from input/mg5_configuration.txt 
+fastjet-config does not seem to correspond to a valid fastjet-config executable (v3+). We will use fjcore instead.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/fastjet-config (including fastjet-config).
+ MG5_aMC> set fastjet /PATH/TO/fastjet-config
+
+eMELA-config does not seem to correspond to a valid eMELA-config executable.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/eMELA-config (including eMELA-config).
+ MG5_aMC> set eMELA /PATH/TO/eMELA-config
+
+lhapdf-config does not seem to correspond to a valid lhapdf-config executable. 
+Please set the 'lhapdf' variable to the (absolute) /PATH/TO/lhapdf-config (including lhapdf-config).
+Note that you can still compile and run aMC@NLO with the built-in PDFs
+ MG5_aMC> set lhapdf /PATH/TO/lhapdf-config
+
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+set_hyperparameter Selectors []
+set_hyperparameter CrossSection.incoming_momenta [[250.0,0.,0.,-250.0],[250.0,0.,0.,250.0]]
+set_hyperparameter CrossSection.picobarns True
+set_hyperparameter General.deformation_strategy "none"
+set_hyperparameter CrossSection.m_uv_sq 8315.251344
+set_hyperparameter CrossSection.mu_r_sq 8315.251344
+set_hyperparameter General.multi_channeling True
+set_hyperparameter General.use_optimal_channels False
+set_hyperparameter General.use_lmb_channels False
+refresh_derived_data
+alphaLoop.Interface: Loading supergraphs from '/home/vhirschi/MG5_aMC_v3_5_8/LU_aa_ttx_NLO_all_aligned'...
+alphaLoop.Interface: 20 supergraphs ([92m0[0m with [92mpickle[0m format and [91m20[0m with [91myaml[0m format) loaded in [94m1s[0m.
+timing_profile ALL -n 1000
+alphaLoop.Interface: Starting timing profile...
+alphaLoop.Interface: Timing profile completed in 1 [s].
+alphaLoop.Interface: Writing out processed yaml supergaphs on disk...
+alphaLoop.Interface: Overall timing profile for all supergraphs:
+
+[94mStatistics for individual supergraphs[0m
+
+Timing profile for supergraph [92mSG_QG0[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.018 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.179 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #2)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #3                       [0m : 0.036 ms (n_loops_left=[92m1[0m, n_CC=[92m2[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #2                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG2[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.017 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.178 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #2)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #3                       [0m : 0.035 ms (n_loops_left=[92m1[0m, n_CC=[92m2[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #2                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG24[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.009 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.089 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG26[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.010 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.089 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG30[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.010 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.089 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG32[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.009 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.089 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG38[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.009 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.089 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m1[0m, n_CC=[92m2[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG4[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.006 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.054 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #0)
+[92mFastest cut evaluation                  [0m : 0.054 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG40[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.010 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.089 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m1[0m, n_CC=[92m2[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG44[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.010 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.089 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m1[0m, n_CC=[92m2[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG46[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.009 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.089 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m1[0m, n_CC=[92m2[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG48[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.006 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.035 ms
+[92mSlowest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG50[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.006 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.035 ms
+[92mSlowest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG52[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.014 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.093 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.039 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.039 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG56[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.014 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.094 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.040 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.040 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG60[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.014 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.093 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.039 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.039 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG64[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.014 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.093 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #1)
+[92mFastest cut evaluation                  [0m : 0.039 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.039 ms (n_loops_left=[92m0[0m, n_CC=[92m2[0m, n_loops_right=[92m1[0m, n_diag_sets=[92m1[0m)
+[92mTiming for cut #1                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG68[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.006 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.035 ms
+[92mSlowest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m1[0m, n_CC=[92m2[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG70[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.006 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.035 ms
+[92mSlowest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mFastest cut evaluation                  [0m : 0.035 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.035 ms (n_loops_left=[92m1[0m, n_CC=[92m2[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+Timing profile for supergraph [92mSG_QG8[0m:
+[94mStatistics for f64 with cLTD:[0m
+[94m-----------------------------[0m
+[92mTiming for overall evaluate             [0m : 0.006 ms
+[92mSummed timing overall evaluate cuts     [0m : 0.054 ms
+[92mSlowest cut evaluation                  [0m : 0.054 ms (cut #0)
+[92mFastest cut evaluation                  [0m : 0.054 ms (cut #0)
+[92mTiming for cut #0                       [0m : 0.054 ms (n_loops_left=[92m0[0m, n_CC=[92m3[0m, n_loops_right=[92m0[0m, n_diag_sets=[92m1[0m)
+
+[94mOverall statistics for f64_with_cLTD precision and 20 supergraphs:[0m
+[94m------------------------------------------------------------------[0m
+[92mSummed timing for overall evaluate      [0m : 0.201 ms
+[92mSummed timing for summed evaluate cuts  [0m : 1.690 ms
+[92mAverage timing over all supergaphs      [0m : 0.010 ms
+[92mSlowest supergraph evaluation           [0m : 0.018 ms (SG_QG0)
+[92mFastest supergraph evaluation           [0m : 0.006 ms (SG_QG8)
+
+ ---
+ FINAL PARSEABLE RESULTS:
+ ---
+SG_ID SG_name n_cuts t_sample[ms]
+ ---
+0   SG_QG0 4  0.0175
+1   SG_QG2 4  0.0171
+2   SG_QG4 1  0.0056
+3   SG_QG8 1  0.0056
+4   SG_QG24 2  0.0093
+5   SG_QG26 2  0.0096
+6   SG_QG30 2  0.0096
+7   SG_QG32 2  0.0093
+8   SG_QG38 2  0.0094
+9   SG_QG40 2  0.0097
+10  SG_QG44 2  0.0096
+11  SG_QG46 2  0.0094
+12  SG_QG48 1  0.0061
+13  SG_QG50 1  0.0062
+14  SG_QG52 2  0.0135
+15  SG_QG56 2  0.0139
+16  SG_QG60 2  0.0139
+17  SG_QG64 2  0.0136
+18  SG_QG68 1  0.0061
+19  SG_QG70 1  0.0062
+quit
+quit
