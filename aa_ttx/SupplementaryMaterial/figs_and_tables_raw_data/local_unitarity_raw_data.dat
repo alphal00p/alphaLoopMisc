@@ -1,4 +1,4 @@
-# Raw data from alphaLoop with mQ=173 GeV, muR=91.188 GeV, aS(muR)=0.118
+# Raw data from alphaLoop for a a > t t~ with mTop=173 GeV, muR=91.188 GeV, aS(muR)=0.118, aEW^(-1) = 137.0
 # energy (GeV),   Delta NNLO QCD non-nq (pb),  Delta NNLO QCD non-nq error (pb),  Delta NNLO QCD nq (nq=1) (pb),  Delta NNLO QCD nq (nq=1) error (pb)
 346.002 8.037381372612296 0.03517530619522436 -0.02056115636467933 0.0002504043779264015
 346.02 2.6474097108784167 0.009902811960012933 -0.015843533506502902 0.0001376017524765219
