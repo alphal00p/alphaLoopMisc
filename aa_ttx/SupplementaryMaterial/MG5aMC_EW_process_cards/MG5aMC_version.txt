@@ -1,3 +1,10 @@
-git clone https://github.com/mg5amcnlo/mg5amcnlo/tree/UPC_NLO
+git clone -b UPC_NLO https://github.com/mg5amcnlo/mg5amcnlo.git MG_FOR_AAQQX_REPRODUCTION
+cd MG_FOR_AAQQX_REPRODUCTION
+git reset --hard 1a6a8b17123c75fad0a415f3708f74d7e58be359
+(`1a6a8b17123c75fad0a415f3708f74d7e58be359` is the version our results where ran from, but a more recent revision of that branch may work as well)
 
-When you use this version, please cite arXiv:2504.10104 on top of the standard ones (arXiv:1405.0301,arXiv:1804.10017).
+Then because the UFO model loop_qcd_qed_sm_Gmu_3FS for charm final state is not online, you must copy it to your madgraph folder, i.e.
+
+mv ../loop_qcd_qed_sm_Gmu_3FS ./models/
+
+Finally, when you use this version/branch of MadGraph5_aMC@NLO, make sure to cite arXiv:2504.10104 on top of the standard ones (arXiv:1405.0301,arXiv:1804.10017).
