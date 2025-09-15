@@ -1,0 +1,6 @@
+In aa2bbxQCDQED
+
+Remember to set
+LOGICAL,PUBLIC::use_MC_Glauber=.TRUE.
+in Source/PDF/gammaUPC/ElasticPhotonPhotonFlux.f90 and recompile
+

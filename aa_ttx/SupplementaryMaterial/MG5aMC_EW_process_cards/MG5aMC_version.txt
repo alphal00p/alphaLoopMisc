@@ -1,0 +1,3 @@
+git clone https://github.com/mg5amcnlo/mg5amcnlo/tree/UPC_NLO
+
+When you use this version, please cite arXiv:2504.10104 on top of the standard ones (arXiv:1405.0301,arXiv:1804.10017).
