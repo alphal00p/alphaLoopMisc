@@ -52,7 +52,8 @@ Requirements:
     
     'git clone git@github.com:benruijl/symbolica-community.git && cd symbolica-community'
     'cargo run --features \"python_stubgen\"'
-    'maturin build --release'
+    'maturin build --release --features \"python_stubgen\"'
+    'python3 -m pip install <path_to_the_wheel_generated_above>
 
 * GammaLoop API:
 
@@ -72,8 +73,8 @@ SCB`.`Init[
 ";
 
 (* declare once; add new API names here only *)
-SCB`$PublicSymbols = {Init, Reset, InitializedQ, SimplifyColor, SimplifyGamma, GammaLoop, RunPython, ResetGammaLoop};
-SCB`$GatedSymbols  = {SimplifyColor, SimplifyGamma, GammaLoop, RunPython};
+SCB`$PublicSymbols = {Init, Reset, InitializedQ, SimplifyColor, SimplifyGamma, GammaLoop, RunPython, ResetGammaLoop,SExpand,SetDebugLevel};
+SCB`$GatedSymbols  = {SimplifyColor, SimplifyGamma, GammaLoop, RunPython,SExpand};
 
 (* ===== private section ===== *)
 Begin["`Private`"];
@@ -121,6 +122,9 @@ iDefineImpl[] := Module[{},
   Scan[requireInit, gatedSyms[]];
 
   SCB`WrappedExternalEvaluate[py_,cmd_]:=Block[{res},
+    If[$config["DebugLevel"]>0,
+      InfoMessage["Running the following Python code:\n"<>cmd];
+    ];
     res = ExternalEvaluate[py,cmd];
     If[Head[res]===Failure,
        Print[res];
@@ -129,21 +133,53 @@ iDefineImpl[] := Module[{},
     res
   ];
   
-  SCB`ExprToString[expr_]:=Block[{},
-     If[StringQ[expr],
+  SCB`UncurryExpr[expr_] := Module[{}, expr //. {x_[y___][z___] :> x[y, SCBridge`CurryDivider, z]} ] ;
+  
+  SCB`CurryExpr[expr_] := Module[{}, expr //. {x_[y___, SCBridge`CurryDivider, z___] :> x[y][z]} ];
+  
+  SetAttributes[SCB`UncurryExprHeld, HoldAllComplete];
+  SCB`UncurryExprHeld[expr_] :=
+  ReleaseHold @ FixedPoint[
+    Replace[#, x_[y___][z___] :> x[y, SCBridge`CurryDivider, z], {0, Infinity}, Heads -> True] &,
+    HoldComplete[expr]
+  ];
+
+  SetAttributes[SCB`CurryExprHeld, HoldAllComplete];
+  SCB`CurryExprHeld[expr_] :=
+  ReleaseHold @ FixedPoint[
+    Replace[#, x_[y___, SCBridge`CurryDivider, z___] :> x[y][z], {0, Infinity}, Heads -> True] &,
+    HoldComplete[expr]
+  ];
+  
+  
+  SCB`ExprToString[expr_, OptionsPattern[{BackTickReplace -> False}]]:=Block[{res},
+     res = If[StringQ[expr],
        expr,
-       ToString[InputForm[expr]]
+       ToString[InputForm[SCB`UncurryExpr[expr]]]
+     ];
+     If[
+     OptionValue[BackTickReplace],
+     StringReplace[res,{"`"->"MATHEMATICABACKTICK"}],
+     res
      ]
   ];
 
-  SCB`StringToExpr[expr_]:=Block[{},
+  SCB`StringToExpr[expr_, OptionsPattern[{BackTickReplace -> False}]]:=Block[{processedExpr,res},
+  
      If[StringQ[expr],
-       If[And[StringLength[expr]>=2, StringTake[expr,1]==="'", StringTake[expr,-1]==="'"],
-         ToExpression[StringTake[expr,{2,-2}]]
+       processedExpr = If[OptionValue[BackTickReplace],
+          StringReplace[expr,{"MATHEMATICABACKTICK"->"`"}]
+          ,
+          expr
+       ];
+       res=If[And[StringLength[processedExpr]>=2, StringTake[processedExpr,1]==="'", StringTake[processedExpr,-1]==="'"],
+         ToExpression[StringTake[processedExpr,{2,-2}]]
          ,
-         ToExpression[expr]
-       ],
-       expr
+         ToExpression[processedExpr]
+       ];
+       SCB`CurryExpr[res]
+       ,
+       processedExpr
      ]
   ];
 
@@ -216,9 +252,9 @@ iDefineImpl[] := Module[{},
 	
 	InfoMessage["Ignore deprecation warnings appearing below, if any"];
     py = If[Not[OptionValue[PythonInterpreter] === Automatic],
-      StartExternalSession[<|"System" -> "Python","ReturnType" -> "String", "Evaluator" -> OptionValue[PythonInterpreter]|>]
+      StartExternalSession[<|"System" -> "Python","ReturnType" -> "Expression", "Evaluator" -> OptionValue[PythonInterpreter]|>]
       ,
-      StartExternalSession[<|"System" -> "Python", "ReturnType" -> "String"|>]
+      StartExternalSession[<|"System" -> "Python", "ReturnType" -> "Expression"|>]
      ];
     
     If[
@@ -255,7 +291,7 @@ from symbolica.community.spenso import Tensor, TensorName as N, LibraryTensor, T
        "GammaLoopPath" -> OptionValue[GammaLoopPath], 
        "SymbolicaCommunityPath" -> OptionValue[SymbolicaCommunityPath], 
        "SymbolicaLicense" -> OptionValue[SymbolicaLicense],
-       "DebugLevel" -> OptionValue[DebugLevel],
+       "DebugLevel" -> If[OptionValue[DebugLevel]==="Info",0,1],
        "py" -> py
     |>;
      
@@ -269,25 +305,59 @@ from symbolica.community.spenso import Tensor, TensorName as N, LibraryTensor, T
     ];
     Return[False];
   ];
-
+  
+  SCB`SetDebugLevel[DebugLevel_] := Block[{},
+    $config["DebugLevel"] = DebugLevel;
+  ];
+  
   SCB`InitializedQ[] := TrueQ[$initialized];
   SCB`Reset[] := ($initialized = False; $config = <||>; Null);
 
   (* implementations *)
 
-  SCB`SimplifyColor[expr_] := 140*expr;
+  SCB`SExpand[expr_] := Block[{ inputExpr, pythoncmd, res },
+     
+     inputExpr = SCB`ExprToString[expr, BackTickReplace -> True];
+     
+     pythoncmd = StringTemplate["
+E('`inputExpr`'.replace('MATHEMATICABACKTICK','`'), ParseMode.Mathematica).expand().to_mathematica()
+     "][<|"inputExpr"->inputExpr|>];
+     
+     (* Print[pythoncmd]; *)
+     
+     res = WrappedExternalEvaluate[ $config["py"] , pythoncmd ];
+     
+     SCB`StringToExpr[res]
+  ];
+
+  SCB`SimplifyColor[expr_] := Block[{ inputExpr, pythoncmd, res },
+     
+     inputExpr = SCB`ExprToString[expr, BackTickReplace -> True];
+     
+     pythoncmd = StringTemplate["
+e = E('`inputExpr`'.replace('MATHEMATICABACKTICK','`'), ParseMode.Mathematica)
+e = simplify_color(e)
+e.to_mathematica()
+     "][<|"inputExpr"->inputExpr|>];
+     
+     (* Print[pythoncmd]; *)
+     
+     res = WrappedExternalEvaluate[ $config["py"] , pythoncmd ];
+     
+     SCB`StringToExpr[res]
+  ];
   
   SCB`SimplifyGamma[expr_] := Block[{ inputExpr, pythoncmd, res },
      
-     inputExpr = SCB`ExprToString[expr];
+     inputExpr = SCB`ExprToString[expr, BackTickReplace -> True];
      
      pythoncmd = StringTemplate["
-e = E(\"`inputExpr`\")
+e = E('`inputExpr`'.replace('MATHEMATICABACKTICK','`'), ParseMode.Mathematica)
 e = simplify_gamma(e)
-e.format(PrintMode.Mathematica)
+e.to_mathematica()
      "][<|"inputExpr"->inputExpr|>];
      
-     (* Print[pythoncmd];*)
+     (* Print[pythoncmd]; *)
      
      res = WrappedExternalEvaluate[ $config["py"] , pythoncmd ];
      
@@ -298,7 +368,7 @@ e.format(PrintMode.Mathematica)
     WrappedExternalEvaluate[ $config["py"] , pythonCode]
   ];
 
-  SCB`ResetGammaLoop[cmd_, OptionsPattern[{GammaLoopStatePath -> Automatic}]] := Module[
+  SCB`ResetGammaLoop[OptionsPattern[{GammaLoopStatePath -> Automatic}]] := Module[
      {}, 
      If[
        OptionValue[GammaLoopStatePath] === Automatic,
