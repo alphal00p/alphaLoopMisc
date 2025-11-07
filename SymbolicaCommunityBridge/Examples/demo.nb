@@ -1,0 +1,681 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     27605,        673]
+NotebookOptionsPosition[     22801,        587]
+NotebookOutlinePosition[     23194,        603]
+CellTagsIndexPosition[     23151,        600]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Symbolica Community Bridge: Demo Notebook", "Title",
+ CellChangeTimes->{{3.971457189357193*^9, 3.971457192096426*^9}, {
+  3.9714590641335173`*^9, 3.971459082029763*^9}, {3.9714593432866573`*^9, 
+  3.971459345109232*^9}},ExpressionUUID->"bfe98653-e84b-4103-9fef-\
+be65d3622f5c"],
+
+Cell[CellGroupData[{
+
+Cell["Loading Symbolica Community Bridge", "Section",
+ CellChangeTimes->{{3.971459047828415*^9, 
+  3.971459061364887*^9}},ExpressionUUID->"5d02ed03-ee91-4033-b1d1-\
+0b01f0a9e24c"],
+
+Cell["Access the paclet resources", "Text",
+ CellChangeTimes->{{3.9714590901713543`*^9, 
+  3.97145911347373*^9}},ExpressionUUID->"b1922234-ca9f-4199-9165-\
+486cb4ce59b8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "PacletDirectoryLoad", "[", 
+   "\"\</Users/vjhirsch/Documents/Work/Projects/alphaLoop/git_alphaLoopMisc/\
+SymbolicaCommunityBridge\>\"", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.971457049771356*^9, 3.971457078484047*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"04832ad9-6a33-45c3-b2e7-cad137759498"],
+
+Cell["Load Symbolica Community Bridge", "Text",
+ CellChangeTimes->{{3.9714590901713543`*^9, 
+  3.9714591208722363`*^9}},ExpressionUUID->"3b933998-241b-403a-b63f-\
+f5953c58270d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<SCB`\>\"", "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Use", " ", 
+    RowBox[{"Quiet", "[", 
+     RowBox[{"Needs", "[", "\"\<SCB`\>\"", "]"}], "]"}], " ", "to", " ", 
+    "mute", " ", "welcome"}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.971457080250581*^9, 3.971457128950593*^9}, {
+  3.97145806396145*^9, 3.9714580863505507`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"327500bf-ff2a-40c2-92fa-ebb271404a70"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Welcome", "info", 
+   "\"\\n\\nSymbolica Community \
+Bridge:\\n---------------------\\n\\nRequirements:\\n\\n* Python3, with: \\n  \
+  \\n    'python3 -m pip install pydot'\\n    'python3 -m pip install \
+pyzmq'\\n\\n* Symbolica community:\\n    \\n    'python3 -m pip install \
+symbolica'\\n    \\n    or\\n    \\n    'git clone \
+git@github.com:benruijl/symbolica-community.git && cd symbolica-community'\\n \
+   'cargo run --features \\\"python_stubgen\\\"'\\n    'maturin build \
+--release'\\n\\n* GammaLoop API:\\n\\n    'git clone \
+git@github.com:alphal00p/gammaloop.git && cd gammaloop'\\n    'maturin \
+develop -m gammaloop-api/Cargo.toml --features=ufo_support,python_api'\\n\\n* \
+Then, initialize SymbolicaCommunityBridge with:\\n\\nSCB`Init[\\n \
+PythonInterpreter -> \\\".../.venv/bin/python3\\\", (* Or Automatic to rely \
+on system defaults. *)                               \\n GammaLoopPath -> \
+\\\".../gammaloop_hedge_numerator/gammaloop-api/python\\\", (* Or Null to \
+disable gammaLoop features *)\\n SymbolicaCommunityPath -> \
+\\\".../.venv/lib/python3.12/site-packages\\\", (* Or Null to disable \
+symbolica community features *)\\n SymbolicaLicense -> \
+\\\"YourSymbolicLicense\\\" (* Optional *)\\n DebugLevel -> Automatic (* Or \
+any string default to pass as tracing directive *)\\n];\\n\"", 2, 2, 1, 
+   30711680934702650815, "Local", "SCB`Welcome"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.971458091959239*^9, 3.971458203629842*^9, 
+  3.971458455497615*^9, 3.9714585108071527`*^9, 3.971458570399119*^9, 
+  3.971458664461123*^9, 3.971458734822172*^9, 3.9714587963592987`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"16789925-51e4-44e5-b960-165e6fcf4982"]
+}, Open  ]],
+
+Cell["Initialized Symbolica Community Bridge", "Text",
+ CellChangeTimes->{{3.9714590901713543`*^9, 
+  3.9714591279627457`*^9}},ExpressionUUID->"1a7ec4da-8dd7-4e0a-b1a0-\
+79a8aab4ded9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SCB`Init", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "PythonInterpreter", " ", "->", " ", 
+     "\"\</Users/vjhirsch/HEP_programs/symbolica-community_fork/.venv/bin/\
+python3\>\""}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+    "GammaLoopPath", " ", "->", " ", 
+     "\"\</Users/vjhirsch/Documents/Work/gammaloop_hedge_numerator/gammaloop-\
+api/python\>\""}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+    "SymbolicaCommunityPath", " ", "->", " ", 
+     "\"\</Users/vjhirsch/HEP_programs/symbolica-community_fork/.venv/lib/\
+python3.12/site-packages\>\""}], ",", 
+    RowBox[{
+    "SymbolicaLicense", " ", "->", " ", 
+     "\"\<dcec4a5e#6a95649c#7dca8216-8afe-57c8-975e-03eb5e68e4ee\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+    "FORMPath", "->", "\"\</Users/vjhirsch/HEP_programs/form/bin/form\>\""}], 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{"DebugLevel", "  ", "->", " ", "Automatic"}]}], "\n", "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.971457550103157*^9, 3.971457618288981*^9}, {
+  3.971467479397592*^9, 
+  3.971467489645836*^9}},ExpressionUUID->"a7da88e3-75de-42b6-809a-\
+6ea2a195c907"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SCB`Info", "info", 
+   "\"\\!\\(\\*RowBox[{\\\"\\\\\\\"Initializing SymbolicaCommunityBridge...\\\
+\\\\\"\\\"}]\\)\"", 2, 74, 18, 30711680934702650815, "Local", "SCB`Info"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.971458666656969*^9, 3.97145873836421*^9, 
+  3.971458798441803*^9, 3.97146166260821*^9},
+ CellLabel->
+  "During evaluation of \
+In[74]:=",ExpressionUUID->"8a68ac09-6b7b-44b3-8007-6e042dfa40a0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SCB`Info", "info", 
+   "\"\\!\\(\\*RowBox[{\\\"\\\\\\\"Ignore deprecation warnings appearing \
+below, if any\\\\\\\"\\\"}]\\)\"", 2, 74, 19, 30711680934702650815, "Local", 
+   "SCB`Info"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.971458666656969*^9, 3.97145873836421*^9, 
+  3.971458798441803*^9, 3.971461662731306*^9},
+ CellLabel->
+  "During evaluation of \
+In[74]:=",ExpressionUUID->"9508479a-3ac5-48c0-93c5-7b5e80d790e7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SCB`Info", "info", 
+   "\"\\!\\(\\*RowBox[{\\\"\\\\\\\"SymbolicaCommunityBridge successfully \
+initialized !\\\\\\\"\\\"}]\\)\"", 2, 74, 20, 30711680934702650815, "Local", 
+   "SCB`Info"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.971458666656969*^9, 3.97145873836421*^9, 
+  3.971458798441803*^9, 3.971461662807893*^9},
+ CellLabel->
+  "During evaluation of \
+In[74]:=",ExpressionUUID->"4f3e64d8-c461-4a37-9c42-f2b5c581ad6c"]
+}, Open  ]],
+
+Cell["\<\
+Reload it at any time, without resetting the initialization above (useful for \
+debugging)\
+\>", "Text",
+ CellChangeTimes->{{3.9714590901713543`*^9, 
+  3.971459158276311*^9}},ExpressionUUID->"6162c2f0-0250-48c7-ba32-\
+098a91605e9b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SCB`LoadSCB", "[", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.971457725563861*^9, 3.9714577338976793`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"8eefe392-cbc3-42cc-ac61-c66b64deedc1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SCB`Info", "info", 
+   "\"\\!\\(\\*RowBox[{\\\"\\\\\\\"Reloading SymbolicaCommunityBridge \
+function definitions...\\\\\\\"\\\"}]\\)\"", 2, 4, 5, 30711680934702650815, 
+   "Local", "SCB`Info"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{{3.9714577301990347`*^9, 3.971457734396573*^9}, 
+   3.97145782647008*^9, 3.971458458013117*^9, 3.971458587014921*^9, 
+   3.9714588019186974`*^9},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"f77763ca-6eaf-467d-bc2b-28c50a2aa825"]
+}, Open  ]],
+
+Cell["Enumerate all functions available", "Text",
+ CellChangeTimes->{{3.971459163439169*^9, 
+  3.971459171499111*^9}},ExpressionUUID->"cd90fe85-c96b-4ec6-86a3-\
+ef2136f1a13e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Names", "[", "\"\<SCB`*\>\"", "]"}], "//", "TableForm"}]], "Input",\
+
+ CellChangeTimes->{{3.971459174298267*^9, 3.9714591817682753`*^9}, {
+  3.971460611828298*^9, 3.971460613330521*^9}},
+ CellLabel->"In[26]:=",ExpressionUUID->"5d8af552-4b73-42b6-a2ed-0e5a824054e7"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"SCB`Cmd\"\>"},
+     {"\<\"SCB`ExprToString\"\>"},
+     {"\<\"SCB`GammaLoop\"\>"},
+     {"\<\"SCB`Info\"\>"},
+     {"\<\"SCB`InfoMessage\"\>"},
+     {"\<\"SCB`Init\"\>"},
+     {"\<\"SCB`InitializedQ\"\>"},
+     {"\<\"SCB`LoadSCB\"\>"},
+     {"\<\"SCB`Pkg\"\>"},
+     {"\<\"SCB`Reset\"\>"},
+     {"\<\"SCB`RunPython\"\>"},
+     {"\<\"SCB`SimplifyColor\"\>"},
+     {"\<\"SCB`SimplifyGamma\"\>"},
+     {"\<\"SCB`Welcome\"\>"},
+     {"\<\"SCB`WrappedExternalEvaluate\"\>"},
+     {"\<\"SCB`$GatedSymbols\"\>"},
+     {"\<\"SCB`$PublicSymbols\"\>"},
+     {"\<\"SCB`$ThisFile\"\>"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.9714591819935493`*^9, 3.9714606135394373`*^9},
+ CellLabel->
+  "Out[26]//TableForm=",ExpressionUUID->"53a62cb6-744d-4c1f-b73c-\
+a9f2554bb976"]
+}, Open  ]],
+
+Cell["Access usage info and options for any, e.g.", "Text",
+ CellChangeTimes->{{3.971459188062736*^9, 
+  3.971459222254593*^9}},ExpressionUUID->"96d1dba7-e8fc-4d58-96a0-\
+037ca0ddea88"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"SCB`SimplifyColor", "::", "usage"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Options", "[", "SCB`Init", "]"}], "//", "TableForm"}]}], "Input",
+ CellChangeTimes->{{3.971459194909604*^9, 3.971459257207734*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"3f6f4dfa-ceb3-4e77-b94b-aa5534c2b336"],
+
+Cell[BoxData["\<\"SCB`SimplifyColor[expr] simplifies color algebra.\"\>"], \
+"Output",
+ CellChangeTimes->{{3.9714592130462017`*^9, 3.971459257427092*^9}},
+ CellLabel->"Out[17]=",ExpressionUUID->"2d9b54bc-bed3-4bce-899d-714e436951bb"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      RowBox[{"SCB`Private`PythonInterpreter", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"SCB`Private`GammaLoopPath", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{
+      "SCB`Private`SymbolicaCommunityPath", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"SCB`Private`SymbolicaLicense", "\[Rule]", "Automatic"}]},
+     {
+      RowBox[{"SCB`Private`DebugLevel", "\[Rule]", "Automatic"}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.9714592130462017`*^9, 3.971459257427641*^9}},
+ CellLabel->
+  "Out[18]//TableForm=",ExpressionUUID->"253b906d-4689-447d-8571-\
+a5317de1b227"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Color and Lorentz algebra", "Section",
+ CellChangeTimes->{{3.971459047828415*^9, 3.971459061364887*^9}, {
+  3.971459291184486*^9, 
+  3.971459331689355*^9}},ExpressionUUID->"df2b5f71-6ec0-448c-b7d6-\
+9266d744f32a"],
+
+Cell[BoxData[
+ RowBox[{"Quiet", "[", 
+  RowBox[{
+   RowBox[{"SCB`LoadSCB", "[", "]"}], ";"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9714598236701517`*^9, 3.971459831290086*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"46f4384f-5f82-4067-b69b-75e4d577e3eb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GAMMA", "[", 
+   RowBox[{"i_", ",", "j_", ",", "\[Mu]_", ",", 
+    RowBox[{"OptionsPattern", "[", 
+     RowBox[{"{", " ", 
+      RowBox[{"dim", "->", "d"}], "}"}], "]"}]}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"spenso", "::", "gamma"}], "[", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"spenso", "::", "bis"}], "[", 
+     RowBox[{
+      RowBox[{"OptionValue", "[", "dim", "]"}], ",", "i"}], "]"}], ",", 
+    RowBox[{
+     RowBox[{"spenso", "::", "bis"}], "[", 
+     RowBox[{
+      RowBox[{"OptionValue", "[", "dim", "]"}], ",", "j"}], "]"}], ",", 
+    RowBox[{
+     RowBox[{"spenso", "::", "mink"}], "[", 
+     RowBox[{
+      RowBox[{"OptionValue", "[", "dim", "]"}], ",", " ", "\[Mu]"}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.971461935706696*^9, 3.971461978904271*^9}, {
+  3.971462026197081*^9, 3.971462039039145*^9}, {3.971462278152607*^9, 
+  3.971462319477063*^9}},
+ CellLabel->"In[95]:=",ExpressionUUID->"8cda0381-7a83-4fe9-a65e-c0f6072741c4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SCB`SimplifyGamma", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"GAMMA", "[", 
+    RowBox[{"1", ",", "2", ",", "\[Mu]"}], "]"}], " ", 
+   RowBox[{"GAMMA", "[", 
+    RowBox[{"2", ",", "1", ",", "\[Mu]", ",", 
+     RowBox[{"dim", "->", "d"}]}], "]"}], 
+   RowBox[{"GAMMA", "[", 
+    RowBox[{"5", ",", "8", ",", "\[Mu]", ",", 
+     RowBox[{"dim", "->", "d"}]}], "]"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.971459834208212*^9, 3.971459840803059*^9}, {
+  3.971459969608054*^9, 3.971459973747901*^9}, {3.9714605066686373`*^9, 
+  3.9714605093811617`*^9}, {3.9714613072122927`*^9, 3.971461308584188*^9}, {
+  3.971461785156993*^9, 3.971461856760351*^9}, {3.971461888031767*^9, 
+  3.971461889424081*^9}, {3.971461930187902*^9, 3.97146193283889*^9}, {
+  3.971461985829397*^9, 3.971462015216691*^9}, {3.971462223472684*^9, 
+  3.971462243811462*^9}, {3.971462334321703*^9, 3.9714623426538353`*^9}, {
+  3.9714623939042263`*^9, 3.971462396627582*^9}},
+ CellLabel->
+  "In[130]:=",ExpressionUUID->"3f2ab883-0785-4776-a9a7-01ca16e9ba5d"],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["d", "2"], " ", 
+  RowBox[{"gamma", "[", 
+   RowBox[{
+    RowBox[{"bis", "[", 
+     RowBox[{"d", ",", "5"}], "]"}], ",", 
+    RowBox[{"bis", "[", 
+     RowBox[{"d", ",", "8"}], "]"}], ",", 
+    RowBox[{"mink", "[", 
+     RowBox[{"d", ",", "\[Mu]"}], "]"}]}], "]"}]}]], "Output",
+ CellChangeTimes->{
+  3.971459974691411*^9, 3.9714604426626997`*^9, {3.97146048531166*^9, 
+   3.9714605102670403`*^9}, {3.9714606864859133`*^9, 3.971460712712083*^9}, {
+   3.97146077122342*^9, 3.97146077392525*^9}, 3.97146088906063*^9, 
+   3.971460923518111*^9, {3.971461299849615*^9, 3.971461308805204*^9}, 
+   3.971461505016444*^9, 3.971461666217619*^9, 3.971461858998974*^9, 
+   3.971461889700005*^9, {3.9714620017691107`*^9, 3.97146204002746*^9}, {
+   3.9714622120845013`*^9, 3.97146224412042*^9}, {3.971462301537488*^9, 
+   3.971462342943466*^9}, 3.971462397734974*^9, 3.971467651393423*^9},
+ CellLabel->
+  "Out[130]=",ExpressionUUID->"03326834-5441-40cd-bbfd-fde6591537bf"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "SCB`GammaLoop", "[", "\"\<import model scalars-default.json\>\"", "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.971465991518094*^9, 3.971466007808323*^9}, 
+   3.971466039962566*^9, {3.971466202058971*^9, 3.971466203243513*^9}, 
+   3.9714665612998657`*^9},
+ CellLabel->"In[88]:=",ExpressionUUID->"9786b6c6-78bb-4209-94a8-6cb39bf8d30a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SCB`GammaLoop", "[", "\"\<display model\>\"", "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.971465268377286*^9, 3.971465300130822*^9}, {
+  3.971465332704637*^9, 3.971465353090905*^9}, {3.971466041240335*^9, 
+  3.971466048609565*^9}},
+ CellLabel->"In[89]:=",ExpressionUUID->"e3432c04-28fe-4005-9f35-bca880586f66"],
+
+Cell[BoxData["\<\"scalars\"\>"], "Print",
+ CellChangeTimes->{
+  3.9714653010937767`*^9, {3.9714653355586042`*^9, 3.971465353434602*^9}, {
+   3.9714659884447317`*^9, 3.9714660488505697`*^9}, 3.971466094140026*^9, 
+   3.971466563889167*^9},
+ CellLabel->
+  "During evaluation of \
+In[89]:=",ExpressionUUID->"fbd10051-1583-4d55-8414-dc8bd8c7258c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SCB`RunPython", "[", "\"\<gl.run('display model')\>\"", "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{3.9714661156339703`*^9},
+ CellLabel->"In[79]:=",ExpressionUUID->"b812e625-4008-41af-a6cb-d40dfb53281e"],
+
+Cell[BoxData["\<\"ModelNotLoaded\"\>"], "Print",
+ CellChangeTimes->{{3.971466112792172*^9, 3.971466115965542*^9}},
+ CellLabel->
+  "During evaluation of \
+In[79]:=",ExpressionUUID->"0bbca5a9-9782-414d-9b2c-b809e0d814bf"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"SCB`ResetGammaLoop", "[", 
+  RowBox[{"GammaLoopPath", "->", "Automatic"}], "]"}]], "Input",
+ CellChangeTimes->{{3.971466015572839*^9, 3.9714660271297503`*^9}},
+ CellLabel->"In[80]:=",ExpressionUUID->"3a67791d-c2b2-49dc-890a-43003eb81410"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SCB`GammaLoop", "[", "\"\<display model\>\"", "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[81]:=",ExpressionUUID->"2178b929-2162-4466-a780-fc9ae08497ec"],
+
+Cell[BoxData["\<\"ModelNotLoaded\"\>"], "Print",
+ CellChangeTimes->{{3.971466101068746*^9, 3.971466119617646*^9}},
+ CellLabel->
+  "During evaluation of \
+In[81]:=",ExpressionUUID->"b9767712-c412-4868-8acc-02667315136e"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "vaccuumDotGraphs", "=", 
+   "\"\<\ndigraph vacuum_diag_A {\n\n    num=\\\"1\\\";\n    \
+overall_factor=\\\"1\\\";\n\n    edge [num=\\\"1\\\"];\n    node [num=\\\"1\\\
+\"];\n\n    v0 -> v1 [particle=\\\"scalar_1\\\" lmb_id=0, id=0, \
+num=\\\"Q(0,spenso::mink(4,11))\\\"];\n    v1 -> v2 \
+[particle=\\\"scalar_1\\\" id=1, num=\\\"Q(1,spenso::mink(4,11))\\\"];\n    \
+v2 -> v3 [particle=\\\"scalar_1\\\" id=2];\n    v3 -> v0 \
+[particle=\\\"scalar_1\\\" id=3];\n\n}\n\ndigraph vacuum_diag_B {\n\n    \
+num=1;\n\n    edge [num=\\\"1\\\"];\n    node [num=\\\"1\\\"];\n\n    v0 -> \
+v1 [particle=\\\"scalar_1\\\" lmb_id=0, id=0, num=\\\"Q(0,spenso::mink(4,11))\
+\\\"];\n    v1 -> v2 [particle=\\\"scalar_1\\\" id=1, \
+num=\\\"Q(1,spenso::mink(4,11))\\\"];\n    v2 -> v3 \
+[particle=\\\"scalar_1\\\" id=2, num=\\\"1\\\"];\n    v3 -> v0 \
+[particle=\\\"scalar_1\\\" id=3];\n\n    // v10 -> v11 [particle=\\\"scalar_1\
+\\\" lmb_id=1, id=4, num=\\\"Q(4,spenso::mink(4,12))\\\"];\n    // v11 -> v12 \
+[particle=\\\"scalar_1\\\" id=5, num=\\\"Q(5,spenso::mink(4,12))\\\"];\n    \
+// v12 -> v13 [particle=\\\"scalar_1\\\" id=6];\n    // v13 -> v10 [particle=\
+\\\"scalar_1\\\" id=7];\n}\n\>\""}], ";"}]], "Input",
+ CellChangeTimes->{{3.9714662067394333`*^9, 3.9714663172693853`*^9}},
+ CellLabel->"In[85]:=",ExpressionUUID->"ac73cdf5-26ea-424b-9653-d77a3d36e0e4"],
+
+Cell[BoxData[
+ RowBox[{"SCB`GammaLoopImportGraphs", "[", 
+  RowBox[{"vaccuumDotGraphs", ",", "\"\<vacuum\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.971466570583665*^9, 3.97146660569102*^9}, {
+  3.971466666557917*^9, 3.971466666988522*^9}, {3.971467628696786*^9, 
+  3.971467629612639*^9}},ExpressionUUID->"e8e9f0c9-4d78-44ac-98b6-\
+a87ebbb91847"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SCB`GammaLoop", "[", "\"\<display processes\>\"", "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.971466770233507*^9, 3.971466774813834*^9}},
+ CellLabel->
+  "In[101]:=",ExpressionUUID->"f433a36f-6ea3-4c9c-80a8-49393aee5acd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"Processes:\"\>"], "Print",
+ CellChangeTimes->{{3.9714667724957037`*^9, 3.971466775048517*^9}},
+ CellLabel->
+  "During evaluation of \
+In[101]:=",ExpressionUUID->"aa17ad9b-9e0a-4b24-ad11-be8213adc0cb"],
+
+Cell[BoxData["\<\"#         0  vacuum\"\>"], "Print",
+ CellChangeTimes->{{3.9714667724957037`*^9, 3.971466775048953*^9}},
+ CellLabel->
+  "During evaluation of \
+In[101]:=",ExpressionUUID->"789c5ea4-8b01-4ed3-bd43-7b83ed857012"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9714671104435587`*^9, 
+  3.9714671124619293`*^9}},ExpressionUUID->"e5e5e66f-13db-44ae-b75c-\
+e967f2189e04"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringReplace", "[", 
+  RowBox[{
+   RowBox[{"SCB`RunPython", "[", "\"\<gl.get_dot_files()\>\"", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<'\>\"", "->", "\"\<\>\""}], ",", 
+     RowBox[{"\"\<\\\\n\>\"", "->", "\"\<\\n\>\""}], ",", 
+     RowBox[{"\"\<\\\\t\>\"", "->", "\"\<\\t\>\""}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9714667928364677`*^9, 3.971466859602425*^9}, {
+  3.971466899479755*^9, 3.971466900205371*^9}, {3.9714669764871483`*^9, 
+  3.971467118906798*^9}, {3.9714672980130033`*^9, 3.971467313493793*^9}},
+ CellLabel->
+  "In[129]:=",ExpressionUUID->"a84861ee-9017-437c-802f-a6daf8b83106"],
+
+Cell[BoxData["\<\"digraph vacuum_diag_A{\\n  num = \\\"1\\\";\\n  \
+overall_factor = \\\"1\\\";\\n  projector = \\\"1\\\";\\n  v0[dod=0 num=\\\"1\
+\\\"];\\n  v1[dod=0 num=\\\"1\\\"];\\n  v2[dod=0 num=\\\"1\\\"];\\n  v3[dod=0 \
+num=\\\"1\\\"];\\n\\n  v0:0\\t-> v1:1\\t [id=0 dir=none source=0 sink=0  \
+dod=-1 is_dummy=false lmb_id=0 lmb_rep=\\\"K(0,a___)\\\" name=e0 \
+num=\\\"Q(0,spenso::mink(4,11))\\\" particle=\\\"scalar_1\\\"];\\n  v1:2\\t-> \
+v2:3\\t [id=1 dir=none source=1 sink=0  dod=-1 is_dummy=false \
+lmb_rep=\\\"K(0,a___)\\\" name=e1 num=\\\"Q(1,spenso::mink(4,11))\\\" \
+particle=\\\"scalar_1\\\"];\\n  v2:4\\t-> v3:5\\t [id=2 dir=none source=1 \
+sink=0  dod=-2 is_dummy=false lmb_rep=\\\"K(0,a___)\\\" name=e2 num=\\\"1\\\" \
+particle=\\\"scalar_1\\\"];\\n  v3:6\\t-> v0:7\\t [id=3 dir=none source=1 \
+sink=1  dod=-2 is_dummy=false lmb_rep=\\\"K(0,a___)\\\" name=e3 num=\\\"1\\\" \
+particle=\\\"scalar_1\\\"];\\n}\\n\\ndigraph vacuum_diag_B{\\n  num = \\\"1\\\
+\";\\n  overall_factor = \\\"1\\\";\\n  projector = \\\"1\\\";\\n  v0[dod=0 \
+num=\\\"1\\\"];\\n  v1[dod=0 num=\\\"1\\\"];\\n  v2[dod=0 num=\\\"1\\\"];\\n  \
+v3[dod=0 num=\\\"1\\\"];\\n\\n  v0:0\\t-> v1:1\\t [id=0 dir=none source=0 \
+sink=0  dod=-1 is_dummy=false lmb_id=0 lmb_rep=\\\"K(0,a___)\\\" name=e0 num=\
+\\\"Q(0,spenso::mink(4,11))\\\" particle=\\\"scalar_1\\\"];\\n  v1:2\\t-> \
+v2:3\\t [id=1 dir=none source=1 sink=0  dod=-1 is_dummy=false \
+lmb_rep=\\\"K(0,a___)\\\" name=e1 num=\\\"Q(1,spenso::mink(4,11))\\\" \
+particle=\\\"scalar_1\\\"];\\n  v2:4\\t-> v3:5\\t [id=2 dir=none source=1 \
+sink=0  dod=-2 is_dummy=false lmb_rep=\\\"K(0,a___)\\\" name=e2 num=\\\"1\\\" \
+particle=\\\"scalar_1\\\"];\\n  v3:6\\t-> v0:7\\t [id=3 dir=none source=1 \
+sink=1  dod=-2 is_dummy=false lmb_rep=\\\"K(0,a___)\\\" name=e3 num=\\\"1\\\" \
+particle=\\\"scalar_1\\\"];\\n}\\n\\n\"\>"], "Output",
+ CellChangeTimes->{{3.971467105932499*^9, 3.971467119185711*^9}, {
+  3.971467298868054*^9, 3.971467313801475*^9}},
+ CellLabel->
+  "Out[129]=",ExpressionUUID->"bc82d0e8-874f-48b4-9eea-9557994690a8"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1600, 1155},
+WindowMargins->{{Automatic, 3}, {0, Automatic}},
+FrontEndVersion->"14.1 for Mac OS X ARM (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"8c7bd0fa-c06b-424f-b65a-76fe048fec70"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 283, 4, 96, "Title",ExpressionUUID->"bfe98653-e84b-4103-9fef-be65d3622f5c"],
+Cell[CellGroupData[{
+Cell[884, 30, 179, 3, 66, "Section",ExpressionUUID->"5d02ed03-ee91-4033-b1d1-0b01f0a9e24c"],
+Cell[1066, 35, 170, 3, 33, "Text",ExpressionUUID->"b1922234-ca9f-4199-9165-486cb4ce59b8"],
+Cell[1239, 40, 342, 7, 29, "Input",ExpressionUUID->"04832ad9-6a33-45c3-b2e7-cad137759498"],
+Cell[1584, 49, 177, 3, 33, "Text",ExpressionUUID->"3b933998-241b-403a-b63f-f5953c58270d"],
+Cell[CellGroupData[{
+Cell[1786, 56, 472, 10, 29, "Input",ExpressionUUID->"327500bf-ff2a-40c2-92fa-ebb271404a70"],
+Cell[2261, 68, 1764, 29, 609, "Message",ExpressionUUID->"16789925-51e4-44e5-b960-165e6fcf4982"]
+}, Open  ]],
+Cell[4040, 100, 184, 3, 33, "Text",ExpressionUUID->"1a7ec4da-8dd7-4e0a-b1a0-79a8aab4ded9"],
+Cell[CellGroupData[{
+Cell[4249, 107, 1169, 28, 172, "Input",ExpressionUUID->"a7da88e3-75de-42b6-809a-6ea2a195c907"],
+Cell[5421, 137, 461, 10, 26, "Message",ExpressionUUID->"8a68ac09-6b7b-44b3-8007-6e042dfa40a0"],
+Cell[5885, 149, 477, 11, 26, "Message",ExpressionUUID->"9508479a-3ac5-48c0-93c5-7b5e80d790e7"],
+Cell[6365, 162, 477, 11, 26, "Message",ExpressionUUID->"4f3e64d8-c461-4a37-9c42-f2b5c581ad6c"]
+}, Open  ]],
+Cell[6857, 176, 242, 6, 33, "Text",ExpressionUUID->"6162c2f0-0250-48c7-ba32-098a91605e9b"],
+Cell[CellGroupData[{
+Cell[7124, 186, 223, 4, 29, "Input",ExpressionUUID->"8eefe392-cbc3-42cc-ac61-c66b64deedc1"],
+Cell[7350, 192, 536, 12, 26, "Message",ExpressionUUID->"f77763ca-6eaf-467d-bc2b-28c50a2aa825"]
+}, Open  ]],
+Cell[7901, 207, 175, 3, 33, "Text",ExpressionUUID->"cd90fe85-c96b-4ec6-86a3-ef2136f1a13e"],
+Cell[CellGroupData[{
+Cell[8101, 214, 300, 6, 29, "Input",ExpressionUUID->"5d8af552-4b73-42b6-a2ed-0e5a824054e7"],
+Cell[8404, 222, 1179, 36, 338, "Output",ExpressionUUID->"53a62cb6-744d-4c1f-b73c-a9f2554bb976"]
+}, Open  ]],
+Cell[9598, 261, 185, 3, 33, "Text",ExpressionUUID->"96d1dba7-e8fc-4d58-96a0-037ca0ddea88"],
+Cell[CellGroupData[{
+Cell[9808, 268, 317, 5, 49, "Input",ExpressionUUID->"3f6f4dfa-ceb3-4e77-b94b-aa5534c2b336"],
+Cell[10128, 275, 233, 3, 33, "Output",ExpressionUUID->"2d9b54bc-bed3-4bce-899d-714e436951bb"],
+Cell[10364, 280, 999, 29, 112, "Output",ExpressionUUID->"253b906d-4689-447d-8571-a5317de1b227"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11412, 315, 219, 4, 66, "Section",ExpressionUUID->"df2b5f71-6ec0-448c-b7d6-9266d744f32a"],
+Cell[11634, 321, 256, 5, 29, "Input",ExpressionUUID->"46f4384f-5f82-4067-b69b-75e4d577e3eb"],
+Cell[11893, 328, 997, 26, 29, "Input",ExpressionUUID->"8cda0381-7a83-4fe9-a65e-c0f6072741c4"],
+Cell[CellGroupData[{
+Cell[12915, 358, 1080, 21, 70, "Input",ExpressionUUID->"3f2ab883-0785-4776-a9a7-01ca16e9ba5d"],
+Cell[13998, 381, 999, 21, 52, "Output",ExpressionUUID->"03326834-5441-40cd-bbfd-fde6591537bf"]
+}, Open  ]],
+Cell[15012, 405, 375, 8, 29, "Input",ExpressionUUID->"9786b6c6-78bb-4209-94a8-6cb39bf8d30a"],
+Cell[CellGroupData[{
+Cell[15412, 417, 350, 7, 29, "Input",ExpressionUUID->"e3432c04-28fe-4005-9f35-bca880586f66"],
+Cell[15765, 426, 343, 7, 23, "Print",ExpressionUUID->"fbd10051-1583-4d55-8414-dc8bd8c7258c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16145, 438, 240, 5, 29, "Input",ExpressionUUID->"b812e625-4008-41af-a6cb-d40dfb53281e"],
+Cell[16388, 445, 219, 4, 23, "Print",ExpressionUUID->"0bbca5a9-9782-414d-9b2c-b809e0d814bf"]
+}, Open  ]],
+Cell[16622, 452, 262, 4, 29, "Input",ExpressionUUID->"3a67791d-c2b2-49dc-890a-43003eb81410"],
+Cell[CellGroupData[{
+Cell[16909, 460, 186, 4, 29, "Input",ExpressionUUID->"2178b929-2162-4466-a780-fc9ae08497ec"],
+Cell[17098, 466, 219, 4, 23, "Print",ExpressionUUID->"b9767712-c412-4868-8acc-02667315136e"]
+}, Open  ]],
+Cell[17332, 473, 1387, 22, 703, "Input",ExpressionUUID->"ac73cdf5-26ea-424b-9653-d77a3d36e0e4"],
+Cell[18722, 497, 349, 6, 29, "Input",ExpressionUUID->"e8e9f0c9-4d78-44ac-98b6-a87ebbb91847"],
+Cell[CellGroupData[{
+Cell[19096, 507, 260, 6, 29, "Input",ExpressionUUID->"f433a36f-6ea3-4c9c-80a8-49393aee5acd"],
+Cell[CellGroupData[{
+Cell[19381, 517, 218, 4, 23, "Print",ExpressionUUID->"aa17ad9b-9e0a-4b24-ad11-be8213adc0cb"],
+Cell[19602, 523, 227, 4, 23, "Print",ExpressionUUID->"789c5ea4-8b01-4ed3-bd43-7b83ed857012"]
+}, Open  ]]
+}, Open  ]],
+Cell[19856, 531, 156, 3, 29, "Input",ExpressionUUID->"e5e5e66f-13db-44ae-b75c-e967f2189e04"],
+Cell[CellGroupData[{
+Cell[20037, 538, 656, 14, 29, "Input",ExpressionUUID->"a84861ee-9017-437c-802f-a6daf8b83106"],
+Cell[20696, 554, 2065, 28, 646, "Output",ExpressionUUID->"bc82d0e8-874f-48b4-9eea-9557994690a8"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
