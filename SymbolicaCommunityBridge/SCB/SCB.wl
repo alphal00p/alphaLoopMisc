@@ -44,7 +44,7 @@ Requirements:
     'python3 -m pip install pydot'
     'python3 -m pip install pyzmq'
 
-* Symbolica community:
+* Symbolica community: (last tested with revision: c5507831b73e6f08dbc79dc0fcd41142fd14f9b4)
     
     'python3 -m pip install symbolica'
     
@@ -133,6 +133,7 @@ iDefineImpl[] := Module[{},
     res
   ];
   
+  (*
   SCB`UncurryExpr[expr_] := Module[{}, expr //. {x_[y___][z___] :> x[y, SCBridge`CurryDivider, z]} ] ;
   
   SCB`CurryExpr[expr_] := Module[{}, expr //. {x_[y___, SCBridge`CurryDivider, z___] :> x[y][z]} ];
@@ -150,12 +151,15 @@ iDefineImpl[] := Module[{},
     Replace[#, x_[y___, SCBridge`CurryDivider, z___] :> x[y][z], {0, Infinity}, Heads -> True] &,
     HoldComplete[expr]
   ];
+  *)
   
-  
-  SCB`ExprToString[expr_, OptionsPattern[{BackTickReplace -> False}]]:=Block[{res},
+  SCB`ExprToString[expr_, OptionsPattern[{BackTickReplace -> False, FullFormParsing -> True}]]:=Block[{res},
      res = If[StringQ[expr],
        expr,
-       ToString[InputForm[SCB`UncurryExpr[expr]]]
+       If[OptionValue[FullFormParsing],
+         ToString[FullForm[expr]],
+         ToString[InputForm[expr]]
+       ]
      ];
      If[
      OptionValue[BackTickReplace],
@@ -177,7 +181,7 @@ iDefineImpl[] := Module[{},
          ,
          ToExpression[processedExpr]
        ];
-       SCB`CurryExpr[res]
+       res
        ,
        processedExpr
      ]
@@ -314,13 +318,31 @@ from symbolica.community.spenso import Tensor, TensorName as N, LibraryTensor, T
   SCB`Reset[] := ($initialized = False; $config = <||>; Null);
 
   (* implementations *)
+  (*
+  SCB`SExpand[expr_] := Block[{ inputExpr, pythoncmd, res },
+     
+     inputExpr = SCB`ExprToString[expr, BackTickReplace -> True];
+     
+     pythoncmd = StringTemplate["
+E(r'''`inputExpr`'''.replace('MATHEMATICABACKTICK','`'), ParseMode.Mathematica).expand().to_mathematica()
+     "][<|"inputExpr"\[Rule]inputExpr|>];
+     
+     (* Print[pythoncmd]; *)
+     
+     res = WrappedExternalEvaluate[ $config["py"] , pythoncmd ];
+     
+     SCB`StringToExpr[res]
+  ];
+  *)
 
   SCB`SExpand[expr_] := Block[{ inputExpr, pythoncmd, res },
      
      inputExpr = SCB`ExprToString[expr, BackTickReplace -> True];
      
      pythoncmd = StringTemplate["
-E('`inputExpr`'.replace('MATHEMATICABACKTICK','`'), ParseMode.Mathematica).expand().to_mathematica()
+e = scb.to_symbolica(r'''`inputExpr`''')
+e.expand()
+scb.to_mathematica_form(e.to_mathematica())
      "][<|"inputExpr"->inputExpr|>];
      
      (* Print[pythoncmd]; *)
@@ -335,9 +357,9 @@ E('`inputExpr`'.replace('MATHEMATICABACKTICK','`'), ParseMode.Mathematica).expan
      inputExpr = SCB`ExprToString[expr, BackTickReplace -> True];
      
      pythoncmd = StringTemplate["
-e = E('`inputExpr`'.replace('MATHEMATICABACKTICK','`'), ParseMode.Mathematica)
+e = scb.to_symbolica(r'''`inputExpr`''')
 e = simplify_color(e)
-e.to_mathematica()
+scb.to_mathematica_form(e.to_mathematica())
      "][<|"inputExpr"->inputExpr|>];
      
      (* Print[pythoncmd]; *)
@@ -352,9 +374,9 @@ e.to_mathematica()
      inputExpr = SCB`ExprToString[expr, BackTickReplace -> True];
      
      pythoncmd = StringTemplate["
-e = E('`inputExpr`'.replace('MATHEMATICABACKTICK','`'), ParseMode.Mathematica)
+e = scb.to_symbolica(r'''`inputExpr`''')
 e = simplify_gamma(e)
-e.to_mathematica()
+scb.to_mathematica_form(e.to_mathematica())
      "][<|"inputExpr"->inputExpr|>];
      
      (* Print[pythoncmd]; *)
