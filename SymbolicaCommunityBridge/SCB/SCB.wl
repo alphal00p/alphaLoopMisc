@@ -157,7 +157,7 @@ iDefineImpl[] := Module[{},
      res = If[StringQ[expr],
        expr,
        If[OptionValue[FullFormParsing],
-         ToString[FullForm[expr]],
+         ToString[FullForm[expr, NumberMarks -> False]],
          ToString[InputForm[expr]]
        ]
      ];
@@ -340,10 +340,10 @@ E(r'''`inputExpr`'''.replace('MATHEMATICABACKTICK','`'), ParseMode.Mathematica).
      inputExpr = SCB`ExprToString[expr, BackTickReplace -> True];
      
      pythoncmd = StringTemplate["
-e = scb.to_symbolica(r'''`inputExpr`''')
-e.expand()
+e = scb.to_symbolica(r'''`inputExpr`''', debug=`debug`)
+e = e.expand()
 scb.to_mathematica_form(e.to_mathematica())
-     "][<|"inputExpr"->inputExpr|>];
+     "][<|"inputExpr"->inputExpr, "debug" -> If[$config["DebugLevel"]>0,"True","False"]|>];
      
      (* Print[pythoncmd]; *)
      
@@ -357,10 +357,10 @@ scb.to_mathematica_form(e.to_mathematica())
      inputExpr = SCB`ExprToString[expr, BackTickReplace -> True];
      
      pythoncmd = StringTemplate["
-e = scb.to_symbolica(r'''`inputExpr`''')
+e = scb.to_symbolica(r'''`inputExpr`''', debug=`debug`)
 e = simplify_color(e)
 scb.to_mathematica_form(e.to_mathematica())
-     "][<|"inputExpr"->inputExpr|>];
+     "][<|"inputExpr"->inputExpr|>, "debug" -> If[$config["DebugLevel"]>0,"True","False"]];
      
      (* Print[pythoncmd]; *)
      
@@ -374,10 +374,10 @@ scb.to_mathematica_form(e.to_mathematica())
      inputExpr = SCB`ExprToString[expr, BackTickReplace -> True];
      
      pythoncmd = StringTemplate["
-e = scb.to_symbolica(r'''`inputExpr`''')
+e = scb.to_symbolica(r'''`inputExpr`''', debug=`debug`)
 e = simplify_gamma(e)
 scb.to_mathematica_form(e.to_mathematica())
-     "][<|"inputExpr"->inputExpr|>];
+     "][<|"inputExpr"->inputExpr|>, "debug" -> If[$config["DebugLevel"]>0,"True","False"]];
      
      (* Print[pythoncmd]; *)
      
