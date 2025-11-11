@@ -44,13 +44,13 @@ Requirements:
     'python3 -m pip install pydot'
     'python3 -m pip install pyzmq'
 
-* Symbolica community: (last tested with revision: c5507831b73e6f08dbc79dc0fcd41142fd14f9b4)
+* Symbolica community: (last tested with revision: 5e40c2c2e3cfd5d60f2630524350a783582e8daa)
     
     'python3 -m pip install symbolica'
     
     or
     
-    'git clone git@github.com:benruijl/symbolica-community.git && cd symbolica-community'
+    'git clone git@github.com:alphal00p/symbolica-community.git && cd symbolica-community'
     'cargo run --features \"python_stubgen\"'
     'maturin build --release --features \"python_stubgen\"'
     'python3 -m pip install <path_to_the_wheel_generated_above>
@@ -105,7 +105,7 @@ SetAttributes[requireInit, HoldFirst];
 iDefineImpl[] := Module[{},
 
 
-  Options[Init]      = {PythonInterpreter -> Automatic, GammaLoopPath -> Automatic, GammaLoopStatePath -> Automatic, SymbolicaCommunityPath -> Automatic, FORMPath -> Automatic, SymbolicaLicense -> Automatic, DebugLevel -> Automatic};
+  Options[Init]      = {PythonInterpreter -> Automatic, GammaLoopPath -> Automatic, GammaLoopStatePath -> Automatic, SymbolicaCommunityPath -> Automatic, FORMPath -> Automatic, SymbolicaLicense -> Automatic, DebugLevel -> Automatic, ParsingModeFullForm -> True};
   Options[GammaLoop] = {DebugLevel -> "Info"};
 
   (* guard for pre-init calls *)
@@ -153,10 +153,14 @@ iDefineImpl[] := Module[{},
   ];
   *)
   
-  SCB`ExprToString[expr_, OptionsPattern[{BackTickReplace -> False, FullFormParsing -> True}]]:=Block[{res},
+  SCB`ExprToString[expr_, OptionsPattern[{BackTickReplace -> False, FullFormParsing -> Automatic}]]:=Block[{res, fullFormParsing},
+     fullFormParsing = If[OptionValue[FullFormParsing] === Automatic,
+        $config["ParsingModeFullForm"],
+        OptionValue[FullFormParsing]
+     ];
      res = If[StringQ[expr],
        expr,
-       If[OptionValue[FullFormParsing],
+       If[fullFormParsing,
          ToString[FullForm[expr, NumberMarks -> False]],
          ToString[InputForm[expr]]
        ]
@@ -295,6 +299,7 @@ from symbolica.community.spenso import Tensor, TensorName as N, LibraryTensor, T
        "GammaLoopPath" -> OptionValue[GammaLoopPath], 
        "SymbolicaCommunityPath" -> OptionValue[SymbolicaCommunityPath], 
        "SymbolicaLicense" -> OptionValue[SymbolicaLicense],
+       "ParsingModeFullForm" -> OptionValue[ParsingModeFullForm],
        "DebugLevel" -> If[OptionValue[DebugLevel]==="Info",0,1],
        "py" -> py
     |>;
@@ -334,6 +339,60 @@ E(r'''`inputExpr`'''.replace('MATHEMATICABACKTICK','`'), ParseMode.Mathematica).
      SCB`StringToExpr[res]
   ];
   *)
+  
+  SCB`ExpressionOrString[e_]:=Block[{},
+     If[StringQ[e],
+       e,
+       StringTemplate["scb.to_symbolica(r'''`inputExpr`''', debug=`debug`)"][<|"inputExpr" -> SCB`ExprToString[e,BackTickReplace->True], "debug" -> If[$config["DebugLevel"]>0,"True","False"]|>]
+     ]
+  ];
+  
+  SCB`Run[expr_, cmd_?StringQ, OptionsPattern[{args -> {}, opts -> <||>}]] := Block[{pythoncmd, inputExpr, argsStr, optsStr, argsAndOptsString, stringCmd},
+    
+     inputExpr = SCB`ExprToString[expr, BackTickReplace -> True];
+     stringCmd = ToString[cmd];
+     argsStr = StringRiffle[Table[SCB`ExpressionOrString[a], {a, OptionValue[args]}],", "];
+     optsStr = StringRiffle[Table[ToString[k]<>"="<>SCB`ExpressionOrString[OptionValue[opts][k]], {k, Keys[OptionValue[opts]]}],", "];
+     argsAndOptsString = "";
+     If[Length[OptionValue[args]]>0,
+       argsAndOptsString = argsAndOptsString <> argsStr;
+     ];
+     If[Length[OptionValue[opts]]>0,
+       argsAndOptsString = argsAndOptsString <> If[Length[OptionValue[args]]>0, ", ", ""] <>optsStr;
+     ];
+     pythoncmd = StringTemplate["
+scb.to_mathematica_form(scb.to_symbolica(r'''`inputExpr`''', debug=`debug`).`stringcmd`(`argsandopts`).to_mathematica())
+     "][<|
+        "inputExpr" -> inputExpr,
+        "debug" -> If[$config["DebugLevel"]>0,"True","False"],
+        "stringcmd" -> stringCmd,
+        "argsandopts" -> argsAndOptsString
+       |>];
+       
+     WrappedExternalEvaluate[ $config["py"] , pythoncmd ]
+  ];
+
+  SCB`RunCmds[exprs_?AssociationQ, cmds_?StringQ] := Block[{definitions, definitionsList, pythoncmd, inputExpr},
+    definitionsList = Table[ToString[k]<>" = "<>SCB`ExpressionOrString[exprs[k]],{k, Keys[exprs]}];
+    definitions = StringRiffle[definitionsList, "\n"];
+     pythoncmd = StringTemplate["
+`inputExprs`
+
+# Initialize conventional name for result to a default value 
+res = None;
+
+`cmds`
+
+scb.to_mathematica_form(res.to_mathematica()) if res is not None else 'Null'
+
+"][<|
+        "inputExprs" -> definitions,
+        "cmds" -> cmds,
+        "debug" -> If[$config["DebugLevel"]>0,"True","False"]
+       |>];
+       
+     WrappedExternalEvaluate[ $config["py"] , pythoncmd ]
+  ];
 
   SCB`SExpand[expr_] := Block[{ inputExpr, pythoncmd, res },
      
@@ -360,7 +419,7 @@ scb.to_mathematica_form(e.to_mathematica())
 e = scb.to_symbolica(r'''`inputExpr`''', debug=`debug`)
 e = simplify_color(e)
 scb.to_mathematica_form(e.to_mathematica())
-     "][<|"inputExpr"->inputExpr|>, "debug" -> If[$config["DebugLevel"]>0,"True","False"]];
+     "][<|"inputExpr"->inputExpr, "debug" -> If[$config["DebugLevel"]>0,"True","False"]|>];
      
      (* Print[pythoncmd]; *)
      
@@ -377,7 +436,7 @@ scb.to_mathematica_form(e.to_mathematica())
 e = scb.to_symbolica(r'''`inputExpr`''', debug=`debug`)
 e = simplify_gamma(e)
 scb.to_mathematica_form(e.to_mathematica())
-     "][<|"inputExpr"->inputExpr|>, "debug" -> If[$config["DebugLevel"]>0,"True","False"]];
+     "][<|"inputExpr"->inputExpr, "debug" -> If[$config["DebugLevel"]>0,"True","False"]|>];
      
      (* Print[pythoncmd]; *)
      
