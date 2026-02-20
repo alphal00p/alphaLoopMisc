@@ -637,6 +637,7 @@ def reconstruct_dot(
     incoming_external_prefix: str = "p",
     outgoing_external_prefix: str = "q",
     graph_engine: Optional[str] = None,
+    minimize_external_legs: bool = False,
 ) -> pydot.Dot:
     if not signatures:
         raise ValueError("Empty signature list.")
@@ -700,9 +701,14 @@ def reconstruct_dot(
     for i in range(L):
         for idx in range(n_edges - 1, -1, -1):
             rem_abs[i][idx] = rem_abs[i][idx + 1] + abs(loop_vecs[idx][i])
+    rem_ext_abs = [[0] * (n_edges + 1) for _ in range(Eext)]
+    for j in range(Eext):
+        for idx in range(n_edges - 1, -1, -1):
+            rem_ext_abs[j][idx] = rem_ext_abs[j][idx + 1] + abs(ext_vecs[idx][j])
 
     placements: List[Optional[EdgePlacement]] = [None] * n_edges
     imb = [[0] * L for _ in range(V)]  # loop imbalance per vertex: incoming - outgoing
+    ext_imb = [[0] * Eext for _ in range(V)]  # external imbalance per vertex: incoming - outgoing
     deg = [0] * V  # undirected degree count
 
     required_external_targets: List[ExtVec] = []
@@ -723,15 +729,44 @@ def reconstruct_dot(
             target[ext_pos[name]] = 1
             required_external_targets.append(tuple(target))
 
-    # In vakint-style DOT output every internal vertex has one external half-edge,
+    # In legacy vakint output every internal vertex has one external half-edge,
     # so a total-valence cap translates to an internal-degree cap of max_degree - 1.
+    # In minimized-external mode, keep the full cap during search and validate
+    # total valence at the leaf when we know which vertices actually need an external.
     max_internal_degree = max_degree
-    if emit_vakint_dot_format and max_degree is not None:
+    if emit_vakint_dot_format and max_degree is not None and not minimize_external_legs:
         max_internal_degree = max_degree - 1
 
     dsu = DSURollback(V)
     components = V
-    all_pairs = [(u, v) for u in range(V) for v in range(V) if u != v]
+    pair_cache: Dict[int, List[Tuple[int, int]]] = {n: [(u, v) for u in range(n) for v in range(n) if u != v] for n in range(2, V + 1)}
+    optimize_external_legs = emit_vakint_dot_format and minimize_external_legs
+    best_external_vertices = V + 1
+    best_placements: Optional[List[EdgePlacement]] = None
+    minimum_external_vertices_lower_bound = 0
+    if optimize_external_legs:
+        minimum_external_vertices_lower_bound = len(required_external_targets)
+        target_sum = [0] * Eext
+        for target in required_external_targets:
+            for j in range(Eext):
+                target_sum[j] += target[j]
+        # External balance over all vertices must sum to zero, so if mandatory
+        # slots do not already do that, at least one extra external is required.
+        if any(x != 0 for x in target_sum):
+            minimum_external_vertices_lower_bound += 1
+
+    def _minimum_possible_external_vertices(idx: int) -> int:
+        forced_nonzero = 0
+        for v in range(V):
+            can_cancel_to_zero = True
+            for j in range(Eext):
+                if abs(ext_imb[v][j]) > rem_ext_abs[j][idx]:
+                    can_cancel_to_zero = False
+                    break
+            if not can_cancel_to_zero:
+                forced_nonzero += 1
+        forced_nonzero = max(forced_nonzero, minimum_external_vertices_lower_bound)
+        return forced_nonzero
 
     def prune_possible(idx: int, components_now: int) -> bool:
         # Connectivity prune
@@ -751,9 +786,17 @@ def reconstruct_dot(
                 if deg[v] > max_internal_degree:
                     return True
 
+        # Optimization prune: once we have a solution, abandon branches that
+        # cannot beat the current best external-leg count.
+        if optimize_external_legs and best_external_vertices <= V:
+            if _minimum_possible_external_vertices(idx) >= best_external_vertices:
+                return True
+
         return False
 
-    def backtrack(idx: int, components_now: int) -> bool:
+    def backtrack(idx: int, components_now: int, used_vertices_now: int) -> bool:
+        nonlocal best_external_vertices
+        nonlocal best_placements
         if prune_possible(idx, components_now):
             return False
         if idx == n_edges:
@@ -763,26 +806,38 @@ def reconstruct_dot(
                     return False
             if require_connected and components_now != 1:
                 return False
+            final_ext_balance = ext_imb
+            if emit_vakint_dot_format and max_degree is not None and minimize_external_legs:
+                for v in range(V):
+                    has_external = any(final_ext_balance[v][j] != 0 for j in range(Eext))
+                    if deg[v] + (1 if has_external else 0) > max_degree:
+                        return False
             if required_external_targets:
-                final_ext_balance = [[0] * Eext for _ in range(V)]
-                for e_idx in range(n_edges):
-                    pl = placements[e_idx]
-                    assert pl is not None
-                    ex = ext_vecs[e_idx]
-                    for j in range(Eext):
-                        final_ext_balance[pl.tail][j] -= ex[j]
-                        final_ext_balance[pl.head][j] += ex[j]
                 if _match_external_slots_to_vertices(final_ext_balance, required_external_targets) is None:
                     return False
+
+            if optimize_external_legs:
+                nonzero_external_vertices = sum(1 for v in range(V) if any(final_ext_balance[v][j] != 0 for j in range(Eext)))
+                if nonzero_external_vertices < best_external_vertices:
+                    best_external_vertices = nonzero_external_vertices
+                    best_placements = []
+                    for pl in placements:
+                        assert pl is not None
+                        best_placements.append(pl)
+                # This is the theoretical lower bound in vakint mode, so we can stop.
+                return best_external_vertices == minimum_external_vertices_lower_bound
+
             return True
 
         vec = loop_vecs[idx]
+        ex = ext_vecs[idx]
 
         # Symmetry breaking: fix first edge to connect (0 -> 1) if possible
         if idx == 0:
             cand_pairs = [(0, 1)]
         else:
-            cand_pairs = all_pairs
+            frontier_size = used_vertices_now + (1 if used_vertices_now < V else 0)
+            cand_pairs = pair_cache[frontier_size]
 
         for tail, head in cand_pairs:
             # Apply placement: tail -> head carries vec
@@ -798,12 +853,19 @@ def reconstruct_dot(
             for i in range(L):
                 imb[tail][i] -= vec[i]
                 imb[head][i] += vec[i]
+            for j in range(Eext):
+                ext_imb[tail][j] -= ex[j]
+                ext_imb[head][j] += ex[j]
 
             # Update degrees
             deg[tail] += 1
             deg[head] += 1
 
-            if backtrack(idx + 1, components_now):
+            next_used_vertices = used_vertices_now
+            if used_vertices_now < V and (tail == used_vertices_now or head == used_vertices_now):
+                next_used_vertices += 1
+
+            if backtrack(idx + 1, components_now, next_used_vertices):
                 return True
 
             # Undo
@@ -812,6 +874,9 @@ def reconstruct_dot(
             for i in range(L):
                 imb[tail][i] += vec[i]
                 imb[head][i] -= vec[i]
+            for j in range(Eext):
+                ext_imb[tail][j] += ex[j]
+                ext_imb[head][j] -= ex[j]
             placements[idx] = None
 
             dsu.rollback(snap)
@@ -819,7 +884,13 @@ def reconstruct_dot(
 
         return False
 
-    ok = backtrack(0, components)
+    search_found = backtrack(0, components, min(V, 2))
+    if optimize_external_legs:
+        if best_placements is not None:
+            placements = list(best_placements)
+        ok = best_placements is not None
+    else:
+        ok = search_found
     if not ok:
         raise RuntimeError(
             "No realization found under current assumptions/constraints. "
@@ -900,6 +971,8 @@ def reconstruct_dot(
             new_slot = len(slot_to_vertex)
             slot_to_vertex.append(old_vertex)
             ext_vec = tuple(ext_balance[old_vertex])
+            if minimize_external_legs and not any(ext_vec):
+                continue
             external_plan.append((f"{new_slot}:{new_slot}", "ext", _format_lincomb(ext_vec, ext_names)))
 
         old_to_slot = {old_vertex: slot for slot, old_vertex in enumerate(slot_to_vertex)}
@@ -1763,6 +1836,41 @@ class ReconstructDotTests(unittest.TestCase):
         for e in internal_with_ext:
             self.assertNotIn("+ -", _strip_quotes(e.get("label")))
 
+    def test_reconstruct_dot_vakint_minimizes_externals_for_pentabox(self) -> None:
+        expr = "prop(k1+p1,0)*prop(k1+k2+p1,0)*prop(k1+k2+p1-q1,0)*prop(k1+k2-p2+q2,0)*prop(k1+k2-p2,0)*prop(k1-p2,0)*prop(k1,m1)*prop(k2,m1)"
+        signatures, loop_names, ext_names, masses = extract_signatures_and_masses_from_symbolica_expression(
+            expr,
+            loop_prefix="k",
+            external_prefixes=("p", "q"),
+        )
+        dot = reconstruct_dot(
+            signatures,
+            loop_names=list(loop_names),
+            ext_names=list(ext_names),
+            edge_masses=masses,
+            max_degree=4,
+            emit_vakint_dot_format=True,
+            incoming_external_prefix="p",
+            outgoing_external_prefix="q",
+            graph_engine="dot",
+            minimize_external_legs=True,
+        )
+
+        edges_by_id = sorted(dot.get_edges(), key=lambda e: int(_strip_quotes(e.get("id"))))
+        external_labels = []
+        for e in edges_by_id:
+            src = _strip_quotes(e.get_source()).split(":")[0]
+            dst = _strip_quotes(e.get_destination()).split(":")[0]
+            if src == "ext" or dst == "ext":
+                external_labels.append(_strip_quotes(e.get("label")))
+
+        self.assertEqual(len(external_labels), 5)
+        self.assertIn("p1", external_labels)
+        self.assertIn("p2", external_labels)
+        self.assertIn("q1", external_labels)
+        self.assertIn("q2", external_labels)
+        self.assertIn("p1+p2-q1-q2", external_labels)
+
     def test_handcrafted_5_loop_many_externals(self) -> None:
         self._assert_reconstructs_to_isomorphic_dot(_handcrafted_5_loop_case())
 
@@ -1830,6 +1938,7 @@ def _print_symbolica_signatures(
     chain_to_dot: bool,
     dot_output: str,
     max_degree: Optional[int],
+    minimize_externals: bool,
 ) -> None:
     signatures, loop_names, ext_names, masses = extract_signatures_and_masses_from_symbolica_expression(
         expr_text,
@@ -1861,6 +1970,7 @@ def _print_symbolica_signatures(
         incoming_external_prefix=incoming_prefix,
         outgoing_external_prefix=outgoing_prefix,
         graph_engine="dot",
+        minimize_external_legs=minimize_externals,
     )
     dot_text = dot.to_string()
     if dot_output == "-":
@@ -1924,7 +2034,16 @@ if __name__ == "__main__":
         "--max-degree",
         type=int,
         default=None,
-        help="Optional maximum total valence cap used to prune reconstruction. In vakint DOT output each vertex has one external half-edge, so internal degree is limited to max_degree-1.",
+        help=(
+            "Optional maximum total valence cap used to prune reconstruction. "
+            "In legacy vakint output every vertex gets one external half-edge "
+            "(internal degree <= max_degree-1)."
+        ),
+    )
+    parser.add_argument(
+        "--minimize-externals",
+        action="store_true",
+        help=("In vakint DOT output, search for the realization with the minimum number of external half-edges."),
     )
     parser.set_defaults(chain_to_dot=True)
     args = parser.parse_args()
@@ -1941,6 +2060,7 @@ if __name__ == "__main__":
             chain_to_dot=args.chain_to_dot,
             dot_output=args.dot_output,
             max_degree=args.max_degree,
+            minimize_externals=args.minimize_externals,
         )
     else:
         _print_example()
