@@ -752,7 +752,8 @@ class GraphProcessor:
 
     def _build_emr_energies_linearity_patterns(
         self,
-        edge_ids: list[int],
+        virtual_edge_ids: list[int],
+        all_edge_ids: list[int],
     ) -> list[tuple[str, str]]:
         patterns: list[tuple[str, str]] = []
         seen_pattern_strings: set[str] = set()
@@ -764,22 +765,26 @@ class GraphProcessor:
             seen_pattern_strings.add(pattern_string)
             patterns.append((label, pattern_string))
 
-        for edge_id in edge_ids:
+        for edge_id in virtual_edge_ids:
             register_pattern(
                 f"self-dot uses Q({edge_id}) twice",
                 self._dot_atom(edge_id, edge_id),
             )
 
-        for edge_index, left_edge_id in enumerate(edge_ids):
-            for right_edge_id in edge_ids[edge_index + 1:]:
+        for left_edge_id in virtual_edge_ids:
+            for right_edge_id in all_edge_ids:
+                if right_edge_id == left_edge_id:
+                    continue
                 register_pattern(
-                    f"repeated dot power ({left_edge_id},{right_edge_id})",
+                    "repeated dot power "
+                    f"({min(left_edge_id, right_edge_id)},"
+                    f"{max(left_edge_id, right_edge_id)})",
                     self._dot_atom(left_edge_id, right_edge_id) ** E("n_"),
                 )
 
-        for shared_edge_id in edge_ids:
+        for shared_edge_id in virtual_edge_ids:
             partners = [
-                edge_id for edge_id in edge_ids if edge_id != shared_edge_id]
+                edge_id for edge_id in all_edge_ids if edge_id != shared_edge_id]
             for partner_index, left_partner in enumerate(partners):
                 for right_partner in partners[partner_index + 1:]:
                     left_dot = self._dot_atom(shared_edge_id, left_partner)
@@ -1480,7 +1485,8 @@ class GraphProcessor:
         self,
         expr: Expression,
         expr_path: Path,
-        edge_ids: list[int],
+        virtual_edge_ids: list[int],
+        all_edge_ids: list[int],
         n_cores: int,
     ) -> EmrLinearityCheckResult:
         try:
@@ -1493,7 +1499,10 @@ class GraphProcessor:
 
         self._announce_flavour("EMR energy linearity check", "START")
         try:
-            patterns = self._build_emr_energies_linearity_patterns(edge_ids)
+            patterns = self._build_emr_energies_linearity_patterns(
+                virtual_edge_ids,
+                all_edge_ids,
+            )
             total_patterns = len(patterns)
             term_width = self._parallel_progress_term_width()
             current_max_width = max(30, term_width - 170)
@@ -2131,7 +2140,8 @@ class GraphProcessor:
             emr_linearity_result = self._check_emr_energies_linearity(
                 expr=total_dot_result,
                 expr_path=dot_expression_path,
-                edge_ids=linearity_edge_ids,
+                virtual_edge_ids=linearity_edge_ids,
+                all_edge_ids=edge_ids,
                 n_cores=max(1, args.n_core_for_dot_processing),
             )
         dot_evaluator_run: EvaluatorRunResult | None = None
