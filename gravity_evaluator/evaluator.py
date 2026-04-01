@@ -39,6 +39,8 @@ from symbolica.community.spenso import (
     TensorStructure,
 )
 
+_EMR_LINEARITY_MATCH_EXPR: Expression | None = None
+
 
 class Utils:
     @staticmethod
@@ -127,6 +129,21 @@ class EvaluatorRunResult:
     build_time_ms: float
     compile_time_ms: float
     eval_time_us: float
+
+
+@dataclass
+class EmrLinearityCheckResult:
+    requested: bool
+    passed: bool | None
+    total_patterns: int
+    violation_count: int
+    preview: str
+
+    @property
+    def status(self) -> str:
+        if not self.requested:
+            return "SKIPPED"
+        return "PASS" if self.passed else "FAIL"
 
 
 @dataclass
@@ -572,6 +589,18 @@ class GraphProcessor:
         if self.peak_ram_usage_mb is None or ram_usage_mb > self.peak_ram_usage_mb:
             self.peak_ram_usage_mb = float(ram_usage_mb)
 
+    @staticmethod
+    def _is_dot_route_enabled(args: argparse.Namespace) -> bool:
+        return bool(
+            args.build_dot_products_form or args.dot_expression_from_file is not None
+        )
+
+    @staticmethod
+    def _should_construct_dot_expression(args: argparse.Namespace) -> bool:
+        return bool(
+            args.build_dot_products_form and args.dot_expression_from_file is None
+        )
+
     def _expression_output_path(
         self,
         dot_file_path: str,
@@ -630,6 +659,14 @@ class GraphProcessor:
         return "" if size_mb is None else f"{size_mb:.2f} MB"
 
     @staticmethod
+    def _format_emr_linearity_stats(
+        result: EmrLinearityCheckResult | None,
+    ) -> str:
+        if result is None or not result.requested:
+            return ""
+        return f"{result.violation_count}/{result.total_patterns} violations"
+
+    @staticmethod
     def _format_optional_eval_runtime(result: EvaluatorRunResult | None) -> str:
         if result is None:
             return ""
@@ -644,6 +681,66 @@ class GraphProcessor:
             float(left[0] * right[0] - np.dot(left[1:], right[1:])),
             0.0,
         )
+
+    @staticmethod
+    def _truncate_progress_label(label: str, max_width: int) -> str:
+        if len(label) <= max_width:
+            return label
+        return label[: max_width - 3] + "..."
+
+    @staticmethod
+    def _dot_atom(left_edge_id: int, right_edge_id: int) -> Expression:
+        left_edge_id, right_edge_id = sorted((left_edge_id, right_edge_id))
+        return E(
+            "spenso::dot(spenso::mink(4),"
+            f"Q({left_edge_id}),Q({right_edge_id}))"
+        )
+
+    def _build_emr_energies_linearity_patterns(
+        self,
+        edge_ids: list[int],
+    ) -> list[tuple[str, str]]:
+        patterns: list[tuple[str, str]] = []
+        seen_pattern_strings: set[str] = set()
+
+        def register_pattern(label: str, pattern: Expression) -> None:
+            pattern_string = pattern.to_canonical_string()
+            if pattern_string in seen_pattern_strings:
+                return
+            seen_pattern_strings.add(pattern_string)
+            patterns.append((label, pattern_string))
+
+        for edge_id in edge_ids:
+            register_pattern(
+                f"self-dot uses Q({edge_id}) twice",
+                self._dot_atom(edge_id, edge_id),
+            )
+
+        for edge_index, left_edge_id in enumerate(edge_ids):
+            for right_edge_id in edge_ids[edge_index + 1:]:
+                register_pattern(
+                    f"repeated dot power ({left_edge_id},{right_edge_id})",
+                    self._dot_atom(left_edge_id, right_edge_id) ** E("n_"),
+                )
+
+        for shared_edge_id in edge_ids:
+            partners = [
+                edge_id for edge_id in edge_ids if edge_id != shared_edge_id]
+            for partner_index, left_partner in enumerate(partners):
+                for right_partner in partners[partner_index + 1:]:
+                    left_dot = self._dot_atom(shared_edge_id, left_partner)
+                    right_dot = self._dot_atom(shared_edge_id, right_partner)
+                    register_pattern(
+                        "shared edge "
+                        f"Q({shared_edge_id}) in dots "
+                        f"({min(shared_edge_id, left_partner)},{
+                            max(shared_edge_id, left_partner)}) "
+                        f"and ({min(shared_edge_id, right_partner)},{
+                            max(shared_edge_id, right_partner)})",
+                        left_dot * right_dot,
+                    )
+
+        return patterns
 
     def _colorize_summary_value(
         self,
@@ -661,6 +758,8 @@ class GraphProcessor:
             return self._colorize(value, Ansi.GREEN)
         if value == "FAIL":
             return self._colorize(value, Ansi.RED)
+        if value == "SKIPPED":
+            return self._colorize(value, Ansi.YELLOW)
         return self._colorize(value, Ansi.CYAN)
 
     @staticmethod
@@ -681,8 +780,9 @@ class GraphProcessor:
         dot_result: complex | None,
         dot_evaluator_run: EvaluatorRunResult | None,
         dot_product_timings: DotProductTimingBreakdown | None,
-        dot_expression_path: Path | None,
+        dot_expression_source: str,
         dot_expression_size_mb: float | None,
+        emr_linearity_result: EmrLinearityCheckResult | None,
         spenso_numeric_result: complex | None,
         spenso_timings: SpensoTimingBreakdown | None,
         spenso_parametric_result: complex | None,
@@ -732,6 +832,10 @@ class GraphProcessor:
              self._format_optional_complex(dot_result),
              self._format_optional_complex(spenso_numeric_result),
              self._format_optional_complex(spenso_parametric_result)),
+            ("Expression source",
+             dot_expression_source,
+             "",
+             ""),
             ("Validation vs spenso-numeric",
              dot_status,
              "baseline" if spenso_numeric_result is not None else "",
@@ -744,6 +848,14 @@ class GraphProcessor:
              dot_rel_diff,
              "",
              param_rel_diff),
+            ("EMR linearity check",
+             "" if emr_linearity_result is None else emr_linearity_result.status,
+             "",
+             ""),
+            ("EMR linearity stats",
+             self._format_emr_linearity_stats(emr_linearity_result),
+             "",
+             ""),
             ("Expression size",
              self._format_optional_size_mb(dot_expression_size_mb),
              "",
@@ -984,6 +1096,27 @@ class GraphProcessor:
     def _get_sorted_edge_ids(edge_momenta: dict[int, NDArray[np.float64]]) -> list[int]:
         return sorted(edge_momenta)
 
+    @staticmethod
+    def _is_external_edge_endpoint(node_name: str | None) -> bool:
+        if node_name is None:
+            return False
+        return node_name.strip('"').startswith("ext")
+
+    def _get_internal_edge_ids(
+        self,
+        dot_graphs: list[pydot.Dot],
+    ) -> list[int]:
+        internal_edge_ids: set[int] = set()
+        for dot_graph in dot_graphs:
+            for edge in dot_graph.get_edges():
+                if (
+                    self._is_external_edge_endpoint(edge.get_source())
+                    or self._is_external_edge_endpoint(edge.get_destination())
+                ):
+                    continue
+                internal_edge_ids.add(int(edge.get("id").strip('"')))
+        return sorted(internal_edge_ids)
+
     def _build_emr_component_params(
         self,
         edge_ids: list[int],
@@ -1207,7 +1340,7 @@ class GraphProcessor:
         args: argparse.Namespace,
     ) -> tuple[list[tuple[str, DotProcessingResult]], dict[int, NDArray[np.float64]] | None]:
         all_dot_results: list[tuple[str, DotProcessingResult]] = []
-        if args.build_dot_products_form:
+        if self._should_construct_dot_expression(args):
             self._announce_flavour("dot-products construction", "START")
         if not args.no_spenso:
             self._announce_flavour("spenso-numeric direct evaluation", "START")
@@ -1240,7 +1373,7 @@ class GraphProcessor:
             self._record_ram_usage()
             all_dot_results.append((graph_name, res))
 
-        if args.build_dot_products_form:
+        if self._should_construct_dot_expression(args):
             self._announce_flavour("dot-products construction", "STOP")
         if not args.no_spenso:
             self._announce_flavour("spenso-numeric direct evaluation", "STOP")
@@ -1279,6 +1412,162 @@ class GraphProcessor:
             terminal_width = max_width
         return max(120, min(max_width, terminal_width))
 
+    @staticmethod
+    def _parallel_postprocess_step_count(payload: ParallelDotWorkerResult) -> int:
+        step_count = 2  # deserialize edge momenta + assemble result
+        if payload.spenso_parametric_result_path is not None:
+            step_count += 1
+        if payload.dot_result_path is not None:
+            step_count += 1
+        step_count += 1  # establish/validate reference EMR map
+        return step_count
+
+    def _check_emr_energies_linearity(
+        self,
+        expr: Expression,
+        expr_path: Path,
+        edge_ids: list[int],
+        n_cores: int,
+    ) -> EmrLinearityCheckResult:
+        try:
+            import progressbar
+        except ImportError as exc:
+            raise ImportError(
+                "progressbar2 is required for EMR energy linearity checks. "
+                "Run `python3 -m pip install progressbar2 --upgrade`."
+            ) from exc
+
+        self._announce_flavour("EMR energy linearity check", "START")
+        try:
+            patterns = self._build_emr_energies_linearity_patterns(edge_ids)
+            total_patterns = len(patterns)
+            term_width = self._parallel_progress_term_width()
+            current_max_width = max(30, term_width - 170)
+            widgets = [
+                progressbar.Percentage(),
+                " ",
+                progressbar.Bar(marker="█", left="│", right="│"),
+                " ",
+                progressbar.Timer(),
+                " ",
+                progressbar.ETA(),
+                " | ",
+                progressbar.DynamicMessage("patterns"),
+                " | ",
+                progressbar.DynamicMessage("violations"),
+                " | ",
+                progressbar.DynamicMessage("current"),
+                " | ",
+                progressbar.DynamicMessage("ram"),
+            ]
+            violations: list[tuple[int, str]] = []
+            with progressbar.ProgressBar(
+                max_value=max(total_patterns, 1),
+                widgets=widgets,
+                redirect_stdout=True,
+                term_width=term_width,
+            ) as bar:
+                if n_cores <= 1:
+                    for pattern_index, (label, pattern_string) in enumerate(
+                        patterns,
+                        start=1,
+                    ):
+                        if bool(expr.matches(E(pattern_string))):
+                            violations.append((pattern_index, label))
+                        current_ram_mb = Utils._current_ram_mb()
+                        self._record_ram_usage(current_ram_mb)
+                        bar.update(
+                            pattern_index,
+                            patterns=f"{pattern_index}/{total_patterns}",
+                            violations=str(len(violations)),
+                            current=self._truncate_progress_label(
+                                label,
+                                current_max_width,
+                            ),
+                            ram=(
+                                "n/a"
+                                if current_ram_mb is None
+                                else f"{current_ram_mb:.1f} MiB"
+                            ),
+                        )
+                else:
+                    ctx = mp.get_context("spawn")
+                    with concurrent.futures.ProcessPoolExecutor(
+                        max_workers=n_cores,
+                        mp_context=ctx,
+                        initializer=_init_emr_linearity_match_worker,
+                        initargs=(str(expr_path),),
+                    ) as executor:
+                        future_to_pattern = {
+                            executor.submit(
+                                _match_emr_linearity_pattern_worker,
+                                pattern_index,
+                                label,
+                                pattern_string,
+                            ): (pattern_index, label)
+                            for pattern_index, (label, pattern_string) in enumerate(
+                                patterns,
+                                start=1,
+                            )
+                        }
+                        completed_patterns = 0
+                        for future in concurrent.futures.as_completed(future_to_pattern):
+                            pattern_index, label, matched = future.result()
+                            completed_patterns += 1
+                            if matched:
+                                violations.append((pattern_index, label))
+                            current_ram_mb = Utils._current_ram_mb()
+                            self._record_ram_usage(current_ram_mb)
+                            bar.update(
+                                completed_patterns,
+                                patterns=f"{
+                                    completed_patterns}/{total_patterns}",
+                                violations=str(len(violations)),
+                                current=self._truncate_progress_label(
+                                    label,
+                                    current_max_width,
+                                ),
+                                ram=(
+                                    "n/a"
+                                    if current_ram_mb is None
+                                    else f"{current_ram_mb:.1f} MiB"
+                                ),
+                            )
+
+            violations.sort(key=lambda item: item[0])
+            if violations:
+                preview = "; ".join(label for _, label in violations[:5])
+                if len(violations) > 5:
+                    preview += "; ..."
+                print(self._colorize(
+                    "EMR energy linearity check FAILED: "
+                    f"{len(violations)} violating pattern(s) found. {preview}",
+                    Ansi.RED,
+                ))
+                return EmrLinearityCheckResult(
+                    requested=True,
+                    passed=False,
+                    total_patterns=total_patterns,
+                    violation_count=len(violations),
+                    preview=preview,
+                )
+
+            print(self._colorize(
+                "EMR energy linearity check PASSED: "
+                f"no violating pattern matched across {
+                    total_patterns} pattern(s).",
+                Ansi.GREEN,
+            ))
+            return EmrLinearityCheckResult(
+                requested=True,
+                passed=True,
+                total_patterns=total_patterns,
+                violation_count=0,
+                preview="",
+            )
+        finally:
+            self._announce_flavour("EMR energy linearity check", "STOP")
+
     def _collect_dot_results_parallel(
         self,
         dot_file_path: str,
@@ -1294,7 +1583,7 @@ class GraphProcessor:
             ) from exc
 
         all_dot_results: list[tuple[str, DotProcessingResult]] = []
-        if args.build_dot_products_form:
+        if self._should_construct_dot_expression(args):
             self._announce_flavour("dot-products construction", "START")
         if not args.no_spenso:
             self._announce_flavour("spenso-numeric direct evaluation", "START")
@@ -1328,6 +1617,21 @@ class GraphProcessor:
             progressbar.DynamicMessage("ram"),
             " | ",
             progressbar.DynamicMessage("active"),
+        ]
+        postprocess_widgets = [
+            progressbar.Percentage(),
+            " ",
+            progressbar.Bar(marker="█", left="│", right="│"),
+            " ",
+            progressbar.Timer(),
+            " ",
+            progressbar.ETA(),
+            " | ",
+            progressbar.DynamicMessage("graphs"),
+            " | ",
+            progressbar.DynamicMessage("phase"),
+            " | ",
+            progressbar.DynamicMessage("ram"),
         ]
 
         with tempfile.TemporaryDirectory(prefix=".parallel_dot_results_", dir=".") as temp_dir:
@@ -1419,40 +1723,94 @@ class GraphProcessor:
 
             reference_edge_momenta: dict[int,
                                          NDArray[np.float64]] | None = None
-            for graph_index in sorted(completed_results):
-                payload = completed_results[graph_index]
-                edge_momenta = {
-                    edge_id: np.asarray(values, dtype=np.float64)
-                    for edge_id, values in payload.edge_momenta.items()
-                }
-                res = DotProcessingResult(
-                    spenso_result=payload.spenso_result,
-                    spenso_parametric_result=(
-                        None
-                        if payload.spenso_parametric_result_path is None
-                        else E(Path(payload.spenso_parametric_result_path).read_text(encoding="utf-8").strip())
-                    ),
-                    dot_result=(
-                        None
-                        if payload.dot_result_path is None
-                        else E(Path(payload.dot_result_path).read_text(encoding="utf-8").strip())
-                    ),
-                    edge_momenta=edge_momenta,
-                    spenso_timings=payload.spenso_timings,
-                    spenso_parametric_timings=payload.spenso_parametric_timings,
-                    dot_product_timings=payload.dot_product_timings,
-                )
-                if reference_edge_momenta is None:
-                    reference_edge_momenta = res.edge_momenta
-                else:
-                    self._assert_matching_edge_momenta(
-                        reference_edge_momenta,
-                        res.edge_momenta,
-                        payload.graph_name,
-                    )
-                all_dot_results.append((payload.graph_name, res))
+            total_postprocess_steps = sum(
+                self._parallel_postprocess_step_count(payload)
+                for payload in completed_results.values()
+            )
+            if completed_results:
+                print(self._colorize(
+                    "[INFO] Aggregating parallel worker outputs",
+                    Ansi.YELLOW,
+                ))
+            with progressbar.ProgressBar(
+                max_value=max(total_postprocess_steps, 1),
+                widgets=postprocess_widgets,
+                redirect_stdout=True,
+                term_width=progress_term_width,
+            ) as post_bar:
+                postprocess_step = 0
 
-        if args.build_dot_products_form:
+                def advance_postprocess(
+                    graph_index: int,
+                    phase: str,
+                ) -> None:
+                    nonlocal postprocess_step
+                    postprocess_step += 1
+                    current_ram_mb = Utils._current_ram_mb()
+                    self._record_ram_usage(current_ram_mb)
+                    post_bar.update(
+                        min(postprocess_step, max(total_postprocess_steps, 1)),
+                        graphs=f"{graph_index + 1}/{len(completed_results)}",
+                        phase=f"g{graph_index + 1}: {phase}",
+                        ram=(
+                            "n/a"
+                            if current_ram_mb is None
+                            else f"{current_ram_mb:.1f} MiB"
+                        ),
+                    )
+
+                for graph_index in sorted(completed_results):
+                    payload = completed_results[graph_index]
+                    advance_postprocess(
+                        graph_index, "deserialize edge momenta")
+                    edge_momenta = {
+                        edge_id: np.asarray(values, dtype=np.float64)
+                        for edge_id, values in payload.edge_momenta.items()
+                    }
+
+                    spenso_parametric_result = None
+                    if payload.spenso_parametric_result_path is not None:
+                        advance_postprocess(
+                            graph_index, "load spenso-param expr")
+                        spenso_parametric_result = E(
+                            Path(payload.spenso_parametric_result_path).read_text(
+                                encoding="utf-8"
+                            ).strip()
+                        )
+
+                    dot_result = None
+                    if payload.dot_result_path is not None:
+                        advance_postprocess(graph_index, "load dot expr")
+                        dot_result = E(
+                            Path(payload.dot_result_path).read_text(
+                                encoding="utf-8"
+                            ).strip()
+                        )
+
+                    if reference_edge_momenta is None:
+                        advance_postprocess(graph_index, "set reference EMR")
+                        reference_edge_momenta = edge_momenta
+                    else:
+                        advance_postprocess(graph_index, "validate EMR")
+                        self._assert_matching_edge_momenta(
+                            reference_edge_momenta,
+                            edge_momenta,
+                            payload.graph_name,
+                        )
+
+                    advance_postprocess(graph_index, "assemble result")
+                    res = DotProcessingResult(
+                        spenso_result=payload.spenso_result,
+                        spenso_parametric_result=spenso_parametric_result,
+                        dot_result=dot_result,
+                        edge_momenta=edge_momenta,
+                        spenso_timings=payload.spenso_timings,
+                        spenso_parametric_timings=payload.spenso_parametric_timings,
+                        dot_product_timings=payload.dot_product_timings,
+                    )
+                    all_dot_results.append((payload.graph_name, res))
+
+        if self._should_construct_dot_expression(args):
             self._announce_flavour("dot-products construction", "STOP")
         if not args.no_spenso:
             self._announce_flavour("spenso-numeric direct evaluation", "STOP")
@@ -1462,6 +1820,12 @@ class GraphProcessor:
 
     def process_dots(self, dot_file_path: str, args: argparse.Namespace):
         self._record_ram_usage()
+        dot_route_enabled = self._is_dot_route_enabled(args)
+        if args.do_check_emr_energies_linearity and not dot_route_enabled:
+            raise ValueError(
+                "--do-check-emr-energies-linearity requires "
+                "--build_dot_products_form or --dot-expression-from-file."
+            )
         dot_graphs = pydot.graph_from_dot_file(dot_file_path)
         assert dot_graphs is not None, "Failed to parse DOT file: {}".format(
             dot_file_path)
@@ -1490,6 +1854,14 @@ class GraphProcessor:
         total_dot_product_timings: DotProductTimingBreakdown | None = None
         dot_expression_path: Path | None = None
         dot_expression_size_mb: float | None = None
+        dot_expression_source = ""
+        emr_linearity_result = EmrLinearityCheckResult(
+            requested=False,
+            passed=None,
+            total_patterns=0,
+            violation_count=0,
+            preview="",
+        )
         spenso_parametric_expression_path: Path | None = None
         spenso_parametric_expression_size_mb: float | None = None
         if all_dot_results[0][1].spenso_result is not None:
@@ -1550,7 +1922,18 @@ class GraphProcessor:
 
         cache_path = self._dot_products_cache_path(dot_file_path, args)
         total_dot_result: Expression | None = None
-        if all_dot_results[0][1].dot_result is not None:
+        if args.dot_expression_from_file is not None:
+            dot_expression_input_path = Path(args.dot_expression_from_file)
+            if not dot_expression_input_path.is_file():
+                raise FileNotFoundError(
+                    "Requested dot expression file does not exist: "
+                    f"{dot_expression_input_path}"
+                )
+            total_dot_result = E(
+                dot_expression_input_path.read_text(encoding="utf-8").strip()
+            )
+            dot_expression_source = "from file"
+        elif all_dot_results[0][1].dot_result is not None:
             total_dot_result = sum(
                 result.dot_result for _, result in all_dot_results
             )  # type: ignore[arg-type]
@@ -1562,9 +1945,11 @@ class GraphProcessor:
                 total_dot_result.to_canonical_string(),
                 encoding="utf-8",
             )
+            dot_expression_source = "computed"
         elif cache_path.is_file():
             total_dot_result = E(
                 cache_path.read_text(encoding="utf-8").strip())
+            dot_expression_source = "cache"
 
         if total_dot_result is not None:
             dot_expression_path, dot_expression_size_mb = self._save_expression_artifact(
@@ -1583,13 +1968,31 @@ class GraphProcessor:
             )
             self._record_ram_usage()
 
-        if total_dot_result is None and args.build_dot_products_form:
+        if total_dot_result is None and dot_route_enabled:
             print(
                 "No dot-product expression available; skipping dot-product evaluator build.")
 
         assert reference_edge_momenta is not None
         self._validate_dot_parameter_coverage(reference_edge_momenta)
         edge_ids = self._get_sorted_edge_ids(reference_edge_momenta)
+        linearity_edge_ids = self._get_internal_edge_ids(selected_dot_graphs)
+        if args.do_check_emr_energies_linearity:
+            if not dot_route_enabled:
+                raise ValueError(
+                    "--do-check-emr-energies-linearity requires "
+                    "--build_dot_products_form or --dot-expression-from-file."
+                )
+            if total_dot_result is None or dot_expression_path is None:
+                raise ValueError(
+                    "EMR energy linearity check requested but no dot-product "
+                    "expression is available."
+                )
+            emr_linearity_result = self._check_emr_energies_linearity(
+                expr=total_dot_result,
+                expr_path=dot_expression_path,
+                edge_ids=linearity_edge_ids,
+                n_cores=max(1, args.n_core_for_dot_processing),
+            )
         dot_evaluator_run: EvaluatorRunResult | None = None
         if total_dot_result is not None:
             aligned_input_row = self._build_dot_product_input_row(
@@ -1626,8 +2029,9 @@ class GraphProcessor:
             dot_result=None if dot_evaluator_run is None else dot_evaluator_run.first_result,
             dot_evaluator_run=dot_evaluator_run,
             dot_product_timings=total_dot_product_timings,
-            dot_expression_path=dot_expression_path,
+            dot_expression_source=dot_expression_source,
             dot_expression_size_mb=dot_expression_size_mb,
+            emr_linearity_result=emr_linearity_result,
             spenso_numeric_result=total_spenso_result,
             spenso_timings=total_spenso_timings,
             spenso_parametric_result=None if spenso_parametric_evaluator_run is None else spenso_parametric_evaluator_run.first_result,
@@ -1826,7 +2230,7 @@ class GraphProcessor:
             vertex_rules=vertex_rules,
             edge_rules=edge_rules,
             order=order,
-            do_dot_products=args.build_dot_products_form,
+            do_dot_products=self._should_construct_dot_expression(args),
             do_spenso=not args.no_spenso,
             hep_lib=emr_hep_lib,
             max_RAM=max_ram,
@@ -1890,7 +2294,7 @@ class GraphProcessor:
                 tensor_network_build_ms=tensor_network_build_ms,
                 execution_ms=res.spenso_execution_ms,
             )
-        if args.build_dot_products_form:
+        if self._should_construct_dot_expression(args):
             dot_product_timings = DotProductTimingBreakdown(
                 graph_count=1,
                 construction_ms=res.dot_product_construction_ms,
@@ -1979,6 +2383,23 @@ def _parallel_process_dot_worker(
     )
 
 
+def _init_emr_linearity_match_worker(expr_path: str) -> None:
+    global _EMR_LINEARITY_MATCH_EXPR
+    _EMR_LINEARITY_MATCH_EXPR = E(
+        Path(expr_path).read_text(encoding="utf-8").strip()
+    )
+
+
+def _match_emr_linearity_pattern_worker(
+    pattern_index: int,
+    label: str,
+    pattern_string: str,
+) -> tuple[int, str, bool]:
+    assert _EMR_LINEARITY_MATCH_EXPR is not None
+    matched = bool(_EMR_LINEARITY_MATCH_EXPR.matches(E(pattern_string)))
+    return (pattern_index, label, matched)
+
+
 parser = argparse.ArgumentParser()
 parser.add_argument("expr_file", nargs="?", default="expr_h.txt",
                     help="Path to the expression text file")
@@ -2045,6 +2466,15 @@ parser.add_argument(
     help="Number of cores for processing DOT graphs; set to 1 to keep the current serial behavior",
 )
 parser.add_argument(
+    "--do-check-emr-energies-linearity",
+    action="store_true",
+    default=False,
+    help=(
+        "Check that the final dot-product expression is at most linear in each "
+        "EMR energy by matching against forbidden repeated-edge dot-product patterns"
+    ),
+)
+parser.add_argument(
     "--n_core_for_evaluator_building",
     type=int,
     default=1,
@@ -2082,6 +2512,15 @@ parser.add_argument(
     action="store_true",
     default=False,
     help="Build dot products expression",
+)
+parser.add_argument(
+    "--dot-expression-from-file",
+    type=str,
+    default=None,
+    help=(
+        "Skip constructing the dot-product expression and load it from a "
+        "canonical Symbolica expression dump instead"
+    ),
 )
 parser.add_argument(
     "--build_spenso_parametric_form",

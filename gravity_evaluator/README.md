@@ -121,11 +121,13 @@ The table below describes every option currently parsed by [`evaluator.py`](/Use
 | `--n_graphs <int>` | Process only the first `n` graph copies in the DOT file. | Active. Good for quick tests. |
 | `--n_core_for_evaluator_building <int>` | Number of cores given to the Symbolica evaluator builder. | Active when the compiled evaluator is built. |
 | `--n_core_for_dot_processing <int>` | Number of worker processes used to process graph copies from the DOT file. | Active. `1` keeps the current serial behavior exactly. Values `>1` enable multicore DOT processing plus an aggregated live progress bar with total step progress, completed graphs, active components, and summed worker RAM. |
+| `--do-check-emr-energies-linearity` | Check that the final dot-product expression stays at most linear in each EMR energy by matching forbidden repeated-edge dot-product patterns. | Active for the dot-product route, including when the dot expression is loaded from file. Requires `--build_dot_products_form` or `--dot-expression-from-file`. The scan is restricted to internal graph edges, uses the same core count as `--n_core_for_dot_processing`, and shows a dedicated progress bar for the pattern scan. A failed check is reported but does not abort the run. |
 | `--sparse_momenta` | Use sparse tensor storage for momenta instead of dense 4-vectors. | Active for the current `spenso` EMR library and aligned dot-product input generation. |
 | `-no_i`, `--no_complex_i` | Replace the explicit imaginary unit symbol `𝑖` by `1`. | Active during rule parsing. |
 | `-c`, `--concrete_loop_momenta` | Execute with concrete loop-momentum values instead of symbolic loop-basis parameters. | Mostly legacy in the current DOT workflow. The maintained DOT route already derives a concrete aligned point. |
 | `-fl`, `--float_constants` | Replace certain UFO constants by decimal floating-point numbers instead of rationals. | Active during rule parsing. |
 | `-dots`, `--build_dot_products_form` | Build the symbolic dot-product expression. | Active. Required if you want the compiled evaluator path. |
+| `--dot-expression-from-file <path>` | Load a canonical Symbolica dot-product expression from disk instead of constructing it from the DOT graph copies. | Active. The DOT graphs are still parsed and processed for warmup, EMR kinematics, and optional `spenso` routes, but dot-expression construction is skipped and the evaluator input expression is taken from the supplied file. |
 | `--build_spenso_parametric_form` | Build the symbolic `spenso` scalar in terms of EMR momentum components instead of dot products. | Active. Builds a second compiled evaluator parameterized by `Q(edge, spenso::cind(mu))`. |
 | `-flhep`, `--float_hep_lib` | Use the floating-point HEP tensor library instead of the atomic/symbolic one. | Active for `spenso` tensor registration and aligned dot-product input evaluation. |
 | `-cose`, `--concrete_oses` | Execute with concrete OSE values instead of symbolic OSE parameters. | Mostly legacy in the current DOT workflow. The maintained DOT route already derives a concrete aligned point. |
@@ -254,12 +256,18 @@ The script typically prints:
 - per-graph summary
   - `Numerical result` when `spenso` is enabled
   - symbolic expression size
+- optional EMR-energy linearity check output when `--do-check-emr-energies-linearity` is enabled
+  - a dedicated progress bar over forbidden dot-product patterns
+  - a green `PASSED` line or a red `FAILED` line before evaluator construction
+  - a failed check is reported in the final table and does not abort the rest of the run
 - total summaries
   - `Total spenso result` when multiple graph copies are summed
   - green start/stop markers for each flavour
   - one final solid-border `PrettyTable` with columns `dot-products`, `spenso-numeric`, and `spenso-parametric`
   - the final scalar values
+  - the dot-expression source, including `from file` when `--dot-expression-from-file` is used
   - validation against the direct numerical `spenso` route when available
+  - EMR-linearity status and violation counts for the dot-product route
   - expression sizes for the evaluator-backed symbolic routes
   - tensor-network build time, symbolic construction time, evaluator build time, evaluator compile time, and runtime evaluation speed where applicable
   - explicit final printouts, immediately before the table, telling you where the dot-product and parametric-`spenso` evaluator expressions were saved
