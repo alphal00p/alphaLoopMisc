@@ -136,13 +136,17 @@ class EmrLinearityCheckResult:
     requested: bool
     passed: bool | None
     total_patterns: int
+    checked_patterns: int
     violation_count: int
     preview: str
+    interrupted: bool = False
 
     @property
     def status(self) -> str:
         if not self.requested:
             return "SKIPPED"
+        if self.interrupted:
+            return "INTERRUPTED"
         return "PASS" if self.passed else "FAIL"
 
 
@@ -664,7 +668,10 @@ class GraphProcessor:
     ) -> str:
         if result is None or not result.requested:
             return ""
-        return f"{result.violation_count}/{result.total_patterns} violations"
+        return (
+            f"checked {result.checked_patterns}/{result.total_patterns}, "
+            f"violations {result.violation_count}"
+        )
 
     @staticmethod
     def _format_optional_eval_runtime(result: EvaluatorRunResult | None) -> str:
@@ -687,6 +694,53 @@ class GraphProcessor:
         if len(label) <= max_width:
             return label
         return label[: max_width - 3] + "..."
+
+    @staticmethod
+    def _indent_multiline(text: str, prefix: str = "    ") -> str:
+        lines = text.splitlines() or [text]
+        return "\n".join(f"{prefix}{line}" for line in lines)
+
+    @staticmethod
+    def _extract_first_matching_term(
+        expr: Expression,
+        pattern_string: str,
+    ) -> str:
+        replaced_expr = next(
+            iter(expr.replace_iter(E(pattern_string), E("0"))),
+            None,
+        )
+        if replaced_expr is None:
+            return "<unable to recover matching term>"
+        try:
+            matched_term = (expr - replaced_expr).expand()
+        except Exception:
+            matched_term = expr - replaced_expr
+        first_term_remainder = next(
+            iter(matched_term.replace_iter(E("x_+y_"), E("x_"))),
+            None,
+        )
+        if first_term_remainder is not None:
+            try:
+                matched_term = (matched_term - first_term_remainder).expand()
+            except Exception:
+                matched_term = matched_term - first_term_remainder
+        return matched_term.format()
+
+    def _print_emr_linearity_violation(
+        self,
+        label: str,
+        pattern_string: str,
+        matching_term: str,
+    ) -> None:
+        message = "\n".join([
+            "EMR energy linearity violation detected:",
+            f"  Label: {label}",
+            "  Pattern:",
+            self._indent_multiline(E(pattern_string).format()),
+            "  First matching term:",
+            self._indent_multiline(matching_term),
+        ])
+        print(self._colorize(message, Ansi.RED))
 
     @staticmethod
     def _dot_atom(left_edge_id: int, right_edge_id: int) -> Expression:
@@ -759,6 +813,8 @@ class GraphProcessor:
         if value == "FAIL":
             return self._colorize(value, Ansi.RED)
         if value == "SKIPPED":
+            return self._colorize(value, Ansi.YELLOW)
+        if value == "INTERRUPTED":
             return self._colorize(value, Ansi.YELLOW)
         return self._colorize(value, Ansi.CYAN)
 
@@ -1097,25 +1153,23 @@ class GraphProcessor:
         return sorted(edge_momenta)
 
     @staticmethod
-    def _is_external_edge_endpoint(node_name: str | None) -> bool:
-        if node_name is None:
-            return False
-        return node_name.strip('"').startswith("ext")
+    def _depends_on_loop_basis(expr: Expression) -> bool:
+        return next(iter(expr.match(E("K(i_,a___)"))), None) is not None
 
-    def _get_internal_edge_ids(
+    def _get_virtual_emr_edge_ids(
         self,
         dot_graphs: list[pydot.Dot],
     ) -> list[int]:
-        internal_edge_ids: set[int] = set()
+        virtual_edge_ids: set[int] = set()
         for dot_graph in dot_graphs:
             for edge in dot_graph.get_edges():
-                if (
-                    self._is_external_edge_endpoint(edge.get_source())
-                    or self._is_external_edge_endpoint(edge.get_destination())
-                ):
-                    continue
-                internal_edge_ids.add(int(edge.get("id").strip('"')))
-        return sorted(internal_edge_ids)
+                lmb_rep = edge.get("lmb_rep")
+                assert lmb_rep is not None, (
+                    f"Missing lmb_rep for edge {edge.get('id')}"
+                )
+                if self._depends_on_loop_basis(E(lmb_rep.strip('"'))):
+                    virtual_edge_ids.add(int(edge.get("id").strip('"')))
+        return sorted(virtual_edge_ids)
 
     def _build_emr_component_params(
         self,
@@ -1461,6 +1515,8 @@ class GraphProcessor:
                 progressbar.DynamicMessage("ram"),
             ]
             violations: list[tuple[int, str]] = []
+            completed_patterns = 0
+            interrupted = False
             with progressbar.ProgressBar(
                 max_value=max(total_patterns, 1),
                 widgets=widgets,
@@ -1468,20 +1524,48 @@ class GraphProcessor:
                 term_width=term_width,
             ) as bar:
                 if n_cores <= 1:
-                    for pattern_index, (label, pattern_string) in enumerate(
-                        patterns,
-                        start=1,
-                    ):
-                        if bool(expr.matches(E(pattern_string))):
-                            violations.append((pattern_index, label))
+                    try:
+                        for pattern_index, (label, pattern_string) in enumerate(
+                            patterns,
+                            start=1,
+                        ):
+                            if bool(expr.matches(E(pattern_string))):
+                                self._print_emr_linearity_violation(
+                                    label,
+                                    pattern_string,
+                                    self._extract_first_matching_term(
+                                        expr,
+                                        pattern_string,
+                                    ),
+                                )
+                                violations.append((pattern_index, label))
+                            completed_patterns = pattern_index
+                            current_ram_mb = Utils._current_ram_mb()
+                            self._record_ram_usage(current_ram_mb)
+                            bar.update(
+                                pattern_index,
+                                patterns=f"{pattern_index}/{total_patterns}",
+                                violations=str(len(violations)),
+                                current=self._truncate_progress_label(
+                                    label,
+                                    current_max_width,
+                                ),
+                                ram=(
+                                    "n/a"
+                                    if current_ram_mb is None
+                                    else f"{current_ram_mb:.1f} MiB"
+                                ),
+                            )
+                    except KeyboardInterrupt:
+                        interrupted = True
                         current_ram_mb = Utils._current_ram_mb()
                         self._record_ram_usage(current_ram_mb)
                         bar.update(
-                            pattern_index,
-                            patterns=f"{pattern_index}/{total_patterns}",
+                            min(completed_patterns, max(total_patterns, 1)),
+                            patterns=f"{completed_patterns}/{total_patterns}",
                             violations=str(len(violations)),
                             current=self._truncate_progress_label(
-                                label,
+                                "keyboard interrupt",
                                 current_max_width,
                             ),
                             ram=(
@@ -1492,29 +1576,35 @@ class GraphProcessor:
                         )
                 else:
                     ctx = mp.get_context("spawn")
-                    with concurrent.futures.ProcessPoolExecutor(
+                    executor = concurrent.futures.ProcessPoolExecutor(
                         max_workers=n_cores,
                         mp_context=ctx,
                         initializer=_init_emr_linearity_match_worker,
                         initargs=(str(expr_path),),
-                    ) as executor:
+                    )
+                    try:
                         future_to_pattern = {
                             executor.submit(
                                 _match_emr_linearity_pattern_worker,
                                 pattern_index,
                                 label,
                                 pattern_string,
-                            ): (pattern_index, label)
+                            ): (pattern_index, label, pattern_string)
                             for pattern_index, (label, pattern_string) in enumerate(
                                 patterns,
                                 start=1,
                             )
                         }
-                        completed_patterns = 0
                         for future in concurrent.futures.as_completed(future_to_pattern):
-                            pattern_index, label, matched = future.result()
+                            pattern_index, label, matched, matching_term = future.result()
                             completed_patterns += 1
                             if matched:
+                                _, _, pattern_string = future_to_pattern[future]
+                                self._print_emr_linearity_violation(
+                                    label,
+                                    pattern_string,
+                                    matching_term,
+                                )
                                 violations.append((pattern_index, label))
                             current_ram_mb = Utils._current_ram_mb()
                             self._record_ram_usage(current_ram_mb)
@@ -1533,12 +1623,59 @@ class GraphProcessor:
                                     else f"{current_ram_mb:.1f} MiB"
                                 ),
                             )
+                    except KeyboardInterrupt:
+                        interrupted = True
+                        current_ram_mb = Utils._current_ram_mb()
+                        self._record_ram_usage(current_ram_mb)
+                        bar.update(
+                            min(completed_patterns, max(total_patterns, 1)),
+                            patterns=f"{completed_patterns}/{total_patterns}",
+                            violations=str(len(violations)),
+                            current=self._truncate_progress_label(
+                                "keyboard interrupt",
+                                current_max_width,
+                            ),
+                            ram=(
+                                "n/a"
+                                if current_ram_mb is None
+                                else f"{current_ram_mb:.1f} MiB"
+                            ),
+                        )
+                    finally:
+                        if interrupted:
+                            for process in list(getattr(executor, "_processes", {}).values()):
+                                try:
+                                    process.terminate()
+                                except Exception:
+                                    pass
+                            executor.shutdown(wait=False, cancel_futures=True)
+                        else:
+                            executor.shutdown(wait=True)
 
             violations.sort(key=lambda item: item[0])
+            preview = "; ".join(label for _, label in violations[:5])
+            if len(violations) > 5:
+                preview += "; ..."
+            if interrupted:
+                interruption_note = (
+                    "EMR energy linearity check INTERRUPTED: "
+                    f"checked {completed_patterns}/{total_patterns} pattern(s), "
+                    f"found {len(violations)} violation(s) so far."
+                )
+                if preview:
+                    interruption_note += f" {preview}"
+                interruption_note += " Proceeding with evaluator build."
+                print(self._colorize(interruption_note, Ansi.YELLOW))
+                return EmrLinearityCheckResult(
+                    requested=True,
+                    passed=None,
+                    total_patterns=total_patterns,
+                    checked_patterns=completed_patterns,
+                    violation_count=len(violations),
+                    preview=preview,
+                    interrupted=True,
+                )
             if violations:
-                preview = "; ".join(label for _, label in violations[:5])
-                if len(violations) > 5:
-                    preview += "; ..."
                 print(self._colorize(
                     "EMR energy linearity check FAILED: "
                     f"{len(violations)} violating pattern(s) found. {preview}",
@@ -1548,6 +1685,7 @@ class GraphProcessor:
                     requested=True,
                     passed=False,
                     total_patterns=total_patterns,
+                    checked_patterns=completed_patterns,
                     violation_count=len(violations),
                     preview=preview,
                 )
@@ -1562,6 +1700,7 @@ class GraphProcessor:
                 requested=True,
                 passed=True,
                 total_patterns=total_patterns,
+                checked_patterns=completed_patterns,
                 violation_count=0,
                 preview="",
             )
@@ -1859,8 +1998,10 @@ class GraphProcessor:
             requested=False,
             passed=None,
             total_patterns=0,
+            checked_patterns=0,
             violation_count=0,
             preview="",
+            interrupted=False,
         )
         spenso_parametric_expression_path: Path | None = None
         spenso_parametric_expression_size_mb: float | None = None
@@ -1975,7 +2116,7 @@ class GraphProcessor:
         assert reference_edge_momenta is not None
         self._validate_dot_parameter_coverage(reference_edge_momenta)
         edge_ids = self._get_sorted_edge_ids(reference_edge_momenta)
-        linearity_edge_ids = self._get_internal_edge_ids(selected_dot_graphs)
+        linearity_edge_ids = self._get_virtual_emr_edge_ids(selected_dot_graphs)
         if args.do_check_emr_energies_linearity:
             if not dot_route_enabled:
                 raise ValueError(
@@ -2394,10 +2535,16 @@ def _match_emr_linearity_pattern_worker(
     pattern_index: int,
     label: str,
     pattern_string: str,
-) -> tuple[int, str, bool]:
+) -> tuple[int, str, bool, str]:
     assert _EMR_LINEARITY_MATCH_EXPR is not None
     matched = bool(_EMR_LINEARITY_MATCH_EXPR.matches(E(pattern_string)))
-    return (pattern_index, label, matched)
+    matching_term = ""
+    if matched:
+        matching_term = GraphProcessor._extract_first_matching_term(
+            _EMR_LINEARITY_MATCH_EXPR,
+            pattern_string,
+        )
+    return (pattern_index, label, matched, matching_term)
 
 
 parser = argparse.ArgumentParser()
