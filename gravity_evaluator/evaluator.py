@@ -322,6 +322,7 @@ class GraphProcessor:
         self.use_sparse_momenta = args.sparse_momenta
         self.batch_size_for_timing = 1000
         self.mink_rep = Representation.mink(4)
+        self.peak_ram_usage_mb: float | None = Utils._current_ram_mb()
 
         self.loop_momenta: list[NDArray[np.float64]] = []
         for i_loop in range(args.n_loops):
@@ -563,6 +564,14 @@ class GraphProcessor:
     def _announce_flavour(self, flavour: str, action: str) -> None:
         print(self._colorize(f"[{action}] {flavour}", Ansi.GREEN))
 
+    def _record_ram_usage(self, ram_usage_mb: float | None = None) -> None:
+        if ram_usage_mb is None:
+            ram_usage_mb = Utils._current_ram_mb()
+        if ram_usage_mb is None:
+            return
+        if self.peak_ram_usage_mb is None or ram_usage_mb > self.peak_ram_usage_mb:
+            self.peak_ram_usage_mb = float(ram_usage_mb)
+
     def _expression_output_path(
         self,
         dot_file_path: str,
@@ -681,6 +690,7 @@ class GraphProcessor:
         spenso_parametric_timings: SpensoParametricTimingBreakdown | None,
         spenso_parametric_expression_path: Path | None,
         spenso_parametric_expression_size_mb: float | None,
+        peak_ram_usage_mb: float | None,
     ) -> None:
         dot_status, dot_abs_diff, dot_rel_diff = self._comparison_cells(
             dot_result,
@@ -692,7 +702,21 @@ class GraphProcessor:
         )
 
         table = PrettyTable()
-        table.title = "Evaluation Strategy Summary"
+        title_suffix_parts = [
+            "cores: "
+            f"dot={self.args.n_core_for_dot_processing}, "
+            f"evaluator={self.args.n_core_for_evaluator_building}"
+        ]
+        if peak_ram_usage_mb is not None:
+            title_suffix_parts.insert(
+                0,
+                f"peak RAM usage: {peak_ram_usage_mb:.2f} MiB",
+            )
+        table.title = (
+            "Evaluation Strategy Summary"
+            if not title_suffix_parts
+            else f"Evaluation Strategy Summary ({' | '.join(title_suffix_parts)})"
+        )
         table.set_style(TableStyle.SINGLE_BORDER)
         table.field_names = [
             "Metric",
@@ -845,6 +869,7 @@ class GraphProcessor:
         effective_verbose = self.args.verbose_evaluator if verbose is None else verbose
         evaluator_options["verbose"] = effective_verbose
         self._announce_flavour(label, "START")
+        self._record_ram_usage()
         if effective_verbose:
             print(
                 self._colorize(
@@ -856,6 +881,7 @@ class GraphProcessor:
         t_start = time.time()
         eager_eval = expr.evaluator(**evaluator_options)
         build_time_ms = (time.time() - t_start) * 1000.0
+        self._record_ram_usage()
 
         artifact_stem = self._compiled_artifact_stem(label)
         t_start = time.time()
@@ -867,12 +893,14 @@ class GraphProcessor:
             inline_asm="default",
         )
         compile_time_ms = (time.time() - t_start) * 1000.0
+        self._record_ram_usage()
 
         batch = np.repeat(input_row[np.newaxis, :], batch_size, axis=0)
         t_start = time.time()
         evaluation_output = compiled_eval.evaluate(batch)
         eval_time_us = (time.time() - t_start) * \
             1_000_000.0 / float(batch_size)
+        self._record_ram_usage()
         first_result = self._extract_first_evaluator_result(evaluation_output)
 
         result = EvaluatorRunResult(
@@ -1185,6 +1213,7 @@ class GraphProcessor:
             self._announce_flavour("spenso-numeric direct evaluation", "START")
         if args.build_spenso_parametric_form:
             self._announce_flavour("spenso-parametric construction", "START")
+        self._record_ram_usage()
         reference_edge_momenta: dict[int, NDArray[np.float64]] | None = None
         for dot_graph in selected_dot_graphs:
             print("Processing graph: {}".format(dot_graph.get_name()))
@@ -1208,6 +1237,7 @@ class GraphProcessor:
             if res.dot_result is not None:
                 memory += res.dot_result.get_byte_size()
             print(f"Symbolic expression size: {memory / 1000000.0:.2f} MB")
+            self._record_ram_usage()
             all_dot_results.append((graph_name, res))
 
         if args.build_dot_products_form:
@@ -1353,6 +1383,7 @@ class GraphProcessor:
                                 for status in component_states.values()
                                 if not status["finished"]
                             )
+                            self._record_ram_usage(current_ram_mb)
                             active_text = self._format_parallel_active_components(
                                 component_states)
                             bar_state = (
@@ -1417,6 +1448,7 @@ class GraphProcessor:
         return all_dot_results, reference_edge_momenta
 
     def process_dots(self, dot_file_path: str, args: argparse.Namespace):
+        self._record_ram_usage()
         dot_graphs = pydot.graph_from_dot_file(dot_file_path)
         assert dot_graphs is not None, "Failed to parse DOT file: {}".format(
             dot_file_path)
@@ -1528,6 +1560,7 @@ class GraphProcessor:
                 args,
                 "dot_products",
             )
+            self._record_ram_usage()
         if total_spenso_parametric_result is not None:
             spenso_parametric_expression_path, spenso_parametric_expression_size_mb = self._save_expression_artifact(
                 total_spenso_parametric_result,
@@ -1535,6 +1568,7 @@ class GraphProcessor:
                 args,
                 "spenso_parametric",
             )
+            self._record_ram_usage()
 
         if total_dot_result is None and args.build_dot_products_form:
             print(
@@ -1588,6 +1622,7 @@ class GraphProcessor:
             spenso_parametric_timings=total_spenso_parametric_timings,
             spenso_parametric_expression_path=spenso_parametric_expression_path,
             spenso_parametric_expression_size_mb=spenso_parametric_expression_size_mb,
+            peak_ram_usage_mb=self.peak_ram_usage_mb,
         )
 
     def execute_graph(
@@ -1625,6 +1660,7 @@ class GraphProcessor:
             return edge_rules[tuple(sorted([step[0], step[1]], key=lambda a: -1 if a is None else a))][1]
 
         t_start = time.time()
+        self._record_ram_usage()
         if progress_callback is not None:
             progress_callback({
                 "event": "component_started",
@@ -1637,6 +1673,7 @@ class GraphProcessor:
             })
         for i_step, step in enumerate(order):
             ram_usage = Utils._current_ram_mb()
+            self._record_ram_usage(ram_usage)
             if max_RAM is not None and ram_usage is not None and ram_usage > max_RAM:
                 raise MemoryError(
                     f"RAM usage {ram_usage:.2f} MiB exceeded the specified "
@@ -1717,6 +1754,7 @@ class GraphProcessor:
                 spenso_step_start = time.time()
                 muncher = muncher.result_scalar()
                 spenso_execution_s += time.time() - spenso_step_start
+                self._record_ram_usage()
         if progress_callback is not None:
             progress_callback({
                 "event": "component_finished",
@@ -1744,9 +1782,11 @@ class GraphProcessor:
         emit_logs: bool = True,
     ) -> DotProcessingResult:
         t_start = time.time()
+        self._record_ram_usage()
         edge_momenta = self._build_edge_momenta(dot_graph)
         edge_momenta_ms = (time.time() - t_start) * 1000.0
         edge_ids = self._get_sorted_edge_ids(edge_momenta)
+        self._record_ram_usage()
 
         emr_library_ms = 0.0
         emr_hep_lib = None
@@ -1754,6 +1794,7 @@ class GraphProcessor:
             t_start = time.time()
             emr_hep_lib = self._build_emr_hep_library(edge_momenta)
             emr_library_ms = (time.time() - t_start) * 1000.0
+            self._record_ram_usage()
 
         t_start = time.time()
         vertex_rules, edge_rules = self._build_graph_rules(
@@ -1763,6 +1804,7 @@ class GraphProcessor:
         )
         tensor_network_build_ms = (
             time.time() - t_start) * 1000.0 if not args.no_spenso else 0.0
+        self._record_ram_usage()
         graph_name = dot_graph.get_name()
         assert graph_name is not None
         graph_name = graph_name.strip('"')
@@ -1780,6 +1822,7 @@ class GraphProcessor:
             component_label="main",
             emit_step_logs=emit_logs,
         )
+        self._record_ram_usage()
 
         spenso_parametric_result: Expression | None = None
         spenso_parametric_timings = None
@@ -1788,6 +1831,7 @@ class GraphProcessor:
             parametric_emr_hep_lib = self._build_parametric_emr_hep_library(
                 edge_ids)
             parametric_emr_library_ms = (time.time() - t_start) * 1000.0
+            self._record_ram_usage()
 
             t_start = time.time()
             parametric_vertex_rules, parametric_edge_rules = self._build_graph_rules(
@@ -1796,6 +1840,7 @@ class GraphProcessor:
                 build_tensor_networks=True,
             )
             parametric_tn_build_ms = (time.time() - t_start) * 1000.0
+            self._record_ram_usage()
             parametric_res = self.execute_graph(
                 vertex_rules=parametric_vertex_rules,
                 edge_rules=parametric_edge_rules,
@@ -1810,6 +1855,7 @@ class GraphProcessor:
                 emit_step_logs=emit_logs,
             )
             spenso_parametric_result = parametric_res.spenso_result
+            self._record_ram_usage()
             spenso_parametric_timings = SpensoParametricTimingBreakdown(
                 graph_count=1,
                 emr_library_ms=parametric_emr_library_ms,
