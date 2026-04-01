@@ -1271,6 +1271,14 @@ class GraphProcessor:
             return active_text
         return active_text[: max_width - 3] + "..."
 
+    @staticmethod
+    def _parallel_progress_term_width(max_width: int = 300) -> int:
+        try:
+            terminal_width = os.get_terminal_size().columns
+        except OSError:
+            terminal_width = max_width
+        return max(120, min(max_width, terminal_width))
+
     def _collect_dot_results_parallel(
         self,
         dot_file_path: str,
@@ -1302,6 +1310,8 @@ class GraphProcessor:
 
         component_states: dict[tuple[int, str], dict[str, Any]] = {}
         completed_results: dict[int, ParallelDotWorkerResult] = {}
+        progress_term_width = self._parallel_progress_term_width()
+        active_max_width = max(40, progress_term_width - 140)
         widgets = [
             progressbar.Percentage(),
             " ",
@@ -1344,6 +1354,7 @@ class GraphProcessor:
                         max_value=max(total_target_steps, 1),
                         widgets=widgets,
                         redirect_stdout=True,
+                        term_width=progress_term_width,
                     ) as bar:
                         last_bar_state: tuple[int, int,
                                               float, str] | None = None
@@ -1385,7 +1396,9 @@ class GraphProcessor:
                             )
                             self._record_ram_usage(current_ram_mb)
                             active_text = self._format_parallel_active_components(
-                                component_states)
+                                component_states,
+                                max_width=active_max_width,
+                            )
                             bar_state = (
                                 min(current_steps, max(total_target_steps, 1)),
                                 len(completed_results),
